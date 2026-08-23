@@ -58,7 +58,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="assets/css/style.css?v=1787491035">
+    <link rel="stylesheet" href="assets/css/style.css?v=1787491163">
 </head>
 <body class="bg-tactical-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
 
@@ -498,15 +498,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                         <div>
                             <label class="block text-slate-300 font-bold mb-1">ผู้รายงาน / นามเรียกขาน:</label>
-                            <select id="composerCallSign" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-mono focus:border-amber-500 focus:outline-none">
-                                <option value="เหมราช 4012 (หน.ฝขว.)">ด.ต.สมภพ บุญสุวรรณ (เหมราช 4012 - หน.ฝขว.)</option>
-                                <option value="เหมราช 41 (ผบ.ร้อย)">ร.ต.อ.เดชเดโช ส่งสีอ่อน (เหมราช 41 - ผบ.ร้อย)</option>
-                                <option value="เหมราช 411 (มว.9241)">ร.ต.อ.สมชาย ยอดแก้ว (เหมราช 411 - ผบ.มว.9241)</option>
-                                <option value="เหมราช 4132 (มว.9241)">ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล (เหมราช 4132)</option>
-                                <option value="เหมราช 421 (มว.9242)">ร.ต.ท.วิชาญ แสนสุข (เหมราช 421 - ผบ.มว.9242)</option>
-                                <option value="เหมราช 4215 (มว.9242)">ด.ต.บุญสิทธิ์ วัฒนสุข (เหมราช 4215)</option>
-                                <option value="ชป.กร.ร้อย 924">ด.ต.ชัยวัฒน์ ศรีสังข์งาม (ชป.กร.)</option>
-                            </select>
+                            <input type="text" id="composerCallSign" value="ด.ต.สมภพ บุญสุวรรณ (เหมราช 4012)" placeholder="พิมพ์ ยศ ชื่อ นามเรียกขาน เช่น ด.ต.สมภพ บุญสุวรรณ (เหมราช 4012)" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-amber-300 font-sarabun text-xs focus:border-amber-500 focus:outline-none">
                         </div>
                         <div>
                             <label class="block text-slate-300 font-bold mb-1">ประเภทภารกิจ:</label>
@@ -1154,10 +1146,10 @@
 
 
     <!-- Application Scripts -->
-    <script src="assets/js/mgrs-converter.js?v=1787491035"></script>
-    <script src="assets/js/data.js?v=1787491035"></script>
-    <script src="assets/js/docx-parser.js?v=1787491035"></script>
-    <script src="assets/js/app.js?v=1787491035"></script>
+    <script src="assets/js/mgrs-converter.js?v=1787491163"></script>
+    <script src="assets/js/data.js?v=1787491163"></script>
+    <script src="assets/js/docx-parser.js?v=1787491163"></script>
+    <script src="assets/js/app.js?v=1787491163"></script>
 
     <!-- MOBILE BOTTOM NAVIGATION (Native Smartphone App Bar) -->
     <nav class="mobile-bottom-nav lg:hidden shadow-2xl">
