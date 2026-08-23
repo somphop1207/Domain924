@@ -790,6 +790,7 @@ function exportDataJSON() {
 
 
 // Render Operational Photo Highlights Grid on Home & Dashboard
+// Render Operational Photo Highlights Grid on Home & Dashboard (Dynamic from 23 Aug Data)
 function renderOperationalHighlights() {
     const container = document.getElementById('homePhotoHighlightsGrid');
     const dashContainer = document.getElementById('dashPhotoHighlightsGrid');
@@ -797,102 +798,78 @@ function renderOperationalHighlights() {
 
     const items = currentData.latestReport.items.filter(i => i.images && i.images.length > 0);
     
-    // Select top 6 key highlights
-    const highlights = [
-        {
-            title: "จิตอาสาพัฒนาวัดขจรประชาราม ม.1 ต.รูสะมิแล",
-            category: "กิจการพลเรือน",
-            badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-            image: "assets/images/image112.jpeg",
-            unit: "มว.ฉก.ตชด.9241",
-            leader: "จ.ส.ต.กำธรพล บุญสุวรรณ์ (ชป.กร.)",
-            time: "๒๒๑๐๒๐ ส.ค. ๖๙",
-            desc: "ร่วมกับประชาชนไทยพุทธ ๒๐ คน พัฒนาบำรุง ปรับภูมิทัศน์วัดขจรประชาราม สร้างความสมานฉันท์"
-        },
-        {
-            title: "ตรวจเยี่ยมตาดีกานูรุลฮูดา & มอบธงชาติผืนใหม่",
-            category: "มวลชนสัมพันธ์",
-            badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-            image: "assets/images/image109.jpeg",
-            unit: "มว.ฉก.ตชด.9241",
-            leader: "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
-            time: "๒๒๐๘๔๕ ส.ค. ๖๙",
-            desc: "พบปะคณะครู/นักเรียน ตาดีกานูรุลฮูดา ม.๓ ต.รูสะมิแล พร้อมเปลี่ยนธงชาติผืนใหม่"
-        },
-        {
-            title: "ลาดตระเวนทำลายความพยายาม บ.กือยา ต.ปะกาฮะรัง",
-            category: "ลาดตระเวนเชิงรุก",
-            badge: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-            image: "assets/images/image1.jpeg",
-            unit: "มว.ฉก.ตชด.9242",
-            leader: "ด.ต.บุญสิทธิ์ วัฒนสุข (เหมราช 4215)",
-            time: "๒๒๐๙๑๐ ส.ค. ๖๙",
-            desc: "ลาดตระเวนทำลายความพยายาม ไม่ให้ ผกร.เข้ามาก่อเหตุในพื้นที่ พิกัด 47NQH 46997 55880"
-        },
-        {
-            title: "กำชับความพร้อม จุดตรวจปราการ ๒ ม.1 ต.รูสะมิแล",
-            category: "จุดตรวจความมั่นคง",
-            badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-            image: "assets/images/image97.jpeg",
-            unit: "มว.ฉก.ตชด.9241",
-            leader: "จนท.ประจำจุดตรวจ (เหมราช 413)",
-            time: "๒๒๐๗๑๐ ส.ค. ๖๙",
-            desc: "ตรวจสอบบุคคล ยานพาหนะต้องสงสัย เพิ่มความเข้มงวดสกัดกั้นสิ่งผิดกฎหมาย"
-        },
-        {
-            title: "เตะฟุตบอลสานสัมพันธ์ ณ สนามฟาตอนีสเตเดียม",
-            category: "กีฬามวลชนสัมพันธ์",
-            badge: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-            image: "assets/images/image103.jpeg",
-            unit: "มว.ฉก.ตชด.9241",
-            leader: "ด.ต.จตุรงค์ โตวังจร / ด.ต.ประภา เอกจิต",
-            time: "๒๑๑๓๓๐ ส.ค. ๖๙",
-            desc: "แข่งขันฟุตบอลกระชับมิตรกับคณะครูและผู้นำชุมชน ต.รูสะมิแล เสริมสร้างสุขภาพและความคุ้นเคย"
-        },
-        {
-            title: "สืบสวนหาข่าว ตรวจเส้นทางเสี่ยง ถ.๔๑๘ & ดอนรัก",
-            category: "สืบสวนหาข่าว",
-            badge: "bg-rose-500/20 text-rose-300 border-rose-500/30",
-            image: "assets/images/image127.jpeg",
-            unit: "มว.ฉก.ตชด.9242",
-            leader: "ด.ต.อาณัติ รัตนบุรี (ฝขว.924)",
-            time: "๒๒๑๐๑๐ ส.ค. ๖๙",
-            desc: "ตรวจสอบเส้นทางเชื่อมต่อ ถ.418 และรอยต่อดอนรัก ทะลุ ม.7 ต.ปะกาฮะรัง ป้องกัน ผกร.แทรกซึม"
-        }
-    ];
+    // Select top 9 operational highlights from 23 Aug report
+    const selectedItems = items.slice(0, 9);
 
-    let html = '';
-    highlights.forEach(h => {
-        html += `
-            <div class="spotlight-card glass-panel rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between group cursor-pointer" onclick="openPhotoLightbox('${h.image}', '${h.title}', '${h.desc}')">
-                <div class="relative h-48 sm:h-52 overflow-hidden">
-                    <img src="${h.image}" alt="${h.title}" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-xs font-bold ${h.badge}">
-                        ${h.category}
+    const generateCardsHtml = (list) => {
+        return list.map((item, idx) => {
+            const firstImg = item.images[0];
+            const extraCount = item.images.length > 1 ? `+${item.images.length - 1} รูป` : '';
+            return `
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between shadow-xl cursor-pointer" onclick="openItemDetailModal(currentData.latestReport.items[${items.indexOf(item)}])">
+                    <!-- Photo Container -->
+                    <div class="relative w-full h-52 sm:h-56 bg-slate-950 overflow-hidden">
+                        <img src="${firstImg}" alt="${item.categoryTh}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40"></div>
+                        
+                        <!-- Top Badges -->
+                        <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-bold ${item.badge} shadow-lg backdrop-blur-md">
+                                ${item.categoryTh}
+                            </span>
+                            ${extraCount ? `<span class="px-2 py-0.5 rounded-md bg-black/70 text-amber-300 font-mono text-[11px] font-bold border border-amber-500/40 backdrop-blur-md">${extraCount}</span>` : ''}
+                        </div>
+
+                        <!-- Bottom Location & Time inside photo -->
+                        <div class="absolute bottom-2.5 left-3 right-3">
+                            <div class="text-[11px] font-mono text-amber-300 font-bold flex items-center gap-1.5 drop-shadow-md">
+                                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                <span>${item.timeTh}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-slate-950/80 backdrop-blur-md text-[11px] font-mono text-amber-400 border border-amber-500/30">
-                        ${h.unit}
-                    </div>
-                    <div class="absolute bottom-3 left-3 right-3 text-xs text-slate-300 font-mono flex items-center justify-between">
-                        <span>🕒 ${h.time}</span>
-                        <span class="text-amber-300">${h.leader}</span>
+
+                    <!-- Details Content -->
+                    <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="font-bold text-slate-200">${item.unit}</span>
+                                <span class="font-mono text-amber-400 font-bold">${item.callSign}</span>
+                            </div>
+                            <h4 class="text-xs sm:text-sm font-bold text-white font-sarabun leading-snug line-clamp-2 group-hover:text-amber-300 transition-colors">
+                                ${item.location}
+                            </h4>
+                            <p class="text-xs text-slate-300 font-sarabun line-clamp-2 leading-relaxed">
+                                ${item.missionDetail}
+                            </p>
+                        </div>
+
+                        <!-- Footer Meta -->
+                        <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
+                            <span class="font-mono text-slate-400 truncate max-w-[60%] flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3 h-3 text-amber-500 flex-shrink-0"></i>
+                                <span class="truncate">${item.grid}</span>
+                            </span>
+                            <span class="text-amber-400 font-bold group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
+                                ดูข้อมูล & รูป →
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="p-4 space-y-2">
-                    <h4 class="text-sm font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-1">
-                        ${h.title}
-                    </h4>
-                    <p class="text-xs text-slate-300 font-sarabun line-clamp-2 leading-relaxed">
-                        ${h.desc}
-                    </p>
-                </div>
-            </div>
-        `;
-    });
+            `;
+        }).join('');
+    };
 
-    if (container) container.innerHTML = html;
-    if (dashContainer) dashContainer.innerHTML = html;
+    if (container) {
+        container.innerHTML = generateCardsHtml(selectedItems);
+    }
+    if (dashContainer) {
+        dashContainer.innerHTML = generateCardsHtml(selectedItems.slice(0, 6));
+    }
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
 // Lightbox modal for HD Photo viewing
