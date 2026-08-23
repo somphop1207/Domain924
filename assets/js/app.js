@@ -111,68 +111,80 @@ function renderAllViews() {
 
 // 1. Home View
 function renderHomeView() {
-    const report = currentData.latestReport;
-    const stats = currentData.unit.personnelStats;
+    try {
+        const report = currentData.latestReport;
+        const summary = report.summary || {};
+        const unit = currentData.unitInfo || {};
 
-    document.getElementById('homeDocNumber').textContent = report.docNumber;
-    document.getElementById('homeReportDate').textContent = report.dateTh;
-    document.getElementById('homeReportTime').textContent = report.timeRangeTh;
-    document.getElementById('homeSituationBrief').textContent = report.situationSummary;
-    document.getElementById('homeCommanderName').textContent = report.approver;
+        const el = (id) => document.getElementById(id);
+        if (el('homeDocNumber')) el('homeDocNumber').textContent = report.dispatchRef || 'ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1122';
+        if (el('homeReportDate')) el('homeReportDate').textContent = report.dateTh;
+        if (el('homeReportTime')) el('homeReportTime').textContent = report.timeRange || '221501 ส.ค. 69 ถึง 231500 ส.ค. 69';
+        if (el('homeSituationBrief')) el('homeSituationBrief').textContent = 'เหตุการณ์ทั่วไปปกติ กำลังพลทุกชุดปฏิบัติการพร้อมปฏิบัติหน้าที่ ๑๐๐%';
+        if (el('homeCommanderName')) el('homeCommanderName').textContent = `${unit.commander ? unit.commander.rank + unit.commander.name : 'ร.ต.อ.เดชเดโช ส่งสีอ่อน'} (${unit.commander ? unit.commander.callSign : 'เหมราช 41'})`;
 
-    document.getElementById('statTotalOps').textContent = report.operationsSummary.totalMissions;
-    document.getElementById('statPatrolOps').textContent = report.operationsSummary.patrolCount;
-    document.getElementById('statCivilOps').textContent = report.operationsSummary.civilAffairsCount;
-    document.getElementById('statReadiness').textContent = `${stats.readinessPercent}%`;
+        if (el('statTotalOps')) el('statTotalOps').textContent = summary.totalMissions || report.items.length;
+        if (el('statPatrolOps')) el('statPatrolOps').textContent = summary.patrols || 0;
+        if (el('statCivilOps')) el('statCivilOps').textContent = summary.checkpoints || 0;
+        if (el('statReadiness')) el('statReadiness').textContent = `${summary.readinessPercentage || 100}%`;
+    } catch (e) {
+        console.error("Error in renderHomeView:", e);
+    }
 }
 
 // 2. Commander Dashboard View
 function renderDashboardView() {
-    const report = currentData.latestReport;
-    const summary = report.operationsSummary;
+    try {
+        const report = currentData.latestReport;
+        const summary = report.summary || {};
+        const unit = currentData.unitInfo || {};
 
-    // Header info
-    document.getElementById('dashDocNum').textContent = report.docNumber;
-    document.getElementById('dashDateRange').textContent = report.timeRangeTh;
-    document.getElementById('dashSituation').textContent = report.situationSummary;
-    document.getElementById('dashApprover').textContent = report.approver;
+        const el = (id) => document.getElementById(id);
+        if (el('dashDocNum')) el('dashDocNum').textContent = report.dispatchRef || '';
+        if (el('dashDateRange')) el('dashDateRange').textContent = report.timeRange;
+        if (el('dashSituation')) el('dashSituation').textContent = 'เหตุการณ์ทั่วไปปกติ ไม่พบการกระทำผิดหรือสิ่งบอกเหตุความรุนแรง';
+        if (el('dashApprover')) el('dashApprover').textContent = `${unit.commander ? unit.commander.rank + unit.commander.name : 'ร.ต.อ.เดชเดโช ส่งสีอ่อน'}`;
 
-    // KPI Counters
-    document.getElementById('dashKpiTotal').textContent = summary.totalMissions;
-    document.getElementById('dashKpiPatrol').textContent = summary.patrolCount;
-    document.getElementById('dashKpiCheckpoint').textContent = summary.checkpointCount;
-    document.getElementById('dashKpiCivil').textContent = summary.civilAffairsCount;
-    document.getElementById('dashKpiSpecial').textContent = summary.specialMissionsCount;
-    document.getElementById('dashKpiDrill').textContent = summary.drillCount;
+        // KPI Counters
+        if (el('dashKpiTotal')) el('dashKpiTotal').textContent = summary.totalMissions || report.items.length;
+        if (el('dashKpiPatrol')) el('dashKpiPatrol').textContent = summary.patrols || 0;
+        if (el('dashKpiCheckpoint')) el('dashKpiCheckpoint').textContent = summary.checkpoints || 0;
+        if (el('dashKpiCivil')) el('dashKpiCivil').textContent = summary.civilAffairs || 0;
+        if (el('dashKpiSpecial')) el('dashKpiSpecial').textContent = summary.securityChecks || 0;
+        if (el('dashKpiDrill')) el('dashKpiDrill').textContent = summary.training || 0;
 
-    // Render 24H Ops Timeline list
-    const timelineEl = document.getElementById('dashTimelineList');
-    if (timelineEl) {
-        timelineEl.innerHTML = '';
-        report.items.forEach(item => {
-            const row = document.createElement('div');
-            row.className = 'flex items-start space-x-3 p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/40 transition-colors';
-            const thumbImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
-            row.innerHTML = `
-                <div class="flex items-start space-x-3 w-full">
-                    ${thumbImg ? `<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border border-slate-700 cursor-pointer" onclick="openPhotoLightbox('${thumbImg}', '${item.categoryTh}', '${item.missionDetail}')"><img src="${thumbImg}" class="w-full h-full object-cover hover:scale-110 transition-transform"></div>` : ''}
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center justify-between gap-1">
-                            <span class="text-xs font-bold text-slate-100 truncate">${item.categoryTh}</span>
-                            <span class="text-[11px] font-mono font-bold text-amber-300">${item.timeTh}</span>
+        // Render 24H Ops Timeline list
+        const timelineEl = el('dashTimelineList');
+        if (timelineEl) {
+            timelineEl.innerHTML = '';
+            report.items.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'flex items-start space-x-3 p-2.5 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/40 transition-colors cursor-pointer';
+                row.onclick = () => openItemDetailModal(item);
+                const thumbImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
+                row.innerHTML = `
+                    <div class="flex items-start space-x-3 w-full">
+                        ${thumbImg ? `<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border border-slate-700 cursor-pointer" onclick="event.stopPropagation(); openPhotoLightbox('${thumbImg}', '${item.categoryTh}', '${item.missionDetail}')"><img src="${thumbImg}" class="w-full h-full object-cover hover:scale-110 transition-transform"></div>` : ''}
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between gap-1">
+                                <span class="text-xs font-bold text-slate-100 truncate">${item.categoryTh}</span>
+                                <span class="text-[11px] font-mono font-bold text-amber-300">${item.timeTh}</span>
+                            </div>
+                            <div class="text-[11px] text-amber-400 font-mono font-semibold">${item.unit} • ${item.leader} (${item.callSign})</div>
+                            <p class="text-xs text-slate-300 mt-0.5 font-sarabun line-clamp-2 leading-relaxed">${item.missionDetail}</p>
                         </div>
-                        <div class="text-[11px] text-amber-400 font-mono font-semibold">${item.unit} • ${item.leader}</div>
-                        <p class="text-xs text-slate-300 mt-0.5 font-sarabun line-clamp-2 leading-relaxed">${item.missionDetail}</p>
                     </div>
-                </div>
-            `;
-            timelineEl.appendChild(row);
-        });
-    }
+                `;
+                timelineEl.appendChild(row);
+            });
+        }
 
-    if (activeTab === 'dashboard') {
-        initOrUpdateMap();
-        initOrUpdateCharts();
+        if (activeTab === 'dashboard') {
+            initOrUpdateMap();
+            initOrUpdateCharts();
+        }
+    } catch (e) {
+        console.error("Error in renderDashboardView:", e);
     }
 }
 
@@ -608,12 +620,29 @@ function closeNewsModal() {
 
 // 5. About Unit View
 function renderAboutView() {
-    const unit = currentData.unit;
-    document.getElementById('aboutUnitNameTh').textContent = unit.nameTh;
-    document.getElementById('aboutUnitNameEn').textContent = unit.nameEn;
-    document.getElementById('aboutParentUnit').textContent = unit.parentUnitTh;
-    document.getElementById('aboutHqLocation').textContent = unit.hqLocation;
-    document.getElementById('aboutMotto').textContent = `"${unit.motto}"`;
+    try {
+        const unit = currentData.unitInfo || {};
+        const el = (id) => document.getElementById(id);
+        if (el('aboutUnitName')) el('aboutUnitName').textContent = unit.name || 'กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔';
+        if (el('aboutMotto')) el('aboutMotto').textContent = 'ยึดมั่นระเบียบวินัย เสียสละเพื่อปวงชน พิทักษ์ชายแดนใต้';
+        if (el('aboutHqLocation')) el('aboutHqLocation').textContent = unit.locationHq || 'ฐานปฏิบัติการ ร้อย ฉก.ตชด.924 ม.1 ต.รูสะมิแล อ.เมือง จ.ปัตตานี';
+        if (el('aboutHqGrid')) el('aboutHqGrid').textContent = `พิกัด MGRS: ${unit.gridHq || '47NQH 51800 56200'}`;
+
+        if (unit.commander) {
+            if (el('aboutCmdName')) el('aboutCmdName').textContent = `${unit.commander.rank}${unit.commander.name}`;
+            if (el('aboutCmdPos')) el('aboutCmdPos').textContent = unit.commander.position;
+            if (el('aboutCmdCall')) el('aboutCmdCall').textContent = unit.commander.callSign;
+        }
+
+        if (unit.headOfIntel) {
+            if (el('aboutIntelName')) el('aboutIntelName').textContent = `${unit.headOfIntel.rank}${unit.headOfIntel.name}`;
+            if (el('aboutIntelPos')) el('aboutIntelPos').textContent = unit.headOfIntel.position;
+            if (el('aboutIntelCall')) el('aboutIntelCall').textContent = unit.headOfIntel.callSign;
+        }
+    } catch (e) {
+        console.error("Error in renderAboutView:", e);
+    }
+}"`;
     document.getElementById('aboutCmdName').textContent = `${unit.commander.rank} ${unit.commander.name}`;
     document.getElementById('aboutCmdPos').textContent = unit.commander.position;
     document.getElementById('aboutIntelName').textContent = `${unit.headOfIntel.rank} ${unit.headOfIntel.name}`;
