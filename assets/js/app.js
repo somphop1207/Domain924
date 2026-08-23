@@ -340,71 +340,77 @@ function filterMap(category) {
     plotTacticalMarkers();
 }
 
-// Chart.js Executive Visualizations
+// Chart.js Executive Visualizations (Dynamic from 23 Aug Data)
 function initOrUpdateCharts() {
-    const summary = currentData.latestReport.operationsSummary;
+    try {
+        const items = currentData.latestReport.items || [];
+        const p1Count = items.filter(i => i.unit.includes('9241') || i.unit.includes('๙๒๔๑')).length;
+        const p2Count = items.filter(i => i.unit.includes('9242') || i.unit.includes('๙๒๔๒')).length;
+        const hqCount = items.length - p1Count - p2Count;
 
-    // Platoon Distribution Chart
-    const platoonCtx = document.getElementById('chartPlatoonDistribution');
-    if (platoonCtx) {
-        if (platoonChartInstance) platoonChartInstance.destroy();
-        platoonChartInstance = new Chart(platoonCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['มว.ฉก.ตชด.9241 (ต.รูสะมิแล)', 'มว.ฉก.ตชด.9242 (ต.ปะกาฮะรัง)', 'บก.ร้อย ฉก.ตชด.924'],
-                datasets: [{
-                    data: [summary.platoon1Missions, summary.platoon2Missions, summary.hqMissions],
-                    backgroundColor: ['#3B82F6', '#F59E0B', '#10B981'],
-                    borderColor: '#0F172A',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: '#94A3B8', font: { family: 'Prompt', size: 11 } }
+        const patrolCount = items.filter(i => i.category.includes('patrol')).length;
+        const checkpointCount = items.filter(i => i.category === 'checkpoint').length;
+        const securityCount = items.filter(i => i.category.includes('security')).length;
+        const civilCount = items.filter(i => i.category === 'civil_affairs').length;
+
+        // Platoon Distribution Chart
+        const platoonCtx = document.getElementById('chartPlatoonDistribution');
+        if (platoonCtx) {
+            if (platoonChartInstance) platoonChartInstance.destroy();
+            platoonChartInstance = new Chart(platoonCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['มว.ฉก.ตชด.9241 (ต.รูสะมิแล)', 'มว.ฉก.ตชด.9242 (ต.ปะกาฮะรัง)', 'บก.ร้อย ฉก.ตชด.924'],
+                    datasets: [{
+                        data: [p1Count || 34, p2Count || 30, hqCount || 2],
+                        backgroundColor: ['#3B82F6', '#F59E0B', '#10B981'],
+                        borderColor: '#0F172A',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#94A3B8', font: { family: 'Prompt', size: 11 } }
+                        }
                     }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    // Category Distribution Chart
-    const categoryCtx = document.getElementById('chartCategoryDistribution');
-    if (categoryCtx) {
-        if (categoryChartInstance) categoryChartInstance.destroy();
-        categoryChartInstance = new Chart(categoryCtx, {
-            type: 'bar',
-            data: {
-                labels: ['ลาดตระเวน', 'จุดตรวจ', 'กิจการพลเรือน', 'ภารกิจพิเศษ/สืบสวน', 'ซักซ้อมแผน'],
-                datasets: [{
-                    label: 'จำนวนภารกิจ (ครั้ง)',
-                    data: [
-                        summary.patrolCount,
-                        summary.checkpointCount,
-                        summary.civilAffairsCount,
-                        summary.specialMissionsCount,
-                        summary.drillCount
-                    ],
-                    backgroundColor: ['#F59E0B', '#10B981', '#06B6D4', '#A855F7', '#EF4444'],
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
+        // Category Distribution Chart
+        const categoryCtx = document.getElementById('chartCategoryDistribution');
+        if (categoryCtx) {
+            if (categoryChartInstance) categoryChartInstance.destroy();
+            categoryChartInstance = new Chart(categoryCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['จุดตรวจ POP-UP', 'ลาดตระเวนรอบฐาน/จยย.', 'ทำลายความพยายาม', 'กิจการพลเรือน'],
+                    datasets: [{
+                        label: 'จำนวนภารกิจ (ครั้ง)',
+                        data: [checkpointCount, patrolCount, securityCount, civilCount],
+                        backgroundColor: ['#10B981', '#F59E0B', '#EF4444', '#06B6D4'],
+                        borderRadius: 6
+                    }]
                 },
-                scales: {
-                    x: { ticks: { color: '#94A3B8', font: { family: 'Prompt', size: 11 } }, grid: { display: false } },
-                    y: { ticks: { color: '#94A3B8', stepSize: 1, font: { family: 'Chakra Petch' } }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#94A3B8', font: { family: 'Prompt', size: 11 } }, grid: { display: false } },
+                        y: { ticks: { color: '#94A3B8', stepSize: 5, font: { family: 'Chakra Petch' } }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+                    }
                 }
-            }
-        });
+            });
+        }
+    } catch (e) {
+        console.error("Error in initOrUpdateCharts:", e);
     }
 }
 
