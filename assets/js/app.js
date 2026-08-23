@@ -1048,3 +1048,161 @@ function simulateIncomingLineReport() {
         }
     }
 }
+
+
+// =========================================================================
+// INTERACTIVE TACTICAL DISPATCH COMPOSER ENGINE (ระบบเขียนและยิงรายงานสด)
+// =========================================================================
+
+function toggleDispatchComposer() {
+    const box = document.getElementById('dispatchComposerBox');
+    const textEl = document.getElementById('btnComposerToggleText');
+    if (!box) return;
+    if (box.classList.contains('hidden')) {
+        box.classList.remove('hidden');
+        if (textEl) textEl.textContent = '❌ ซ่อนกล่องเขียนรายงาน';
+    } else {
+        box.classList.add('hidden');
+        if (textEl) textEl.textContent = '✍️ เขียนข้อความยิงรายงานสด';
+    }
+}
+
+function clearDispatchComposer() {
+    const msg = document.getElementById('composerMessage');
+    if (msg) msg.value = '';
+}
+
+function applyDispatchPreset(type) {
+    const msgEl = document.getElementById('composerMessage');
+    const catEl = document.getElementById('composerCategory');
+    const gridEl = document.getElementById('composerGrid');
+    if (!msgEl) return;
+
+    const now = new Date();
+    const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+    if (type === 'gas') {
+        catEl.value = 'security_check';
+        gridEl.value = '47NQH 45338 58347';
+        msgEl.value = `เมื่อ ${timeStr} น. ชุดปฏิบัติการเข้าตรวจสอบมาตรการรักษาความปลอดภัย ณ โรงบรรจุแก๊สหุงต้มดอนรัก ม.1 ต.ดอนรัก ผลการปฏิบัติ ไม่พบสิ่งผิดปกติ พนักงานเข้าใจแนวทาง รปภ. เหตุการณ์ปกติ`;
+    } else if (type === 'patrol') {
+        catEl.value = 'patrol';
+        gridEl.value = '47NQH 44366 58827';
+        msgEl.value = `เมื่อ ${timeStr} น. ลาดตระเวนป้องกันที่ตั้ง วงแหวนชั้นนอกบริเวณรอบฐานปฏิบัติการ มว.ฉก.ตชด.9241 ตรวจสอบจุดเสี่ยงและท่อลอด ผลการปฏิบัติ เหตุการณ์ปกติ`;
+    } else if (type === 'checkpoint') {
+        catEl.value = 'checkpoint';
+        gridEl.value = '47NQH 46189 58404';
+        msgEl.value = `เมื่อ ${timeStr} น. ตั้งจุดตรวจความมั่นคง POP-UP ปราการ 2 สุ่มตรวจยานพาหนะ 12 คัน บุคคลต้องสงสัย 15 ราย ไม่พบสิ่งผิดกฎหมาย เหตุการณ์ปกติ`;
+    } else if (type === 'civil') {
+        catEl.value = 'civil_affairs';
+        gridEl.value = '47NQH 45127 59975';
+        msgEl.value = `เมื่อ ${timeStr} น. ชป.กร.ร้อย ฉก.ตชด.924 ลงพื้นที่พบปะผู้นำชุมชนและประชาชน เสริมสร้างความเข้าใจและสอบถามสภาพความเป็นอยู่ ประชาชนให้ความร่วมมือดีเยี่ยม เหตุการณ์ปกติ`;
+    } else if (type === 'urgent') {
+        catEl.value = 'security_check';
+        gridEl.value = '47NQH 48336 56284';
+        msgEl.value = `[ด่วนที่สุด] เมื่อ ${timeStr} น. ได้รับแจ้งเบาะแสพบวัตถุต้องสงสัยบริเวณคอสะพานปะกาฮะรัง กำลังพลเข้าควบคุมพื้นที่และตรวจสอบความปลอดภัยทันที อยู่ระหว่างประสาน EOD`;
+    }
+}
+
+function submitCustomLiveDispatch() {
+    const msgEl = document.getElementById('composerMessage');
+    const callSignEl = document.getElementById('composerCallSign');
+    const catEl = document.getElementById('composerCategory');
+    const gridEl = document.getElementById('composerGrid');
+
+    let text = msgEl ? msgEl.value.trim() : '';
+    if (!text) {
+        alert('กรุณาพิมพ์ข้อความรายละเอียดรายงานก่อนกดยิงรายงานสดครับหัวหน้า');
+        return;
+    }
+
+    const callSign = callSignEl ? callSignEl.value : 'เหมราช 4012 (หน.ฝขว.)';
+    const category = catEl ? catEl.value : 'patrol';
+    const grid = gridEl ? gridEl.value.trim() : '47NQH 48336 56284';
+
+    const now = new Date();
+    const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+    // Play tactical sound chime
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // High chime A5
+        osc.frequency.exponentialRampToValueAtTime(1320, audioCtx.currentTime + 0.15); // E6
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.45);
+    } catch (e) {
+        // Audio fallback
+    }
+
+    // Insert to Live Feed container
+    const feedContainer = document.getElementById('liveLineFeedContainer');
+    if (feedContainer) {
+        const newFeedRow = document.createElement('div');
+        newFeedRow.className = 'flex items-center justify-between p-3 rounded-xl bg-emerald-950/70 border-2 border-emerald-500 text-xs shadow-lg shadow-emerald-950/40 animate-bounce';
+        newFeedRow.innerHTML = `
+            <div class="flex items-center space-x-2.5 min-w-0">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping flex-shrink-0"></span>
+                <span class="font-bold text-emerald-300 font-mono flex-shrink-0">[รายงานสดใหม่] ${callSign}:</span>
+                <span class="text-white font-sarabun truncate font-semibold">${text}</span>
+            </div>
+            <div class="flex items-center space-x-1.5 ml-2 flex-shrink-0">
+                <span class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-bold font-mono text-[10px]">${timeStr} น.</span>
+            </div>
+        `;
+        feedContainer.insertBefore(newFeedRow, feedContainer.firstChild);
+        setTimeout(() => newFeedRow.classList.remove('animate-bounce'), 1000);
+    }
+
+    // Increment Total Missions Counter dynamically
+    const kpiTotalEl = document.getElementById('dashKpiTotal');
+    if (kpiTotalEl) {
+        let count = parseInt(kpiTotalEl.textContent) || currentData.latestReport.items.length;
+        kpiTotalEl.textContent = count + 1;
+    }
+    const statTotalEl = document.getElementById('statTotalOps');
+    if (statTotalEl) {
+        let count = parseInt(statTotalEl.textContent) || currentData.latestReport.items.length;
+        statTotalEl.textContent = count + 1;
+    }
+
+    // Add new tactical marker on map if lat/lng
+    if (appMap && mapMarkersLayer) {
+        const lat = 6.855 + (Math.random() - 0.5) * 0.02;
+        const lng = 101.225 + (Math.random() - 0.5) * 0.02;
+
+        const liveIcon = L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div class="custom-tactical-pin animate-pulse" style="background-color: #10B981; border: 3px solid #ffffff; box-shadow: 0 0 20px #10B981; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                     <span style="font-size: 16px;">⚡</span>
+                   </div>`,
+            iconSize: [38, 38],
+            iconAnchor: [19, 19]
+        });
+
+        const liveMarker = L.marker([lat, lng], { icon: liveIcon });
+        liveMarker.bindPopup(`
+            <div class="p-2.5 space-y-1.5 font-sans text-slate-100" style="min-width: 220px;">
+                <div class="flex items-center justify-between border-b border-emerald-700 pb-1">
+                    <span class="text-xs font-bold text-emerald-400">⚡ รายงานสดทางยุทธวิธี</span>
+                    <span class="text-[10px] font-mono text-emerald-300">${timeStr} น.</span>
+                </div>
+                <div class="text-[11px] text-amber-300"><strong>ผู้รายงาน:</strong> ${callSign}</div>
+                <div class="text-[10px] font-mono text-emerald-300 bg-emerald-950/60 p-1 rounded border border-emerald-500/30">พิกัด: ${grid}</div>
+                <div class="text-[11px] text-slate-200 bg-slate-900 p-2 rounded border border-slate-800">${text}</div>
+            </div>
+        `);
+        mapMarkersLayer.addLayer(liveMarker);
+        appMap.flyTo([lat, lng], 14, { animate: true, duration: 1.2 });
+        setTimeout(() => liveMarker.openPopup(), 1300);
+    }
+
+    // Success alert notification
+    alert(`🚀 ยิงรายงานสดเข้าสู่ศูนย์ TOC สำเร็จ!\n\nผู้รายงาน: ${callSign}\nเวลา: ${timeStr} น.\nข้อความ: ${text.substring(0, 60)}...`);
+}

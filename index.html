@@ -58,7 +58,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="assets/css/style.css?v=1787490746">
+    <link rel="stylesheet" href="assets/css/style.css?v=1787491035">
 </head>
 <body class="bg-tactical-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
 
@@ -441,9 +441,10 @@
                 <section id="section-dashboard" class="tab-section hidden space-y-6">
 
             <!-- REAL-TIME LINE BOT DISPATCH STREAM & BROADCAST HUB -->
-            <div class="glass-panel p-4 sm:p-5 rounded-2xl border border-emerald-500/40 relative overflow-hidden bg-slate-950/80 shadow-xl shadow-emerald-950/20">
+            <div class="glass-panel p-4 sm:p-5 rounded-2xl border border-emerald-500/40 relative overflow-hidden bg-slate-950/80 shadow-xl shadow-emerald-950/20 space-y-4">
                 <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 
+                <!-- Header Controls -->
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-b border-slate-800 pb-3">
                     <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400 flex-shrink-0">
@@ -462,14 +463,88 @@
                     </div>
                     
                     <div class="flex items-center space-x-2 w-full md:w-auto justify-between md:justify-end">
-                        <div class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono text-emerald-400">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span>LINE API: เชื่อมต่อสมบูรณ์</span>
-                        </div>
-                        <button onclick="simulateIncomingLineReport()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center space-x-1 flex-shrink-0" title="จำลองการส่งรายงานสด">
-                            <i data-lucide="bell-ring" class="w-3.5 h-3.5"></i>
-                            <span>ทดสอบยิงรายงานสด</span>
+                        <button onclick="toggleDispatchComposer()" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center space-x-1.5 flex-shrink-0">
+                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                            <span id="btnComposerToggleText">✍️ เขียนข้อความยิงรายงานสด</span>
                         </button>
+                        <button onclick="simulateIncomingLineReport()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center space-x-1 flex-shrink-0" title="สุ่มยิงรายงานจำลอง">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>⚡ สุ่มรายงานด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Tactical Dispatch Composer Box (กล่องเขียนข้อความรายงานสด) -->
+                <div id="dispatchComposerBox" class="p-4 rounded-xl bg-slate-900/90 border-2 border-amber-500/50 space-y-3.5 transition-all duration-300">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+                            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider font-mono">กล่องพิมพ์ข้อความยิงรายงานด่วนเข้าสู่ระบบ (Tactical Dispatch Composer)</span>
+                        </div>
+                        <span class="text-[11px] text-slate-400 font-mono">ออกอากาศสดลงแผนที่ GIS & แดชบอร์ดทันที</span>
+                    </div>
+
+                    <!-- Quick Preset Buttons -->
+                    <div class="flex flex-wrap items-center gap-1.5 text-xs">
+                        <span class="text-[11px] text-slate-400 font-bold mr-1">แม่แบบด่วน:</span>
+                        <button type="button" onclick="applyDispatchPreset('gas')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px]">⛽ ตรวจโรงแก๊ส/ปั๊ม</button>
+                        <button type="button" onclick="applyDispatchPreset('patrol')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px]">🚶‍♂️ ลาดตระเวนรอบฐาน</button>
+                        <button type="button" onclick="applyDispatchPreset('checkpoint')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px]">🚧 จุดตรวจ POP-UP</button>
+                        <button type="button" onclick="applyDispatchPreset('civil')" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px]">🤝 ชป.กร. พบปะผู้นำ</button>
+                        <button type="button" onclick="applyDispatchPreset('urgent')" class="px-2 py-1 rounded bg-red-950/60 hover:bg-red-900/60 text-red-300 border border-red-500/40 text-[11px] font-bold">🚨 ตรวจสอบวัตถุต้องสงสัย</button>
+                    </div>
+
+                    <!-- Form Inputs Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div>
+                            <label class="block text-slate-300 font-bold mb-1">ผู้รายงาน / นามเรียกขาน:</label>
+                            <select id="composerCallSign" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-mono focus:border-amber-500 focus:outline-none">
+                                <option value="เหมราช 4012 (หน.ฝขว.)">ด.ต.สมภพ บุญสุวรรณ (เหมราช 4012 - หน.ฝขว.)</option>
+                                <option value="เหมราช 41 (ผบ.ร้อย)">ร.ต.อ.เดชเดโช ส่งสีอ่อน (เหมราช 41 - ผบ.ร้อย)</option>
+                                <option value="เหมราช 411 (มว.9241)">ร.ต.อ.สมชาย ยอดแก้ว (เหมราช 411 - ผบ.มว.9241)</option>
+                                <option value="เหมราช 4132 (มว.9241)">ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล (เหมราช 4132)</option>
+                                <option value="เหมราช 421 (มว.9242)">ร.ต.ท.วิชาญ แสนสุข (เหมราช 421 - ผบ.มว.9242)</option>
+                                <option value="เหมราช 4215 (มว.9242)">ด.ต.บุญสิทธิ์ วัฒนสุข (เหมราช 4215)</option>
+                                <option value="ชป.กร.ร้อย 924">ด.ต.ชัยวัฒน์ ศรีสังข์งาม (ชป.กร.)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-300 font-bold mb-1">ประเภทภารกิจ:</label>
+                            <select id="composerCategory" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-white font-sarabun focus:border-amber-500 focus:outline-none">
+                                <option value="security_check">ทำลายความพยายาม / ตรวจความปลอดภัย</option>
+                                <option value="patrol">ลาดตระเวนเส้นทาง / จยย. / รอบฐาน</option>
+                                <option value="checkpoint">จุดตรวจความมั่นคง / POP-UP</option>
+                                <option value="civil_affairs">กิจการพลเรือน / มวลชนสัมพันธ์</option>
+                                <option value="special_ops">ภารกิจพิเศษ / สืบสวนหาข่าว</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-slate-300 font-bold mb-1">สถานที่ & พิกัด MGRS:</label>
+                            <input type="text" id="composerGrid" value="47NQH 48336 56284" placeholder="เช่น 47NQH 48336 56284" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-amber-300 font-mono focus:border-amber-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Custom Message Textarea -->
+                    <div>
+                        <label class="block text-slate-300 font-bold mb-1">ข้อความรายละเอียดรายงาน (พิมพ์ข้อความที่ต้องการยิงสด):</label>
+                        <textarea id="composerMessage" rows="2" placeholder="พิมพ์ข้อความรายงานสถานการณ์สด เช่น เมื่อ ๒๓๒๐๑๕ ส.ค. ๖๙ ชุดปฏิบัติการเข้าตรวจสอบความปลอดภัยบริเวณพื้นที่รับผิดชอบ..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-white font-sarabun text-xs leading-relaxed focus:border-amber-500 focus:outline-none"></textarea>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex items-center justify-between pt-1">
+                        <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                            <i data-lucide="info" class="w-3.5 h-3.5 text-amber-400"></i>
+                            <span>ระบบจะเพิ่มหมุดสดลงแผนที่ GIS และอัปเดตตัวเลขอัตโนมัติ</span>
+                        </span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="clearDispatchComposer()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition-colors">
+                                ล้างข้อความ
+                            </button>
+                            <button type="button" onclick="submitCustomLiveDispatch()" class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 font-black text-xs shadow-lg shadow-emerald-600/30 transition-all flex items-center space-x-1.5">
+                                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                                <span>🚀 ยิงรายงานสดเข้าสู่ระบบ</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -479,7 +554,7 @@
                         <div class="flex items-center space-x-2.5 min-w-0">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span>
                             <span class="font-bold text-emerald-400 font-mono flex-shrink-0">[LINE BOT] เหมราช 4012:</span>
-                            <span class="text-slate-200 font-sarabun truncate">รายงานผลการลาดตระเวนเส้นทางสาย 42 ต.รูสะมิแล เหตุการณ์ปกติ</span>
+                            <span class="text-slate-200 font-sarabun truncate">รายงานผลการลาดตระเวนเส้นทางสาย 42 ต.รูสะมิแล เหตุการณ์ปกติ กำลังพลพร้อมปฏิบัติหน้าที่</span>
                         </div>
                         <span class="text-slate-500 font-mono text-[10px] whitespace-nowrap ml-2">สด</span>
                     </div>
@@ -1079,10 +1154,10 @@
 
 
     <!-- Application Scripts -->
-    <script src="assets/js/mgrs-converter.js?v=1787490746"></script>
-    <script src="assets/js/data.js?v=1787490746"></script>
-    <script src="assets/js/docx-parser.js?v=1787490746"></script>
-    <script src="assets/js/app.js?v=1787490746"></script>
+    <script src="assets/js/mgrs-converter.js?v=1787491035"></script>
+    <script src="assets/js/data.js?v=1787491035"></script>
+    <script src="assets/js/docx-parser.js?v=1787491035"></script>
+    <script src="assets/js/app.js?v=1787491035"></script>
 
     <!-- MOBILE BOTTOM NAVIGATION (Native Smartphone App Bar) -->
     <nav class="mobile-bottom-nav lg:hidden shadow-2xl">
