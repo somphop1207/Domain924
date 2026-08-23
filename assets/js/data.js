@@ -4,7 +4,7 @@
  * อัปเดตล่าสุด: ประจำวันที่ ๒๓ สิงหาคม ๒๕๖๙ (สกัดจาก BPP924 ปจว.ยก. 23 ส.ค. 69.docx)
  */
 
-const BPP924_DATA = {
+var BPP924_DATA = {
     unitInfo: {
         name: "กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔",
         shortName: "ร้อย ฉก.ตชด.924",
@@ -1422,3 +1422,11 @@ const BPP924_DATA = {
         }
     ]
 };
+
+
+if (typeof window !== 'undefined') {
+    window.BPP924_DATA = BPP924_DATA;
+}
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = BPP924_DATA;
+}

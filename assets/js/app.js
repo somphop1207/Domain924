@@ -642,11 +642,6 @@ function renderAboutView() {
     } catch (e) {
         console.error("Error in renderAboutView:", e);
     }
-}"`;
-    document.getElementById('aboutCmdName').textContent = `${unit.commander.rank} ${unit.commander.name}`;
-    document.getElementById('aboutCmdPos').textContent = unit.commander.position;
-    document.getElementById('aboutIntelName').textContent = `${unit.headOfIntel.rank} ${unit.headOfIntel.name}`;
-    document.getElementById('aboutIntelPos').textContent = unit.headOfIntel.position;
 }
 
 // 6. DOCX Smart Drag & Drop Uploader
