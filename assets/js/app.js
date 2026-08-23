@@ -575,70 +575,114 @@ function closeDetailModal() {
 // 4. Public Relations News View
 function renderNewsView() {
     const newsGrid = document.getElementById('newsArticlesGrid');
-    if (!newsGrid || !currentData.newsArticles) return;
+    if (!newsGrid) return;
+
+    const articles = currentData.newsArticles || [];
+    if (articles.length === 0) return;
 
     newsGrid.innerHTML = '';
-    currentData.newsArticles.forEach(article => {
+    articles.forEach(article => {
         const card = document.createElement('div');
-        card.className = 'glass-panel rounded-xl overflow-hidden hover:border-amber-500/50 transition-all group flex flex-col justify-between';
+        card.className = 'glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group flex flex-col justify-between shadow-2xl';
+        
+        const galleryCount = article.gallery ? article.gallery.length : 0;
+        
         card.innerHTML = `
             <div>
-                <div class="relative h-48 overflow-hidden">
-                    <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-slate-950/80 backdrop-blur-md text-amber-400 text-xs font-bold border border-amber-500/30">
-                        ${article.category}
+                <!-- Main Header Image with Badge -->
+                <div class="relative h-52 sm:h-56 bg-slate-950 overflow-hidden cursor-pointer" onclick="openNewsModal('${article.id}')">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30"></div>
+                    
+                    <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-bold ${article.badge || 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'} shadow-lg backdrop-blur-md border">
+                            ${article.category}
+                        </span>
+                        ${galleryCount > 1 ? `<span class="px-2 py-0.5 rounded-md bg-black/75 text-amber-300 font-mono text-[11px] font-bold border border-amber-500/40 backdrop-blur-md">📸 ${galleryCount} รูป</span>` : ''}
+                    </div>
+
+                    <div class="absolute bottom-2.5 left-3 right-3">
+                        <span class="text-[11px] font-mono text-emerald-300 font-bold drop-shadow-md">
+                            ${article.dateTh}
+                        </span>
                     </div>
                 </div>
-                <div class="p-5">
-                    <div class="flex items-center space-x-2 text-xs text-slate-400 mb-2 font-mono">
-                        <span>📅 ${article.dateTh}</span>
-                        <span>•</span>
-                        <span>📍 ${article.location}</span>
+
+                <!-- Content Info -->
+                <div class="p-5 space-y-3">
+                    <div class="text-[11px] text-amber-400 font-mono font-semibold flex items-center gap-1.5">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 flex-shrink-0 text-amber-500"></i>
+                        <span class="truncate">${article.location}</span>
                     </div>
-                    <h3 class="text-base font-bold text-slate-100 group-hover:text-amber-300 transition-colors line-clamp-2 mb-2">
+
+                    <h3 class="text-sm sm:text-base font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug line-clamp-2 cursor-pointer font-sarabun" onclick="openNewsModal('${article.id}')">
                         ${article.title}
                     </h3>
-                    <p class="text-xs text-slate-300 line-clamp-3 font-sarabun">
+
+                    <p class="text-xs text-slate-300 line-clamp-3 font-sarabun leading-relaxed">
                         ${article.summary}
                     </p>
+
+                    <!-- Leader Meta -->
+                    <div class="pt-2 border-t border-slate-800 text-[11px] text-slate-400 font-sarabun">
+                        <span class="text-slate-500">ผู้นำภารกิจ:</span> <strong class="text-slate-300">${article.leader}</strong>
+                    </div>
+
+                    <!-- Mini Photo Thumbnails Strip (4 Photos) -->
+                    ${article.gallery && article.gallery.length > 0 ? `
+                        <div class="grid grid-cols-4 gap-1.5 pt-1">
+                            ${article.gallery.map(img => `
+                                <div class="h-14 rounded-lg overflow-hidden border border-slate-700/80 cursor-pointer group/thumb relative" onclick="openPhotoLightbox('${img}', '${article.category}', '${article.title}')">
+                                    <img src="${img}" class="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform" loading="lazy">
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
                 </div>
             </div>
+
+            <!-- Footer Action Button -->
             <div class="p-5 pt-0">
-                <button onclick="openNewsModal('${article.id}')" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 text-xs font-bold transition-all flex items-center justify-center space-x-1.5">
-                    <span>อ่านรายละเอียดข่าว</span>
+                <button type="button" onclick="openNewsModal('${article.id}')" class="w-full py-2.5 rounded-xl bg-slate-800/90 hover:bg-emerald-600 hover:text-slate-950 text-emerald-300 text-xs font-bold transition-all flex items-center justify-center space-x-1.5 border border-slate-700 hover:border-emerald-400 shadow-lg">
+                    <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                    <span>อ่านรายละเอียดข่าวและดูรูปฉบับเต็ม</span>
                     <span>→</span>
                 </button>
             </div>
         `;
         newsGrid.appendChild(card);
     });
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
 function openNewsModal(articleId) {
-    const article = currentData.newsArticles.find(a => a.id === articleId);
+    const article = (currentData.newsArticles || []).find(a => a.id === articleId);
     if (!article) return;
 
     const modal = document.getElementById('newsModal');
     if (!modal) return;
 
-    document.getElementById('newsModalTitle').textContent = article.title;
-    document.getElementById('newsModalCategory').textContent = article.category;
-    document.getElementById('newsModalDate').textContent = `${article.dateTh} | ${article.location}`;
-    document.getElementById('newsModalImage').src = article.image;
-    document.getElementById('newsModalContent').textContent = article.content;
+    const el = (id) => document.getElementById(id);
+    if (el('newsModalTitle')) el('newsModalTitle').textContent = article.title;
+    if (el('newsModalCategory')) el('newsModalCategory').textContent = article.category;
+    if (el('newsModalDate')) el('newsModalDate').textContent = `${article.dateTh} | ${article.location}`;
+    if (el('newsModalImage')) el('newsModalImage').src = article.image;
+    if (el('newsModalContent')) el('newsModalContent').textContent = article.content;
 
-    const galleryContainer = document.getElementById('newsModalGallery');
+    const galleryContainer = el('newsModalGallery');
     if (galleryContainer) {
         if (article.gallery && article.gallery.length > 0) {
-            let gHtml = '<div class="space-y-1.5 mt-3"><span class="text-[11px] font-bold text-emerald-400 block">ภาพถ่ายกิจกรรมชุดปฏิบัติการจริง:</span><div class="grid grid-cols-3 gap-2">';
+            let gHtml = '<div class="space-y-2 mt-4"><span class="text-xs font-bold text-emerald-400 block">📸 อัลบั้มภาพถ่ายปฏิบัติการจริง (แตะเพื่อขยายดูภาพคมชัด):</span><div class="grid grid-cols-2 sm:grid-cols-4 gap-2">';
             article.gallery.forEach(imgSrc => {
-                gHtml += `<div class="rounded-lg overflow-hidden border border-slate-700 h-28 cursor-pointer" onclick="window.open('${imgSrc}', '_blank')"><img src="${imgSrc}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="รูปกิจกรรม"></div>`;
+                gHtml += `<div class="rounded-xl overflow-hidden border border-slate-700 h-28 cursor-pointer relative group" onclick="openPhotoLightbox('${imgSrc}', '${article.category}', '${article.title}')"><img src="${imgSrc}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="รูปกิจกรรม"><div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="px-2 py-0.5 rounded bg-black/80 text-white text-[10px] font-bold">🔍 ซูม HD</span></div></div>`;
             });
             gHtml += '</div></div>';
             galleryContainer.innerHTML = gHtml;
-            galleryContainer.classList.remove('hidden');
         } else {
-            galleryContainer.classList.add('hidden');
+            galleryContainer.innerHTML = '';
         }
     }
 
