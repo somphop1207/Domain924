@@ -41,14 +41,17 @@ function initNavigation() {
 function switchTab(tabId) {
     activeTab = tabId;
     
-    // Update nav buttons
-    document.querySelectorAll('.nav-tab').forEach(btn => {
+    // Update desktop & mobile nav buttons
+    document.querySelectorAll('.nav-tab, .mobile-nav-item').forEach(btn => {
         if (btn.getAttribute('data-tab') === tabId) {
             btn.classList.add('active');
         } else {
             btn.classList.remove('active');
         }
     });
+
+    // Scroll to top smoothly on tab switch
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Update tab sections
     document.querySelectorAll('.tab-section').forEach(sec => {
@@ -403,40 +406,81 @@ function filterOperationsTable() {
     });
 
     const tbody = document.getElementById('dbOperationsTableBody');
+    const mobileCardsContainer = document.getElementById('dbOperationsMobileCards');
     const countEl = document.getElementById('dbFilteredCount');
     if (countEl) countEl.textContent = `${filtered.length} รายการ`;
 
+    // 1. Render Desktop Table (for PC / Tablet)
     if (tbody) {
         tbody.innerHTML = '';
         if (filtered.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-slate-500 font-sarabun">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหา</td></tr>`;
-            return;
+            tbody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-slate-500 font-sarabun">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหา</td></tr>`;
+        } else {
+            filtered.forEach((item, index) => {
+                const firstImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors text-xs cursor-pointer';
+                tr.onclick = () => openItemDetailModal(item);
+
+                tr.innerHTML = `
+                    <td class="py-3 px-3 font-mono text-slate-400">${index + 1}</td>
+                    <td class="py-3 px-3">
+                        ${firstImg ? `<div class="w-12 h-10 rounded-md overflow-hidden border border-slate-700 cursor-pointer shadow-sm" onclick="event.stopPropagation(); openPhotoLightbox('${firstImg}', '${item.categoryTh}', '${item.missionDetail}')"><img src="${firstImg}" class="w-full h-full object-cover hover:scale-110 transition-transform"></div>` : '<span class="text-slate-600">-</span>'}
+                    </td>
+                    <td class="py-3 px-3 font-mono font-semibold text-amber-300 whitespace-nowrap">${item.timeTh}</td>
+                    <td class="py-3 px-3"><span class="px-2.5 py-1 rounded text-xs font-bold ${item.badge}">${item.categoryTh}</span></td>
+                    <td class="py-3 px-3 text-slate-200 font-semibold whitespace-nowrap">${item.unit}</td>
+                    <td class="py-3 px-3 text-slate-200 font-mono whitespace-nowrap">${item.leader} <span class="text-amber-400">(${item.callSign})</span></td>
+                    <td class="py-3 px-3 text-slate-300 max-w-sm font-sarabun text-xs" title="${item.location}">${item.location}</td>
+                    <td class="py-3 px-3 text-right whitespace-nowrap">
+                        <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 transition-all font-bold text-xs">
+                            ดูข้อมูลและภาพ
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
         }
+    }
 
-        filtered.forEach((item, index) => {
-            const tr = document.createElement('tr');
-            tr.className = 'border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors text-xs cursor-pointer';
-            tr.onclick = () => openItemDetailModal(item);
+    // 2. Render Mobile Cards View (Optimized for Mobile Touch Screens)
+    if (mobileCardsContainer) {
+        mobileCardsContainer.innerHTML = '';
+        if (filtered.length === 0) {
+            mobileCardsContainer.innerHTML = `<div class="p-6 text-center text-slate-500 text-xs font-sarabun bg-slate-900/60 rounded-xl">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหา</div>`;
+        } else {
+            filtered.forEach((item, index) => {
+                const firstImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-4 rounded-xl border border-slate-800 space-y-3 cursor-pointer hover:border-amber-500/40 transition-colors';
+                card.onclick = () => openItemDetailModal(item);
 
-            const firstImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
-            tr.innerHTML = `
-                <td class="py-3 px-3 font-mono text-slate-400">${index + 1}</td>
-                <td class="py-3 px-3">
-                    ${firstImg ? `<div class="w-12 h-10 rounded-md overflow-hidden border border-slate-700 cursor-pointer shadow-sm" onclick="event.stopPropagation(); openPhotoLightbox('${firstImg}', '${item.categoryTh}', '${item.missionDetail}')"><img src="${firstImg}" class="w-full h-full object-cover hover:scale-110 transition-transform"></div>` : '<span class="text-slate-600">-</span>'}
-                </td>
-                <td class="py-3 px-3 font-mono font-semibold text-amber-300 whitespace-nowrap">${item.timeTh}</td>
-                <td class="py-3 px-3"><span class="px-2.5 py-1 rounded text-xs font-bold ${item.badge}">${item.categoryTh}</span></td>
-                <td class="py-3 px-3 text-slate-200 font-semibold whitespace-nowrap">${item.unit}</td>
-                <td class="py-3 px-3 text-slate-200 font-mono whitespace-nowrap">${item.leader} <span class="text-amber-400">(${item.callSign})</span></td>
-                <td class="py-3 px-3 text-slate-300 max-w-sm font-sarabun text-xs" title="${item.location}">${item.location}</td>
-                <td class="py-3 px-3 text-right whitespace-nowrap">
-                    <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 transition-all font-bold text-xs">
-                        ดูข้อมูลและภาพ
-                    </button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
+                card.innerHTML = `
+                    <div class="flex items-start justify-between gap-2 border-b border-slate-800/80 pb-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold ${item.badge}">${item.categoryTh}</span>
+                            <span class="text-xs font-bold text-slate-200">${item.unit}</span>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-amber-300">${item.timeTh}</span>
+                    </div>
+
+                    <div class="flex items-start space-x-3">
+                        ${firstImg ? `<div class="w-20 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-slate-700" onclick="event.stopPropagation(); openPhotoLightbox('${firstImg}', '${item.categoryTh}', '${item.missionDetail}')"><img src="${firstImg}" class="w-full h-full object-cover"></div>` : ''}
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold text-amber-400 font-mono">${item.leader} (${item.callSign})</div>
+                            <div class="text-xs text-slate-400 mt-0.5">${item.location}</div>
+                            <p class="text-xs text-slate-300 mt-1 font-sarabun line-clamp-2">${item.missionDetail}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-1 text-xs">
+                        <span class="text-emerald-400 text-[11px]">✓ ผลการปฏิบัติเรียบร้อย</span>
+                        <span class="text-amber-400 font-bold text-xs flex items-center gap-1">แตะดูข้อมูล & พิกัด →</span>
+                    </div>
+                `;
+                mobileCardsContainer.appendChild(card);
+            });
+        }
     }
 }
 

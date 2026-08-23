@@ -2,7 +2,7 @@
 <html lang="th" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>ร้อย ฉก.ตชด.924 | ศูนย์บัญชาการและรายงานผลการปฏิบัติงานความมั่นคง</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 
@@ -632,8 +632,8 @@
                 </div>
             </div>
 
-            <!-- Operations Data Table -->
-            <div class="glass-panel rounded-2xl overflow-hidden">
+            <!-- Operations Data Table (Desktop View) -->
+            <div class="glass-panel rounded-2xl overflow-hidden desktop-table-container">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse font-sans">
                         <thead>
@@ -653,6 +653,11 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+            <!-- Operations Cards View (Mobile Smartphone View) -->
+            <div id="dbOperationsMobileCards" class="mobile-cards-container space-y-3">
+                <!-- Populated dynamically for mobile -->
             </div>
         </section>
 
@@ -965,5 +970,30 @@
     <script src="assets/js/data.js"></script>
     <script src="assets/js/docx-parser.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <!-- MOBILE BOTTOM NAVIGATION (App-Style Navigation for Smartphones) -->
+    <nav class="mobile-bottom-nav lg:hidden">
+        <button class="mobile-nav-item active" data-tab="home" onclick="switchTab('home')">
+            <i data-lucide="home"></i>
+            <span>หน้าแรก</span>
+        </button>
+        <button class="mobile-nav-item" data-tab="dashboard" onclick="switchTab('dashboard')">
+            <i data-lucide="layout-dashboard"></i>
+            <span>แดชบอร์ด</span>
+        </button>
+        <button class="mobile-nav-item" data-tab="database" onclick="switchTab('database')">
+            <i data-lucide="database"></i>
+            <span>ฐานข้อมูล</span>
+        </button>
+        <button class="mobile-nav-item" data-tab="news" onclick="switchTab('news')">
+            <i data-lucide="newspaper"></i>
+            <span>ข่าวสาร</span>
+        </button>
+        <button class="mobile-nav-item" data-tab="upload" onclick="switchTab('upload')">
+            <i data-lucide="file-up"></i>
+            <span>แปลงไฟล์</span>
+        </button>
+    </nav>
+
 </body>
 </html>
