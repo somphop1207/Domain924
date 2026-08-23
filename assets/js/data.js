@@ -1391,8 +1391,8 @@ var BPP924_DATA = {
             dateTh: "๒๓ ส.ค. ๒๕๖๙",
             summary: "สรุปผลการปฏิบัติการลาดตระเวน ตั้งจุดตรวจความมั่นคง และรักษาความปลอดภัยพื้นที่ ต.รูสะมิแล และ ต.ปะกาฮะรัง อ.เมือง จ.ปัตตานี",
             image: "assets/images/23aug/image1.jpeg",
-            youtubeId: "M3A6HLu6ydE",
-            youtubeUrl: "https://youtu.be/M3A6HLu6ydE",
+            youtubeId: "s3FNgeUxCjg",
+            youtubeUrl: "https://youtu.be/s3FNgeUxCjg",
             tags: ["รายงานข่าว", "ยุทธการ", "ฉก.ตร.ปัตตานี ๙๒"],
             author: "ฝ่ายยุทธการและการข่าว ร้อย ฉก.ตชด.๙๒๔"
         },
