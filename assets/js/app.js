@@ -894,3 +894,124 @@ function openPhotoLightbox(src, title, caption) {
         </div>
     `;
 }
+
+
+// ============================================================================
+// REAL-TIME LINE BOT DISPATCH ENGINE
+// ============================================================================
+
+const simulatedLineReports = [
+    {
+        id: "LINE-RT-01",
+        timeTh: "11:15 น.",
+        category: "patrol_motorcycle",
+        categoryTh: "ลาดตระเวน จยย.",
+        badge: "badge-patrol",
+        unit: "มว.ฉก.ตชด.๙๒๔๑",
+        subdistrict: "ต.รูสะมิแล",
+        leader: "จ.ส.ต.เอกชัย สว่างจิตร",
+        callSign: "เหมราช 411",
+        location: "เส้นทางเลียบหาดรูสะมิแล - ตลาดนัดชุมชน",
+        grid: "47NQH 52300 55800",
+        missionDetail: "ชุดปฏิบัติการ จยย. เหมราช 411 ลาดตระเวนตรวจเส้นทางเสี่ยง ตรวจสอบยานพาหนะต้องสงสัย 3 คัน ไม่พบสิ่งผิดกฎหมาย ประชาชนให้ความร่วมมือดี",
+        images: ["assets/images/image2.jpeg", "assets/images/image3.jpeg"]
+    },
+    {
+        id: "LINE-RT-02",
+        timeTh: "11:30 น.",
+        category: "checkpoint",
+        categoryTh: "จุดตรวจ/จุดสกัด",
+        badge: "badge-checkpoint",
+        unit: "มว.ฉก.ตชด.๙๒๔๒",
+        subdistrict: "ต.ปะกาฮะรัง",
+        leader: "ด.ต.ธงชัย บุญช่วย",
+        callSign: "เหมราช 421",
+        location: "จุดตรวจ ปชส. สะพานปะกาฮะรัง",
+        grid: "47NQH 54100 54900",
+        missionDetail: "ตั้งจุดตรวจความมั่นคงตรวจสอบบุคคลตามหมายจับและรถจักรยานยนต์ดัดแปลง ไม่พบการกระทำผิด เหตุการณ์ทั่วไปปกติ",
+        images: ["assets/images/image15.jpeg"]
+    },
+    {
+        id: "LINE-RT-03",
+        timeTh: "11:45 น.",
+        category: "civil_affairs",
+        categoryTh: "กิจการพลเรือน",
+        badge: "badge-civil",
+        unit: "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+        subdistrict: "ต.รูสะมิแล",
+        leader: "ด.ต.สมภพ บุญสุวรรณ",
+        callSign: "เหมราช 4012",
+        location: "รร.ชุมชนบ้านรูสะมิแล",
+        grid: "47NQH 51800 56200",
+        missionDetail: "ประสานงานผู้นำชุมชนและตรวจเยี่ยมโครงการอาหารกลางวัน สร้างความสัมพันธ์อันดีระหว่างเจ้าหน้าที่และเยาวชนในพื้นที่",
+        images: ["assets/images/image1.jpeg", "assets/images/image4.jpeg"]
+    }
+];
+
+let lineReportIndex = 0;
+
+function simulateIncomingLineReport() {
+    const report = simulatedLineReports[lineReportIndex % simulatedLineReports.length];
+    lineReportIndex++;
+
+    // 1. Prepend to currentData.latestReport.items
+    currentData.latestReport.items.unshift(report);
+    currentData.latestReport.summary.totalMissions++;
+
+    // 2. Play subtle alert chime
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // A5
+        osc.frequency.exponentialRampToValueAtTime(1320, audioCtx.currentTime + 0.15); // E6
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 0.3);
+    } catch(e) {
+        console.log("Audio not allowed yet:", e);
+    }
+
+    // 3. Add to Live Feed Stream Widget
+    const feedContainer = document.getElementById('liveLineFeedContainer');
+    if (feedContainer) {
+        const newFeedItem = document.createElement('div');
+        newFeedItem.className = 'flex items-center justify-between p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/60 text-xs shadow-lg animate-pulse transition-all cursor-pointer';
+        newFeedItem.onclick = () => openItemDetailModal(report);
+        newFeedItem.innerHTML = `
+            <div class="flex items-center space-x-2.5 min-w-0">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping flex-shrink-0"></span>
+                <span class="font-bold text-amber-400 font-mono flex-shrink-0">[LINE BOT] ${report.callSign}:</span>
+                <span class="text-slate-100 font-sarabun truncate">${report.missionDetail}</span>
+            </div>
+            <span class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-bold text-[10px] whitespace-nowrap ml-2">พล็อตพิกัดแล้ว ✓</span>
+        `;
+        feedContainer.prepend(newFeedItem);
+        setTimeout(() => newFeedItem.classList.remove('animate-pulse'), 3000);
+    }
+
+    // 4. Update KPI Counters
+    const kpiEl = document.getElementById('kpiTotalMissions');
+    if (kpiEl) {
+        kpiEl.textContent = currentData.latestReport.summary.totalMissions;
+        kpiEl.classList.add('text-emerald-400', 'scale-110');
+        setTimeout(() => kpiEl.classList.remove('text-emerald-400', 'scale-110'), 2000);
+    }
+
+    // 5. Update Timeline & Map
+    renderTimeline();
+    filterOperationsTable();
+    initOrUpdateMap();
+    initOrUpdateCharts();
+
+    // 6. Fly map to new location if map exists
+    if (appMap && typeof MgrsConverter !== 'undefined') {
+        const latlng = MgrsConverter.mgrsToLatLng(report.grid);
+        if (latlng) {
+            appMap.flyTo([latlng.lat, latlng.lng], 15, { duration: 1.5 });
+        }
+    }
+}
