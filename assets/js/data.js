@@ -83,9 +83,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 45338 58347",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๑๙๐๐ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย เข้าตรวจสอบมาตรการรักษาความปลอดภัย ณ โรงบรรจุแก๊สหุงต้มดอนรัก พื้นที่ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๕๓๓๘ ๕๘๓๔๗) ผลการปฏิบัติ ไม่พบสิ่งบอกเหตุหรือความเคลื่อนไหวที่ผิดปกติ",
                         "images": [
-                                    "assets/images/image1.jpeg",
-                                    "assets/images/image2.jpeg",
-                                    "assets/images/image3.jpeg"
+                                    "assets/images/23aug/image1.jpeg",
+                                    "assets/images/23aug/image2.jpeg",
+                                    "assets/images/23aug/image3.jpeg"
                         ]
             },
             {
@@ -103,9 +103,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47297 59261",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๒๑๙๓๐ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย เข้าตรวจสอบมาตรการรักษาความปลอดภัย ณ สถานีบริการน้ำมันบางจาก บริษัท ซีสยามทราเวล จำกัด พื้นที่ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๒๙๗ ๕๙๒๖๑) ผลการปฏิบัติ ไม่พบความเคลื่อนไหวที่ผิดปกติ พนักงานเข้าใจแนวทางปฏิบัติ",
                         "images": [
-                                    "assets/images/image4.jpeg",
-                                    "assets/images/image5.jpeg",
-                                    "assets/images/image6.jpeg"
+                                    "assets/images/23aug/image4.jpeg",
+                                    "assets/images/23aug/image5.jpeg",
+                                    "assets/images/23aug/image6.jpeg"
                         ]
             },
             {
@@ -123,9 +123,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 46045 58643",
                         "missionDetail": "ครั้งที่ ๓. เมื่อ ๒๒๒๐๓๐ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย เข้าตรวจสอบมาตรการรักษาความปลอดภัย ณ สถานีบริการน้ำมัน ปตท. สาขาถนนหนองจิก พื้นที่ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๖๐๔๕ ๕๘๖๔๓) ผลการปฏิบัติ เหตุการณ์ทั่วไปปกติ",
                         "images": [
-                                    "assets/images/image7.jpeg",
-                                    "assets/images/image8.jpeg",
-                                    "assets/images/image9.jpeg"
+                                    "assets/images/23aug/image7.jpeg",
+                                    "assets/images/23aug/image8.jpeg",
+                                    "assets/images/23aug/image9.jpeg"
                         ]
             },
             {
@@ -143,9 +143,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 46189 58404",
                         "missionDetail": "ครั้งที่ ๔. เมื่อ ๒๓๑๑๒๐ ส.ค. ๖๙ ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล (นามเรียกขาน เหมราช ๔๑๓๒) พร้อมพวก ๖ นาย ทำลายความพยายาม ตรวจสอบท่อลอดคอสะพาน จุดเสี่ยง จุดล่อแหลม ณ ม.๕ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๖๑๘๙ ๕๘๔๐๔) ผลการปฏิบัติ เป็นไปด้วยความเรียบร้อย",
                         "images": [
-                                    "assets/images/image10.jpeg",
-                                    "assets/images/image11.jpeg",
-                                    "assets/images/image12.jpeg"
+                                    "assets/images/23aug/image10.jpeg",
+                                    "assets/images/23aug/image11.jpeg",
+                                    "assets/images/23aug/image12.jpeg"
                         ]
             },
             {
@@ -163,9 +163,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47002 56099",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๙๓๐ ส.ค. ๖๙ ด.ต.บุญสิทธิ์ วัฒนสุข (นามเรียกขาน เหมราช ๔๒๑๕) พร้อมพวก ๕ นาย ลาดตระเวนทำลายความพยายาม ไม่ให้ ผกร. เข้ามาก่อเหตุในพื้นที่ ณ บ.ปะกาฮะรัง ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๐๐๒ ๕๖๐๙๙) ผลการปฏิบัติ เป็นไปด้วยความเรียบร้อย",
                         "images": [
-                                    "assets/images/image13.jpeg",
-                                    "assets/images/image14.jpeg",
-                                    "assets/images/image15.jpeg"
+                                    "assets/images/23aug/image13.jpeg",
+                                    "assets/images/23aug/image14.jpeg",
+                                    "assets/images/23aug/image15.jpeg"
                         ]
             },
             {
@@ -183,9 +183,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 44366 58827",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๙๐๐ ส.ค. ๖๙ ส.ต.ท.นักรบ เรืองกลิ่น พร้อมพวก ๖ นาย ลาดตระเวนป้องกันที่ตั้ง วงแหวนชั้นนอกบริเวณรอบฐาน (พิกัด ๔๗NQH ๔๔๓๖๖ ๕๘๘๒๗) ผลการปฏิบัติ ไม่พบสิ่งบอกเหตุหรือร่องรอยผิดปกติ",
                         "images": [
-                                    "assets/images/image16.jpeg",
-                                    "assets/images/image17.jpeg",
-                                    "assets/images/image18.jpeg"
+                                    "assets/images/23aug/image16.jpeg",
+                                    "assets/images/23aug/image17.jpeg",
+                                    "assets/images/23aug/image18.jpeg"
                         ]
             },
             {
@@ -203,9 +203,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 46531 58397",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๑๒๔๐ ส.ค. ๖๙ ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล (นามเรียกขาน เหมราช ๔๑๓๒) พร้อมพวก ๖ นาย ลาดตระเวนพิสูจน์ทราบพื้นที่เป้าหมาย ณ ม.๕ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๖๕๓๑ ๕๘๓๙๗) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image19.jpeg",
-                                    "assets/images/image20.jpeg",
-                                    "assets/images/image21.jpeg"
+                                    "assets/images/23aug/image19.jpeg",
+                                    "assets/images/23aug/image20.jpeg",
+                                    "assets/images/23aug/image21.jpeg"
                         ]
             },
             {
@@ -223,9 +223,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47240 57587",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๙๓๐ ส.ค. ๖๙ ด.ต.บุญสิทธิ์ วัฒนสุข (นามเรียกขาน เหมราช ๔๒๑๕) พร้อมพวก ๕ นาย ลาดตระเวนพิสูจน์ทราบจำกัดเสรีการปฏิบัติ ณ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๒๔๐ ๕๗๕๘๗) ผลการปฏิบัติ เป็นไปด้วยความเรียบร้อย ร้อย ฉก.ตชด.๙๒๔ (รวม ๑ ครั้ง):",
                         "images": [
-                                    "assets/images/image22.jpeg",
-                                    "assets/images/image23.jpeg",
-                                    "assets/images/image24.jpeg"
+                                    "assets/images/23aug/image22.jpeg",
+                                    "assets/images/23aug/image23.jpeg",
+                                    "assets/images/23aug/image24.jpeg"
                         ]
             },
             {
@@ -243,9 +243,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๑๐๓๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย เข้าปิดล้อมตรวจค้นบ้านเช่าเลขที่ ๑๐๔/๓ และ ๑๐๔/๖ ม.๒ ต.รูสะมิแล อ.เมือง จว.ปัตตานี เพื่อค้นหาแหล่งพักพิงกลุ่ม ผกร. ผลการปฏิบัติ ไม่พบบุคคลต้องสงสัย หรือสิ่งผิดกฎหมายแต่อย่างใด",
                         "images": [
-                                    "assets/images/image25.jpeg",
-                                    "assets/images/image26.jpeg",
-                                    "assets/images/image27.jpeg"
+                                    "assets/images/23aug/image25.jpeg",
+                                    "assets/images/23aug/image26.jpeg",
+                                    "assets/images/23aug/image27.jpeg"
                         ]
             },
             {
@@ -263,9 +263,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๙๒๐ ส.ค. ๖๙ ส.ต.ท.ชัยวัฒน์ มณีแดง พร้อมพวก ๖ นาย ปฏิบัติภารกิจ รปภ.ครู และโรงเรียน ณ โรงเรียนบางปลาหมอ ต.รูสะมิแล อ.เมือง จว.ปัตตานี ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image28.jpeg",
-                                    "assets/images/image29.jpeg",
-                                    "assets/images/image30.jpeg"
+                                    "assets/images/23aug/image28.jpeg",
+                                    "assets/images/23aug/image29.jpeg",
+                                    "assets/images/23aug/image30.jpeg"
                         ]
             },
             {
@@ -283,9 +283,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๐๙๔๐ ส.ค. ๖๙ ส.ต.ท.ชัยวัฒน์ มณีแดง พร้อมพวก ๖ นาย ปฏิบัติภารกิจ รปภ.ครู และโรงเรียน ณ โรงเรียนราชประชานุเคราะห์ ต.รูสะมิแล อ.เมือง จว.ปัตตานี ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image31.jpeg",
-                                    "assets/images/image32.jpeg",
-                                    "assets/images/image33.jpeg"
+                                    "assets/images/23aug/image31.jpeg",
+                                    "assets/images/23aug/image32.jpeg",
+                                    "assets/images/23aug/image33.jpeg"
                         ]
             },
             {
@@ -303,9 +303,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๖๓๐ ส.ค. ๖๙ จ.ส.ต.กำธรพล บุญสุวรรณ์ พร้อมพวก ๒ นาย รักษาความปลอดภัยพระสงฆ์บิณฑบาต ณ วัดขจรประชาราม ม.๑ ต.รูสะมิแล อ.เมือง จว.ปัตตานี ผลการปฏิบัติ เป็นไปด้วยความเรียบร้อย",
                         "images": [
-                                    "assets/images/image34.jpeg",
-                                    "assets/images/image35.jpeg",
-                                    "assets/images/image36.jpeg"
+                                    "assets/images/23aug/image34.jpeg",
+                                    "assets/images/23aug/image35.jpeg",
+                                    "assets/images/23aug/image36.jpeg"
                         ]
             },
             {
@@ -323,9 +323,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47264 59246",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๒๐๐๐ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย ปฏิบัติภารกิจ รปภ.เส้นทาง ถนนหนองจิก ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๒๖๔ ๕๙๒๔๖) ผลการปฏิบัติ ไม่พบสิ่งของต้องสงสัย",
                         "images": [
-                                    "assets/images/image37.jpeg",
-                                    "assets/images/image38.jpeg",
-                                    "assets/images/image39.jpeg"
+                                    "assets/images/23aug/image37.jpeg",
+                                    "assets/images/23aug/image38.jpeg",
+                                    "assets/images/23aug/image39.jpeg"
                         ]
             },
             {
@@ -343,9 +343,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 45707 58231",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๐๘๐๐ ส.ค. ๖๙ ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล (นามเรียกขาน เหมราช ๔๑๓๒) พร้อมพวก ๖ นาย ลาดตระเวน รปภ.เส้นทาง ณ ม.๔ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๕๗๐๗ ๕๘๒๓๑) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image40.jpeg",
-                                    "assets/images/image41.jpeg",
-                                    "assets/images/image42.jpeg"
+                                    "assets/images/23aug/image40.jpeg",
+                                    "assets/images/23aug/image41.jpeg",
+                                    "assets/images/23aug/image42.jpeg"
                         ]
             },
             {
@@ -363,9 +363,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47047 56310",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๒๓๐๐ ส.ค. ๖๙ ด.ต.บุญสิทธิ์ วัฒนสุข พร้อมพวก ๕ นาย ลาดตระเวน รปภ.เส้นทางสาย ๔๒ (แยกงาแม่นอก-เชิงสะพานตะลุโบะ) อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๐๔๗ ๕๖๓๑๐) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image43.jpeg",
-                                    "assets/images/image44.jpeg",
-                                    "assets/images/image45.jpeg"
+                                    "assets/images/23aug/image43.jpeg",
+                                    "assets/images/23aug/image44.jpeg",
+                                    "assets/images/23aug/image45.jpeg"
                         ]
             },
             {
@@ -383,9 +383,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47002 56099",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๐๙๐๐ ส.ค. ๖๙ ด.ต.บุญสิทธิ์ วัฒนสุข พร้อมพวก ๕ นาย ลาดตระเวนทำเส้นทางให้ปลอดภัย ณ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๐๐๒ ๕๖๐๙๙) ผลการปฏิบัติ เหตุการณ์ปกติ ร้อย ฉก.ตชด.๙๒๔ (รวม ๒ ครั้ง):",
                         "images": [
-                                    "assets/images/image46.jpeg",
-                                    "assets/images/image47.jpeg",
-                                    "assets/images/image48.jpeg"
+                                    "assets/images/23aug/image46.jpeg",
+                                    "assets/images/23aug/image47.jpeg",
+                                    "assets/images/23aug/image48.jpeg"
                         ]
             },
             {
@@ -403,9 +403,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 46007 54204",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๑๑๑๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย ตรวจสอบเส้นทางเสี่ยง (เส้นทางหลังโรงไฟฟ้าชีวมวล) รอยต่อ ม.๑ ต.ลิปะสะโง - ม.๖ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๖๐๐๗ ๕๔๒๐๔) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image49.jpeg",
-                                    "assets/images/image50.jpeg",
-                                    "assets/images/image51.jpeg"
+                                    "assets/images/23aug/image49.jpeg",
+                                    "assets/images/23aug/image50.jpeg",
+                                    "assets/images/23aug/image51.jpeg"
                         ]
             },
             {
@@ -423,15 +423,15 @@ var BPP924_DATA = {
                         "grid": "47NQH 47906 53271",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๑๑๒๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย ตรวจสอบเส้นทางเสี่ยง ถนนเส้น ๔๓ (เลียบคลองชลประทาน) ทะลุไปยัง ม.๔ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๙๐๖ ๕๓๒๗๑) ผลการปฏิบัติ เหตุการณ์ปกติ (รวม ๒๒ ครั้ง ณ จุดตรวจปราการ ๒ บางปลาหมอ พิกัด ๔๗NQH ๔๔๒๖๒ ๕๙๐๙๐):",
                         "images": [
-                                    "assets/images/image52.jpeg",
-                                    "assets/images/image53.jpeg",
-                                    "assets/images/image54.jpeg",
-                                    "assets/images/image55.jpeg",
-                                    "assets/images/image56.jpeg",
-                                    "assets/images/image57.jpeg",
-                                    "assets/images/image58.jpeg",
-                                    "assets/images/image59.jpeg",
-                                    "assets/images/image60.jpeg"
+                                    "assets/images/23aug/image52.jpeg",
+                                    "assets/images/23aug/image53.jpeg",
+                                    "assets/images/23aug/image54.jpeg",
+                                    "assets/images/23aug/image55.jpeg",
+                                    "assets/images/23aug/image56.jpeg",
+                                    "assets/images/23aug/image57.jpeg",
+                                    "assets/images/23aug/image58.jpeg",
+                                    "assets/images/23aug/image59.jpeg",
+                                    "assets/images/23aug/image60.jpeg"
                         ]
             },
             {
@@ -449,7 +449,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๑๕๕๕ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๑๕.๐๐-๑๖.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๑ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -467,7 +467,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๒๑๖๕๘ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๒๑ พร้อมพวก ๕ นาย (ห้วง ๑๖.๐๐-๑๗.๐๐ น.) ตรวจรถ ๑๓ คัน บุคคล ๑๕ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -485,7 +485,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๓. เมื่อ ๒๒๑๖๕๘ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๒๑ พร้อมพวก ๕ นาย (ห้วง ๑๗.๐๐-๑๘.๐๐ น.) ตรวจรถ ๑๗ คัน บุคคล ๒๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -503,7 +503,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๔. เมื่อ ๒๒๑๘๔๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๑๘ พร้อมพวก ๕ นาย (ห้วง ๑๘.๐๐-๑๙.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -521,7 +521,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๕. เมื่อ ๒๒๑๙๒๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๐๔ พร้อมพวก ๕ นาย (ห้วง ๑๙.๐๐-๒๐.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -539,7 +539,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๖. เมื่อ ๒๒๒๑๔๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๘ พร้อมพวก ๖ นาย (ห้วง ๒๑.๐๐-๒๒.๐๐ น.) ตรวจรถ ๔ คัน บุคคล ๖ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -557,7 +557,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๗. เมื่อ ๒๒๒๒๔๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๘ พร้อมพวก ๖ นาย (ห้วง ๒๒.๐๐-๒๓.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๒ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -575,7 +575,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๘. เมื่อ ๒๓๐๐๓๙ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๔๐๓ พร้อมพวก ๕ นาย (ห้วง ๐๐.๐๐-๐๑.๐๐ น.) ตรวจรถ ๔ คัน บุคคล ๔ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -593,7 +593,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๙. เมื่อ ๒๓๐๑๓๘ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๔๐๓ พร้อมพวก ๕ นาย (ห้วง ๐๑.๐๐-๐๒.๐๐ น.) ตรวจรถ ๓ คัน บุคคล ๓ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -611,7 +611,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๐. เมื่อ ๒๓๐๒๓๕ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๔๐๓ พร้อมพวก ๕ นาย (ห้วง ๐๒.๐๐-๐๓.๐๐ น.) ตรวจรถ ๒ คัน บุคคล ๒ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -629,7 +629,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๑. เมื่อ ๒๓๐๓๔๕ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๐๓.๐๐-๐๔.๐๐ น.) ตรวจรถ ๐ คัน บุคคล ๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -647,12 +647,12 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๒. เมื่อ ๒๓๐๔๕๕ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๐๔.๐๐-๐๕.๐๐ น.) ตรวจรถ ๐ คัน บุคคล ๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image61.jpeg",
-                                    "assets/images/image62.jpeg",
-                                    "assets/images/image63.jpeg",
-                                    "assets/images/image64.jpeg",
-                                    "assets/images/image65.jpeg",
-                                    "assets/images/image66.jpeg"
+                                    "assets/images/23aug/image61.jpeg",
+                                    "assets/images/23aug/image62.jpeg",
+                                    "assets/images/23aug/image63.jpeg",
+                                    "assets/images/23aug/image64.jpeg",
+                                    "assets/images/23aug/image65.jpeg",
+                                    "assets/images/23aug/image66.jpeg"
                         ]
             },
             {
@@ -670,7 +670,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๓. เมื่อ ๒๓๐๕๕๕ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๐๕.๐๐-๐๖.๐๐ น.) ตรวจรถ ๗ คัน บุคคล ๙ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -688,7 +688,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๔. เมื่อ ๒๓๐๖๑๔ ส.ค. ๖๙ นามเรียกขาน เหมราช - พร้อมพวก ๕ นาย (ห้วง ๐๖.๐๐-๐๗.๐๐ น.) ตรวจรถ ๘ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -706,7 +706,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๕. เมื่อ ๒๓๐๗๕๖ ส.ค. ๖๙ นามเรียกขาน เหมราช - พร้อมพวก ๕ นาย (ห้วง ๐๗.๐๐-๐๘.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -724,7 +724,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๖. เมื่อ ๒๓๐๘๓๐ ส.ค. ๖๙ นามเรียกขาน เหมราช - พร้อมพวก ๕ นาย (ห้วง ๐๘.๐๐-๐๙.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -742,7 +742,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๗. เมื่อ ๒๓๐๙๕๕ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๐๙.๐๐-๑๐.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๒ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -760,7 +760,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๘. เมื่อ ๒๓๑๐๕๘ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๑๐.๐๐-๑๑.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -778,7 +778,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑๙. เมื่อ ๒๓๑๒๐๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๖ พร้อมพวก ๕ นาย (ห้วง ๑๑.๐๐-๑๒.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๒ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -796,7 +796,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒๐. เมื่อ ๒๓๑๒๓๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๑๐ พร้อมพวก ๕ นาย (ห้วง ๑๒.๐๐-๑๓.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -814,7 +814,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒๑. เมื่อ ๒๓๑๓๔๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๑๐ พร้อมพวก ๕ นาย (ห้วง ๑๓.๐๐-๑๔.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -832,7 +832,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒๒. เมื่อ ๒๓๑๔๓๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๑๐ พร้อมพวก ๕ นาย (ห้วง ๑๔.๐๐-๑๕.๐๐ น.) ตรวจรถ ๑๐ คัน บุคคล ๑๐ ราย ไม่พบสิ่งผิดกฎหมาย",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -850,9 +850,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 46837 54909",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๒๐๓๐ ส.ค. ๖๙ ด.ต.บุญสิทธิ์ วัฒนสุข พร้อมพวก ๖ นาย บูรณาการตั้งจุดตรวจร่วมกับ ชคต.ปะกาฮะรัง ณ ม.๔ บ.จือแลนิบง ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๖๘๓๗ ๕๔๙๐๙) ผลการปฏิบัติ ไม่พบสิ่งของต้องสงสัย สรุปรวมผลการปฏิบัติตั้งด่านตรวจฯ ในนาม ร้อย.ฉก.ตชด.๙๒๔: ตรวจค้นยานพาหนะรวม ๑๗๘ คัน ตรวจค้นบุคคลรวม ๑๙๖ ราย",
                         "images": [
-                                    "assets/images/image67.jpeg",
-                                    "assets/images/image68.jpeg",
-                                    "assets/images/image69.jpeg"
+                                    "assets/images/23aug/image67.jpeg",
+                                    "assets/images/23aug/image68.jpeg",
+                                    "assets/images/23aug/image69.jpeg"
                         ]
             },
             {
@@ -870,9 +870,9 @@ var BPP924_DATA = {
                         "grid": "06.873175,",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๒๐๐๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๑๙ พร้อมพวก ๖ นาย ตั้งจุดสกัด (Pop-up) ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๐๖.๘๗๓๑๗๕, ๑๐๑.๒๒๑๗๙๓) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image70.jpeg",
-                                    "assets/images/image71.jpeg",
-                                    "assets/images/image72.jpeg"
+                                    "assets/images/23aug/image70.jpeg",
+                                    "assets/images/23aug/image71.jpeg",
+                                    "assets/images/23aug/image72.jpeg"
                         ]
             },
             {
@@ -890,9 +890,9 @@ var BPP924_DATA = {
                         "grid": "06.874632,",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๒๒๑๐๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๑๑ พร้อมพวก ๖ นาย ตั้งจุดสกัด (Pop-up) ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๐๖.๘๗๔๖๓๒, ๑๐๑.๒๒๘๐๖๓) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image73.jpeg",
-                                    "assets/images/image74.jpeg",
-                                    "assets/images/image75.jpeg"
+                                    "assets/images/23aug/image73.jpeg",
+                                    "assets/images/23aug/image74.jpeg",
+                                    "assets/images/23aug/image75.jpeg"
                         ]
             },
             {
@@ -910,9 +910,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 45006 60163",
                         "missionDetail": "ครั้งที่ ๓. เมื่อ ๒๒๒๒๐๐ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย ตั้งจุดสกัด (Pop-up) ณ บริเวณหน้าวัดขจร ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๕๐๐๖ ๖๐๑๖๓) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image76.jpeg",
-                                    "assets/images/image77.jpeg",
-                                    "assets/images/image78.jpeg"
+                                    "assets/images/23aug/image76.jpeg",
+                                    "assets/images/23aug/image77.jpeg",
+                                    "assets/images/23aug/image78.jpeg"
                         ]
             },
             {
@@ -930,9 +930,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 44640 60089",
                         "missionDetail": "ครั้งที่ ๔. เมื่อ ๒๒๒๓๐๐ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย ตั้งจุดสกัด (Pop-up) ณ หน้ารร.ราชประชานุเคราะห์ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๔๖๔๐ ๖๐๐๘๙) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image79.jpeg",
-                                    "assets/images/image80.jpeg",
-                                    "assets/images/image81.jpeg"
+                                    "assets/images/23aug/image79.jpeg",
+                                    "assets/images/23aug/image80.jpeg",
+                                    "assets/images/23aug/image81.jpeg"
                         ]
             },
             {
@@ -950,9 +950,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 44146 59549",
                         "missionDetail": "ครั้งที่ ๕. เมื่อ ๒๓๐๐๐๑ ส.ค. ๖๙ ส.ต.ท.ณัฐพร สะพานทอง พร้อมพวก ๕ นาย ตั้งจุดสกัด (Pop-up) ณ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๔๑๔๖ ๕๙๕๔๙) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image82.jpeg",
-                                    "assets/images/image83.jpeg",
-                                    "assets/images/image84.jpeg"
+                                    "assets/images/23aug/image82.jpeg",
+                                    "assets/images/23aug/image83.jpeg",
+                                    "assets/images/23aug/image84.jpeg"
                         ]
             },
             {
@@ -970,9 +970,9 @@ var BPP924_DATA = {
                         "grid": "06.85895,",
                         "missionDetail": "ครั้งที่ ๖. เมื่อ ๒๓๑๔๐๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๐๘ พร้อมพวก ๖ นาย ตั้งจุดสกัด (Pop-up) ต.รูสะมิแล อ.เมือง จว.ปัตตานี (พิกัด ๐๖.๘๕๘๙๕, ๑๐๑.๒๓๘๘๕๕) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image85.jpeg",
-                                    "assets/images/image86.jpeg",
-                                    "assets/images/image87.jpeg"
+                                    "assets/images/23aug/image85.jpeg",
+                                    "assets/images/23aug/image86.jpeg",
+                                    "assets/images/23aug/image87.jpeg"
                         ]
             },
             {
@@ -990,9 +990,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47169 57295",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๒๑๔๐ ส.ค. ๖๙ ด.ต.บุญสิทธิ์ วัฒนสุข พร้อมพวก ๖ นาย ตั้งจุดสกัด (Pop-up) ณ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๑๖๙ ๕๗๒๙๕) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image88.jpeg",
-                                    "assets/images/image89.jpeg",
-                                    "assets/images/image90.jpeg"
+                                    "assets/images/23aug/image88.jpeg",
+                                    "assets/images/23aug/image89.jpeg",
+                                    "assets/images/23aug/image90.jpeg"
                         ]
             },
             {
@@ -1010,9 +1010,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 47002 56099",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๑୩୦୦ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๒๑๕ พร้อมพวก ๖ นาย ตั้งจุดสกัด (Pop-up) ณ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี (พิกัด ๔๗NQH ๔๗๐๐๒ ๕๖๐๙๙) ผลการปฏิบัติ เหตุการณ์ปกติ ร้อย ฉก.ตชด.๙๒๔ (รวม ๒ ครั้ง):",
                         "images": [
-                                    "assets/images/image91.jpeg",
-                                    "assets/images/image92.jpeg",
-                                    "assets/images/image93.jpeg"
+                                    "assets/images/23aug/image91.jpeg",
+                                    "assets/images/23aug/image92.jpeg",
+                                    "assets/images/23aug/image93.jpeg"
                         ]
             },
             {
@@ -1030,9 +1030,9 @@ var BPP924_DATA = {
                         "grid": "06.852609,",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๐๓๐ ส.ค. ๖๙ ส.ต.ท.ชาญณรงค์ ภิลาศรี พร้อมพวก ๖ นาย ตั้งจุดสกัด (Pop-up) ณ ปราการ ๗ อ.เมือง จว.ปัตตานี (พิกัด ๐๖.๘๕๒๖๐๙, ๑๐๑.๒๕๒๑๙๖) ผลการปฏิบัติ เหตุการณ์ปกติ",
                         "images": [
-                                    "assets/images/image94.jpeg",
-                                    "assets/images/image95.jpeg",
-                                    "assets/images/image96.jpeg"
+                                    "assets/images/23aug/image94.jpeg",
+                                    "assets/images/23aug/image95.jpeg",
+                                    "assets/images/23aug/image96.jpeg"
                         ]
             },
             {
@@ -1050,9 +1050,9 @@ var BPP924_DATA = {
                         "grid": "06.866343,",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๐๔๐๐ ส.ค. ๖๙ ส.ต.ท.ชาญณรงค์ ภิลาศรี พร้อมพวก ๖ นาย เรียกตรวจรถและบุคคลน่าสงสัย ณ ถนนยะรัง อ.เมือง จว.ปัตตานี (พิกัด ๐๖.๘๖๖๓๔๓, ๑๐๑.๒๕๗๗๒๕) ผลการปฏิบัติ เหตุการณ์ปกติ ไม่มีการปฏิบัติ (มีการปฏิบัติแบบบูรณาการกำลังระบุไว้ในข้อ ๕) ๑.๓) การปฏิบัติอื่นๆ การปฏิบัติของ ผบ.หน่วยฯ: ร้อย ฉก.ตชด.๙๒๔ (รวม ๑ ครั้ง):",
                         "images": [
-                                    "assets/images/image97.jpeg",
-                                    "assets/images/image98.jpeg",
-                                    "assets/images/image99.jpeg"
+                                    "assets/images/23aug/image97.jpeg",
+                                    "assets/images/23aug/image98.jpeg",
+                                    "assets/images/23aug/image99.jpeg"
                         ]
             },
             {
@@ -1070,7 +1070,7 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๒๒๒๔ ส.ค. ๖๙ ร.ต.อ.เดชเดโช ส่งสีอ่อน ผบ.ร้อย ฉก.ตชด.๙๒๔ สั่งการแจ้งการปฏิบัติของหน่วยฯ เพื่อป้องกันเหตุเพิ่มเติม และจัดวงรอบการทำงานตลอดคืน (เวลา ๒๒.๒๔ น.)",
                         "images": [
-                                    "assets/images/image1.jpeg"
+                                    "assets/images/23aug/image1.jpeg"
                         ]
             },
             {
@@ -1088,9 +1088,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๑๘๒๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๓ (เอกพสิษฐิ์) กำชับการปฏิบัติประจำจุดตรวจปราการ ๒ (บางปลาหมอ) งานกิจการพลเรือน (การพบปะประชาชน/ผู้นำ):",
                         "images": [
-                                    "assets/images/image100.jpeg",
-                                    "assets/images/image101.jpeg",
-                                    "assets/images/image102.jpeg"
+                                    "assets/images/23aug/image100.jpeg",
+                                    "assets/images/23aug/image101.jpeg",
+                                    "assets/images/23aug/image102.jpeg"
                         ]
             },
             {
@@ -1108,9 +1108,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๑๓๓๐ ส.ค. ๖๙ ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล พร้อมพวก ๖ นาย ลงพื้นที่พบปะเสริมสร้างความเข้าใจประชาชน ม.๕ ต.รูสะมิแล อ.เมือง จว.ปัตตานี ร้อย ฉก.ตชด.๙๒๔ (รวม ๔ ครั้ง):",
                         "images": [
-                                    "assets/images/image103.jpeg",
-                                    "assets/images/image104.jpeg",
-                                    "assets/images/image105.jpeg"
+                                    "assets/images/23aug/image103.jpeg",
+                                    "assets/images/23aug/image104.jpeg",
+                                    "assets/images/23aug/image105.jpeg"
                         ]
             },
             {
@@ -1128,9 +1128,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๐๙๐๐ ส.ค. ๖๙ ร.ต.อ.เดชเดโช ส่งสีอ่อน พร้อมพวก ๓ นาย เข้าร่วมพิธีบำเพ็ญกุศลอัฐิ ณ วัดขจรประชาราม ม.๑ ต.รูสะมิแล อ.เมือง จว.ปัตตานี (เวลา ๑๑.๕๙ น.)",
                         "images": [
-                                    "assets/images/image106.jpeg",
-                                    "assets/images/image107.jpeg",
-                                    "assets/images/image108.jpeg"
+                                    "assets/images/23aug/image106.jpeg",
+                                    "assets/images/23aug/image107.jpeg",
+                                    "assets/images/23aug/image108.jpeg"
                         ]
             },
             {
@@ -1148,9 +1148,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๑๑๑๕ ส.ค. ๖๙ ร.ต.อ.เดชเดโช ส่งสีอ่อน พร้อมพวก ๓ นาย พบปะเยี่ยมเยียนผู้ประกอบการสถานีบริการน้ำมัน ปตท. สาขาหนองจิก ต.รูสะมิแล อ.เมือง จว.ปัตตานี เพื่อแลกเปลี่ยนข้อมูลข่าวสาร",
                         "images": [
-                                    "assets/images/image109.jpeg",
-                                    "assets/images/image110.jpeg",
-                                    "assets/images/image111.jpeg"
+                                    "assets/images/23aug/image109.jpeg",
+                                    "assets/images/23aug/image110.jpeg",
+                                    "assets/images/23aug/image111.jpeg"
                         ]
             },
             {
@@ -1168,9 +1168,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๓. เมื่อ ๒๓๑๑๔๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย พบปะนายเจ๊ะซือแม อาราหลี ผู้ใหญ่บ้าน ม.๒ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี เพื่อแลกเปลี่ยนสถานการณ์",
                         "images": [
-                                    "assets/images/image112.jpeg",
-                                    "assets/images/image113.jpeg",
-                                    "assets/images/image114.jpeg"
+                                    "assets/images/23aug/image112.jpeg",
+                                    "assets/images/23aug/image113.jpeg",
+                                    "assets/images/23aug/image114.jpeg"
                         ]
             },
             {
@@ -1188,9 +1188,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๔. เมื่อ ๒๓๑๒๓๐ ส.ค. ๖๙ ร.ต.อ.เดชเดโช ส่งสีอ่อน พร้อมพวก ๓ นาย ร่วมดื่มน้ำชากับประธานสภาเทศบาลรูสะมิแล ณ ร้านอเมซอน ม.๖ ต.รูสะมิแล อ.เมือง จว.ปัตตานี เพื่อประสานงานและหาข่าว ภารกิจพิเศษ/อื่นๆ:",
                         "images": [
-                                    "assets/images/image115.jpeg",
-                                    "assets/images/image116.jpeg",
-                                    "assets/images/image117.jpeg"
+                                    "assets/images/23aug/image115.jpeg",
+                                    "assets/images/23aug/image116.jpeg",
+                                    "assets/images/23aug/image117.jpeg"
                         ]
             },
             {
@@ -1208,9 +1208,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๑๘๐๐ ส.ค. ๖๙ ส.ต.ท.ธีรานันท์ มีล่อง (เหมราช ๔๑๐๙) ปฏิบัติหน้าที่พลนำทางให้ ฉก.พัน.ร.ที่ ๔ ณ ม.๕ ถนนพระยาเมือง อ.เมือง จว.ปัตตานี",
                         "images": [
-                                    "assets/images/image118.jpeg",
-                                    "assets/images/image119.jpeg",
-                                    "assets/images/image120.jpeg"
+                                    "assets/images/23aug/image118.jpeg",
+                                    "assets/images/23aug/image119.jpeg",
+                                    "assets/images/23aug/image120.jpeg"
                         ]
             },
             {
@@ -1228,9 +1228,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๒๒๑๐๐ ส.ค. ๖๙ ส.ต.ท.ธีรานันท์ มีล่อง (เหมราช ๔๑๐๙) ปฏิบัติหน้าที่พลนำทางให้ ฉก.พัน.ร.ที่ ๔ ณ ม.๔ ซอยเจริญประดิษฐ์ อ.เมือง จว.ปัตตานี",
                         "images": [
-                                    "assets/images/image121.jpeg",
-                                    "assets/images/image122.jpeg",
-                                    "assets/images/image123.jpeg"
+                                    "assets/images/23aug/image121.jpeg",
+                                    "assets/images/23aug/image122.jpeg",
+                                    "assets/images/23aug/image123.jpeg"
                         ]
             },
             {
@@ -1248,9 +1248,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๓. เมื่อ ๒๒๒๓๐๐ ส.ค. ๖๙ ส.ต.ท.ธีรานันท์ มีล่อง (เหมราช ๔๑๐๙) ปฏิบัติหน้าที่พลนำทางให้ ฉก.พัน.ร.ที่ ๔ ณ ม.๕ ถนนพูนสวัสดิ์ อ.เมือง จว.ปัตตานี ร้อย ฉก.ตชด.๙๒๔ (รวม ๓ ครั้ง):",
                         "images": [
-                                    "assets/images/image124.jpeg",
-                                    "assets/images/image125.jpeg",
-                                    "assets/images/image126.jpeg"
+                                    "assets/images/23aug/image124.jpeg",
+                                    "assets/images/23aug/image125.jpeg",
+                                    "assets/images/23aug/image126.jpeg"
                         ]
             },
             {
@@ -1268,9 +1268,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๓๑๑๐๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย ตรวจสอบเสาส่งสัญญาณโทรศัพท์ ณ ม.๖ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี ผลอยู่ในสภาพปกติ",
                         "images": [
-                                    "assets/images/image127.jpeg",
-                                    "assets/images/image128.jpeg",
-                                    "assets/images/image129.jpeg"
+                                    "assets/images/23aug/image127.jpeg",
+                                    "assets/images/23aug/image128.jpeg",
+                                    "assets/images/23aug/image129.jpeg"
                         ]
             },
             {
@@ -1288,9 +1288,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๓๑๑๓๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย ตรวจสอบกล้องวงจรปิด (CCTV) บ.ยือโม๊ะ ม.๒ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี ผลอยู่ในสภาพปกติ",
                         "images": [
-                                    "assets/images/image130.jpeg",
-                                    "assets/images/image131.jpeg",
-                                    "assets/images/image132.jpeg"
+                                    "assets/images/23aug/image130.jpeg",
+                                    "assets/images/23aug/image131.jpeg",
+                                    "assets/images/23aug/image132.jpeg"
                         ]
             },
             {
@@ -1308,9 +1308,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๓. เมื่อ ๒๓๑๑๕๐ ส.ค. ๖๙ ด.ต.อาณัติ รัตนบุรี พร้อมพวก ๔ นาย ตรวจสอบกล้องวงจรปิด (CCTV) บ.จางา ม.๒ ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี ผลอยู่ในสภาพปกติ การซักซ้อมแผนเผชิญเหตุป้องกันที่ตั้ง:",
                         "images": [
-                                    "assets/images/image133.jpeg",
-                                    "assets/images/image134.jpeg",
-                                    "assets/images/image135.jpeg"
+                                    "assets/images/23aug/image133.jpeg",
+                                    "assets/images/23aug/image134.jpeg",
+                                    "assets/images/23aug/image135.jpeg"
                         ]
             },
             {
@@ -1328,9 +1328,9 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๑. เมื่อ ๒๒๑๗๐๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๓ (เอกพสิษฐิ์) ซักซ้อมแผนเผชิญเหตุจุดสกัดขาเข้า-ออก ประจำจุดตรวจปราการ ๒",
                         "images": [
-                                    "assets/images/image136.jpeg",
-                                    "assets/images/image137.jpeg",
-                                    "assets/images/image138.jpeg"
+                                    "assets/images/23aug/image136.jpeg",
+                                    "assets/images/23aug/image137.jpeg",
+                                    "assets/images/23aug/image138.jpeg"
                         ]
             },
             {
@@ -1348,10 +1348,10 @@ var BPP924_DATA = {
                         "grid": "47NQH 52300 55800",
                         "missionDetail": "ครั้งที่ ๒. เมื่อ ๒๒๒๐๓๐ ส.ค. ๖๙ นามเรียกขาน เหมราช ๔๑๓ (เอกพสิษฐิ์) ซักซ้อมแผนเผชิญเหตุจุดสกัดขาเข้า-ออก ประจำจุดตรวจปราการ ๒ การ (รับ) ตรวจเยี่ยมของผู้บังคับบัญชา: ไม่ได้รับการรายงาน การพัฒนาบริหารที่ตั้ง: ไม่ได้รับการรายงาน บันทึกจับกุม: ไม่ได้รับการรายงาน ปัญหา/ข้อขัดข้อง: ไม่ได้รับการรายงาน ผู้อนุมัติให้ส่งข่าวได้ ร.ต.อ. ( เดชเดโช  ส่งสีอ่อน ) ผบ.ร้อย ฉก.ตชด.9๒๔ 23 ส.ค. ๖9",
                         "images": [
-                                    "assets/images/image139.jpeg",
-                                    "assets/images/image140.jpeg",
-                                    "assets/images/image141.jpeg",
-                                    "assets/images/image142.png"
+                                    "assets/images/23aug/image139.jpeg",
+                                    "assets/images/23aug/image140.jpeg",
+                                    "assets/images/23aug/image141.jpeg",
+                                    "assets/images/23aug/image142.png"
                         ]
             }
 ]
@@ -1401,7 +1401,7 @@ var BPP924_DATA = {
             date: "2026-08-23",
             dateTh: "๒๓ ส.ค. ๒๕๖๙",
             summary: "สรุปผลการปฏิบัติการลาดตระเวน ตั้งจุดตรวจความมั่นคง และรักษาความปลอดภัยพื้นที่ ต.รูสะมิแล และ ต.ปะกาฮะรัง อ.เมือง จ.ปัตตานี",
-            image: "assets/images/image1.jpeg",
+            image: "assets/images/23aug/image1.jpeg",
             youtubeId: "M3A6HLu6ydE",
             youtubeUrl: "https://youtu.be/M3A6HLu6ydE",
             tags: ["รายงานข่าว", "ยุทธการ", "ฉก.ตร.ปัตตานี ๙๒"],
@@ -1414,7 +1414,7 @@ var BPP924_DATA = {
             date: "2026-08-23",
             dateTh: "๒๓ ส.ค. ๒๕๖๙",
             summary: "ชุดปฏิบัติการกิจการพลเรือน (ชป.กร.) ลงพื้นที่พบปะผู้นำชุมชน ตรวจเยี่ยมสถานศึกษาตาดีกา และกิจกรรมเสริมสร้างความเข้าใจกับประชาชน",
-            image: "assets/images/image2.jpeg",
+            image: "assets/images/23aug/image2.jpeg",
             youtubeId: "E9XPdpxKBII",
             youtubeUrl: "https://www.youtube.com/watch?v=E9XPdpxKBII&list=PLJ4wWttvByUDqy9BqS3DXVhQi4-G3-8FS&index=2",
             tags: ["กิจการพลเรือน", "มวลชนสัมพันธ์", "ชป.กร."],
