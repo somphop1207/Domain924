@@ -58,103 +58,99 @@
 </head>
 <body class="bg-tactical-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
 
-    <!-- TOP SECURITY STATUS BAR (Mobile & PC Optimized) -->
-    <div class="bg-slate-950 border-b border-slate-800 text-xs py-1.5 px-3 sm:px-6 flex items-center justify-between gap-2 z-50">
-        <div class="flex items-center space-x-2 truncate">
+        <!-- TOP SECURITY STATUS BAR (Clean Single-Row) -->
+    <div class="bg-slate-950 border-b border-slate-800 text-xs py-1.5 px-3 sm:px-6 flex items-center justify-between z-50">
+        <div class="flex items-center space-x-2">
             <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-badge flex-shrink-0"></span>
-            <span class="text-amber-400 font-extrabold text-xs sm:text-sm truncate">ร้อย ฉก.ตชด. PTN924</span>
-            <span class="text-slate-500 text-[11px] hidden sm:inline">(ฉก.ตร.ปัตตานี ๙๒)</span>
+            <span class="text-emerald-400 font-mono font-bold text-[11px] sm:text-xs">ONLINE</span>
+            <span class="text-slate-700">|</span>
+            <span class="text-amber-400 font-extrabold text-[11px] sm:text-xs tracking-wide">ร้อย ฉก.ตชด. PTN924</span>
         </div>
         
-        <div class="flex items-center space-x-2 flex-shrink-0">
-            <!-- Live Clock -->
-            <div id="liveClock" class="font-mono text-[11px] sm:text-xs"></div>
-
-            <!-- Threat Level Badge -->
-            <div class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold text-[10px] sm:text-xs">
+        <div class="flex items-center space-x-2">
+            <div id="liveClock" class="font-mono text-[10px] sm:text-xs text-slate-300"></div>
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono font-bold text-[10px] hidden sm:inline">
                 ปกติ-เฝ้าระวัง
-            </div>
+            </span>
         </div>
     </div>
 
-    <!-- MAIN AGENCY HEADER & NAVIGATION -->
+    <!-- MAIN AGENCY HEADER -->
     <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80 backdrop-blur-xl">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
                 
-                <!-- Unit Logo & Title (Mobile & PC Adaptive) -->
-                <div class="flex items-center space-x-3 sm:space-x-4 cursor-pointer py-1 max-w-[75%] sm:max-w-none" onclick="switchTab('home')">
+                <!-- Unit Logo & Title (Zero-Collision Responsive) -->
+                <div class="flex items-center space-x-2.5 sm:space-x-4 cursor-pointer py-1 flex-1 min-w-0" onclick="switchTab('home')">
+                    <!-- Logo Badge -->
                     <div class="relative group flex-shrink-0">
-                        <div class="relative p-1 sm:p-1.5 bg-slate-950 rounded-xl sm:rounded-2xl border-2 border-amber-500/60 shadow-lg">
-                            <img src="assets/images/logo.png" alt="โลโก้ ตชด.924" class="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_0_12px_rgba(245,158,11,0.6)]">
+                        <div class="p-1 sm:p-1.5 bg-slate-950 rounded-xl sm:rounded-2xl border border-amber-500/60 shadow-md">
+                            <img src="assets/images/logo.png" alt="โลโก้ ตชด.924" class="w-9 h-9 sm:w-14 sm:h-14 object-contain">
                         </div>
-                        <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 sm:w-4 sm:h-4 bg-emerald-500 border-2 border-slate-950 rounded-full pulse-badge"></div>
                     </div>
+                    
+                    <!-- Title Text -->
                     <div class="min-w-0">
-                        <div class="flex items-center space-x-2">
-                            <h1 class="text-sm sm:text-2xl font-black tracking-tight text-white truncate drop-shadow-md">
-                                กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน PTN924
+                        <div class="flex items-center space-x-1.5">
+                            <h1 class="text-xs sm:text-xl font-black text-white truncate leading-tight">
+                                ร้อย ฉก.ตชด. PTN924
                             </h1>
-                            <span class="hidden sm:inline px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-mono font-black text-xs">PTN924</span>
+                            <span class="px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 font-mono font-black text-[10px] sm:text-xs flex-shrink-0">PTN924</span>
                         </div>
-                        <div class="flex items-center space-x-1.5 sm:space-x-2 mt-0.5">
-                            <span class="text-[11px] sm:text-sm font-extrabold text-amber-400 tracking-wide truncate">หน่วยเฉพาะกิจตำรวจปัตตานี ๙๒</span>
-                            <span class="text-slate-500 hidden sm:inline">•</span>
-                            <span class="text-xs text-slate-300 font-mono hidden sm:inline">PTN924 TACTICAL</span>
+                        <div class="text-[10px] sm:text-xs font-bold text-amber-400 truncate leading-tight mt-0.5">
+                            ฉก.ตร.ปัตตานี ๙๒ <span class="text-slate-400 font-normal hidden sm:inline">• ต.รูสะมิแล - ต.ปะกาฮะรัง</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Navigation Tabs -->
-                <nav class="hidden lg:flex items-center space-x-1">
-                    <button class="nav-tab active px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="home">
+                <!-- Desktop Navigation Tabs (Hidden on Mobile) -->
+                <nav class="hidden lg:flex items-center space-x-1 flex-shrink-0">
+                    <button class="nav-tab active px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1" data-tab="home">
                         <i data-lucide="home" class="w-4 h-4"></i>
                         <span>หน้าแรก</span>
                     </button>
-                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="dashboard">
+                    <button class="nav-tab px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1" data-tab="dashboard">
                         <i data-lucide="layout-dashboard" class="w-4 h-4 text-amber-400"></i>
-                        <span>แดชบอร์ดผู้บังคับบัญชา</span>
+                        <span>แดชบอร์ด</span>
                     </button>
-                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="database">
+                    <button class="nav-tab px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1" data-tab="database">
                         <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
-                        <span>ฐานข้อมูลรายงาน & ค้นหา</span>
+                        <span>ฐานข้อมูล</span>
                     </button>
-                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="news">
+                    <button class="nav-tab px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1" data-tab="news">
                         <i data-lucide="newspaper" class="w-4 h-4 text-emerald-400"></i>
                         <span>ข่าวประชาสัมพันธ์</span>
                     </button>
-                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="upload">
+                    <button class="nav-tab px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1" data-tab="upload">
                         <i data-lucide="file-up" class="w-4 h-4 text-purple-400"></i>
-                        <span>แปลง DOCX อัตโนมัติ</span>
+                        <span>แปลง DOCX</span>
                     </button>
-                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="about">
+                    <button class="nav-tab px-3 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1" data-tab="about">
                         <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i>
                         <span>เกี่ยวกับหน่วย</span>
                     </button>
                 </nav>
 
-                <!-- Top Right Unit Command Badge & Quick Actions -->
-                <div class="flex items-center space-x-3">
-                    <!-- Unit Badge on Top Right -->
-                    <div class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-amber-500/50 shadow-md shadow-amber-500/10">
-                        <div class="w-7 h-7 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-mono font-black text-xs">
+                <!-- Action Area (Desktop Badge + Print Button) -->
+                <div class="flex items-center space-x-2 flex-shrink-0 pl-2">
+                    <!-- Desktop Command Badge (Hidden on Mobile) -->
+                    <div class="hidden xl:flex items-center space-x-2 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-amber-500/40">
+                        <div class="w-6 h-6 rounded bg-amber-500 text-slate-950 flex items-center justify-center font-mono font-black text-xs">
                             924
                         </div>
-                        <div class="text-left">
-                            <div class="text-xs font-extrabold text-amber-400 leading-tight">ฉก.ตร.ปัตตานี ๙๒</div>
-                            <div class="text-[11px] font-bold text-slate-200 leading-tight">ร้อย ฉก.ตชด.๙๒๔</div>
+                        <div class="text-left leading-none">
+                            <div class="text-[11px] font-extrabold text-amber-400">ฉก.ตร.ปัตตานี ๙๒</div>
+                            <div class="text-[10px] font-bold text-slate-300 mt-0.5">ร้อย ฉก.ตชด.๙๒๔</div>
                         </div>
                     </div>
 
-                    <!-- Print Dispatch Button -->
-                    <button onclick="openPrintDispatchModal()" class="px-3 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-all flex items-center space-x-1.5">
-                        <i data-lucide="printer" class="w-4 h-4"></i>
-                        <span class="hidden sm:inline">พิมพ์วิทยุราชการ</span>
+                    <!-- Print Button (Compact on Mobile) -->
+                    <button onclick="openPrintDispatchModal()" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center space-x-1" title="พิมพ์วิทยุราชการ">
+                        <i data-lucide="printer" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+                        <span class="hidden sm:inline">พิมพ์วิทยุ</span>
                     </button>
                 </div>
             </div>
-
-            
         </div>
     </header>
 
