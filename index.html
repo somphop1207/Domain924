@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้อย ฉก.ตชด.924 | ศูนย์บัญชาการและรายงานผลการปฏิบัติงานความมั่นคง</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Google Fonts (Prompt, Chakra Petch, Sarabun) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        tactical: {
+                            900: '#070B14',
+                            800: '#0B132B',
+                            700: '#1C2541',
+                            600: '#3A506B',
+                            gold: '#F59E0B',
+                            goldGlow: 'rgba(245, 158, 11, 0.25)',
+                            cyan: '#06B6D4',
+                            emerald: '#10B981'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                        mono: ['Chakra Petch', 'monospace'],
+                        sarabun: ['Sarabun', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Leaflet Map CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Mammoth.js for client-side DOCX Parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-tactical-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- TOP SECURITY STATUS BAR -->
+    <div class="bg-slate-950 border-b border-slate-800 text-xs py-2 px-4 md:px-8 flex flex-wrap items-center justify-between gap-2 z-50">
+        <div class="flex items-center space-x-3">
+            <span class="flex items-center space-x-1.5 text-emerald-400 font-mono font-bold">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-badge"></span>
+                <span>ระบบความมั่นคง ONLINE</span>
+            </span>
+            <span class="text-slate-700">|</span>
+            <span class="text-slate-200 font-bold flex items-center gap-1.5">
+                <span class="text-amber-400 font-extrabold text-sm">กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔</span>
+                <span class="text-slate-400 font-normal">(ฉก.ตร.ปัตตานี ๙๒)</span>
+            </span>
+        </div>
+        
+        <div class="flex items-center space-x-3 sm:space-x-4">
+            <!-- Area Tag -->
+            <div class="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300 text-xs">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span class="font-semibold text-amber-300">ต.รูสะมิแล • ต.ปะกาฮะรัง</span>
+            </div>
+
+            <!-- Live Clock -->
+            <div id="liveClock" class="font-mono text-xs"></div>
+
+            <!-- Threat Level Badge -->
+            <div class="px-2.5 py-1 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold text-xs">
+                ระดับภัย: ปกติ-เฝ้าระวัง
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN AGENCY HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Unit Logo & Title (Top-Left Luxury Command Branding with PTN924) -->
+                <div class="flex items-center space-x-4 cursor-pointer py-1" onclick="switchTab('home')">
+                    <div class="relative group flex-shrink-0">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+                        <div class="relative p-1.5 bg-slate-950 rounded-2xl border-2 border-amber-500/60 shadow-xl">
+                            <img src="assets/images/logo.png" alt="โลโก้ ตชด.924" class="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-[0_0_16px_rgba(245,158,11,0.6)] group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-slate-950 rounded-full pulse-badge" title="สถานะพร้อมรบ 100%"></div>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <h1 class="text-lg sm:text-2xl font-black tracking-tight text-white flex items-center gap-2 drop-shadow-md">
+                                <span>กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน PTN924</span>
+                            </h1>
+                            <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-mono font-black text-xs shadow-sm">PTN924</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mt-0.5">
+                            <span class="text-xs sm:text-sm font-extrabold text-amber-400 tracking-wide">หน่วยเฉพาะกิจตำรวจปัตตานี ๙๒</span>
+                            <span class="text-slate-500 hidden sm:inline">•</span>
+                            <span class="text-xs text-slate-300 font-mono hidden sm:inline">PTN924 TACTICAL COMMAND</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <button class="nav-tab active px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="home">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        <span>หน้าแรก</span>
+                    </button>
+                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="dashboard">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4 text-amber-400"></i>
+                        <span>แดชบอร์ดผู้บังคับบัญชา</span>
+                    </button>
+                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="database">
+                        <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
+                        <span>ฐานข้อมูลรายงาน & ค้นหา</span>
+                    </button>
+                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="news">
+                        <i data-lucide="newspaper" class="w-4 h-4 text-emerald-400"></i>
+                        <span>ข่าวประชาสัมพันธ์</span>
+                    </button>
+                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="upload">
+                        <i data-lucide="file-up" class="w-4 h-4 text-purple-400"></i>
+                        <span>แปลง DOCX อัตโนมัติ</span>
+                    </button>
+                    <button class="nav-tab px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white border border-transparent transition-all flex items-center space-x-1.5" data-tab="about">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i>
+                        <span>เกี่ยวกับหน่วย</span>
+                    </button>
+                </nav>
+
+                <!-- Top Right Unit Command Badge & Quick Actions -->
+                <div class="flex items-center space-x-3">
+                    <!-- Unit Badge on Top Right -->
+                    <div class="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-amber-500/50 shadow-md shadow-amber-500/10">
+                        <div class="w-7 h-7 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center font-mono font-black text-xs">
+                            924
+                        </div>
+                        <div class="text-left">
+                            <div class="text-xs font-extrabold text-amber-400 leading-tight">ฉก.ตร.ปัตตานี ๙๒</div>
+                            <div class="text-[11px] font-bold text-slate-200 leading-tight">ร้อย ฉก.ตชด.๙๒๔</div>
+                        </div>
+                    </div>
+
+                    <!-- Print Dispatch Button -->
+                    <button onclick="openPrintDispatchModal()" class="px-3 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/20 transition-all flex items-center space-x-1.5">
+                        <i data-lucide="printer" class="w-4 h-4"></i>
+                        <span class="hidden sm:inline">พิมพ์วิทยุราชการ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Bar -->
+            <div class="lg:hidden flex items-center space-x-1 overflow-x-auto py-2 border-t border-slate-800">
+                <button class="nav-tab active px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="home">หน้าแรก</button>
+                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="dashboard">แดชบอร์ด ผบ.</button>
+                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="database">ฐานข้อมูล</button>
+                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="news">ข่าวประชาสัมพันธ์</button>
+                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="upload">แปลง DOCX</button>
+                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="about">โครงสร้างหน่วย</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 1: HOME (หน้าแรก พอร์ทัลหน่วยงานความมั่นคง) -->
+        <!-- ========================================================================= -->
+        <section id="section-home" class="tab-section space-y-6">
+            
+            <!-- Tactical Hero Banner with Radar Grid -->
+            <div class="relative overflow-hidden rounded-2xl glass-panel-gold p-6 md:p-10 radar-grid">
+                <div class="radar-sweep"></div>
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-4">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono">
+                            <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                            <span>ระบบสารสนเทศและบัญชาการเหตุการณ์ทางยุทธวิธี</span>
+                        </div>
+                        <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                            กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔
+                        </h2>
+                        <p class="text-sm md:text-base text-slate-300 font-sarabun leading-relaxed">
+                            พิทักษ์ความปลอดภัยในชีวิตและทรัพย์สินของประชาชน ควบคุมพื้นที่ <span class="text-amber-400 font-semibold">ต.รูสะมิแล</span> และ <span class="text-amber-400 font-semibold">ต.ปะกาฮะรัง</span> อ.เมือง จ.ปัตตานี ภายใต้การบังคับบัญชาของ <span class="text-slate-200 font-semibold">หน่วยเฉพาะกิจตำรวจปัตตานี ๙๒</span>
+                        </p>
+                        
+                        <div class="flex flex-wrap items-center gap-3 pt-2">
+                            <button onclick="switchTab('dashboard')" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-lg shadow-amber-500/25 transition-all flex items-center space-x-2">
+                                <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                                <span>เข้าสู่ Executive Dashboard</span>
+                            </button>
+                            <button onclick="switchTab('database')" class="px-5 py-2.5 rounded-xl glass-panel hover:border-cyan-500/50 text-slate-200 text-xs font-semibold transition-all flex items-center space-x-2">
+                                <i data-lucide="search" class="w-4 h-4 text-cyan-400"></i>
+                                <span>ค้นหารายงานภารกิจ</span>
+                            </button>
+                            <button onclick="switchTab('upload')" class="px-5 py-2.5 rounded-xl glass-panel hover:border-purple-500/50 text-slate-200 text-xs font-semibold transition-all flex items-center space-x-2">
+                                <i data-lucide="upload-cloud" class="w-4 h-4 text-purple-400"></i>
+                                <span>อัปโหลด DOCX ประจำวัน</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Executive Snapshot Card -->
+                    <div class="lg:col-span-4 glass-panel p-5 rounded-xl border border-amber-500/30 space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">รายงานล่าสุดประจำวัน</span>
+                            <span id="homeDocNumber" class="text-[11px] font-mono text-slate-400">นร.๕๑๑๙.๑...</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">วันที่รายงาน:</span>
+                                <span id="homeReportDate" class="font-bold text-slate-200">22 ส.ค. 2569</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">ห้วงเวลา:</span>
+                                <span id="homeReportTime" class="font-mono text-amber-300 text-[11px]">211501 - 221500 ส.ค. 69</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">ผู้อนุมัติข่าว:</span>
+                                <span id="homeCommanderName" class="font-semibold text-slate-200">ร.ต.อ.เดชเดโช ส่งสีอ่อน</span>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px] text-slate-300 font-sarabun">
+                            <span class="font-bold text-emerald-400 block mb-1">สรุปสถานการณ์ทั่วไป:</span>
+                            <p id="homeSituationBrief" class="line-clamp-3">เหตุการณ์ในพื้นที่รับผิดชอบทั่วไปปกติ ไม่พบสิ่งบอกเหตุของการก่อเหตุรุนแรง</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Quick Stats Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-panel p-4 rounded-xl flex items-center space-x-4 border-l-4 border-amber-500">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
+                        <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-mono font-bold text-white" id="statTotalOps">18</div>
+                        <div class="text-xs text-slate-400">ภารกิจยุทธการรวม (ครั้ง)</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl flex items-center space-x-4 border-l-4 border-blue-500">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                        <i data-lucide="footprints" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-mono font-bold text-white" id="statPatrolOps">4</div>
+                        <div class="text-xs text-slate-400">ลาดตระเวนควบคุมพื้นที่</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl flex items-center space-x-4 border-l-4 border-cyan-500">
+                    <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-mono font-bold text-white" id="statCivilOps">4</div>
+                        <div class="text-xs text-slate-400">กิจการพลเรือนสัมพันธ์</div>
+                    </div>
+                </div>
+                <div class="glass-panel p-4 rounded-xl flex items-center space-x-4 border-l-4 border-emerald-500">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-mono font-bold text-emerald-400" id="statReadiness">100%</div>
+                        <div class="text-xs text-slate-400">ความพร้อมกำลังพล</div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- OPERATIONAL PHOTO HIGHLIGHTS SPOTLIGHT -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                            <i data-lucide="camera" class="w-5 h-5 text-amber-400"></i>
+                            <span>ภาพถ่ายไฮไลต์ผลการปฏิบัติการภาคสนามประจำวัน (Operational Action Highlights)</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5 font-sarabun">ภาพถ่ายจริงจากชุดปฏิบัติการ ร้อย ฉก.ตชด.924 (สกัดจากเอกสารรายงาน ปจว.ยก.)</p>
+                    </div>
+                    <button onclick="switchTab('database')" class="text-xs text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1">
+                        <span>ดูภาพถ่ายทั้งหมด 142 ภาพ</span>
+                        <span>→</span>
+                    </button>
+                </div>
+                <div id="homePhotoHighlightsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </div>
+
+
+            <!-- Unit Vision & Area Responsibilities -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Area of Responsibility Cards -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-amber-400"></i>
+                            <span>เขตพื้นที่รับผิดชอบทางยุทธการ (Area of Responsibility)</span>
+                        </h3>
+                        <span class="text-xs font-mono text-slate-400">2 ตำบลหลัก</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-slate-900/60 border border-slate-800 hover:border-blue-500/40 transition-colors">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-bold text-blue-400">ตำบลรูสะมิแล</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-blue-500/20 text-blue-300 font-mono">มว.ฉก.ตชด.9241</span>
+                            </div>
+                            <p class="text-xs text-slate-300 font-sarabun">ครอบคลุม 6 หมู่บ้าน ที่ตั้งฐานปฏิบัติการกองร้อย, จุดตรวจปราการ 2, วัดขจรประชาราม, ชุมชนตาดีกานูรุลฮูดา</p>
+                        </div>
+                        <div class="p-4 rounded-lg bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 transition-colors">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-bold text-amber-400">ตำบลปะกาฮะรัง</span>
+                                <span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 font-mono">มว.ฉก.ตชด.9242</span>
+                            </div>
+                            <p class="text-xs text-slate-300 font-sarabun">ครอบคลุม 8 หมู่บ้าน พื้นที่ บ.กือยา, แนวเชื่อมต่อ ทล.418, รอยต่อดอนรัก เพื่อสกัดกั้นการแทรกซึม</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit Command & Leadership Summary -->
+                <div class="glass-panel p-6 rounded-xl space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
+                            <span>สายการบังคับบัญชาและการบริหารงาน</span>
+                        </h3>
+                    </div>
+                    <div class="space-y-3 font-sarabun text-xs">
+                        <div class="p-3 rounded-lg bg-slate-900/70 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">ผู้บังคับกองร้อยเฉพาะกิจ:</span>
+                                <span class="text-sm font-bold text-slate-100">ร.ต.อ.เดชเดโช ส่งสีอ่อน</span>
+                            </div>
+                            <span class="px-2 py-1 rounded bg-amber-500/20 text-amber-300 font-mono text-[11px]">ผบ.ร้อย ฉก.ตชด.924</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-900/70 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">หัวหน้าฝ่ายการข่าว:</span>
+                                <span class="text-sm font-bold text-slate-100">ด.ต.สมภพ บุญสุวรรณ</span>
+                            </div>
+                            <span class="px-2 py-1 rounded bg-cyan-500/20 text-cyan-300 font-mono text-[11px]">หน.ฝขว.ร้อย ฉก.ตชด.924</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 2: COMMANDER EXECUTIVE DASHBOARD (แดชบอร์ดผู้บังคับบัญชา) -->
+        <!-- ========================================================================= -->
+        <section id="section-dashboard" class="tab-section hidden space-y-6">
+            
+            <!-- Dashboard Header & Situation Box -->
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-amber-500 space-y-4">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <h2 class="text-xl md:text-2xl font-extrabold text-white">ศูนย์บัญชาการยุทธการและการข่าว (TOC)</h2>
+                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold">LIVE OPS</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1 font-mono">
+                            เลขที่วิทยุ: <span id="dashDocNum" class="text-amber-400">นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1118</span> | 
+                            ห้วงเวลา: <span id="dashDateRange" class="text-slate-200">211501 - 221500 ส.ค. 69</span>
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="openPrintDispatchModal()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold transition-colors flex items-center space-x-1.5">
+                            <i data-lucide="file-text" class="w-4 h-4 text-amber-400"></i>
+                            <span>พิมพ์บันทึกข้อความ</span>
+                        </button>
+                        <button onclick="exportDataJSON()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold transition-colors flex items-center space-x-1.5">
+                            <i data-lucide="download" class="w-4 h-4 text-cyan-400"></i>
+                            <span>ส่งออก JSON</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Executive Threat & Situation Analysis -->
+                <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                            <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+                            <span>การประเมินสถานการณ์และการวิเคราะห์เหตุการณ์ (ฝ่ายยุทธการ-การข่าว)</span>
+                        </span>
+                        <p id="dashSituation" class="text-xs text-slate-200 font-sarabun leading-relaxed">
+                            ในห้วงเวลาที่ผ่านมา เหตุการณ์ในพื้นที่รับผิดชอบทั่วไปปกติ ไม่พบความเคลื่อนไหวหรือสิ่งบอกเหตุของการเตรียมการก่อเหตุรุนแรง เจ้าหน้าที่ได้ปฏิบัติการเชิงรุกและรับอย่างต่อเนื่อง
+                        </p>
+                    </div>
+                    <div class="whitespace-nowrap px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] font-mono text-slate-300">
+                        ผบ.ร้อย อนุมัติ: <span id="dashApprover" class="text-emerald-400 font-semibold">ร.ต.อ.เดชเดโช ส่งสีอ่อน</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executive KPI Counters Grid (6 Cards) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div class="glass-panel p-3.5 rounded-xl border border-slate-800 hover:border-amber-500/40 transition-all text-center">
+                    <div class="text-xs text-slate-400 mb-1">ภารกิจรวมทั้งหมด</div>
+                    <div class="text-2xl font-mono font-bold text-amber-400" id="dashKpiTotal">18</div>
+                    <div class="text-[10px] text-slate-500 mt-1">24 ชั่วโมงล่าสุด</div>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-slate-800 hover:border-blue-500/40 transition-all text-center">
+                    <div class="text-xs text-slate-400 mb-1">ลาดตระเวนทุกประเภท</div>
+                    <div class="text-2xl font-mono font-bold text-blue-400" id="dashKpiPatrol">4</div>
+                    <div class="text-[10px] text-slate-500 mt-1">ทำลายความพยายาม/ฐาน</div>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all text-center">
+                    <div class="text-xs text-slate-400 mb-1">จุดตรวจ/จุดสกัด</div>
+                    <div class="text-2xl font-mono font-bold text-emerald-400" id="dashKpiCheckpoint">2</div>
+                    <div class="text-[10px] text-slate-500 mt-1">จุดตรวจปราการ 2</div>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition-all text-center">
+                    <div class="text-xs text-slate-400 mb-1">กิจการพลเรือน (กร.)</div>
+                    <div class="text-2xl font-mono font-bold text-cyan-400" id="dashKpiCivil">4</div>
+                    <div class="text-[10px] text-slate-500 mt-1">พบปะ/จิตอาสา/กีฬา</div>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-slate-800 hover:border-purple-500/40 transition-all text-center">
+                    <div class="text-xs text-slate-400 mb-1">ภารกิจพิเศษ/สืบสวน</div>
+                    <div class="text-2xl font-mono font-bold text-purple-400" id="dashKpiSpecial">7</div>
+                    <div class="text-[10px] text-slate-500 mt-1">พลนำทาง/CCTV/เส้นทาง</div>
+                </div>
+                <div class="glass-panel p-3.5 rounded-xl border border-slate-800 hover:border-red-500/40 transition-all text-center">
+                    <div class="text-xs text-slate-400 mb-1">ซักซ้อมแผนเผชิญเหตุ</div>
+                    <div class="text-2xl font-mono font-bold text-red-400" id="dashKpiDrill">2</div>
+                    <div class="text-[10px] text-slate-500 mt-1">ป้องกันที่ตั้ง/จุดสกัด</div>
+                </div>
+            </div>
+
+            <!-- TACTICAL MAP & 24H OPS TIMELINE SPLIT VIEW -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- Tactical Interactive Map (8 Cols) -->
+                <div class="lg:col-span-8 glass-panel p-5 rounded-2xl space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                        <div>
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i data-lucide="map" class="w-4 h-4 text-amber-400"></i>
+                                <span>แผนที่ยุทธการทางภูมิศาสตร์ (Tactical Operations GIS Map)</span>
+                            </h3>
+                            <p class="text-xs text-slate-400 font-mono">แปลงพิกัด MGRS 47NQH อัตโนมัติ • รองรับโหมดดาวเทียม</p>
+                        </div>
+
+                        <!-- Map Tactical Filter Buttons -->
+                        <div class="flex flex-wrap items-center gap-1.5 text-xs font-medium">
+                            <button onclick="filterMap('all')" data-cat="all" class="map-filter-btn px-2.5 py-1 rounded bg-amber-500 text-slate-950 font-bold">ทั้งหมด</button>
+                            <button onclick="filterMap('patrol')" data-cat="patrol" class="map-filter-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300">ลาดตระเวน</button>
+                            <button onclick="filterMap('checkpoint')" data-cat="checkpoint" class="map-filter-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300">จุดตรวจ</button>
+                            <button onclick="filterMap('civil_affairs')" data-cat="civil_affairs" class="map-filter-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300">กร.สัมพันธ์</button>
+                            <button onclick="filterMap('special_ops')" data-cat="special_ops" class="map-filter-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300">ภารกิจพิเศษ</button>
+                        </div>
+                    </div>
+
+                    <!-- Map Container -->
+                    <div id="operationsMap" class="shadow-2xl border border-slate-700/80"></div>
+
+                    <!-- Map Legend -->
+                    <div class="flex flex-wrap items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-800">
+                        <div class="flex flex-wrap items-center gap-4">
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500"></span> ลาดตระเวน</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> จุดตรวจปราการ 2</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-cyan-500"></span> กิจการพลเรือน</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-purple-500"></span> ภารกิจพิเศษ/เส้นทาง</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-red-500"></span> ซักซ้อมแผน</span>
+                        </div>
+                        <span class="text-[11px] font-mono text-slate-500">คลิกบนแผนที่เพื่อดูพิกัด MGRS</span>
+                    </div>
+                </div>
+
+                <!-- 24-Hour Ops Timeline Feed (4 Cols) -->
+                <div class="lg:col-span-4 glass-panel p-5 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                        <h3 class="text-base font-bold text-white flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i>
+                            <span>บันทึกไทม์ไลน์ ๒๔ ชม.</span>
+                        </h3>
+                        <span class="text-xs font-mono text-amber-400">เรียงตามเวลา</span>
+                    </div>
+
+                    <div id="dashTimelineList" class="space-y-2.5 overflow-y-auto max-h-[460px] pr-1">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <button onclick="switchTab('database')" class="w-full py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-colors text-center">
+                        ดูรายละเอียดทุกภารกิจในฐานข้อมูล →
+                    </button>
+                </div>
+            </div>
+
+            
+            <!-- DASHBOARD PHOTO HIGHLIGHTS SECTION -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i data-lucide="image" class="w-4 h-4 text-emerald-400"></i>
+                        <span>ภาพถ่ายการปฏิบัติการภาคสนามสำคัญ (Field Operations Evidence)</span>
+                    </h3>
+                </div>
+                <div id="dashPhotoHighlightsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </div>
+
+
+            <!-- ANALYTICS CHARTS SECTION (2 Cols) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Platoon Distribution Chart -->
+                <div class="glass-panel p-5 rounded-2xl space-y-4">
+                    <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i data-lucide="pie-chart" class="w-4 h-4 text-blue-400"></i>
+                            <span>สัดส่วนภารกิจจำแนกตามหมวดเฉพาะกิจ (Platoon Breakdown)</span>
+                        </h3>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="chartPlatoonDistribution"></canvas>
+                    </div>
+                </div>
+
+                <!-- Category Breakdown Chart -->
+                <div class="glass-panel p-5 rounded-2xl space-y-4">
+                    <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                            <i data-lucide="bar-chart-2" class="w-4 h-4 text-emerald-400"></i>
+                            <span>สัดส่วนประเภทภารกิจยุทธการ (Mission Categories)</span>
+                        </h3>
+                    </div>
+                    <div class="h-64 relative">
+                        <canvas id="chartCategoryDistribution"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 3: OPERATIONS & INTEL DATABASE (ฐานข้อมูลรายงาน & ระบบค้นหา) -->
+        <!-- ========================================================================= -->
+        <section id="section-database" class="tab-section hidden space-y-6">
+            
+            <!-- Database Header & Filter Controls -->
+            <div class="glass-panel p-6 rounded-2xl space-y-5">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i data-lucide="database" class="w-5 h-5 text-cyan-400"></i>
+                            <span>ฐานข้อมูลรายงานผลการปฏิบัติงานย้อนหลัง & ระบบสืบค้นอัจฉริยะ</span>
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1">
+                            ค้นหาตามคำสำคัญ, นามเรียกขาน, ชื่อเจ้าหน้าที่, พิกัด 47NQH หรือประเภทภารกิจ
+                        </p>
+                    </div>
+
+                    <!-- Historical Date Selector -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-xs text-slate-400 whitespace-nowrap">รอบรายงาน:</label>
+                        <select id="historyReportSelect" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-2 font-mono focus:border-amber-400 focus:outline-none">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Multi-Filter Bar -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <!-- Keyword Search -->
+                    <div class="relative">
+                        <input type="text" id="dbSearchInput" oninput="filterOperationsTable()" placeholder="พิมพ์ค้นหา (เช่น เหมราช, กือยา, 47NQH, จิตอาสา)..." class="w-full bg-slate-950/80 border border-slate-700 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-amber-400 focus:outline-none">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-2.5"></i>
+                    </div>
+
+                    <!-- Platoon Filter -->
+                    <div>
+                        <select id="dbPlatoonFilter" onchange="filterOperationsTable()" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:border-amber-400 focus:outline-none">
+                            <option value="all">ทุกหมวดเฉพาะกิจ (All Platoons)</option>
+                            <option value="9241">มว.ฉก.ตชด.9241 (ต.รูสะมิแล)</option>
+                            <option value="9242">มว.ฉก.ตชด.9242 (ต.ปะกาฮะรัง)</option>
+                            <option value="ร้อย">บก.ร้อย ฉก.ตชด.924</option>
+                        </select>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div>
+                        <select id="dbCategoryFilter" onchange="filterOperationsTable()" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:border-amber-400 focus:outline-none">
+                            <option value="all">ทุกประเภทภารกิจ (All Types)</option>
+                            <option value="patrol">การลาดตระเวน (Patrol)</option>
+                            <option value="checkpoint">จุดตรวจ / จุดสกัด (Checkpoint)</option>
+                            <option value="civil_affairs">กิจการพลเรือน (Civil Affairs)</option>
+                            <option value="special_ops">ภารกิจพิเศษ / สืบสวน (Special Ops)</option>
+                            <option value="drill">ซักซ้อมแผนเผชิญเหตุ (Drills)</option>
+                            <option value="logistics">ส่งกำลังบำรุง (Logistics)</option>
+                        </select>
+                    </div>
+
+                    <!-- Subdistrict Filter -->
+                    <div>
+                        <select id="dbSubdistrictFilter" onchange="filterOperationsTable()" class="w-full bg-slate-950/80 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:border-amber-400 focus:outline-none">
+                            <option value="all">ทุกพื้นที่ตำบล (All Subdistricts)</option>
+                            <option value="รูสะมิแล">ต.รูสะมิแล</option>
+                            <option value="ปะกาฮะรัง">ต.ปะกาฮะรัง</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
+                    <span>ผลการค้นหา: <strong id="dbFilteredCount" class="text-amber-400 font-mono">18 รายการ</strong></span>
+                    <button onclick="exportDataJSON()" class="text-cyan-400 hover:underline flex items-center gap-1">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        <span>ดาวน์โหลดไฟล์ผลการค้นหา JSON</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Operations Data Table -->
+            <div class="glass-panel rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse font-sans">
+                        <thead>
+                            <tr class="bg-slate-950/90 text-slate-400 border-b border-slate-800 text-[11px] font-bold uppercase tracking-wider font-mono">
+                                <th class="py-3 px-3">ลำดับ</th>
+                                <th class="py-3 px-3">ภาพภารกิจ</th>
+                                <th class="py-3 px-3">วัน-เวลา (ปจว.)</th>
+                                <th class="py-3 px-3">ประเภทภารกิจ</th>
+                                <th class="py-3 px-3">หน่วยปฏิบัติ</th>
+                                <th class="py-3 px-3">หัวหน้าชุด / นามเรียกขาน</th>
+                                <th class="py-3 px-3">สถานที่ / พิกัด</th>
+                                <th class="py-3 px-3 text-right">การจัดการ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dbOperationsTableBody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 4: PUBLIC RELATIONS & NEWS (ข่าวประชาสัมพันธ์ & กิจการพลเรือน) -->
+        <!-- ========================================================================= -->
+        <section id="section-news" class="tab-section hidden space-y-6">
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-emerald-500">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i data-lucide="newspaper" class="w-5 h-5 text-emerald-400"></i>
+                            <span>ศูนย์ข่าวประชาสัมพันธ์และกิจการพลเรือนเพื่อมวลชนสัมพันธ์</span>
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1 font-sarabun">
+                            ชุดปฏิบัติการกิจการพลเรือน (ชป.กร.) ร้อย ฉก.ตชด.๙๒๔ เสริมสร้างความเข้าใจ ร่วมพัฒนาชุมชน และยึดมั่นศรัทธาประชาชน
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div id="newsArticlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Populated dynamically -->
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 5: SMART DOCX-TO-DASHBOARD ENGINE (ระบบแปลงไฟล์ DOCX อัตโนมัติ) -->
+        <!-- ========================================================================= -->
+        <section id="section-upload" class="tab-section hidden space-y-6">
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-purple-500 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i data-lucide="file-up" class="w-5 h-5 text-purple-400"></i>
+                            <span>ระบบแปลงเอกสาร DOCX สู่ Dashboard อัตโนมัติ (Automated Intelligence Engine)</span>
+                        </h2>
+                        <p class="text-xs text-slate-400 mt-1 font-sarabun">
+                            ลากและวางไฟล์วิทยุราชการ ตร. หรือ ปจว.ยก./ปจว.ขว. (.docx) เพื่อแปลงเป็น Dashboard และพล็อตพิกัดบนแผนที่ทันที
+                        </p>
+                    </div>
+                    <span class="px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 text-xs font-mono font-bold">
+                        Client-Side Mammoth Engine
+                    </span>
+                </div>
+
+                <!-- Drag and Drop Area -->
+                <div id="docxDropZone" class="border-2 border-dashed border-slate-700 hover:border-amber-400 bg-slate-950/60 hover:bg-slate-900/80 transition-all rounded-2xl p-8 text-center cursor-pointer space-y-3">
+                    <input type="file" id="docxFileInput" accept=".docx" class="hidden">
+                    <div class="w-16 h-16 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center mx-auto">
+                        <i data-lucide="upload-cloud" class="w-8 h-8"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="text-base font-bold text-slate-100">ลากไฟล์ .DOCX มาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์</h3>
+                        <p class="text-xs text-slate-400 font-sarabun">รองรับไฟล์ 'BPP924 ปจว.ยก. [วันที่].docx' และไฟล์รายงานวิทยุราชการ ตร.</p>
+                    </div>
+                    <button type="button" onclick="document.getElementById('docxFileInput').click()" class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-500/20 transition-all">
+                        เลือกไฟล์จากคอมพิวเตอร์
+                    </button>
+                </div>
+
+                <!-- Upload Status Notification Area -->
+                <div id="uploadStatus" class="hidden"></div>
+
+                <!-- Extracted Preview Box -->
+                <div id="uploadPreviewSection" class="hidden glass-panel p-5 rounded-xl border border-emerald-500/30 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">ผลการสกัดข้อมูลอัจฉริยะ</span>
+                        <button onclick="switchTab('dashboard')" class="text-xs text-amber-400 hover:underline font-bold">ดูบน Dashboard →</button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="p-2.5 rounded bg-slate-900">
+                            <span class="text-slate-400 block text-[11px]">เลขที่หนังสือ:</span>
+                            <span id="previewDocNum" class="font-mono font-bold text-slate-200">-</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-slate-900">
+                            <span class="text-slate-400 block text-[11px]">วันที่รายงาน:</span>
+                            <span id="previewDate" class="font-mono font-bold text-slate-200">-</span>
+                        </div>
+                        <div class="p-2.5 rounded bg-slate-900">
+                            <span class="text-slate-400 block text-[11px]">ภารกิจที่สกัดได้:</span>
+                            <span id="previewTotal" class="font-mono font-bold text-emerald-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================================================= -->
+        <!-- SECTION 6: ABOUT UNIT & HIERARCHY (โครงสร้างและข้อมูลหน่วย) -->
+        <!-- ========================================================================= -->
+        <section id="section-about" class="tab-section hidden space-y-6">
+            <div class="glass-panel p-6 rounded-2xl border-l-4 border-blue-500 space-y-6">
+                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                    <img src="assets/images/logo.png" class="w-16 h-16 object-contain" alt="โลโก้หน่วย">
+                    <div>
+                        <h2 class="text-xl font-bold text-white" id="aboutUnitNameTh">กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน 924</h2>
+                        <p class="text-xs text-amber-400 font-mono" id="aboutUnitNameEn">Border Patrol Police Task Force Company 924</p>
+                        <p class="text-xs text-slate-400 mt-0.5" id="aboutParentUnit">หน่วยเฉพาะกิจตำรวจปัตตานี 92</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3 text-xs font-sarabun">
+                        <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2">ภารกิจและวิสัยทัศน์ของหน่วย</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔ จัดตั้งขึ้นเพื่อปฏิบัติภารกิจรักษาความมั่นคงภายใน การรักษาความสงบเรียบร้อย การควบคุมและพิทักษ์พื้นที่ ต.รูสะมิแล และ ต.ปะกาฮะรัง อ.เมือง จ.ปัตตานี โดยยึดหลักการปฏิบัติการเชิงรุกด้านการข่าวและการพัฒนาสัมพันธ์มวลชน
+                        </p>
+                        <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">คำขวัญประจำหน่วย:</span>
+                            <span class="text-amber-400 font-semibold" id="aboutMotto">"เสียสละ อดทน มุ่งมั่น ยึดมั่นประชาชนและแผ่นดิน"</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                            <span class="text-slate-400 block text-[11px]">ที่ตั้งฐานปฏิบัติการ:</span>
+                            <span class="text-slate-200" id="aboutHqLocation">ฐานปฏิบัติการ ร้อย ฉก.ตชด.924 ม.1 ต.รูสะมิแล อ.เมือง จ.ปัตตานี</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-xs font-sarabun">
+                        <h3 class="text-sm font-bold text-white border-b border-slate-800 pb-2">ผู้บังคับบัญชาและฝ่ายอำนวยการ</h3>
+                        
+                        <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">ผู้บังคับกองร้อย:</span>
+                                <span class="text-sm font-bold text-slate-100" id="aboutCmdName">ร.ต.อ.เดชเดโช ส่งสีอ่อน</span>
+                                <span class="text-[11px] text-slate-400 block" id="aboutCmdPos">ผบ.ร้อย ฉก.ตชด.924</span>
+                            </div>
+                            <span class="text-xs font-mono text-amber-400">เหมราช 41</span>
+                        </div>
+
+                        <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between">
+                            <div>
+                                <span class="text-slate-400 block text-[11px]">หัวหน้าฝ่ายการข่าว:</span>
+                                <span class="text-sm font-bold text-slate-100" id="aboutIntelName">ด.ต.สมภพ บุญสุวรรณ</span>
+                                <span class="text-[11px] text-slate-400 block" id="aboutIntelPos">หน.ฝขว.ร้อย ฉก.ตชด.924</span>
+                            </div>
+                            <span class="text-xs font-mono text-cyan-400">เหมราช 4012</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-8 px-4 sm:px-6 lg:px-8 mt-12 text-xs text-slate-500 font-sarabun">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <img src="assets/images/logo.png" class="w-8 h-8 object-contain" alt="โลโก้">
+                <div>
+                    <div class="text-slate-300 font-bold">กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔ (ฉก.ตร.ปัตตานี ๙๒)</div>
+                    <div class="text-[11px] text-slate-500">ระบบฐานข้อมูลสารสนเทศและรายงานสถานการณ์ความมั่นคงทางยุทธการ</div>
+                </div>
+            </div>
+            <div class="text-center md:text-right font-mono text-[11px]">
+                <div>STATUS: SECURE • GITHUB PAGES READY</div>
+                <div class="text-slate-600">ชั้นความลับ: ในราชการตำรวจ (Official Security Use Only)</div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODAL 1: OPERATION ITEM DETAIL MODAL -->
+    <!-- ========================================================================= -->
+    <div id="detailModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass-panel w-full max-w-lg rounded-2xl overflow-hidden border border-amber-500/40 p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span id="modalDetailCategory" class="px-2.5 py-1 rounded text-xs font-bold bg-amber-500/20 text-amber-300">หมวดภารกิจ</span>
+                <button onclick="closeDetailModal()" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-slate-400">วัน-เวลาปฏิบัติการ:</span>
+                    <span id="modalDetailTime" class="font-mono font-bold text-amber-300">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">หน่วยรับผิดชอบ:</span>
+                    <span id="modalDetailUnit" class="font-semibold text-slate-200">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">หัวหน้าชุด / กำลังพล:</span>
+                    <span id="modalDetailLeader" class="text-slate-200 font-mono">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">สถานที่:</span>
+                    <span id="modalDetailLocation" class="text-slate-200 font-semibold text-right">-</span>
+                </div>
+                <div class="p-2.5 rounded bg-slate-900 border border-slate-800">
+                    <span class="text-slate-400 block text-[11px]">พิกัดทางยุทธวิธี (MGRS 47NQH):</span>
+                    <span id="modalDetailGrid" class="font-mono font-bold text-amber-400 text-xs">-</span>
+                </div>
+                <div class="p-3 rounded bg-slate-900 border border-slate-800 space-y-1 font-sarabun">
+                    <span class="text-slate-400 block font-bold">รายละเอียดภารกิจ:</span>
+                    <p id="modalDetailMission" class="text-slate-200 leading-relaxed">-</p>
+                </div>
+                <div class="p-3 rounded bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 font-sarabun">
+                    <span class="font-bold block">ผลการปฏิบัติ:</span>
+                    <p id="modalDetailResult">-</p>
+                </div>
+                <div id="modalDetailImageContainer" class="hidden"></div>
+            </div>
+            <button onclick="closeDetailModal()" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors">
+                ปิดหน้าต่าง
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODAL 2: PUBLIC RELATIONS FULL ARTICLE MODAL -->
+    <!-- ========================================================================= -->
+    <div id="newsModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass-panel w-full max-w-2xl rounded-2xl overflow-hidden border border-emerald-500/40 p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span id="newsModalCategory" class="px-2.5 py-1 rounded text-xs font-bold bg-emerald-500/20 text-emerald-300">หมวดข่าว</span>
+                <button onclick="closeNewsModal()" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+            </div>
+            <img id="newsModalImage" src="" class="w-full h-64 object-cover rounded-xl border border-slate-700" alt="รูปข่าว">
+            <div class="text-xs text-slate-400 font-mono" id="newsModalDate">-</div>
+            <h3 class="text-lg font-bold text-white" id="newsModalTitle">-</h3>
+            <p id="newsModalContent" class="text-xs text-slate-300 font-sarabun leading-relaxed whitespace-pre-line">-</p>
+            <div id="newsModalGallery" class="hidden"></div>
+            <button onclick="closeNewsModal()" class="w-full py-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors">
+                ปิดหน้าต่าง
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODAL 3: OFFICIAL PRINT DISPATCH (วิทยุในราชการสำนักงานตำรวจแห่งชาติ) -->
+    <!-- ========================================================================= -->
+    <div id="printDispatchModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 hidden overflow-y-auto">
+        <div class="bg-white text-black w-full max-w-4xl rounded-xl p-8 space-y-6 shadow-2xl font-sarabun print-sheet max-h-[92vh] overflow-y-auto">
+            
+            <!-- Modal Action Buttons (No Print) -->
+            <div class="flex items-center justify-between border-b pb-4 no-print">
+                <span class="text-xs font-bold text-slate-700 font-sans uppercase">แบบร่างวิทยุราชการสำนักงานตำรวจแห่งชาติ</span>
+                <div class="flex items-center space-x-2">
+                    <button onclick="executeBrowserPrint()" class="px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center space-x-1.5">
+                        <i data-lucide="printer" class="w-4 h-4"></i>
+                        <span>สั่งพิมพ์ / บันทึกเป็น PDF</span>
+                    </button>
+                    <button onclick="closePrintModal()" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold">
+                        ปิด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Official Police Radio Dispatch Layout -->
+            <div class="border-2 border-black p-6 space-y-4">
+                <div class="text-center">
+                    <h2 class="text-xl font-bold tracking-wider">วิทยุในราชการสำนักงานตำรวจแห่งชาติ</h2>
+                </div>
+
+                <div class="grid grid-cols-2 text-xs border-b-2 border-black pb-3">
+                    <div>
+                        <p><strong>ความเร่งด่วน:</strong> ด่วนที่สุด</p>
+                        <p><strong>จาก:</strong> ร.ต.อ.เดชเดโช ส่งสีอ่อน ผบ.ร้อย ฉก.ตชด.๙๒๔</p>
+                        <p><strong>ถึง:</strong> ผบ.ฉก.ตร.ปัตตานี ๙๒, ผบ.ฉก.ตชด.จชต.</p>
+                        <p><strong>ผู้รับทราบ:</strong> ผบ.มว.ฉก.ตชด.๙๒๔๑ - ๙๒๔๒</p>
+                    </div>
+                    <div class="text-right">
+                        <p><strong>ชั้นความลับ:</strong> ลับ</p>
+                        <p><strong>ที่:</strong> <span id="printDocNum">นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1118</span></p>
+                        <p><strong>วันที่:</strong> <span id="printDocDate">22 สิงหาคม 2569</span></p>
+                    </div>
+                </div>
+
+                <div class="text-xs space-y-2">
+                    <p><strong>เรื่อง:</strong> สรุปผลการปฏิบัติงานด้านยุทธการ-การข่าว ของหน่วย ร้อย ฉก.ตชด.๙๒๔</p>
+                    <p><strong>ห้วงเวลาการรายงาน:</strong> <span id="printTimeRange">211501 ส.ค. 69 ถึง 221500 ส.ค. 69</span></p>
+                    
+                    <div class="pt-2">
+                        <p><strong>๑. สรุปสถานการณ์และการวิเคราะห์เหตุการณ์ที่สำคัญ:</strong></p>
+                        <p id="printSituation" class="pl-4 leading-relaxed mt-1 text-slate-800">
+                            ในห้วงเวลาที่ผ่านมา เหตุการณ์ในพื้นที่รับผิดชอบทั่วไปปกติ ไม่พบความเคลื่อนไหวหรือสิ่งบอกเหตุของการเตรียมการก่อเหตุรุนแรง เจ้าหน้าที่ได้ปฏิบัติการเชิงรุกและรับอย่างต่อเนื่อง
+                        </p>
+                    </div>
+
+                    <div class="pt-2">
+                        <p><strong>๒. รายละเอียดการปฏิบัติงานด้านการรักษาความปลอดภัยและยุทธการ:</strong></p>
+                        <div id="printItemsList" class="pl-4 mt-2 space-y-1.5">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 text-right text-xs pr-8">
+                    <p>ผู้อนุมัติให้ส่งข่าวได้</p>
+                    <div class="h-10"></div>
+                    <p class="font-bold">( เดชเดโช  ส่งสีอ่อน )</p>
+                    <p>ร.ต.อ.</p>
+                    <p>ผบ.ร้อย ฉก.ตชด.๙๒๔</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Application Scripts -->
+    <script src="assets/js/mgrs-converter.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/docx-parser.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

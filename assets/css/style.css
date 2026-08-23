@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #070B14;
+    --bg-card: rgba(15, 23, 42, 0.75);
+    --border-card: rgba(51, 65, 85, 0.6);
+    --gold: #F59E0B;
+    --gold-glow: rgba(245, 158, 11, 0.25);
+    --cyan: #06B6D4;
+    --cyan-glow: rgba(6, 182, 212, 0.25);
+    --emerald: #10B981;
+    --navy-900: #0a0f1d;
+    --navy-800: #0f172a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Prompt', 'Sarabun', sans-serif;
+    background-color: var(--bg-dark);
+    color: #F1F5F9;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
+        linear-gradient(180deg, #070B14 0%, #0B1120 100%);
+    background-attachment: fixed;
+}
+
+.font-mono-military {
+    font-family: 'Chakra Petch', 'Prompt', monospace;
+}
+
+.font-sarabun {
+    font-family: 'Sarabun', 'Prompt', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0B1120;
+}
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #F59E0B;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-gold {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(245, 158, 11, 0.1);
+}
+
+.glass-panel-cyan {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.1);
+}
+
+/* Radar Sweep Animation */
+.radar-grid {
+    background-size: 30px 30px;
+    background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(from 0deg at 50% 50%, rgba(6, 182, 212, 0) 0deg, rgba(6, 182, 212, 0.18) 300deg, rgba(6, 182, 212, 0) 360deg);
+    border-radius: 50%;
+    animation: radar-rotate 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes radar-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse animation for Tactical Markers */
+@keyframes pulse-ring {
+    0% { transform: scale(0.95); opacity: 0.9; box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+    70% { transform: scale(1.4); opacity: 0; box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+    100% { transform: scale(0.95); opacity: 0; }
+}
+
+.pulse-badge {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Tactical Leaflet Map styling */
+#operationsMap {
+    width: 100%;
+    height: 520px;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.leaflet-popup-content-wrapper {
+    background: #0f172a !important;
+    color: #f1f5f9 !important;
+    border: 1px solid rgba(245, 158, 11, 0.4) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6) !important;
+}
+
+.leaflet-popup-tip {
+    background: #0f172a !important;
+}
+
+.custom-tactical-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.custom-tactical-pin:hover {
+    transform: scale(1.25);
+    z-index: 999;
+}
+
+/* Tab Navigation Active State */
+.nav-tab.active {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 100%);
+    border-color: #F59E0B;
+    color: #FBBF24;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+/* Official Print Stylesheet for Dispatch Reports */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-family: 'Sarabun', serif !important;
+    }
+    header, nav, #quickActions, #docxUploaderSection, #mapControls, footer, .no-print {
+        display: none !important;
+    }
+    .print-only {
+        display: block !important;
+    }
+    .print-sheet {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* Enhanced Font Sizes & High Legibility */
+body {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.text-xs {
+    font-size: 0.8125rem !important; /* 13px */
+}
+.text-sm {
+    font-size: 0.9375rem !important; /* 15px */
+}
+.text-base {
+    font-size: 1.0625rem !important; /* 17px */
+}
+.text-lg {
+    font-size: 1.25rem !important; /* 20px */
+}
+.text-xl {
+    font-size: 1.5rem !important; /* 24px */
+}
+.text-2xl {
+    font-size: 1.875rem !important; /* 30px */
+}
+
+/* Spotlight Photo Card */
+.spotlight-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+.spotlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -5px rgba(245, 158, 11, 0.25);
+    border-color: rgba(245, 158, 11, 0.6);
+}
+.spotlight-card img {
+    transition: transform 0.6s ease;
+}
+.spotlight-card:hover img {
+    transform: scale(1.08);
+}
