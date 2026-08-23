@@ -41,7 +41,7 @@ function initNavigation() {
 function switchTab(tabId) {
     activeTab = tabId;
     
-    // Update desktop & mobile nav buttons
+    // Update all desktop and mobile navigation buttons
     document.querySelectorAll('.nav-tab, .mobile-nav-item').forEach(btn => {
         if (btn.getAttribute('data-tab') === tabId) {
             btn.classList.add('active');
@@ -49,9 +49,6 @@ function switchTab(tabId) {
             btn.classList.remove('active');
         }
     });
-
-    // Scroll to top smoothly on tab switch
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Update tab sections
     document.querySelectorAll('.tab-section').forEach(sec => {
@@ -62,14 +59,22 @@ function switchTab(tabId) {
         }
     });
 
-    // Re-render map and charts if dashboard is opened
+    // Scroll to top smoothly on tab switch
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Re-render map and charts if dashboard is opened with multi-step delay for mobile
     if (tabId === 'dashboard') {
         setTimeout(() => {
             initOrUpdateMap();
             initOrUpdateCharts();
-        }, 100);
+            if (appMap) appMap.invalidateSize();
+        }, 150);
+        setTimeout(() => {
+            if (appMap) appMap.invalidateSize();
+        }, 400);
     }
 
+    // Refresh icons
     if (window.lucide) {
         lucide.createIcons();
     }

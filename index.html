@@ -58,33 +58,21 @@
 </head>
 <body class="bg-tactical-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
 
-    <!-- TOP SECURITY STATUS BAR -->
-    <div class="bg-slate-950 border-b border-slate-800 text-xs py-2 px-4 md:px-8 flex flex-wrap items-center justify-between gap-2 z-50">
-        <div class="flex items-center space-x-3">
-            <span class="flex items-center space-x-1.5 text-emerald-400 font-mono font-bold">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-badge"></span>
-                <span>ระบบความมั่นคง ONLINE</span>
-            </span>
-            <span class="text-slate-700">|</span>
-            <span class="text-slate-200 font-bold flex items-center gap-1.5">
-                <span class="text-amber-400 font-extrabold text-sm">กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔</span>
-                <span class="text-slate-400 font-normal">(ฉก.ตร.ปัตตานี ๙๒)</span>
-            </span>
+    <!-- TOP SECURITY STATUS BAR (Mobile & PC Optimized) -->
+    <div class="bg-slate-950 border-b border-slate-800 text-xs py-1.5 px-3 sm:px-6 flex items-center justify-between gap-2 z-50">
+        <div class="flex items-center space-x-2 truncate">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 pulse-badge flex-shrink-0"></span>
+            <span class="text-amber-400 font-extrabold text-xs sm:text-sm truncate">ร้อย ฉก.ตชด. PTN924</span>
+            <span class="text-slate-500 text-[11px] hidden sm:inline">(ฉก.ตร.ปัตตานี ๙๒)</span>
         </div>
         
-        <div class="flex items-center space-x-3 sm:space-x-4">
-            <!-- Area Tag -->
-            <div class="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300 text-xs">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
-                <span class="font-semibold text-amber-300">ต.รูสะมิแล • ต.ปะกาฮะรัง</span>
-            </div>
-
+        <div class="flex items-center space-x-2 flex-shrink-0">
             <!-- Live Clock -->
-            <div id="liveClock" class="font-mono text-xs"></div>
+            <div id="liveClock" class="font-mono text-[11px] sm:text-xs"></div>
 
             <!-- Threat Level Badge -->
-            <div class="px-2.5 py-1 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold text-xs">
-                ระดับภัย: ปกติ-เฝ้าระวัง
+            <div class="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono font-bold text-[10px] sm:text-xs">
+                ปกติ-เฝ้าระวัง
             </div>
         </div>
     </div>
@@ -94,28 +82,26 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Unit Logo & Title (Top-Left Luxury Command Branding with PTN924) -->
-                <div class="flex items-center space-x-4 cursor-pointer py-1" onclick="switchTab('home')">
+                <!-- Unit Logo & Title (Mobile & PC Adaptive) -->
+                <div class="flex items-center space-x-3 sm:space-x-4 cursor-pointer py-1 max-w-[75%] sm:max-w-none" onclick="switchTab('home')">
                     <div class="relative group flex-shrink-0">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
-                        <div class="relative p-1.5 bg-slate-950 rounded-2xl border-2 border-amber-500/60 shadow-xl">
-                            <img src="assets/images/logo.png" alt="โลโก้ ตชด.924" class="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-[0_0_16px_rgba(245,158,11,0.6)] group-hover:scale-105 transition-transform duration-300">
+                        <div class="relative p-1 sm:p-1.5 bg-slate-950 rounded-xl sm:rounded-2xl border-2 border-amber-500/60 shadow-lg">
+                            <img src="assets/images/logo.png" alt="โลโก้ ตชด.924" class="w-10 h-10 sm:w-16 sm:h-16 object-contain drop-shadow-[0_0_12px_rgba(245,158,11,0.6)]">
                         </div>
-                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-slate-950 rounded-full pulse-badge" title="สถานะพร้อมรบ 100%"></div>
+                        <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 sm:w-4 sm:h-4 bg-emerald-500 border-2 border-slate-950 rounded-full pulse-badge"></div>
                     </div>
-                    <div>
+                    <div class="min-w-0">
                         <div class="flex items-center space-x-2">
-                            <h1 class="text-lg sm:text-2xl font-black tracking-tight text-white flex items-center gap-2 drop-shadow-md">
-                                <span>กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน PTN924</span>
+                            <h1 class="text-sm sm:text-2xl font-black tracking-tight text-white truncate drop-shadow-md">
+                                กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน PTN924
                             </h1>
-                            <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-mono font-black text-xs shadow-sm">PTN924</span>
+                            <span class="hidden sm:inline px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-mono font-black text-xs">PTN924</span>
                         </div>
-                        <div class="flex items-center space-x-2 mt-0.5">
-                            <span class="text-xs sm:text-sm font-extrabold text-amber-400 tracking-wide">หน่วยเฉพาะกิจตำรวจปัตตานี ๙๒</span>
+                        <div class="flex items-center space-x-1.5 sm:space-x-2 mt-0.5">
+                            <span class="text-[11px] sm:text-sm font-extrabold text-amber-400 tracking-wide truncate">หน่วยเฉพาะกิจตำรวจปัตตานี ๙๒</span>
                             <span class="text-slate-500 hidden sm:inline">•</span>
-                            <span class="text-xs text-slate-300 font-mono hidden sm:inline">PTN924 TACTICAL COMMAND</span>
+                            <span class="text-xs text-slate-300 font-mono hidden sm:inline">PTN924 TACTICAL</span>
                         </div>
-
                     </div>
                 </div>
 
@@ -168,15 +154,7 @@
                 </div>
             </div>
 
-            <!-- Mobile Navigation Bar -->
-            <div class="lg:hidden flex items-center space-x-1 overflow-x-auto py-2 border-t border-slate-800">
-                <button class="nav-tab active px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="home">หน้าแรก</button>
-                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="dashboard">แดชบอร์ด ผบ.</button>
-                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="database">ฐานข้อมูล</button>
-                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="news">ข่าวประชาสัมพันธ์</button>
-                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="upload">แปลง DOCX</button>
-                <button class="nav-tab px-3 py-1.5 rounded text-xs whitespace-nowrap font-medium" data-tab="about">โครงสร้างหน่วย</button>
-            </div>
+            
         </div>
     </header>
 
@@ -971,27 +949,27 @@
     <script src="assets/js/docx-parser.js"></script>
     <script src="assets/js/app.js"></script>
 
-    <!-- MOBILE BOTTOM NAVIGATION (App-Style Navigation for Smartphones) -->
-    <nav class="mobile-bottom-nav lg:hidden">
+    <!-- MOBILE BOTTOM NAVIGATION (Native Smartphone App Bar) -->
+    <nav class="mobile-bottom-nav lg:hidden shadow-2xl">
         <button class="mobile-nav-item active" data-tab="home" onclick="switchTab('home')">
-            <i data-lucide="home"></i>
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
             <span>หน้าแรก</span>
         </button>
         <button class="mobile-nav-item" data-tab="dashboard" onclick="switchTab('dashboard')">
-            <i data-lucide="layout-dashboard"></i>
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
             <span>แดชบอร์ด</span>
         </button>
         <button class="mobile-nav-item" data-tab="database" onclick="switchTab('database')">
-            <i data-lucide="database"></i>
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3s3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3S11 5 11 7M4 7c0 2 1.5 3 3.5 3S11 9 11 7m6 0v10c0 2 1.5 3 3.5 3s3.5-1 3.5-3V7m-7 0c0-2 1.5-3 3.5-3s3.5 1 3.5 3m-7 0c0 2 1.5 3 3.5 3s3.5-1 3.5-3"></path></svg>
             <span>ฐานข้อมูล</span>
         </button>
         <button class="mobile-nav-item" data-tab="news" onclick="switchTab('news')">
-            <i data-lucide="newspaper"></i>
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
             <span>ข่าวสาร</span>
         </button>
         <button class="mobile-nav-item" data-tab="upload" onclick="switchTab('upload')">
-            <i data-lucide="file-up"></i>
-            <span>แปลงไฟล์</span>
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+            <span>แปลง DOCX</span>
         </button>
     </nav>
 
