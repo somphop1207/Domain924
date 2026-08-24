@@ -1,7 +1,7 @@
 /**
  * กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔ (ฉก.ตร.ปัตตานี ๙๒)
  * ฐานข้อมูลยุทธการ การข่าว และกิจการพลเรือนประจำวัน
- * อัปเดตล่าสุด: ประจำวันที่ ๒๔ สิงหาคม ๒๕๖๙ (สกัดจากเอกสารชุดงาน กิจการพลเรือน ๒๔ ส.ค. ๖๙ ร้อย ฉก.ตชด.๙๒๔ ฉบับทางการ)
+ * อัปเดตล่าสุด: ประจำวันที่ ๒๔ สิงหาคม ๒๕๖๙ (บูรณาการภารกิจ ชป.กร. ครบ ๖๓ ภารกิจ)
  */
 
 var BPP924_DATA = {
@@ -67,10 +67,10 @@ var BPP924_DATA = {
         "documentTitle": "สรุปผลการปฏิบัติงานด้านยุทธการ-การข่าว ร้อย ฉก.ตชด.๙๒๔ ประจำวันที่ ๒๔ สิงหาคม ๒๕๖๙",
         "dispatchRef": "ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1127",
         "summary": {
-            "totalMissions": 57,
+            "totalMissions": 63,
             "patrols": 2,
             "checkpoints": 41,
-            "civilAffairs": 0,
+            "civilAffairs": 6,
             "training": 0,
             "securityChecks": 14,
             "totalPersonnel": 58,
@@ -1302,6 +1302,144 @@ var BPP924_DATA = {
                     "assets/images/24aug/image116.jpeg",
                     "assets/images/24aug/image117.jpeg",
                     "assets/images/24aug/image118.png"
+                ]
+            },
+            {
+                "id": "OP-24AUG-CIVIL-001",
+                "time": "10:00",
+                "timeTh": "10:00 น. (24 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / บูรณาการฝ่ายปกครอง",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ร.ต.อ.เดชเดโช ส่งสีอ่อน ผบ.ร้อย / ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.",
+                "callSign": "เหมราช 41 / ชป.กร.",
+                "location": "ที่ว่าการอำเภอเมืองปัตตานี อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 49830 58498",
+                "lat": 6.8568,
+                "lng": 101.2605,
+                "missionDetail": "เมื่อ ๒๔๑๐๐๐ ส.ค.๖๙ ร.ต.อ.เดชเดโช ส่งสีอ่อน ผบ.ร้อย ฉก.ตชด.๙๒๔, ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.ร้อย ฉก.ตชด.๙๒๔ พร้อมพวกรวม ๓ นาย เดินทางเข้าพบปะพัฒนาสัมพันธ์กับ นายสมมาตร บารา นายอำเภอเมืองปัตตานี เพื่อขับเคลื่อนงานความมั่นคงและเตรียมรับมืออุทกภัย",
+                "images": [
+                    "assets/images/civil_24aug/image1.jpeg",
+                    "assets/images/civil_24aug/image2.jpeg",
+                    "assets/images/civil_24aug/image3.jpeg",
+                    "assets/images/civil_24aug/image4.jpeg"
+                ]
+            },
+            {
+                "id": "OP-24AUG-CIVIL-002",
+                "time": "10:15",
+                "timeTh": "10:15 น. (24 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / ความมั่นคงระดับอำเภอ",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ร.ต.อ.เดชเดโช ส่งสีอ่อน ผบ.ร้อย / ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.",
+                "callSign": "เหมราช 41 / ชป.กร.",
+                "location": "ที่ว่าการอำเภอเมืองปัตตานี อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 49830 58498",
+                "lat": 6.8568,
+                "lng": 101.2605,
+                "missionDetail": "เมื่อ ๒๔๑๐๑๕ ส.ค.๖๙ ร.ต.อ.เดชเดโช ส่งสีอ่อน ผบ.ร้อย ฉก.ตชด.๙๒๔, ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร. เข้าพบปะพัฒนาสัมพันธ์กับ นายเจษฎา ปลอดอ่อน ปลัดอำเภอหัวหน้ากลุ่มงานความมั่นคง เพื่อแลกเปลี่ยนข้อมูลข่าวสารและกำหนดมาตรการเฝ้าระวังพื้นที่",
+                "images": [
+                    "assets/images/civil_24aug/image5.jpeg",
+                    "assets/images/civil_24aug/image6.jpeg",
+                    "assets/images/civil_24aug/image7.jpeg",
+                    "assets/images/civil_24aug/image8.jpeg"
+                ]
+            },
+            {
+                "id": "OP-24AUG-CIVIL-003",
+                "time": "10:40",
+                "timeTh": "10:40 น. (24 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / รปภ.สถานศึกษา",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.ปะกาฮะรัง",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.ร้อย ฉก.ตชด.924",
+                "callSign": "ชป.กร.",
+                "location": "โรงเรียนบ้านปะกาฮะรัง ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 48394 57870",
+                "lat": 6.8488,
+                "lng": 101.2475,
+                "missionDetail": "เมื่อ ๒๔๑๐๔๐ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.ร้อย ฉก.ตชด.๙๒๔ พร้อมพวกรวม ๓ นาย เดินทางเข้าพบปะ นายยาเบ็น เรืองจรูญศรี ผอ.รร.บ้านปะกาฮะรัง ติดตามมาตรการรักษาความปลอดภัยครูและบุคลากรทางการศึกษา",
+                "images": [
+                    "assets/images/civil_24aug/image9.jpeg",
+                    "assets/images/civil_24aug/image10.jpeg",
+                    "assets/images/civil_24aug/image11.jpeg",
+                    "assets/images/civil_24aug/image12.jpeg"
+                ]
+            },
+            {
+                "id": "OP-24AUG-CIVIL-004",
+                "time": "10:50",
+                "timeTh": "10:50 น. (24 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / สภากาแฟสันติสุข",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.ปะกาฮะรัง",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.ร้อย ฉก.ตชด.924",
+                "callSign": "ชป.กร.",
+                "location": "ร้านน้ำชา ม.๘ บ.เจ๊ะดี ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 46608 58002",
+                "lat": 6.852,
+                "lng": 101.231,
+                "missionDetail": "เมื่อ ๒๔๑๐๕๐ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร. ดื่มน้ำชากับ นายสะมะแอ ยูโซ๊ะ ผช.ผญบ.ม.8 บ.เจ๊ะดี ต.ปะกาฮะรัง พูดคุยสร้างความเข้าใจ แสดงออกถึงการปฏิเสธความรุนแรง และร่วมสืบสวนหาข่าวภัยยาเสพติด",
+                "images": [
+                    "assets/images/civil_24aug/image13.jpeg",
+                    "assets/images/civil_24aug/image14.jpeg",
+                    "assets/images/civil_24aug/image15.jpeg",
+                    "assets/images/civil_24aug/image16.jpeg"
+                ]
+            },
+            {
+                "id": "OP-24AUG-CIVIL-005",
+                "time": "11:15",
+                "timeTh": "11:15 น. (24 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / มอบยาสามัญประจำบ้าน",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.ร้อย ฉก.ตชด.924",
+                "callSign": "ชป.กร.",
+                "location": "ม.๒ ต.รูสะมิแล อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 45200 59100",
+                "lat": 6.862,
+                "lng": 101.218,
+                "missionDetail": "เมื่อ ๒๔๑๑๑๕ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร. ลงพื้นที่พบปะสร้างเครือข่ายมวลชน ม.๒ ต.รูสะมิแล พร้อมมอบชุดยาสามัญประจำบ้านเพื่อเป็นขวัญกำลังใจและบรรเทาความเดือดร้อน",
+                "images": [
+                    "assets/images/civil_24aug/image17.jpeg",
+                    "assets/images/civil_24aug/image18.jpeg",
+                    "assets/images/civil_24aug/image19.jpeg",
+                    "assets/images/civil_24aug/image20.jpeg"
+                ]
+            },
+            {
+                "id": "OP-24AUG-CIVIL-006",
+                "time": "06:30",
+                "timeTh": "06:30 น. (24 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / รปภ.พระสงฆ์บิณฑบาต",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "จ.ส.ต.กำธรพล บุญสุวรรณ์ จนท.ชป.กร.",
+                "callSign": "ชป.กร.",
+                "location": "วัดขจรประชาราม ม.๑ ต.รูสะมิแล อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 45152 60016",
+                "lat": 6.8705,
+                "lng": 101.2175,
+                "missionDetail": "เมื่อ ๒๔๐๖๓๐-๒๔๐๘๐๐ ส.ค.๖๙ จ.ส.ต.กำธรพล บุญสุวรรณ์ จนท.ชป.กร. ดูแลความปลอดภัยและอำนวยความสะดวกแด่พระภิกษุสงฆ์ในการออกรับบิณฑบาต ณ วัดขจรประชาราม ม.๑ ต.รูสะมิแล",
+                "images": [
+                    "assets/images/civil_24aug/image21.jpeg",
+                    "assets/images/civil_24aug/image22.jpeg",
+                    "assets/images/civil_24aug/image23.jpeg",
+                    "assets/images/civil_24aug/image24.jpeg"
                 ]
             }
         ]

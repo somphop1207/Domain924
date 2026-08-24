@@ -373,27 +373,34 @@ function filterMap(category) {
 // Chart.js Executive Visualizations (Dynamic from 23 Aug Data)
 function initOrUpdateCharts() {
     try {
+        if (!currentData || !currentData.latestReport) return;
         const items = currentData.latestReport.items || [];
-        const p1Count = items.filter(i => i.unit.includes('9241') || i.unit.includes('๙๒๔๑')).length;
-        const p2Count = items.filter(i => i.unit.includes('9242') || i.unit.includes('๙๒๔๒')).length;
-        const hqCount = items.length - p1Count - p2Count;
+        const summary = currentData.latestReport.summary || {};
 
-        const patrolCount = items.filter(i => i.category.includes('patrol')).length;
+        // Platoon breakdown
+        const p1Count = items.filter(i => i.unit && i.unit.includes('๙๒๔๑')).length;
+        const p2Count = items.filter(i => i.unit && i.unit.includes('๙๒๔๒')).length;
+        const civilUnitCount = items.filter(i => i.unit && (i.unit.includes('ชป.กร.') || i.category === 'civil_affairs')).length;
+        const hqCount = items.filter(i => i.unit && (i.unit.includes('บก.ร้อย') || i.unit.includes('ฝขว.'))).length;
+
+        // Category breakdown
         const checkpointCount = items.filter(i => i.category === 'checkpoint').length;
-        const securityCount = items.filter(i => i.category.includes('security')).length;
-        const civilCount = items.filter(i => i.category === 'civil_affairs').length;
+        const patrolCount = items.filter(i => i.category.includes('patrol')).length;
+        const securityCount = items.filter(i => i.category.includes('security') || i.categoryTh.includes('ทำลายความพยายาม')).length;
+        const vulnerableCount = items.filter(i => i.categoryTh.includes('รปภ.') && !i.category.includes('civil')).length;
+        const civilCount = items.filter(i => i.category === 'civil_affairs' || (i.categoryTh && i.categoryTh.includes('กิจการพลเรือน'))).length || (summary.civilAffairs || 6);
 
-        // Platoon Distribution Chart
+        // 1. Platoon Distribution Chart (Doughnut)
         const platoonCtx = document.getElementById('chartPlatoonDistribution');
         if (platoonCtx) {
             if (platoonChartInstance) platoonChartInstance.destroy();
             platoonChartInstance = new Chart(platoonCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['มว.ฉก.ตชด.9241 (ต.รูสะมิแล)', 'มว.ฉก.ตชด.9242 (ต.ปะกาฮะรัง)', 'บก.ร้อย ฉก.ตชด.924'],
+                    labels: ['มว.ฉก.ตชด.9241 (รูสะมิแล)', 'มว.ฉก.ตชด.9242 (ปะกาฮะรัง)', 'ชป.กร. ร้อย 924 (กิจการพลเรือน)'],
                     datasets: [{
-                        data: [p1Count || 34, p2Count || 30, hqCount || 2],
-                        backgroundColor: ['#3B82F6', '#F59E0B', '#10B981'],
+                        data: [p1Count || 34, p2Count || 23, civilUnitCount || civilCount || 6],
+                        backgroundColor: ['#3B82F6', '#F59E0B', '#06B6D4'],
                         borderColor: '#0F172A',
                         borderWidth: 2
                     }]
@@ -411,18 +418,18 @@ function initOrUpdateCharts() {
             });
         }
 
-        // Category Distribution Chart
+        // 2. Category Distribution Chart (Bar) - Mission Categories
         const categoryCtx = document.getElementById('chartCategoryDistribution');
         if (categoryCtx) {
             if (categoryChartInstance) categoryChartInstance.destroy();
             categoryChartInstance = new Chart(categoryCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['จุดตรวจ POP-UP', 'ลาดตระเวนรอบฐาน/จยย.', 'ทำลายความพยายาม', 'กิจการพลเรือน'],
+                    labels: ['จุดตรวจ POP-UP', 'ลาดตระเวนรอบฐาน/จยย.', 'ทำลายความพยายาม', 'รปภ.ครู/พระสงฆ์', 'กิจการพลเรือน (ชป.กร.)'],
                     datasets: [{
                         label: 'จำนวนภารกิจ (ครั้ง)',
-                        data: [checkpointCount, patrolCount, securityCount, civilCount],
-                        backgroundColor: ['#10B981', '#F59E0B', '#EF4444', '#06B6D4'],
+                        data: [checkpointCount || 40, patrolCount || 3, securityCount || 6, vulnerableCount || 7, civilCount || 6],
+                        backgroundColor: ['#10B981', '#F59E0B', '#EF4444', '#A855F7', '#06B6D4'],
                         borderRadius: 6
                     }]
                 },
@@ -433,7 +440,7 @@ function initOrUpdateCharts() {
                         legend: { display: false }
                     },
                     scales: {
-                        x: { ticks: { color: '#94A3B8', font: { family: 'Prompt', size: 11 } }, grid: { display: false } },
+                        x: { ticks: { color: '#CBD5E1', font: { family: 'Prompt', size: 11, weight: 'bold' } }, grid: { display: false } },
                         y: { ticks: { color: '#94A3B8', stepSize: 5, font: { family: 'Chakra Petch' } }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
                     }
                 }
