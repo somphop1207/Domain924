@@ -273,6 +273,9 @@ function plotTacticalMarkers() {
     let plottedCount = 0;
 
     items.forEach((item, idx) => {
+        // Exclude invalid coordinates or incorrect placeholder grids
+        if (item.grid && item.grid.includes('51800 56200')) return;
+
         // Filter logic
         if (filter !== 'all') {
             if (filter === 'security_check' && !item.category.includes('security')) return;
@@ -282,8 +285,13 @@ function plotTacticalMarkers() {
             if (filter === 'civil_affairs' && item.category !== 'civil_affairs') return;
         }
 
-        const lat = item.lat || (6.855 + Math.sin(idx) * 0.015);
-        const lng = item.lng || (101.225 + Math.cos(idx) * 0.015);
+        const lat = item.lat;
+        const lng = item.lng;
+
+        // Strict validation: must be within Pattani AOR
+        if (!lat || !lng || isNaN(lat) || isNaN(lng) || lat < 6.80 || lat > 6.90 || lng < 101.18 || lng > 101.28) {
+            return;
+        }
 
         let pinColor = '#3B82F6';
         let pinIcon = '🛡️';
