@@ -266,30 +266,38 @@ function plotTacticalMarkers() {
     if (!mapMarkersLayer || !appMap) return;
     mapMarkersLayer.clearLayers();
 
-    const items = currentData.latestReport.items;
+    const items = (currentData && currentData.latestReport && currentData.latestReport.items) ? currentData.latestReport.items : [];
     const filter = activeMapFilter;
     const bounds = L.latLngBounds();
 
     let plottedCount = 0;
 
     items.forEach((item, idx) => {
+        // Filter logic
         if (filter !== 'all') {
-            if (filter === 'patrol' && !item.category.includes('patrol')) return;
+            if (filter === 'security_check' && !item.category.includes('security')) return;
             if (filter === 'checkpoint' && item.category !== 'checkpoint') return;
+            if (filter === 'patrol' && !item.category.includes('patrol')) return;
+            if (filter === 'vulnerable' && !item.categoryTh.includes('รปภ.') && !item.missionDetail.includes('ครู') && !item.missionDetail.includes('พระ')) return;
             if (filter === 'civil_affairs' && item.category !== 'civil_affairs') return;
-            if (filter === 'special_ops' && !item.category.includes('security')) return;
         }
 
-        // Fallback lat/lng if not present
         const lat = item.lat || (6.855 + Math.sin(idx) * 0.015);
         const lng = item.lng || (101.225 + Math.cos(idx) * 0.015);
 
         let pinColor = '#3B82F6';
         let pinIcon = '🛡️';
-        if (item.category.includes('patrol')) { pinColor = '#F59E0B'; pinIcon = '🚶‍♂️'; }
-        else if (item.category === 'checkpoint') { pinColor = '#10B981'; pinIcon = '🚧'; }
-        else if (item.category === 'civil_affairs') { pinColor = '#06B6D4'; pinIcon = '🤝'; }
-        else if (item.category.includes('security')) { pinColor = '#EF4444'; pinIcon = '🎯'; }
+        if (item.category.includes('security') || item.categoryTh.includes('ทำลายความพยายาม')) {
+            pinColor = '#EF4444'; pinIcon = '🎯';
+        } else if (item.category === 'checkpoint') {
+            pinColor = '#10B981'; pinIcon = '🚧';
+        } else if (item.category.includes('patrol')) {
+            pinColor = '#F59E0B'; pinIcon = '🚶‍♂️';
+        } else if (item.categoryTh.includes('รปภ.') || item.missionDetail.includes('ครู') || item.missionDetail.includes('พระ')) {
+            pinColor = '#A855F7'; pinIcon = '🏫';
+        } else if (item.category === 'civil_affairs') {
+            pinColor = '#06B6D4'; pinIcon = '🤝';
+        }
 
         const customIcon = L.divIcon({
             className: 'custom-div-icon',
@@ -302,7 +310,7 @@ function plotTacticalMarkers() {
 
         const marker = L.marker([lat, lng], { icon: customIcon });
 
-        const thumbImg = item.images && item.images.length > 0 ? item.images[0] : 'assets/images/23aug/image1.jpeg';
+        const thumbImg = item.images && item.images.length > 0 ? item.images[0] : 'assets/images/24aug/image1.jpeg';
 
         const popupContent = `
             <div class="p-2.5 space-y-2 font-sans text-slate-100" style="min-width: 240px; max-width: 280px;">
@@ -312,7 +320,7 @@ function plotTacticalMarkers() {
                 </div>
                 ${thumbImg ? `
                     <div class="w-full h-28 rounded-lg overflow-hidden border border-slate-700 cursor-pointer relative group" onclick="openPhotoLightbox('${thumbImg}', '${item.categoryTh}', '${item.location}')">
-                        <img src="${thumbImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                        <img src="${thumbImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
                         <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                             <span class="px-2 py-0.5 rounded bg-black/80 text-white text-[10px] font-bold">🔍 แตะเพื่อดูรูปใหญ่</span>
                         </div>
@@ -331,15 +339,12 @@ function plotTacticalMarkers() {
         plottedCount++;
     });
 
-    console.log(`Successfully plotted ${plottedCount} tactical markers on the map!`);
+    console.log(`Successfully plotted ${plottedCount} tactical markers on the map for 24 Aug!`);
     
-    // Automatically fit bounds if markers exist
     if (plottedCount > 0 && bounds.isValid()) {
         try {
             appMap.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
-        } catch (e) {
-            // fallback
-        }
+        } catch (e) {}
     }
 }
 
@@ -348,10 +353,10 @@ function filterMap(category) {
     document.querySelectorAll('.map-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-cat') === category) {
             btn.classList.add('bg-amber-500', 'text-slate-950', 'font-bold');
-            btn.classList.remove('bg-slate-800', 'text-slate-300');
+            btn.classList.remove('bg-slate-800', 'text-slate-300', 'text-red-300', 'text-emerald-300', 'text-amber-300', 'text-purple-300', 'text-cyan-300');
         } else {
             btn.classList.remove('bg-amber-500', 'text-slate-950', 'font-bold');
-            btn.classList.add('bg-slate-800', 'text-slate-300');
+            btn.classList.add('bg-slate-800');
         }
     });
     plotTacticalMarkers();
