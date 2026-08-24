@@ -1287,3 +1287,99 @@ function submitCustomLiveDispatch() {
     // Success alert notification
     alert(`🚀 ยิงรายงานสดเข้าสู่ศูนย์ TOC สำเร็จ!\n\nผู้รายงาน: ${callSign}\nเวลา: ${timeStr} น.\nข้อความ: ${text.substring(0, 60)}...`);
 }
+
+
+// Smart Auto-Shifting Video Broadcast Controller
+let currentPlayingVideoId = null;
+
+function renderVideoTheater() {
+    const queueContainer = document.getElementById('sideVideoQueue');
+    if (!queueContainer || !currentData || !currentData.videoPlaylist) return;
+
+    const playlist = currentData.videoPlaylist || [];
+    if (playlist.length === 0) return;
+
+    if (!currentPlayingVideoId) {
+        currentPlayingVideoId = playlist[0].youtubeId;
+    }
+
+    const mainVideo = playlist.find(v => v.youtubeId === currentPlayingVideoId) || playlist[0];
+
+    // Update main video player
+    const iframe = document.getElementById('mainVideoIframe');
+    if (iframe && !iframe.src.includes(mainVideo.youtubeId)) {
+        iframe.src = `https://www.youtube.com/embed/${mainVideo.youtubeId}?rel=0&autoplay=1`;
+    }
+
+    const el = (id) => document.getElementById(id);
+    if (el('mainVideoTitle')) el('mainVideoTitle').textContent = mainVideo.title;
+    if (el('mainVideoDesc')) el('mainVideoDesc').textContent = mainVideo.subtitle;
+    if (el('mainVideoDate')) el('mainVideoDate').textContent = `📅 ${mainVideo.dateTh}`;
+    if (el('mainVideoBadge')) el('mainVideoBadge').innerHTML = `<span class="w-2 h-2 rounded-full ${mainVideo.isLatest ? 'bg-red-500 animate-pulse' : 'bg-amber-400'}"></span><span>${mainVideo.badge}</span>`;
+    if (el('mainVideoYoutubeLink')) el('mainVideoYoutubeLink').href = `https://youtu.be/${mainVideo.youtubeId}`;
+
+    // Render side queue with all other videos
+    queueContainer.innerHTML = '';
+    const otherVideos = playlist.filter(v => v.youtubeId !== currentPlayingVideoId);
+
+    otherVideos.forEach(v => {
+        const item = document.createElement('div');
+        item.className = 'glass-panel rounded-xl p-3 border border-slate-800 hover:border-amber-500/60 transition-all cursor-pointer group bg-slate-900/80 hover:bg-slate-850';
+        item.onclick = () => switchMainVideo(v.youtubeId);
+
+        const thumbUrl = `https://img.youtube.com/vi/${v.youtubeId}/mqdefault.jpg`;
+
+        item.innerHTML = `
+            <div class="flex items-start space-x-3">
+                <div class="relative w-28 h-18 rounded-lg overflow-hidden flex-shrink-0 bg-black border border-slate-700 group-hover:border-amber-400 transition-colors">
+                    <img src="${thumbUrl}" alt="${v.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
+                    <div class="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/10 transition-colors">
+                        <div class="w-7 h-7 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-0 space-y-1">
+                    <div class="flex items-center justify-between gap-1 text-[10px] font-mono">
+                        <span class="px-1.5 py-0.2 rounded bg-slate-800 text-amber-300 font-bold border border-slate-700">${v.category}</span>
+                        <span class="text-slate-400">${v.dateTh}</span>
+                    </div>
+                    <h5 class="text-xs font-bold text-slate-100 group-hover:text-amber-300 transition-colors line-clamp-2 leading-tight font-sarabun">
+                        ${v.title}
+                    </h5>
+                    <div class="flex items-center justify-between pt-1 text-[10px]">
+                        <span class="text-amber-400/90 font-bold flex items-center gap-1 group-hover:underline">
+                            ▶️ สลับขึ้นจอหลัก
+                        </span>
+                        <a href="https://youtu.be/${v.youtubeId}" target="_blank" onclick="event.stopPropagation()" class="text-slate-400 hover:text-white flex items-center gap-0.5">
+                            <i data-lucide="external-link" class="w-3 h-3"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        queueContainer.appendChild(item);
+    });
+
+    if (window.lucide) lucide.createIcons();
+}
+
+function switchMainVideo(youtubeId) {
+    currentPlayingVideoId = youtubeId;
+    renderVideoTheater();
+    
+    // Smooth scroll to video player on mobile
+    if (window.innerWidth < 1024) {
+        const player = document.getElementById('mainVideoIframe');
+        if (player) player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
+function copyMainVideoUrl() {
+    if (!currentPlayingVideoId) return;
+    const url = `https://youtu.be/${currentPlayingVideoId}`;
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(url);
+        showDispatchToast("📋 คัดลอกลิงก์วิดีโอเรียบร้อยแล้ว!", "success");
+    }
+}
