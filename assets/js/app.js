@@ -1,3 +1,20 @@
+
+// Automatic Browser Cache & Storage Purge for New Daily Intelligence Reports
+(function purgeOldCaches() {
+    try {
+        const CURRENT_DEPLOY_VER = "24AUG2569_BUILD_1127";
+        if (typeof localStorage !== 'undefined') {
+            const savedVer = localStorage.getItem('bpp924_active_ver');
+            if (savedVer !== CURRENT_DEPLOY_VER) {
+                localStorage.clear();
+                sessionStorage.clear();
+                localStorage.setItem('bpp924_active_ver', CURRENT_DEPLOY_VER);
+                console.log("Purged old cached intelligence data. Active version:", CURRENT_DEPLOY_VER);
+            }
+        }
+    } catch (e) {}
+})();
+
 /**
  * BPP TF 924 Portal - Core Application Logic
  * Integrates Leaflet, Chart.js, Search Engine, DOCX Parser & Modal Handlers
