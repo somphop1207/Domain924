@@ -272,7 +272,7 @@ function plotTacticalMarkers() {
 
     let plottedCount = 0;
 
-    // Track overlapping coordinates to apply slight tactical spidering offset so all pins are visible
+    // Track overlapping coordinates to apply tiny realistic 10-15m roadside micro-offset
     const coordCounts = {};
 
     items.forEach((item, idx) => {
@@ -281,11 +281,11 @@ function plotTacticalMarkers() {
 
         // Filter logic
         if (filter !== 'all') {
-            if (filter === 'security_check' && !item.category.includes('security') && !item.categoryTh.includes('ทำลาย') && !item.categoryTh.includes('ตรวจ')) return;
-            if (filter === 'checkpoint' && item.category !== 'checkpoint' && !item.categoryTh.includes('จุดตรวจ')) return;
-            if (filter === 'patrol' && !item.category.includes('patrol') && !item.categoryTh.includes('ลาดตระเวน')) return;
-            if (filter === 'vulnerable' && !item.categoryTh.includes('รปภ.') && !item.missionDetail.includes('ครู') && !item.missionDetail.includes('พระ')) return;
-            if (filter === 'civil_affairs' && item.category !== 'civil_affairs' && !item.categoryTh.includes('กิจการพลเรือน')) return;
+            if (filter === 'security_check' && item.category !== 'security_check') return;
+            if (filter === 'checkpoint' && item.category !== 'checkpoint') return;
+            if (filter === 'patrol' && !item.category.includes('patrol')) return;
+            if (filter === 'vulnerable' && item.category !== 'vulnerable') return;
+            if (filter === 'civil_affairs' && item.category !== 'civil_affairs') return;
         }
 
         let baseLat = item.lat;
@@ -296,7 +296,7 @@ function plotTacticalMarkers() {
             return;
         }
 
-        // Apply tactical micro-offset for overlapping points (e.g. 20 shifts at Prakan 2)
+        // Apply clean, subtle 15-meter micro-offset along road for duplicate points
         const key = `${baseLat.toFixed(5)}_${baseLng.toFixed(5)}`;
         const countAtPoint = coordCounts[key] || 0;
         coordCounts[key] = countAtPoint + 1;
@@ -304,27 +304,27 @@ function plotTacticalMarkers() {
         let lat = baseLat;
         let lng = baseLng;
         if (countAtPoint > 0) {
-            const angle = (countAtPoint * 36) * (Math.PI / 180);
-            const radius = 0.00035 * Math.ceil(countAtPoint / 8);
+            const angle = (countAtPoint * 45) * (Math.PI / 180);
+            const radius = 0.00015; // ~15 meters only
             lat = baseLat + radius * Math.sin(angle);
             lng = baseLng + radius * Math.cos(angle);
         }
 
         let pinColor = '#3B82F6';
         let pinIcon = '🛡️';
-        if (item.category.includes('security') || item.categoryTh.includes('ทำลาย') || item.categoryTh.includes('จุดเสี่ยง')) {
+        if (item.category === 'security_check') {
             pinColor = '#EF4444'; // Red
             pinIcon = '🎯';
-        } else if (item.category.includes('checkpoint') || item.categoryTh.includes('จุดตรวจ')) {
+        } else if (item.category === 'checkpoint') {
             pinColor = '#10B981'; // Green
             pinIcon = '🚧';
-        } else if (item.category.includes('patrol') || item.categoryTh.includes('ลาดตระเวน')) {
+        } else if (item.category.includes('patrol')) {
             pinColor = '#F59E0B'; // Amber
             pinIcon = '🚶‍♂️';
-        } else if (item.categoryTh.includes('รปภ.') || item.missionDetail.includes('ครู') || item.missionDetail.includes('พระ')) {
+        } else if (item.category === 'vulnerable') {
             pinColor = '#A855F7'; // Purple
             pinIcon = '🏫';
-        } else if (item.category === 'civil_affairs' || item.categoryTh.includes('กิจการพลเรือน')) {
+        } else if (item.category === 'civil_affairs') {
             pinColor = '#06B6D4'; // Cyan
             pinIcon = '🤝';
         }
@@ -334,7 +334,7 @@ function plotTacticalMarkers() {
             html: `
                 <div class="relative group cursor-pointer" style="transform: translate(-50%, -50%);">
                     <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg border-2 border-white transition-all duration-300 transform group-hover:scale-125"
-                         style="background: ${pinColor}; box-shadow: 0 0 15px ${pinColor}80;">
+                         style="background: ${pinColor}; box-shadow: 0 0 12px ${pinColor}90;">
                         <span>${pinIcon}</span>
                     </div>
                     <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white"></div>
@@ -348,18 +348,18 @@ function plotTacticalMarkers() {
         const imgHtml = (item.images && item.images.length > 0)
             ? `<div class="mt-2.5 rounded-lg overflow-hidden border border-slate-700">
                  <img src="${item.images[0]}" alt="Ops Photo" class="w-full h-32 object-cover cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openLightbox('${item.images[0]}')">
-                 ${item.images.length > 1 ? `<div class="p-1 bg-slate-900/90 text-center text-[10px] text-amber-400 font-mono">+${item.images.length - 1} ภาพเพิ่มเติมในภารกิจนี้ (คลิกเพื่อดู)</div>` : ''}
+                 ${item.images.length > 1 ? `<div class="p-1 bg-slate-900/90 text-center text-[10px] text-amber-400 font-mono">+${item.images.length - 1} ภาพเพิ่มเติมในภารกิจนี้ (คลิกรูปเพื่อซูม)</div>` : ''}
                </div>`
             : '';
 
         const popupContent = `
-            <div class="p-3 max-w-[280px] font-sans text-slate-200">
+            <div class="p-3 max-w-[290px] font-sans text-slate-200">
                 <div class="flex items-center justify-between gap-2 border-b border-slate-700 pb-2 mb-2">
                     <span class="px-2 py-0.5 rounded text-[11px] font-bold text-white shadow-sm" style="background: ${pinColor};">${item.categoryTh}</span>
                     <span class="text-[11px] font-mono text-amber-400 font-bold">${item.timeTh || item.time}</span>
                 </div>
                 <div class="text-xs font-bold text-white mb-1">${item.location}</div>
-                <div class="text-[11px] text-slate-300 mb-1 leading-relaxed">${item.missionDetail}</div>
+                <div class="text-[11px] text-slate-300 mb-1 leading-relaxed line-clamp-3">${item.missionDetail}</div>
                 <div class="grid grid-cols-2 gap-1 text-[10px] font-mono text-slate-400 bg-slate-900/80 p-2 rounded-lg border border-slate-800 mt-2">
                     <div><span class="text-slate-500">หน่วย:</span> <span class="text-slate-200 font-semibold">${item.unit}</span></div>
                     <div><span class="text-slate-500">เรียกขาน:</span> <span class="text-amber-300 font-semibold">${item.callSign || '-'}</span></div>
@@ -372,7 +372,7 @@ function plotTacticalMarkers() {
 
         const marker = L.marker([lat, lng], { icon: customIcon }).bindPopup(popupContent, {
             className: 'custom-leaflet-popup',
-            maxWidth: 300
+            maxWidth: 310
         });
 
         mapMarkersLayer.addLayer(marker);
