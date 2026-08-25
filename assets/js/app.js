@@ -272,87 +272,116 @@ function plotTacticalMarkers() {
 
     let plottedCount = 0;
 
+    // Track overlapping coordinates to apply slight tactical spidering offset so all pins are visible
+    const coordCounts = {};
+
     items.forEach((item, idx) => {
-        // Exclude invalid coordinates or incorrect placeholder grids
+        // Exclude invalid coordinates
         if (item.grid && item.grid.includes('51800 56200')) return;
 
         // Filter logic
         if (filter !== 'all') {
-            if (filter === 'security_check' && !item.category.includes('security')) return;
-            if (filter === 'checkpoint' && item.category !== 'checkpoint') return;
-            if (filter === 'patrol' && !item.category.includes('patrol')) return;
+            if (filter === 'security_check' && !item.category.includes('security') && !item.categoryTh.includes('ทำลาย') && !item.categoryTh.includes('ตรวจ')) return;
+            if (filter === 'checkpoint' && item.category !== 'checkpoint' && !item.categoryTh.includes('จุดตรวจ')) return;
+            if (filter === 'patrol' && !item.category.includes('patrol') && !item.categoryTh.includes('ลาดตระเวน')) return;
             if (filter === 'vulnerable' && !item.categoryTh.includes('รปภ.') && !item.missionDetail.includes('ครู') && !item.missionDetail.includes('พระ')) return;
-            if (filter === 'civil_affairs' && item.category !== 'civil_affairs') return;
+            if (filter === 'civil_affairs' && item.category !== 'civil_affairs' && !item.categoryTh.includes('กิจการพลเรือน')) return;
         }
 
-        const lat = item.lat;
-        const lng = item.lng;
+        let baseLat = item.lat;
+        let baseLng = item.lng;
 
         // Strict validation: must be within Pattani AOR
-        if (!lat || !lng || isNaN(lat) || isNaN(lng) || lat < 6.80 || lat > 6.90 || lng < 101.18 || lng > 101.28) {
+        if (!baseLat || !baseLng || isNaN(baseLat) || isNaN(baseLng) || baseLat < 6.80 || baseLat > 6.90 || baseLng < 101.18 || baseLng > 101.28) {
             return;
+        }
+
+        // Apply tactical micro-offset for overlapping points (e.g. 20 shifts at Prakan 2)
+        const key = `${baseLat.toFixed(5)}_${baseLng.toFixed(5)}`;
+        const countAtPoint = coordCounts[key] || 0;
+        coordCounts[key] = countAtPoint + 1;
+
+        let lat = baseLat;
+        let lng = baseLng;
+        if (countAtPoint > 0) {
+            const angle = (countAtPoint * 36) * (Math.PI / 180);
+            const radius = 0.00035 * Math.ceil(countAtPoint / 8);
+            lat = baseLat + radius * Math.sin(angle);
+            lng = baseLng + radius * Math.cos(angle);
         }
 
         let pinColor = '#3B82F6';
         let pinIcon = '🛡️';
-        if (item.category.includes('security') || item.categoryTh.includes('ทำลายความพยายาม')) {
-            pinColor = '#EF4444'; pinIcon = '🎯';
-        } else if (item.category === 'checkpoint') {
-            pinColor = '#10B981'; pinIcon = '🚧';
-        } else if (item.category.includes('patrol')) {
-            pinColor = '#F59E0B'; pinIcon = '🚶‍♂️';
+        if (item.category.includes('security') || item.categoryTh.includes('ทำลาย') || item.categoryTh.includes('จุดเสี่ยง')) {
+            pinColor = '#EF4444'; // Red
+            pinIcon = '🎯';
+        } else if (item.category.includes('checkpoint') || item.categoryTh.includes('จุดตรวจ')) {
+            pinColor = '#10B981'; // Green
+            pinIcon = '🚧';
+        } else if (item.category.includes('patrol') || item.categoryTh.includes('ลาดตระเวน')) {
+            pinColor = '#F59E0B'; // Amber
+            pinIcon = '🚶‍♂️';
         } else if (item.categoryTh.includes('รปภ.') || item.missionDetail.includes('ครู') || item.missionDetail.includes('พระ')) {
-            pinColor = '#A855F7'; pinIcon = '🏫';
-        } else if (item.category === 'civil_affairs') {
-            pinColor = '#06B6D4'; pinIcon = '🤝';
+            pinColor = '#A855F7'; // Purple
+            pinIcon = '🏫';
+        } else if (item.category === 'civil_affairs' || item.categoryTh.includes('กิจการพลเรือน')) {
+            pinColor = '#06B6D4'; // Cyan
+            pinIcon = '🤝';
         }
 
         const customIcon = L.divIcon({
-            className: 'custom-div-icon',
-            html: `<div class="custom-tactical-pin" style="background-color: ${pinColor}; border: 2px solid #ffffff; box-shadow: 0 0 14px ${pinColor}; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s;">
-                     <span style="font-size: 15px;">${pinIcon}</span>
-                   </div>`,
-            iconSize: [34, 34],
-            iconAnchor: [17, 17]
+            className: 'custom-map-pin',
+            html: `
+                <div class="relative group cursor-pointer" style="transform: translate(-50%, -50%);">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg border-2 border-white transition-all duration-300 transform group-hover:scale-125"
+                         style="background: ${pinColor}; box-shadow: 0 0 15px ${pinColor}80;">
+                        <span>${pinIcon}</span>
+                    </div>
+                    <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white"></div>
+                </div>
+            `,
+            iconSize: [32, 32],
+            iconAnchor: [16, 16],
+            popupAnchor: [0, -18]
         });
 
-        const marker = L.marker([lat, lng], { icon: customIcon });
-
-        const thumbImg = item.images && item.images.length > 0 ? item.images[0] : 'assets/images/24aug/image1.jpeg';
+        const imgHtml = (item.images && item.images.length > 0)
+            ? `<div class="mt-2.5 rounded-lg overflow-hidden border border-slate-700">
+                 <img src="${item.images[0]}" alt="Ops Photo" class="w-full h-32 object-cover cursor-pointer hover:scale-105 transition-transform duration-300" onclick="openLightbox('${item.images[0]}')">
+                 ${item.images.length > 1 ? `<div class="p-1 bg-slate-900/90 text-center text-[10px] text-amber-400 font-mono">+${item.images.length - 1} ภาพเพิ่มเติมในภารกิจนี้ (คลิกเพื่อดู)</div>` : ''}
+               </div>`
+            : '';
 
         const popupContent = `
-            <div class="p-2.5 space-y-2 font-sans text-slate-100" style="min-width: 240px; max-width: 280px;">
-                <div class="flex items-center justify-between border-b border-slate-700 pb-1.5">
-                    <span class="text-xs font-bold text-amber-400">${item.unit}</span>
-                    <span class="text-[11px] font-mono font-bold text-amber-300">${item.timeTh}</span>
+            <div class="p-3 max-w-[280px] font-sans text-slate-200">
+                <div class="flex items-center justify-between gap-2 border-b border-slate-700 pb-2 mb-2">
+                    <span class="px-2 py-0.5 rounded text-[11px] font-bold text-white shadow-sm" style="background: ${pinColor};">${item.categoryTh}</span>
+                    <span class="text-[11px] font-mono text-amber-400 font-bold">${item.timeTh || item.time}</span>
                 </div>
-                ${thumbImg ? `
-                    <div class="w-full h-28 rounded-lg overflow-hidden border border-slate-700 cursor-pointer relative group" onclick="openPhotoLightbox('${thumbImg}', '${item.categoryTh}', '${item.location}')">
-                        <img src="${thumbImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform" loading="lazy">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span class="px-2 py-0.5 rounded bg-black/80 text-white text-[10px] font-bold">🔍 แตะเพื่อดูรูปใหญ่</span>
-                        </div>
-                    </div>
-                ` : ''}
-                <div class="text-xs font-bold text-white leading-tight">${item.location}</div>
-                <div class="text-[11px] text-slate-300"><strong>ผู้นำชุด:</strong> ${item.leader} <span class="text-amber-400 font-mono">(${item.callSign})</span></div>
-                <div class="text-[10px] font-mono text-amber-300 bg-amber-950/60 p-1.5 rounded border border-amber-500/30">พิกัด MGRS: ${item.grid}</div>
-                <div class="text-[11px] text-slate-300 bg-slate-900/90 p-2 rounded border border-slate-800 leading-relaxed">${item.missionDetail}</div>
+                <div class="text-xs font-bold text-white mb-1">${item.location}</div>
+                <div class="text-[11px] text-slate-300 mb-1 leading-relaxed">${item.missionDetail}</div>
+                <div class="grid grid-cols-2 gap-1 text-[10px] font-mono text-slate-400 bg-slate-900/80 p-2 rounded-lg border border-slate-800 mt-2">
+                    <div><span class="text-slate-500">หน่วย:</span> <span class="text-slate-200 font-semibold">${item.unit}</span></div>
+                    <div><span class="text-slate-500">เรียกขาน:</span> <span class="text-amber-300 font-semibold">${item.callSign || '-'}</span></div>
+                    <div><span class="text-slate-500">ผู้นำชุด:</span> <span class="text-slate-200">${item.leader || '-'}</span></div>
+                    <div><span class="text-slate-500">พิกัด:</span> <span class="text-emerald-400 font-semibold">${item.grid}</span></div>
+                </div>
+                ${imgHtml}
             </div>
         `;
 
-        marker.bindPopup(popupContent);
+        const marker = L.marker([lat, lng], { icon: customIcon }).bindPopup(popupContent, {
+            className: 'custom-leaflet-popup',
+            maxWidth: 300
+        });
+
         mapMarkersLayer.addLayer(marker);
         bounds.extend([lat, lng]);
         plottedCount++;
     });
 
-    console.log(`Successfully plotted ${plottedCount} tactical markers on the map for 24 Aug!`);
-    
-    if (plottedCount > 0 && bounds.isValid()) {
-        try {
-            appMap.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
-        } catch (e) {}
+    if (plottedCount > 0 && appMap) {
+        appMap.fitBounds(bounds, { padding: [30, 30], maxZoom: 15 });
     }
 }
 
