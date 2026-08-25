@@ -1,7 +1,7 @@
 /**
  * กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔ (ฉก.ตร.ปัตตานี ๙๒)
  * ฐานข้อมูลยุทธการ การข่าว และกิจการพลเรือนประจำวัน
- * อัปเดตล่าสุด: ประจำวันที่ ๒๕ สิงหาคม ๒๕๖๙ (อัปเดตวิดีโอรายงานข่าวล่าสุด: fvxmehUMRJU)
+ * อัปเดตล่าสุด: ประจำวันที่ ๒๕ สิงหาคม ๒๕๖๙ (บูรณาการภารกิจและหมุดแผนที่ยุทธการ GIS ครบ ๗๓ จุด)
  */
 
 var BPP924_DATA = {
@@ -67,10 +67,10 @@ var BPP924_DATA = {
         "documentTitle": "สรุปผลการปฏิบัติงานด้านยุทธการ-การข่าว ร้อย ฉก.ตชด.๙๒๔ ประจำวันที่ ๒๕ สิงหาคม ๒๕๖๙",
         "dispatchRef": "ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1129",
         "summary": {
-            "totalMissions": 67,
+            "totalMissions": 73,
             "patrols": 2,
             "checkpoints": 36,
-            "civilAffairs": 10,
+            "civilAffairs": 16,
             "training": 0,
             "securityChecks": 19,
             "totalPersonnel": 58,
@@ -1519,6 +1519,144 @@ var BPP924_DATA = {
                     "assets/images/25aug/image146.jpeg",
                     "assets/images/25aug/image147.jpeg",
                     "assets/images/25aug/image148.png"
+                ]
+            },
+            {
+                "id": "OP-25AUG-CIVIL-001",
+                "time": "09:50",
+                "timeTh": "09:50 น. (25 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / จุดเสี่ยงโรงบรรจุแก๊ส",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.",
+                "callSign": "ชป.กร.",
+                "location": "โรงบรรจุแก๊สดอนรักปัตตานี ปตท. ม.๔ ต.รูสะมิแล อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 46144 58532",
+                "lat": 6.85732,
+                "lng": 101.22728,
+                "missionDetail": "เมื่อ ๒๕๐๙๕๐ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.ร้อย ฉก.ตชด.๙๒๔ พร้อมพวก ๓ นาย เข้าพบปะพัฒนาสัมพันธ์กับ นายเจริญ สุขสุวรรณ ผู้จัดการโรงบรรจุแก๊สดอนรักปัตตานี ปตท. ยกระดับการเฝ้าระวังและตรวจความพร้อมกล้อง CCTV และระบบ SOS",
+                "images": [
+                    "assets/images/civil_25aug/image1.jpeg",
+                    "assets/images/civil_25aug/image2.jpeg",
+                    "assets/images/civil_25aug/image3.jpeg",
+                    "assets/images/civil_25aug/image4.jpeg"
+                ]
+            },
+            {
+                "id": "OP-25AUG-CIVIL-002",
+                "time": "10:20",
+                "timeTh": "10:20 น. (25 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / จุดเสี่ยงร้านสะดวกซื้อ",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.",
+                "callSign": "ชป.กร.",
+                "location": "เซเว่นฯ สาขาสามัคคี ซอย๑๑ ม.๖ ต.รูสะมิแล อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 48244 61141",
+                "lat": 6.88092,
+                "lng": 101.24625,
+                "missionDetail": "เมื่อ ๒๕๑๐๒๐ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร. เข้าพบปะพนักงานร้านเซเว่นฯ สาขาสามัคคี ซอย ๑๑ ม.๖ ต.รูสะมิแล หารือการเฝ้าระวังจุดเสี่ยง ประชาสัมพันธ์กล่อง SOS และตรวจสอบกล้อง CCTV",
+                "images": [
+                    "assets/images/civil_25aug/image5.jpeg",
+                    "assets/images/civil_25aug/image6.jpeg",
+                    "assets/images/civil_25aug/image7.jpeg",
+                    "assets/images/civil_25aug/image8.jpeg"
+                ]
+            },
+            {
+                "id": "OP-25AUG-CIVIL-003",
+                "time": "10:40",
+                "timeTh": "10:40 น. (25 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / ประสานงาน สช.เมืองปัตตานี",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.",
+                "callSign": "ชป.กร.",
+                "location": "สำนักงานการศึกษาเอกชนอำเภอเมืองปัตตานี (สช.) อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 48725 60226",
+                "lat": 6.87265,
+                "lng": 101.2506,
+                "missionDetail": "เมื่อ ๒๕๑๐๔๐ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร. เข้าพบปะ น.ส.โรฮายา มินซาร์ เจ้าหน้าที่ สช.อ.เมืองปัตตานี แลกเปลี่ยนข้อมูลข่าวสารและประสานความร่วมมือในการรักษาความปลอดภัยสถานศึกษา",
+                "images": [
+                    "assets/images/civil_25aug/image9.jpeg",
+                    "assets/images/civil_25aug/image10.jpeg",
+                    "assets/images/civil_25aug/image11.jpeg",
+                    "assets/images/civil_25aug/image12.jpeg"
+                ]
+            },
+            {
+                "id": "OP-25AUG-CIVIL-004",
+                "time": "11:10",
+                "timeTh": "11:10 น. (25 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / จุดเสี่ยงสถานีน้ำมันบางจาก",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร.",
+                "callSign": "ชป.กร.",
+                "location": "ปั๊มบางจาก (บ.ซัสโก้) ๙๐ ม.๕ ต.รูสะมิแล อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 46038 58153",
+                "lat": 6.8539,
+                "lng": 101.22632,
+                "missionDetail": "เมื่อ ๒๕๑๑๑๐ ส.ค.๖๙ ด.ต.ชัยวัฒน์ ศรีสังข์งาม หน.ชป.กร. เข้าพบปะ นางสุพรรณี โรจจนกุล พนักงานปั๊มบางจาก ม.๕ ต.รูสะมิแล เน้นย้ำการเฝ้าระวังบุคคล/ยานพาหนะต้องสงสัย และความพร้อมกล้อง CCTV",
+                "images": [
+                    "assets/images/civil_25aug/image13.jpeg",
+                    "assets/images/civil_25aug/image14.jpeg",
+                    "assets/images/civil_25aug/image15.jpeg",
+                    "assets/images/civil_25aug/image16.jpeg"
+                ]
+            },
+            {
+                "id": "OP-25AUG-CIVIL-005",
+                "time": "06:30",
+                "timeTh": "06:30 น. (25 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / รปภ.พระสงฆ์บิณฑบาต",
+                "badge": "badge-civil",
+                "unit": "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
+                "subdistrict": "ต.รูสะมิแล",
+                "leader": "จ.ส.ต.กำธรพล บุญสุวรรณ์ จนท.ชป.กร.",
+                "callSign": "ชป.กร.",
+                "location": "วัดขจรประชาราม ม.๑ ต.รูสะมิแล อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 45152 60016",
+                "lat": 6.8705,
+                "lng": 101.2175,
+                "missionDetail": "เมื่อ ๒๕๐๖๓๐-๒๕๐๘๐๐ ส.ค.๖๙ จ.ส.ต.กำธรพล บุญสุวรรณ์ จนท.ชป.กร. ดูแลความปลอดภัยและอำนวยความสะดวกแด่พระภิกษุสงฆ์ในการออกรับบิณฑบาต ณ วัดขจรประชาราม ม.๑ ต.รูสะมิแล",
+                "images": [
+                    "assets/images/civil_25aug/image17.jpeg",
+                    "assets/images/civil_25aug/image18.jpeg",
+                    "assets/images/civil_25aug/image19.jpeg",
+                    "assets/images/civil_25aug/image20.jpeg"
+                ]
+            },
+            {
+                "id": "OP-25AUG-CIVIL-006",
+                "time": "09:47",
+                "timeTh": "09:47 น. (25 ส.ค.)",
+                "category": "civil_affairs",
+                "categoryTh": "กิจการพลเรือน / มวลชนสัมพันธ์ บ.จางา",
+                "badge": "badge-civil",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "subdistrict": "ต.ปะกาฮะรัง",
+                "leader": "ด.ต.ศุภกิจ จำเดิม หน.ชป.จรยุทธ์ มว.ฉก.ตชด.9242",
+                "callSign": "เหมราช 4204",
+                "location": "AO-๐๗ ม.๒ บ.จางา ต.ปะกาฮะรัง อ.เมือง จว.ปัตตานี",
+                "grid": "47NQH 48323 56631",
+                "lat": 6.84015,
+                "lng": 101.24695,
+                "missionDetail": "เมื่อ ๒๕๐๙๔๗ ส.ค.๖๙ ด.ต.ศุภกิจ จำเดิม พร้อมพวกรวม ๖ นาย พบปะประชาชน ณ AO-๐๗ ม.๒ บ.จางา ต.ปะกาฮะรัง แลกเปลี่ยนข้อมูลข่าวสารและประชาสัมพันธ์ข้อสั่งการของผู้บังคับบัญชา",
+                "images": [
+                    "assets/images/civil_25aug/image21.jpeg",
+                    "assets/images/civil_25aug/image22.jpeg",
+                    "assets/images/civil_25aug/image23.jpeg",
+                    "assets/images/civil_25aug/image24.jpeg"
                 ]
             }
         ]
