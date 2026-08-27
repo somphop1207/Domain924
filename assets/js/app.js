@@ -134,7 +134,7 @@ function renderHomeView() {
         const unit = currentData.unitInfo || {};
 
         const el = (id) => document.getElementById(id);
-        if (el('homeDocNumber')) el('homeDocNumber').textContent = report.dispatchRef || 'ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1122';
+        if (el('homeDocNumber')) el('homeDocNumber').textContent = report.dispatchRef || report.dispatchNumber || report.docNumber || 'ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1140';
         if (el('homeReportDate')) el('homeReportDate').textContent = report.dateTh;
         if (el('homeReportTime')) el('homeReportTime').textContent = report.timeRange || report.timeRangeTh || '๒๖๑๕๐๑ ส.ค. ๖๙ ถึง ๒๗๑๕๐๐ ส.ค. ๖๙';
         if (el('homeSituationBrief')) el('homeSituationBrief').textContent = 'เหตุการณ์ทั่วไปปกติ กำลังพลทุกชุดปฏิบัติการพร้อมปฏิบัติหน้าที่ ๑๐๐%';
@@ -157,7 +157,7 @@ function renderDashboardView() {
         const unit = currentData.unitInfo || {};
 
         const el = (id) => document.getElementById(id);
-        if (el('dashDocNum')) el('dashDocNum').textContent = report.dispatchRef || '';
+        if (el('dashDocNum')) el('dashDocNum').textContent = report.dispatchRef || report.dispatchNumber || report.docNumber || 'ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1140';
         if (el('dashDateRange')) el('dashDateRange').textContent = report.timeRange;
         if (el('dashSituation')) el('dashSituation').textContent = 'เหตุการณ์ทั่วไปปกติ ไม่พบการกระทำผิดหรือสิ่งบอกเหตุความรุนแรง';
         if (el('dashApprover')) el('dashApprover').textContent = `${unit.commander ? unit.commander.rank + unit.commander.name : 'ร.ต.อ.เดชเดโช ส่งสีอ่อน'}`;
@@ -891,7 +891,7 @@ function openPrintDispatchModal() {
     const report = currentData.latestReport;
     const unit = currentData.unit;
 
-    document.getElementById('printDocNum').textContent = report.docNumber;
+    document.getElementById('printDocNum').textContent = report.dispatchRef || report.dispatchNumber || report.docNumber || 'ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1140';
     document.getElementById('printDocDate').textContent = report.dateTh;
     document.getElementById('printTimeRange').textContent = report.timeRangeTh;
     document.getElementById('printSituation').textContent = report.situationSummary;
