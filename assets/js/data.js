@@ -1,7 +1,7 @@
 /**
  * กองร้อยเฉพาะกิจตำรวจตระเวนชายแดน ๙๒๔ (ฉก.ตร.ปัตตานี ๙๒)
  * ฐานข้อมูลยุทธการ การข่าว และกิจการพลเรือนประจำวัน
- * อัปเดตล่าสุด: ประจำวันที่ ๒๙ สิงหาคม ๒๕๖๙ (ห้วงเวลา: ๒๘๑๕๐๑ ส.ค. ๖๙ ถึง ๒๙๑๕๐๐ ส.ค. ๖๙ | เลขที่: ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1149)
+ * อัปเดตล่าสุด: ประจำวันที่ ๒๙ สิงหาคม ๒๕๖๙ (ระบบสืบค้นและวัน-เวลา ปจว. ครบทุกภารกิจ)
  */
 
 var BPP924_DATA = {
@@ -100,7 +100,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image1.jpeg",
                     "assets/images/29aug/image2.jpeg",
                     "assets/images/29aug/image3.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๙๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-red-500/20 text-red-300 border-red-500/40"
             },
             {
                 "id": "OP-29AUG-002",
@@ -123,7 +126,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image4.jpeg",
                     "assets/images/29aug/image5.jpeg",
                     "assets/images/29aug/image6.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๙๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-red-500/20 text-red-300 border-red-500/40"
             },
             {
                 "id": "OP-29AUG-003",
@@ -146,7 +152,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image7.jpeg",
                     "assets/images/29aug/image8.jpeg",
                     "assets/images/29aug/image9.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๙๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-red-500/20 text-red-300 border-red-500/40"
             },
             {
                 "id": "OP-29AUG-004",
@@ -169,7 +178,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image10.jpeg",
                     "assets/images/29aug/image11.jpeg",
                     "assets/images/29aug/image12.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๓๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-red-500/20 text-red-300 border-red-500/40"
             },
             {
                 "id": "OP-29AUG-005",
@@ -192,7 +204,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image13.jpeg",
                     "assets/images/29aug/image14.jpeg",
                     "assets/images/29aug/image15.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๙๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-006",
@@ -215,7 +230,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image16.png",
                     "assets/images/29aug/image17.jpeg",
                     "assets/images/29aug/image18.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๙๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-007",
@@ -238,7 +256,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image19.jpeg",
                     "assets/images/29aug/image20.jpeg",
                     "assets/images/29aug/image21.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๑๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-008",
@@ -261,7 +282,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image22.jpeg",
                     "assets/images/29aug/image23.jpeg",
                     "assets/images/29aug/image24.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๒๓๒ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-009",
@@ -290,7 +314,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image31.jpeg",
                     "assets/images/29aug/image32.jpeg",
                     "assets/images/29aug/image33.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๐๓๐ ส.ค. ๖๙",
+                "unit": "ชป.ขว.ร้อย ๙๒๔",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-010",
@@ -316,7 +343,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image37.jpeg",
                     "assets/images/29aug/image38.jpeg",
                     "assets/images/29aug/image39.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๔๒๐ ส.ค. ๖๙",
+                "unit": "ชป.ขว.ร้อย ๙๒๔",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-011",
@@ -339,7 +369,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image40.jpeg",
                     "assets/images/29aug/image41.jpeg",
                     "assets/images/29aug/image42.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๙๒๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-012",
@@ -362,7 +395,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image43.jpeg",
                     "assets/images/29aug/image44.jpeg",
                     "assets/images/29aug/image45.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๙๔๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-013",
@@ -385,7 +421,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image46.jpeg",
                     "assets/images/29aug/image47.jpeg",
                     "assets/images/29aug/image48.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๖๓๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
             },
             {
                 "id": "OP-29AUG-014",
@@ -408,7 +447,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image49.jpeg",
                     "assets/images/29aug/image50.jpeg",
                     "assets/images/29aug/image51.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๐๐๑ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
             },
             {
                 "id": "OP-29AUG-015",
@@ -431,7 +473,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image52.jpeg",
                     "assets/images/29aug/image53.jpeg",
                     "assets/images/29aug/image54.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๘๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
             },
             {
                 "id": "OP-29AUG-016",
@@ -454,7 +499,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image55.jpeg",
                     "assets/images/29aug/image56.jpeg",
                     "assets/images/29aug/image57.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๑๒๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
             },
             {
                 "id": "OP-29AUG-017",
@@ -477,7 +525,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image58.jpeg",
                     "assets/images/29aug/image59.jpeg",
                     "assets/images/29aug/image60.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๒๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
             },
             {
                 "id": "OP-29AUG-018",
@@ -500,7 +551,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image61.jpeg",
                     "assets/images/29aug/image62.jpeg",
                     "assets/images/29aug/image63.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๐๔๑ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
             },
             {
                 "id": "OP-29AUG-019",
@@ -526,7 +580,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image67.jpeg",
                     "assets/images/29aug/image68.jpeg",
                     "assets/images/29aug/image69.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙ สิงหาคม ๒๕๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-020",
@@ -552,7 +609,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image73.jpeg",
                     "assets/images/29aug/image74.jpeg",
                     "assets/images/29aug/image75.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙ สิงหาคม ๒๕๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-021",
@@ -575,7 +635,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image76.jpeg",
                     "assets/images/29aug/image77.jpeg",
                     "assets/images/29aug/image78.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๕๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-022",
@@ -598,7 +661,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image79.jpeg",
                     "assets/images/29aug/image80.jpeg",
                     "assets/images/29aug/image81.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๐๐๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-023",
@@ -621,7 +687,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image82.jpeg",
                     "assets/images/29aug/image83.jpeg",
                     "assets/images/29aug/image84.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๐๓๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-024",
@@ -644,7 +713,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image85.jpeg",
                     "assets/images/29aug/image86.jpeg",
                     "assets/images/29aug/image87.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๑๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-025",
@@ -667,7 +739,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image88.jpeg",
                     "assets/images/29aug/image89.jpeg",
                     "assets/images/29aug/image90.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๑๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-026",
@@ -690,7 +765,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image91.jpeg",
                     "assets/images/29aug/image92.jpeg",
                     "assets/images/29aug/image93.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๔๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-027",
@@ -713,7 +791,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image94.jpeg",
                     "assets/images/29aug/image95.jpeg",
                     "assets/images/29aug/image96.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๒๐๐ ส.ค. ๖๙",
+                "unit": "จุดตรวจปราการ ๒",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-028",
@@ -736,7 +817,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image97.jpeg",
                     "assets/images/29aug/image98.jpeg",
                     "assets/images/29aug/image99.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๑๐๐ ส.ค. ๖๙",
+                "unit": "จุดตรวจปราการ ๒",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-029",
@@ -759,7 +843,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image100.jpeg",
                     "assets/images/29aug/image101.jpeg",
                     "assets/images/29aug/image102.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๒๓๐ ส.ค. ๖๙",
+                "unit": "จุดตรวจปราการ ๒",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-030",
@@ -782,7 +869,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image103.jpeg",
                     "assets/images/29aug/image104.jpeg",
                     "assets/images/29aug/image105.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๐๐๓ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-031",
@@ -805,7 +895,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image106.jpeg",
                     "assets/images/29aug/image107.jpeg",
                     "assets/images/29aug/image108.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๒๐๑ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-032",
@@ -828,7 +921,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image109.jpeg",
                     "assets/images/29aug/image110.jpeg",
                     "assets/images/29aug/image111.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๐๘๐๐ - ๒๘๑๖๐๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-033",
@@ -851,7 +947,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image112.jpeg",
                     "assets/images/29aug/image113.jpeg",
                     "assets/images/29aug/image114.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๖๐๐ - ๒๘๒๔๐๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
             },
             {
                 "id": "OP-29AUG-034",
@@ -874,7 +973,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image115.jpeg",
                     "assets/images/29aug/image116.jpeg",
                     "assets/images/29aug/image117.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๐๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-035",
@@ -897,7 +999,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image118.jpeg",
                     "assets/images/29aug/image119.jpeg",
                     "assets/images/29aug/image120.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๐๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-036",
@@ -920,7 +1025,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image121.jpeg",
                     "assets/images/29aug/image122.jpeg",
                     "assets/images/29aug/image123.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๘๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-037",
@@ -943,7 +1051,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image124.jpeg",
                     "assets/images/29aug/image125.jpeg",
                     "assets/images/29aug/image126.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๑๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-038",
@@ -966,7 +1077,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image127.jpeg",
                     "assets/images/29aug/image128.jpeg",
                     "assets/images/29aug/image129.jpeg"
-                ]
+                ],
+                "timeTh": "290628 ส.ค. 69",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-039",
@@ -989,7 +1103,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image130.jpeg",
                     "assets/images/29aug/image131.jpeg",
                     "assets/images/29aug/image132.jpeg"
-                ]
+                ],
+                "timeTh": "290636 ส.ค. 69",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-040",
@@ -1012,7 +1129,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image133.jpeg",
                     "assets/images/29aug/image134.jpeg",
                     "assets/images/29aug/image135.jpeg"
-                ]
+                ],
+                "timeTh": "291208 ส.ค. 69",
+                "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-041",
@@ -1035,7 +1155,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image136.jpeg",
                     "assets/images/29aug/image137.jpeg",
                     "assets/images/29aug/image138.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๐๑๐ ส.ค. ๖๙",
+                "unit": "ชป.กร.ร้อย ๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-042",
@@ -1058,7 +1181,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image139.jpeg",
                     "assets/images/29aug/image140.jpeg",
                     "assets/images/29aug/image141.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๐๓๐ ส.ค. ๖๙",
+                "unit": "ชป.กร.ร้อย ๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-043",
@@ -1081,7 +1207,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image142.jpeg",
                     "assets/images/29aug/image143.jpeg",
                     "assets/images/29aug/image144.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๑๐๐ ส.ค. ๖๙",
+                "unit": "ชป.กร.ร้อย ๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-044",
@@ -1104,7 +1233,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image145.jpeg",
                     "assets/images/29aug/image146.jpeg",
                     "assets/images/29aug/image147.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๗๐๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-045",
@@ -1127,7 +1259,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image148.jpeg",
                     "assets/images/29aug/image149.jpeg",
                     "assets/images/29aug/image150.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๒๐๕ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-046",
@@ -1150,7 +1285,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image151.jpeg",
                     "assets/images/29aug/image152.jpeg",
                     "assets/images/29aug/image153.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๑๐๐ ส.ค. ๖๙",
+                "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-047",
@@ -1173,7 +1311,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image154.jpeg",
                     "assets/images/29aug/image155.jpeg",
                     "assets/images/29aug/image156.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๐๙๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-048",
@@ -1196,7 +1337,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image157.jpeg",
                     "assets/images/29aug/image158.jpeg",
                     "assets/images/29aug/image159.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙๑๔๓๐ ส.ค. ๖๙",
+                "unit": "ชป.ขว.ร้อย ๙๒๔",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-049",
@@ -1219,7 +1363,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image160.jpeg",
                     "assets/images/29aug/image161.jpeg",
                     "assets/images/29aug/image162.jpeg"
-                ]
+                ],
+                "timeTh": "๒๙ สิงหาคม ๒๕๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-050",
@@ -1242,7 +1389,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image163.jpeg",
                     "assets/images/29aug/image164.jpeg",
                     "assets/images/29aug/image165.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๑๖๐๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-051",
@@ -1265,7 +1415,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image124.jpeg",
                     "assets/images/29aug/image125.jpeg",
                     "assets/images/29aug/image126.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๑๓๐ ส.ค. ๖๙",
+                "unit": "จุดตรวจปราการ ๒",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             },
             {
                 "id": "OP-29AUG-052",
@@ -1288,7 +1441,10 @@ var BPP924_DATA = {
                     "assets/images/29aug/image166.jpeg",
                     "assets/images/29aug/image167.jpeg",
                     "assets/images/29aug/image168.jpeg"
-                ]
+                ],
+                "timeTh": "๒๘๒๑๓๐ ส.ค. ๖๙",
+                "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
             }
         ]
     },
@@ -1328,7 +1484,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image1.jpeg",
                         "assets/images/27aug/image2.jpeg",
                         "assets/images/27aug/image3.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๑๒๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-red-500/20 text-red-300 border-red-500/40"
                 },
                 {
                     "id": "OP-27AUG-002",
@@ -1351,7 +1510,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image4.jpeg",
                         "assets/images/27aug/image5.jpeg",
                         "assets/images/27aug/image6.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๑๒๙ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-red-500/20 text-red-300 border-red-500/40"
                 },
                 {
                     "id": "OP-27AUG-003",
@@ -1374,7 +1536,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image7.jpeg",
                         "assets/images/27aug/image8.jpeg",
                         "assets/images/27aug/image9.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๔๑๕ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-red-500/20 text-red-300 border-red-500/40"
                 },
                 {
                     "id": "OP-27AUG-004",
@@ -1397,7 +1562,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image10.jpeg",
                         "assets/images/27aug/image11.jpeg",
                         "assets/images/27aug/image12.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๙๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-005",
@@ -1420,7 +1588,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image13.png",
                         "assets/images/27aug/image14.png",
                         "assets/images/27aug/image15.png"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๙๔๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-006",
@@ -1443,7 +1614,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image16.jpeg",
                         "assets/images/27aug/image17.jpeg",
                         "assets/images/27aug/image18.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๓๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-007",
@@ -1466,7 +1640,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image19.jpeg",
                         "assets/images/27aug/image20.jpeg",
                         "assets/images/27aug/image21.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๒๔๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-008",
@@ -1489,7 +1666,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image22.jpeg",
                         "assets/images/27aug/image23.jpeg",
                         "assets/images/27aug/image24.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๔๔๕ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-009",
@@ -1518,7 +1698,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image31.jpeg",
                         "assets/images/27aug/image32.jpeg",
                         "assets/images/27aug/image33.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๐๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-010",
@@ -1541,7 +1724,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image34.jpeg",
                         "assets/images/27aug/image35.jpeg",
                         "assets/images/27aug/image36.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๙๒๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-011",
@@ -1564,7 +1750,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image37.jpeg",
                         "assets/images/27aug/image38.jpeg",
                         "assets/images/27aug/image39.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๙๔๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-012",
@@ -1587,7 +1776,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image40.jpeg",
                         "assets/images/27aug/image41.jpeg",
                         "assets/images/27aug/image42.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๘๔๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-013",
@@ -1610,7 +1802,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image43.jpeg",
                         "assets/images/27aug/image44.jpeg",
                         "assets/images/27aug/image45.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๖๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-27AUG-014",
@@ -1633,7 +1828,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image46.jpeg",
                         "assets/images/27aug/image47.jpeg",
                         "assets/images/27aug/image48.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๙๒๗ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-015",
@@ -1656,7 +1854,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image49.jpeg",
                         "assets/images/27aug/image50.jpeg",
                         "assets/images/27aug/image51.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๐๐๔ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-016",
@@ -1679,7 +1880,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image52.jpeg",
                         "assets/images/27aug/image53.jpeg",
                         "assets/images/27aug/image54.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๐๓๖ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-017",
@@ -1702,7 +1906,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image55.jpeg",
                         "assets/images/27aug/image56.jpeg",
                         "assets/images/27aug/image57.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๑๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-018",
@@ -1725,7 +1932,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image58.jpeg",
                         "assets/images/27aug/image59.jpeg",
                         "assets/images/27aug/image60.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๘๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-019",
@@ -1748,7 +1958,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image61.jpeg",
                         "assets/images/27aug/image62.jpeg",
                         "assets/images/27aug/image63.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๒๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-020",
@@ -1771,7 +1984,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image64.jpeg",
                         "assets/images/27aug/image65.jpeg",
                         "assets/images/27aug/image66.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๓๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-021",
@@ -1794,7 +2010,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image67.jpeg",
                         "assets/images/27aug/image68.jpeg",
                         "assets/images/27aug/image69.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๒๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-27AUG-022",
@@ -1820,7 +2039,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image73.jpeg",
                         "assets/images/27aug/image74.jpeg",
                         "assets/images/27aug/image75.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗ สิงหาคม ๒๕๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-023",
@@ -1846,7 +2068,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image79.jpeg",
                         "assets/images/27aug/image80.jpeg",
                         "assets/images/27aug/image81.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๓๒๗ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-024",
@@ -1869,7 +2094,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image82.jpeg",
                         "assets/images/27aug/image83.jpeg",
                         "assets/images/27aug/image84.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๗๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-025",
@@ -1892,7 +2120,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image85.jpeg",
                         "assets/images/27aug/image86.jpeg",
                         "assets/images/27aug/image87.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๙๑๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-026",
@@ -1915,7 +2146,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image88.jpeg",
                         "assets/images/27aug/image89.jpeg",
                         "assets/images/27aug/image90.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๙๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-027",
@@ -1938,7 +2172,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image91.jpeg",
                         "assets/images/27aug/image92.jpeg",
                         "assets/images/27aug/image93.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๐๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-028",
@@ -1961,7 +2198,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image94.jpeg",
                         "assets/images/27aug/image95.jpeg",
                         "assets/images/27aug/image96.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๐๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-029",
@@ -1984,7 +2224,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image97.jpeg",
                         "assets/images/27aug/image98.jpeg",
                         "assets/images/27aug/image99.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๑๒๗ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-030",
@@ -2007,7 +2250,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image100.jpeg",
                         "assets/images/27aug/image101.jpeg",
                         "assets/images/27aug/image102.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๒๓๒ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-031",
@@ -2030,7 +2276,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image103.jpeg",
                         "assets/images/27aug/image104.jpeg",
                         "assets/images/27aug/image105.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๐๐๗ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-032",
@@ -2053,7 +2302,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image106.jpeg",
                         "assets/images/27aug/image107.jpeg",
                         "assets/images/27aug/image108.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๔๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-033",
@@ -2076,7 +2328,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image109.jpeg",
                         "assets/images/27aug/image110.jpeg",
                         "assets/images/27aug/image111.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๔๑๔ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-034",
@@ -2099,7 +2354,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image112.jpeg",
                         "assets/images/27aug/image113.jpeg",
                         "assets/images/27aug/image114.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๑๐๖ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-035",
@@ -2122,7 +2380,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image115.jpeg",
                         "assets/images/27aug/image116.jpeg",
                         "assets/images/27aug/image117.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๒๓๗ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-036",
@@ -2145,7 +2406,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image118.jpeg",
                         "assets/images/27aug/image119.jpeg",
                         "assets/images/27aug/image120.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๐๕๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-037",
@@ -2168,7 +2432,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image121.jpeg",
                         "assets/images/27aug/image122.jpeg",
                         "assets/images/27aug/image123.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๐๕๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-038",
@@ -2191,7 +2458,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image124.jpeg",
                         "assets/images/27aug/image125.jpeg",
                         "assets/images/27aug/image126.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๐๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-039",
@@ -2214,7 +2484,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image127.jpeg",
                         "assets/images/27aug/image128.jpeg",
                         "assets/images/27aug/image129.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๐๐๑ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-040",
@@ -2237,7 +2510,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image130.jpeg",
                         "assets/images/27aug/image131.jpeg",
                         "assets/images/27aug/image132.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๐๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-041",
@@ -2260,7 +2536,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image133.jpeg",
                         "assets/images/27aug/image134.jpeg",
                         "assets/images/27aug/image135.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๐๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-27AUG-042",
@@ -2283,7 +2562,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image136.jpeg",
                         "assets/images/27aug/image137.jpeg",
                         "assets/images/27aug/image138.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗ สิงหาคม ๒๕๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-043",
@@ -2306,7 +2588,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image139.jpeg",
                         "assets/images/27aug/image140.jpeg",
                         "assets/images/27aug/image141.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๐๔๓ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-044",
@@ -2329,7 +2614,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image142.jpeg",
                         "assets/images/27aug/image143.jpeg",
                         "assets/images/27aug/image144.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๐๓๓ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-045",
@@ -2352,7 +2640,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image145.jpeg",
                         "assets/images/27aug/image146.jpeg",
                         "assets/images/27aug/image147.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๒๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-046",
@@ -2375,7 +2666,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image148.jpeg",
                         "assets/images/27aug/image149.jpeg",
                         "assets/images/27aug/image150.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๙๒๕ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-047",
@@ -2398,7 +2692,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image151.jpeg",
                         "assets/images/27aug/image152.jpeg",
                         "assets/images/27aug/image153.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๐๑๐ ส.ค. ๖๙",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-048",
@@ -2421,7 +2718,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image154.jpeg",
                         "assets/images/27aug/image155.jpeg",
                         "assets/images/27aug/image156.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๑๑๔๕ ส.ค. ๖๙",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-049",
@@ -2444,7 +2744,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image157.jpeg",
                         "assets/images/27aug/image158.jpeg",
                         "assets/images/27aug/image159.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๘๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-050",
@@ -2467,7 +2770,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image160.jpeg",
                         "assets/images/27aug/image161.jpeg",
                         "assets/images/27aug/image162.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๒๓๕๔ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-051",
@@ -2490,7 +2796,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image163.jpeg",
                         "assets/images/27aug/image164.jpeg",
                         "assets/images/27aug/image165.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๗๐๔๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-27AUG-052",
@@ -2513,7 +2822,10 @@ var BPP924_DATA = {
                         "assets/images/27aug/image166.jpeg",
                         "assets/images/27aug/image167.jpeg",
                         "assets/images/27aug/image168.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๖๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 }
             ],
             "timeRange": "๒๖๑๕๐๑ ส.ค. ๖๙ ถึง ๒๗๑๕๐๐ ส.ค. ๖๙",
@@ -2557,7 +2869,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image1.jpeg",
                         "assets/images/26aug/image2.jpeg",
                         "assets/images/26aug/image3.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๐๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-red-500/20 text-red-300 border-red-500/40"
                 },
                 {
                     "id": "OP-26AUG-002",
@@ -2580,7 +2895,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image4.jpeg",
                         "assets/images/26aug/image5.jpeg",
                         "assets/images/26aug/image6.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๙๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-003",
@@ -2603,7 +2921,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image7.jpeg",
                         "assets/images/26aug/image8.png",
                         "assets/images/26aug/image9.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๑๕๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-004",
@@ -2626,7 +2947,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image10.jpeg",
                         "assets/images/26aug/image11.jpeg",
                         "assets/images/26aug/image12.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๙๐๓ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-005",
@@ -2649,7 +2973,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image13.jpeg",
                         "assets/images/26aug/image14.jpeg",
                         "assets/images/26aug/image15.png"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๙๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-006",
@@ -2672,7 +2999,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image16.jpeg",
                         "assets/images/26aug/image17.jpeg",
                         "assets/images/26aug/image18.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๓๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-007",
@@ -2695,7 +3025,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image19.jpeg",
                         "assets/images/26aug/image20.jpeg",
                         "assets/images/26aug/image21.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๔๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-008",
@@ -2721,7 +3054,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image25.jpeg",
                         "assets/images/26aug/image26.jpeg",
                         "assets/images/26aug/image27.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๗๔๐ ส.ค. ๖๙",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-009",
@@ -2744,7 +3080,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image28.jpeg",
                         "assets/images/26aug/image29.jpeg",
                         "assets/images/26aug/image30.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๘๓๐ ส.ค. ๖๙",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-010",
@@ -2767,7 +3106,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image31.jpeg",
                         "assets/images/26aug/image32.jpeg",
                         "assets/images/26aug/image33.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๑๓๔ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-011",
@@ -2790,7 +3132,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image34.jpeg",
                         "assets/images/26aug/image35.jpeg",
                         "assets/images/26aug/image36.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๙๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-012",
@@ -2813,7 +3158,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image34.jpeg",
                         "assets/images/26aug/image35.jpeg",
                         "assets/images/26aug/image37.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๐๐๖ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-013",
@@ -2836,7 +3184,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image38.jpeg",
                         "assets/images/26aug/image39.jpeg",
                         "assets/images/26aug/image40.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๔๐๙๒๐ ส.ค.๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-014",
@@ -2859,7 +3210,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image41.jpeg",
                         "assets/images/26aug/image42.jpeg",
                         "assets/images/26aug/image43.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๖๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40"
                 },
                 {
                     "id": "OP-26AUG-015",
@@ -2882,7 +3236,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image44.jpeg",
                         "assets/images/26aug/image45.jpeg",
                         "assets/images/26aug/image46.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๙๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-26AUG-016",
@@ -2905,7 +3262,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image47.jpeg",
                         "assets/images/26aug/image48.jpeg",
                         "assets/images/26aug/image49.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๐๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-26AUG-017",
@@ -2928,7 +3288,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image50.jpeg",
                         "assets/images/26aug/image51.jpeg",
                         "assets/images/26aug/image52.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๑๐๖ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-26AUG-018",
@@ -2951,7 +3314,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image53.jpeg",
                         "assets/images/26aug/image54.jpeg",
                         "assets/images/26aug/image55.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๓๐๓ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-26AUG-019",
@@ -2974,7 +3340,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image56.jpeg",
                         "assets/images/26aug/image57.jpeg",
                         "assets/images/26aug/image58.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๐๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-26AUG-020",
@@ -2997,7 +3366,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image59.jpeg",
                         "assets/images/26aug/image60.jpeg",
                         "assets/images/26aug/image61.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๑๓๑ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-cyan-500/20 text-cyan-300 border-cyan-500/40"
                 },
                 {
                     "id": "OP-26AUG-021",
@@ -3023,7 +3395,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image65.jpeg",
                         "assets/images/26aug/image66.jpeg",
                         "assets/images/26aug/image67.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖ สิงหาคม ๒๕๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-022",
@@ -3049,7 +3424,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image71.jpeg",
                         "assets/images/26aug/image72.jpeg",
                         "assets/images/26aug/image73.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๒๓๕ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-023",
@@ -3072,7 +3450,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image74.jpeg",
                         "assets/images/26aug/image75.jpeg",
                         "assets/images/26aug/image76.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๘๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-024",
@@ -3095,7 +3476,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image77.jpeg",
                         "assets/images/26aug/image78.jpeg",
                         "assets/images/26aug/image79.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๑๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-025",
@@ -3118,7 +3502,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image80.jpeg",
                         "assets/images/26aug/image81.jpeg",
                         "assets/images/26aug/image82.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๑๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-026",
@@ -3141,7 +3528,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image83.jpeg",
                         "assets/images/26aug/image84.jpeg",
                         "assets/images/26aug/image85.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๑๓๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-027",
@@ -3164,7 +3554,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image86.jpeg",
                         "assets/images/26aug/image87.jpeg",
                         "assets/images/26aug/image88.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๓๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-028",
@@ -3187,7 +3580,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image89.jpeg",
                         "assets/images/26aug/image90.jpeg",
                         "assets/images/26aug/image91.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๐๒๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-029",
@@ -3210,7 +3606,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image92.jpeg",
                         "assets/images/26aug/image93.jpeg",
                         "assets/images/26aug/image94.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๒๐๓ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-030",
@@ -3233,7 +3632,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image95.jpeg",
                         "assets/images/26aug/image96.jpeg",
                         "assets/images/26aug/image97.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๒๓๔ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-031",
@@ -3256,7 +3658,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image98.jpeg",
                         "assets/images/26aug/image99.jpeg",
                         "assets/images/26aug/image100.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๑๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-032",
@@ -3279,7 +3684,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image101.jpeg",
                         "assets/images/26aug/image102.jpeg",
                         "assets/images/26aug/image103.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๒๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-033",
@@ -3302,7 +3710,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image104.jpeg",
                         "assets/images/26aug/image105.jpeg",
                         "assets/images/26aug/image106.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๓๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-034",
@@ -3325,7 +3736,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image107.jpeg",
                         "assets/images/26aug/image108.jpeg",
                         "assets/images/26aug/image109.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๕๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-035",
@@ -3348,7 +3762,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image110.jpeg",
                         "assets/images/26aug/image111.jpeg",
                         "assets/images/26aug/image112.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๘๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"
                 },
                 {
                     "id": "OP-26AUG-036",
@@ -3371,7 +3788,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image113.jpeg",
                         "assets/images/26aug/image114.jpeg",
                         "assets/images/26aug/image115.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๐๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-037",
@@ -3394,7 +3814,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image116.jpeg",
                         "assets/images/26aug/image117.jpeg",
                         "assets/images/26aug/image118.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๒๐๓๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-038",
@@ -3417,7 +3840,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image119.jpeg",
                         "assets/images/26aug/image120.jpeg",
                         "assets/images/26aug/image121.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๙๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-039",
@@ -3440,7 +3866,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image122.jpeg",
                         "assets/images/26aug/image123.jpeg",
                         "assets/images/26aug/image124.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๓๐๐ ส.ค. ๖๙",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-040",
@@ -3463,7 +3892,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image125.jpeg",
                         "assets/images/26aug/image126.jpeg",
                         "assets/images/26aug/image127.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๐๙๐๐ ส.ค. ๖๙",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-041",
@@ -3486,7 +3918,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image128.jpeg",
                         "assets/images/26aug/image129.jpeg",
                         "assets/images/26aug/image130.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๑๓๐ ส.ค. ๖๙",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-042",
@@ -3515,7 +3950,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image137.jpeg",
                         "assets/images/26aug/image138.jpeg",
                         "assets/images/26aug/image139.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๖๑๓๐๐ ส.ค. ๖๙",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-043",
@@ -3538,7 +3976,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image140.jpeg",
                         "assets/images/26aug/image141.jpeg",
                         "assets/images/26aug/image142.png"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๙๐๐ ส.ค. ๖๙",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 },
                 {
                     "id": "OP-26AUG-044",
@@ -3561,7 +4002,10 @@ var BPP924_DATA = {
                         "assets/images/26aug/image143.jpeg",
                         "assets/images/26aug/image144.jpeg",
                         "assets/images/26aug/image145.jpeg"
-                    ]
+                    ],
+                    "timeTh": "๒๕๑๙๐๐ ส.ค. ๖๙",
+                    "unit": "จุดตรวจปราการ ๒",
+                    "badge": "bg-teal-500/20 text-teal-300 border-teal-500/40"
                 }
             ],
             "timeRange": "๒๕๑๕๐๑ ส.ค. ๖๙ ถึง ๒๖๑๕๐๐ ส.ค. ๖๙",
@@ -3593,11 +4037,11 @@ var BPP924_DATA = {
                 {
                     "id": "OP-25AUG-001",
                     "time": "19:00",
-                    "timeTh": "19:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๙๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-security",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.อาณัติ รัตนบุรี",
                     "callSign": "เหมราช 401",
@@ -3612,16 +4056,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image3.jpeg"
                     ],
                     "teamSize": 4,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-002",
                     "time": "19:00",
-                    "timeTh": "19:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๙๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-security",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธเนศ ปิ่นแก้ว",
                     "callSign": "เหมราช 401",
@@ -3636,16 +4081,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image6.jpeg"
                     ],
                     "teamSize": 5,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-003",
                     "time": "19:20",
-                    "timeTh": "19:20 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๙๒๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-security",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.อาณัติ รัตนบุรี",
                     "callSign": "เหมราช 401",
@@ -3660,16 +4106,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image9.jpeg"
                     ],
                     "teamSize": 4,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-004",
                     "time": "19:40",
-                    "timeTh": "19:40 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๙๔๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-security",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.อาณัติ รัตนบุรี",
                     "callSign": "เหมราช 401",
@@ -3684,16 +4131,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image12.jpeg"
                     ],
                     "teamSize": 4,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-005",
                     "time": "20:00",
-                    "timeTh": "20:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๐๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-security",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.ขว.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.อาณัติ รัตนบุรี",
                     "callSign": "เหมราช 401",
@@ -3708,15 +4156,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image15.jpeg"
                     ],
                     "teamSize": 4,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-006",
                     "time": "11:20",
-                    "timeTh": "11:20 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๑๒๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล",
@@ -3732,15 +4181,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image18.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-007",
                     "time": "12:00",
-                    "timeTh": "12:00 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๒๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ทำลายความพยายาม / ตรวจจุดเสี่ยง",
-                    "badge": "badge-security",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ด.ต.ศุภกิจ จำเดิม",
@@ -3756,15 +4206,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image21.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-008",
                     "time": "09:00",
-                    "timeTh": "09:00 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๙๐๐ ส.ค. ๖๙",
                     "category": "patrol_base",
                     "categoryTh": "ลาดตระเวนรอบฐาน",
-                    "badge": "badge-patrol",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.นักรบ เรืองกลิ่น",
@@ -3780,15 +4231,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image24.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-009",
                     "time": "19:00",
-                    "timeTh": "19:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๙๐๐ ส.ค. ๖๙",
                     "category": "patrol_base",
                     "categoryTh": "ลาดตระเวนรอบฐาน",
-                    "badge": "badge-patrol",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.นพดล ดำสันทัด",
@@ -3804,15 +4256,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image27.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-010",
                     "time": "11:30",
-                    "timeTh": "11:30 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๑๓๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "ลาดตระเวนพิสูจน์ทราบ",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ด.ต.ศุภกิจ จำเดิม",
@@ -3828,15 +4281,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image30.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-011",
                     "time": "09:20",
-                    "timeTh": "09:20 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๙๒๐ ส.ค. ๖๙",
                     "category": "vulnerable",
                     "categoryTh": "รปภ.ครูและโรงเรียน",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธเนศ ปิ่นแก้ว",
@@ -3852,15 +4306,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image33.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-012",
                     "time": "09:40",
-                    "timeTh": "09:40 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๙๔๐ ส.ค. ๖๙",
                     "category": "vulnerable",
                     "categoryTh": "รปภ.ครูและโรงเรียน",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธเนศ ปิ่นแก้ว",
@@ -3876,15 +4331,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image36.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-013",
                     "time": "10:00",
-                    "timeTh": "10:00 น.",
+                    "timeTh": "๒๕๐๖๓๐-๒๕๐๘๐๐ ส.ค. ๖๙",
                     "category": "vulnerable",
                     "categoryTh": "รปภ.พระและวัด",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.กฤษณะ จันทะสอน",
@@ -3900,15 +4356,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image39.jpeg"
                     ],
                     "teamSize": 2,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-014",
                     "time": "20:30",
-                    "timeTh": "20:30 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๐๓๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "รปภ.เส้นทาง/สาธารณูปโภค",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ชัยวัฒน์ มณีแดง",
@@ -3924,15 +4381,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image42.jpeg"
                     ],
                     "teamSize": 5,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-015",
                     "time": "08:00",
-                    "timeTh": "08:00 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๘๐๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "รปภ.เส้นทาง/สาธารณูปโภค",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล",
@@ -3948,15 +4406,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image45.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-016",
                     "time": "12:00",
-                    "timeTh": "12:00 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๒๐๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "รปภ.เส้นทาง/สาธารณูปโภค",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล",
@@ -3972,15 +4431,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image48.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-017",
                     "time": "22:40",
-                    "timeTh": "22:40 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๒๔๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "รปภ.เส้นทาง/สาธารณูปโภค",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.นพดล ดำสันทัด",
@@ -3996,15 +4456,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image51.jpeg"
                     ],
                     "teamSize": 5,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-018",
                     "time": "08:00",
-                    "timeTh": "08:00 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๘๐๐ ส.ค. ๖๙",
                     "category": "patrol",
                     "categoryTh": "รปภ.เส้นทาง/สาธารณูปโภค",
-                    "badge": "badge-patrol",
+                    "badge": "bg-blue-500/20 text-blue-300 border-blue-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ด.ต.ศุภกิจ จำเดิม",
@@ -4020,16 +4481,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image54.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-019",
                     "time": "15:45",
-                    "timeTh": "15:45 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๕๔๕ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจปราการ ๒ (บางปลาหมอ)",
-                    "badge": "badge-checkpoint",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "เหมราช 410",
                     "callSign": "เหมราช 4216",
@@ -4047,15 +4509,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image60.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-020",
                     "time": "21:00",
-                    "timeTh": "21:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๑๐๐ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ชัยวัฒน์ มณีแดง",
@@ -4071,15 +4534,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image63.jpeg"
                     ],
                     "teamSize": 5,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-021",
                     "time": "21:30",
-                    "timeTh": "21:30 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๑๓๐ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ชัยวัฒน์ มณีแดง",
@@ -4095,15 +4559,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image66.jpeg"
                     ],
                     "teamSize": 5,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-022",
                     "time": "21:25",
-                    "timeTh": "21:25 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๑๒๕ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.นพดล ดำสันทัด",
@@ -4119,15 +4584,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image69.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-023",
                     "time": "23:30",
-                    "timeTh": "23:30 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๓๓๐ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.นพดล ดำสันทัด",
@@ -4143,15 +4609,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image72.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-024",
                     "time": "00:30",
-                    "timeTh": "00:30 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๐๓๐ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.นพดล ดำสันทัด",
@@ -4167,15 +4634,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image75.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-025",
                     "time": "09:25",
-                    "timeTh": "09:25 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๙๒๕ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "เหมราช 4204 (หน.ชุดปฏิบัติการ)",
@@ -4191,15 +4659,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image78.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-026",
                     "time": "12:51",
-                    "timeTh": "12:51 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๒๕๑ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "เหมราช 4204 (หน.ชุดปฏิบัติการ)",
@@ -4215,15 +4684,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image81.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-027",
                     "time": "21:30",
-                    "timeTh": "21:30 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๑๓๐ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
                     "unit": "ร้อย ฉก.ตชด.๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ชาญณรงค์ ภิลาศรี",
@@ -4239,16 +4709,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image84.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-028",
                     "time": "23:10",
-                    "timeTh": "23:10 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๓๑๐ ส.ค. ๖๙",
                     "category": "checkpoint",
                     "categoryTh": "จุดตรวจ POP-UP",
-                    "badge": "badge-checkpoint",
-                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40",
+                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.ชาญณรงค์ ภิลาศรี",
                     "callSign": "เหมราช 4204",
@@ -4263,15 +4734,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image87.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-029",
                     "time": "20:00",
-                    "timeTh": "20:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๐๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ชุดคุ้มครองตำบล (ชคต.)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ธนวัฒน์ ฉั่วตระกูล",
@@ -4287,15 +4759,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image90.jpeg"
                     ],
                     "teamSize": 5,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-030",
                     "time": "20:25",
-                    "timeTh": "20:25 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๒๐๒๕ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ชุดคุ้มครองตำบล (ชคต.)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ส.ต.ท.นพดล ดำสันทัด",
@@ -4311,15 +4784,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image93.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-031",
                     "time": "06:14",
-                    "timeTh": "06:14 น. (25 ส.ค.)",
+                    "timeTh": "250614 ส.ค. 69",
                     "category": "security_check",
                     "categoryTh": "ชุดคุ้มครองตำบล (ชคต.)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ร.ต.ท.ประยงค์ ยังสุข",
@@ -4335,15 +4809,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image96.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-032",
                     "time": "06:32",
-                    "timeTh": "06:32 น. (25 ส.ค.)",
+                    "timeTh": "250632 ส.ค. 69",
                     "category": "security_check",
                     "categoryTh": "ชุดคุ้มครองตำบล (ชคต.)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ร.ต.ท.ประยงค์ ยังสุข",
@@ -4359,16 +4834,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image99.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-033",
                     "time": "11:15",
-                    "timeTh": "11:15 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๑๑๕ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4383,16 +4859,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image102.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-034",
                     "time": "10:05",
-                    "timeTh": "10:05 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๐๐๕ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4407,16 +4884,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image105.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-035",
                     "time": "10:20",
-                    "timeTh": "10:20 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๐๒๐ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4431,16 +4909,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image108.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-036",
                     "time": "11:10",
-                    "timeTh": "11:10 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๑๑๐ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๑",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4455,16 +4934,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image111.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-037",
                     "time": "10:15",
-                    "timeTh": "10:15 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๐๑๕ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.ร้อย ๙๒๔",
@@ -4479,16 +4959,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image114.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-038",
                     "time": "10:40",
-                    "timeTh": "10:40 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๐๔๐ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4503,16 +4984,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image117.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-039",
                     "time": "10:50",
-                    "timeTh": "10:50 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๐๕๐ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "มว.ฉก.ตชด.๙๒๔๒",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4527,15 +5009,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image120.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-040",
                     "time": "09:47",
-                    "timeTh": "09:47 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๐๙๔๗ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๒",
                     "subdistrict": "ต.ปะกาฮะรัง",
                     "leader": "ด.ต.ศุภกิจ จำเดิม",
@@ -4551,16 +5034,17 @@ var BPP924_DATA = {
                         "assets/images/25aug/image123.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-041",
                     "time": "10:40",
-                    "timeTh": "10:40 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๐๔๐ ส.ค. ๖๙",
                     "category": "civil_affairs",
                     "categoryTh": "กิจการพลเรือน",
-                    "badge": "badge-civil",
-                    "unit": "ร้อย ฉก.ตชด.๙๒๔",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
+                    "unit": "ชป.กร.ร้อย ๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ด.ต.ชัยวัฒน์ ศรีสังข์งาม",
                     "callSign": "ชป.กร.",
@@ -4575,15 +5059,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image126.jpeg"
                     ],
                     "teamSize": 3,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-042",
                     "time": "15:30",
-                    "timeTh": "15:30 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๕๓๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ภารกิจพิเศษ (พลนำทาง)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.นักรบ เรืองกลิ่น",
@@ -4599,15 +5084,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image129.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-043",
                     "time": "10:00",
-                    "timeTh": "10:00 น.",
+                    "timeTh": "๒๔๒๒๐๐-๒๔๒๓๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ภารกิจพิเศษ (พลนำทาง)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.นักรบ เรืองกลิ่น",
@@ -4623,15 +5109,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image132.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-044",
                     "time": "10:00",
-                    "timeTh": "10:00 น.",
+                    "timeTh": "๒๕๐๑๐๐-๒๕๐๒๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ภารกิจพิเศษ (พลนำทาง)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.นักรบ เรืองกลิ่น",
@@ -4647,15 +5134,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image135.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-045",
                     "time": "10:30",
-                    "timeTh": "10:30 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๐๓๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ภารกิจพิเศษ (พลนำทาง)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.พชร รัตนะ",
@@ -4671,15 +5159,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image138.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-046",
                     "time": "11:20",
-                    "timeTh": "11:20 น. (25 ส.ค.)",
+                    "timeTh": "๒๕๑๑๒๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ภารกิจพิเศษ (พลนำทาง)",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.พชระ รัตนะพร",
@@ -4695,15 +5184,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image141.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-047",
                     "time": "17:00",
-                    "timeTh": "17:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๗๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ซักซ้อมแผนเผชิญเหตุ",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "มว.ฉก.ตชด.๙๒๔๑",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "เหมราช 410",
@@ -4719,15 +5209,16 @@ var BPP924_DATA = {
                         "assets/images/25aug/image144.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 },
                 {
                     "id": "OP-25AUG-048",
                     "time": "17:00",
-                    "timeTh": "17:00 น. (24 ส.ค.)",
+                    "timeTh": "๒๔๑๗๐๐ ส.ค. ๖๙",
                     "category": "security_check",
                     "categoryTh": "ซักซ้อมแผนเผชิญเหตุ",
-                    "badge": "badge-special",
+                    "badge": "bg-slate-500/20 text-slate-300 border-slate-500/40",
                     "unit": "ร้อย ฉก.ตชด.๙๒๔",
                     "subdistrict": "ต.รูสะมิแล",
                     "leader": "ส.ต.ท.ศวีระพล สะโรจน์",
@@ -4743,7 +5234,8 @@ var BPP924_DATA = {
                         "assets/images/25aug/image147.jpeg"
                     ],
                     "teamSize": 6,
-                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย"
+                    "result": "ผลการปฏิบัติเป็นไปด้วยความเรียบร้อย เหตุการณ์ทั่วไปปกติ กำลังพลปลอดภัย",
+                    "dateTh": "๒๕ สิงหาคม ๒๕๖๙"
                 }
             ],
             "timeRangeTh": "๒๔๑๕๐๑ ส.ค. ๖๙ ถึง ๒๕๑๕๐๐ ส.ค. ๖๙",

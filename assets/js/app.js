@@ -482,40 +482,65 @@ function initOrUpdateCharts() {
 
 // 3. Operations & Intelligence Database View & Search Engine
 function renderDatabaseView() {
-    filterOperationsTable();
-
     // Populate Historical dropdown
     const historySelect = document.getElementById('historyReportSelect');
-    if (historySelect && currentData.historicalReports) {
+    if (historySelect) {
         historySelect.innerHTML = '';
-        currentData.historicalReports.forEach((rep, idx) => {
-            const opt = document.createElement('option');
-            opt.value = rep.rawDate;
-            opt.textContent = `${rep.dateTh} (${rep.docNumber}) - ${rep.totalOps} ภารกิจ`;
-            if (idx === 0) opt.selected = true;
-            historySelect.appendChild(opt);
-        });
+        
+        // Latest Report Option
+        const latestOpt = document.createElement('option');
+        latestOpt.value = 'latest';
+        latestOpt.textContent = `⚡ รายงานล่าสุด: ${currentData.latestReport.dateTh} (${currentData.latestReport.items.length} ภารกิจ)`;
+        latestOpt.selected = true;
+        historySelect.appendChild(latestOpt);
+
+        // Historical Reports Options
+        if (currentData.historicalReports && currentData.historicalReports.length > 0) {
+            currentData.historicalReports.forEach((rep) => {
+                if (rep.items && rep.items.length > 0) {
+                    const opt = document.createElement('option');
+                    opt.value = rep.date || rep.rawDate;
+                    const docNum = rep.dispatchRef || rep.dispatchNumber || rep.docNumber || '';
+                    opt.textContent = `📅 ${rep.dateTh} ${docNum ? `(${docNum})` : ''} - ${rep.items.length} ภารกิจ`;
+                    historySelect.appendChild(opt);
+                }
+            });
+        }
+        
+        historySelect.onchange = filterOperationsTable;
     }
+
+    filterOperationsTable();
 }
 
 function filterOperationsTable() {
+    const historySelect = document.getElementById('historyReportSelect');
+    const selectedDate = historySelect ? historySelect.value : 'latest';
+    
+    let activeReport = currentData.latestReport;
+    if (selectedDate !== 'latest') {
+        const found = currentData.historicalReports.find(r => (r.date === selectedDate || r.rawDate === selectedDate));
+        if (found) activeReport = found;
+    }
+
     const keyword = document.getElementById('dbSearchInput') ? document.getElementById('dbSearchInput').value.toLowerCase().trim() : '';
     const platoonFilter = document.getElementById('dbPlatoonFilter') ? document.getElementById('dbPlatoonFilter').value : 'all';
     const categoryFilter = document.getElementById('dbCategoryFilter') ? document.getElementById('dbCategoryFilter').value : 'all';
     const subdistrictFilter = document.getElementById('dbSubdistrictFilter') ? document.getElementById('dbSubdistrictFilter').value : 'all';
 
-    const items = currentData.latestReport.items;
+    const items = activeReport.items || [];
     const filtered = items.filter(item => {
         const matchKeyword = !keyword || 
-            item.missionDetail.toLowerCase().includes(keyword) ||
-            item.leader.toLowerCase().includes(keyword) ||
-            item.callSign.toLowerCase().includes(keyword) ||
-            item.location.toLowerCase().includes(keyword) ||
-            (item.grid && item.grid.toLowerCase().includes(keyword));
+            (item.missionDetail && item.missionDetail.toLowerCase().includes(keyword)) ||
+            (item.leader && item.leader.toLowerCase().includes(keyword)) ||
+            (item.callSign && item.callSign.toLowerCase().includes(keyword)) ||
+            (item.location && item.location.toLowerCase().includes(keyword)) ||
+            (item.grid && item.grid.toLowerCase().includes(keyword)) ||
+            (item.timeTh && item.timeTh.toLowerCase().includes(keyword));
 
-        const matchPlatoon = platoonFilter === 'all' || item.unit.includes(platoonFilter);
-        const matchCategory = categoryFilter === 'all' || item.category === categoryFilter || (categoryFilter === 'patrol' && item.category.startsWith('patrol'));
-        const matchSubdistrict = subdistrictFilter === 'all' || item.subdistrict.includes(subdistrictFilter);
+        const matchPlatoon = platoonFilter === 'all' || (item.unit && item.unit.includes(platoonFilter));
+        const matchCategory = categoryFilter === 'all' || item.category === categoryFilter || (categoryFilter === 'patrol' && item.category && item.category.startsWith('patrol'));
+        const matchSubdistrict = subdistrictFilter === 'all' || (item.subdistrict && item.subdistrict.includes(subdistrictFilter));
 
         return matchKeyword && matchPlatoon && matchCategory && matchSubdistrict;
     });
@@ -523,13 +548,13 @@ function filterOperationsTable() {
     const tbody = document.getElementById('dbOperationsTableBody');
     const mobileCardsContainer = document.getElementById('dbOperationsMobileCards');
     const countEl = document.getElementById('dbFilteredCount');
-    if (countEl) countEl.textContent = `${filtered.length} รายการ`;
+    if (countEl) countEl.textContent = `${filtered.length} รายการ (จากทั้งหมด ${items.length} ภารกิจ)`;
 
     // 1. Render Desktop Table (for PC / Tablet)
     if (tbody) {
         tbody.innerHTML = '';
         if (filtered.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-slate-500 font-sarabun">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหา</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-slate-500 font-sarabun">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหาในรอบรายงานนี้</td></tr>`;
         } else {
             filtered.forEach((item, index) => {
                 const firstImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
@@ -537,24 +562,38 @@ function filterOperationsTable() {
                 tr.className = 'border-b border-slate-800/80 hover:bg-slate-800/40 transition-colors text-xs cursor-pointer';
                 tr.onclick = () => openItemDetailModal(item);
 
+                const timeDisplay = item.timeTh || item.dateTh || 'ไม่ระบุเวลา';
+                const unitDisplay = item.unit || 'ร้อย ฉก.ตชด.๙๒๔';
+                const badgeClass = item.badge || 'bg-slate-500/20 text-slate-300 border-slate-500/40';
+
                 tr.innerHTML = `
-                    <td class="py-3 px-3 font-mono text-slate-400">${index + 1}</td>
+                    <td class="py-3 px-3 font-mono text-slate-400 text-center">${index + 1}</td>
                     <td class="py-3 px-3">
                         ${firstImg ? `<div class="w-12 h-10 rounded-md overflow-hidden border border-slate-700 cursor-pointer shadow-sm" onclick="event.stopPropagation(); openPhotoLightbox('${firstImg}', '${item.categoryTh}', '${item.missionDetail}')"><img src="${firstImg}" class="w-full h-full object-cover hover:scale-110 transition-transform"></div>` : '<span class="text-slate-600">-</span>'}
                     </td>
-                    <td class="py-3 px-3 font-mono font-semibold text-amber-300 whitespace-nowrap">${item.timeTh}</td>
-                    <td class="py-3 px-3"><span class="px-2.5 py-1 rounded text-xs font-bold ${item.badge}">${item.categoryTh}</span></td>
-                    <td class="py-3 px-3 text-slate-200 font-semibold whitespace-nowrap">${item.unit}</td>
-                    <td class="py-3 px-3 text-slate-200 font-mono whitespace-nowrap">${item.leader} <span class="text-amber-400">(${item.callSign})</span></td>
-                    <td class="py-3 px-3 text-slate-300 max-w-sm font-sarabun text-xs" title="${item.location}">${item.location}</td>
+                    <td class="py-3 px-3 font-mono font-bold text-amber-300 whitespace-nowrap">
+                        <div class="flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+                            <span>${timeDisplay}</span>
+                        </div>
+                    </td>
+                    <td class="py-3 px-3"><span class="px-2.5 py-1 rounded text-xs font-bold ${badgeClass}">${item.categoryTh}</span></td>
+                    <td class="py-3 px-3 text-slate-200 font-semibold whitespace-nowrap">${unitDisplay}</td>
+                    <td class="py-3 px-3 text-slate-200 font-mono whitespace-nowrap">${item.leader} <span class="text-amber-400 font-bold">(${item.callSign})</span></td>
+                    <td class="py-3 px-3 text-slate-300 max-w-sm font-sarabun text-xs">
+                        <div class="font-medium text-slate-200">${item.location}</div>
+                        <div class="text-[11px] font-mono text-cyan-400 mt-0.5">${item.grid || ''}</div>
+                    </td>
                     <td class="py-3 px-3 text-right whitespace-nowrap">
-                        <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 transition-all font-bold text-xs">
-                            ดูข้อมูลและภาพ
+                        <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 transition-all font-bold text-xs flex items-center gap-1 ml-auto">
+                            <span>ดูภาพ & พิกัด</span>
+                            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                         </button>
                     </td>
                 `;
                 tbody.appendChild(tr);
             });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
     }
 
@@ -562,7 +601,7 @@ function filterOperationsTable() {
     if (mobileCardsContainer) {
         mobileCardsContainer.innerHTML = '';
         if (filtered.length === 0) {
-            mobileCardsContainer.innerHTML = `<div class="p-6 text-center text-slate-500 text-xs font-sarabun bg-slate-900/60 rounded-xl">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหา</div>`;
+            mobileCardsContainer.innerHTML = `<div class="p-6 text-center text-slate-500 text-xs font-sarabun bg-slate-900/60 rounded-xl">ไม่พบข้อมูลภารกิจที่ตรงกับเงื่อนไขการค้นหาในรอบรายงานนี้</div>`;
         } else {
             filtered.forEach((item, index) => {
                 const firstImg = item.images && item.images.length > 0 ? item.images[0] : (item.image || null);
@@ -570,13 +609,20 @@ function filterOperationsTable() {
                 card.className = 'glass-panel p-4 rounded-xl border border-slate-800 space-y-3 cursor-pointer hover:border-amber-500/40 transition-colors';
                 card.onclick = () => openItemDetailModal(item);
 
+                const timeDisplay = item.timeTh || item.dateTh || 'ไม่ระบุเวลา';
+                const unitDisplay = item.unit || 'ร้อย ฉก.ตชด.๙๒๔';
+                const badgeClass = item.badge || 'bg-slate-500/20 text-slate-300 border-slate-500/40';
+
                 card.innerHTML = `
                     <div class="flex items-start justify-between gap-2 border-b border-slate-800/80 pb-2">
                         <div class="flex items-center space-x-2">
-                            <span class="px-2 py-0.5 rounded text-[11px] font-bold ${item.badge}">${item.categoryTh}</span>
-                            <span class="text-xs font-bold text-slate-200">${item.unit}</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-bold ${badgeClass}">${item.categoryTh}</span>
+                            <span class="text-xs font-bold text-slate-200">${unitDisplay}</span>
                         </div>
-                        <span class="text-xs font-mono font-bold text-amber-300">${item.timeTh}</span>
+                        <span class="text-xs font-mono font-bold text-amber-300 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3 h-3"></i>
+                            ${timeDisplay}
+                        </span>
                     </div>
 
                     <div class="flex items-start space-x-3">
@@ -584,6 +630,7 @@ function filterOperationsTable() {
                         <div class="flex-1 min-w-0">
                             <div class="text-xs font-semibold text-amber-400 font-mono">${item.leader} (${item.callSign})</div>
                             <div class="text-xs text-slate-400 mt-0.5">${item.location}</div>
+                            <div class="text-[10px] font-mono text-cyan-400 mt-0.5">${item.grid || ''}</div>
                             <p class="text-xs text-slate-300 mt-1 font-sarabun line-clamp-2">${item.missionDetail}</p>
                         </div>
                     </div>
@@ -595,9 +642,11 @@ function filterOperationsTable() {
                 `;
                 mobileCardsContainer.appendChild(card);
             });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
     }
 }
+
 
 // Detail Modal
 function openItemDetailModal(item) {
