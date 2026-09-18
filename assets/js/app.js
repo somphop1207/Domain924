@@ -1131,8 +1131,8 @@ const simulatedLineReports = [
         badge: "badge-civil",
         unit: "ชป.กร.ร้อย ฉก.ตชด.๙๒๔",
         subdistrict: "ต.รูสะมิแล",
-        leader: "ด.ต.สมภพ บุญสุวรรณ",
-        callSign: "เหมราช 4012",
+        leader: "จนท.ชป.กร.ร้อย ๙๒๔",
+        callSign: "เหมราช (ชป.กร.)",
         location: "รร.ชุมชนบ้านรูสะมิแล",
         grid: "47NQH 51800 56200",
         missionDetail: "ประสานงานผู้นำชุมชนและตรวจเยี่ยมโครงการอาหารกลางวัน สร้างความสัมพันธ์อันดีระหว่างเจ้าหน้าที่และเยาวชนในพื้นที่",
@@ -1275,7 +1275,7 @@ function submitCustomLiveDispatch() {
         return;
     }
 
-    const callSign = callSignEl ? callSignEl.value : 'เหมราช 4012 (หน.ฝขว.)';
+    const callSign = (callSignEl && callSignEl.value.trim()) ? callSignEl.value.trim() : 'จนท.ชป. (เหมราช)';
     const category = catEl ? catEl.value : 'patrol';
     const grid = gridEl ? gridEl.value.trim() : '47NQH 48336 56284';
 
