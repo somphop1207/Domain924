@@ -58,7 +58,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Style -->
-    <link rel="stylesheet" href="assets/css/style?v=1789727226">
+    <link rel="stylesheet" href="assets/css/style.css?v=1789727350">
 </head>
 <body class="bg-tactical-900 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
 
@@ -131,16 +131,52 @@
                     </button>
                 </nav>
 
-                <!-- Action Button -->
+                <!-- Action & Mobile Menu Toggle Buttons -->
                 <div class="flex items-center space-x-2 flex-shrink-0">
                     <button onclick="openPrintDispatchModal()" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs shadow-md transition-all flex items-center space-x-1" title="พิมพ์วิทยุราชการ">
                         <i data-lucide="printer" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                         <span class="hidden sm:inline">พิมพ์วิทยุ</span>
                     </button>
+                    <!-- Mobile Hamburger Button -->
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 flex items-center justify-center transition-all focus:outline-none" title="เปิดเมนูนำทาง">
+                        <i data-lucide="menu" class="w-5 h-5" id="mobileMenuIcon"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- MOBILE NAVIGATION DROPDOWN DRAWER (for smartphone/tablet) -->
+    <div id="mobileMenuDropdown" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 backdrop-blur-xl px-4 py-3 space-y-1 shadow-2xl transition-all z-30 sticky top-14">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 px-3 py-1 border-b border-slate-800/80 mb-1 flex items-center justify-between">
+            <span>เมนูระบบบัญชาการและข้อมูล</span>
+            <span class="text-amber-400 font-bold">๖ หมวดหมู่</span>
+        </div>
+        <button onclick="switchTab('home'); toggleMobileMenu(false);" class="mobile-drawer-item w-full px-3 py-2.5 rounded-xl text-left text-xs font-bold text-slate-300 hover:bg-slate-800/80 hover:text-white flex items-center space-x-3 transition-colors" data-tab="home">
+            <i data-lucide="home" class="w-4 h-4 text-amber-400"></i>
+            <span>หน้าแรก (Home)</span>
+        </button>
+        <button onclick="switchTab('dashboard'); toggleMobileMenu(false);" class="mobile-drawer-item w-full px-3 py-2.5 rounded-xl text-left text-xs font-bold text-slate-300 hover:bg-slate-800/80 hover:text-white flex items-center space-x-3 transition-colors" data-tab="dashboard">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 text-amber-400"></i>
+            <span>แดชบอร์ดผู้บังคับบัญชา (Dashboard TOC)</span>
+        </button>
+        <button onclick="switchTab('database'); toggleMobileMenu(false);" class="mobile-drawer-item w-full px-3 py-2.5 rounded-xl text-left text-xs font-bold text-slate-300 hover:bg-slate-800/80 hover:text-white flex items-center space-x-3 transition-colors" data-tab="database">
+            <i data-lucide="database" class="w-4 h-4 text-cyan-400"></i>
+            <span>ฐานข้อมูลยุทธการ & คลังประวัติศาสตร์ (Database)</span>
+        </button>
+        <button onclick="switchTab('news'); toggleMobileMenu(false);" class="mobile-drawer-item w-full px-3 py-2.5 rounded-xl text-left text-xs font-bold text-slate-300 hover:bg-slate-800/80 hover:text-white flex items-center space-x-3 transition-colors" data-tab="news">
+            <i data-lucide="newspaper" class="w-4 h-4 text-emerald-400"></i>
+            <span>ข่าวประชาสัมพันธ์ & ชป.กร. (News Center)</span>
+        </button>
+        <button onclick="switchTab('upload'); toggleMobileMenu(false);" class="mobile-drawer-item w-full px-3 py-2.5 rounded-xl text-left text-xs font-bold text-slate-300 hover:bg-slate-800/80 hover:text-white flex items-center space-x-3 transition-colors" data-tab="upload">
+            <i data-lucide="file-up" class="w-4 h-4 text-purple-400"></i>
+            <span>นำเข้าและแปลง DOCX ประจำวัน (DOCX Parser)</span>
+        </button>
+        <button onclick="switchTab('about'); toggleMobileMenu(false);" class="mobile-drawer-item w-full px-3 py-2.5 rounded-xl text-left text-xs font-bold text-slate-300 hover:bg-slate-800/80 hover:text-white flex items-center space-x-3 transition-colors" data-tab="about">
+            <i data-lucide="shield-check" class="w-4 h-4 text-blue-400"></i>
+            <span>เกี่ยวกับหน่วยและทำเนียบกำลังพล (About Unit)</span>
+        </button>
+    </div>
 
     <!-- MAIN CONTENT CONTAINER -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
@@ -1192,32 +1228,36 @@
 
 
     <!-- Application Scripts -->
-    <script src="assets/js/mgrs-converter?v=1789727226"></script>
-    <script src="assets/js/data?v=1789727226"></script>
-    <script src="assets/js/docx-parser?v=1789727226"></script>
-    <script src="assets/js/app?v=1789727226"></script>
+    <script src="assets/js/mgrs-converter.js?v=1789727350"></script>
+    <script src="assets/js/data.js?v=1789727350"></script>
+    <script src="assets/js/docx-parser.js?v=1789727350"></script>
+    <script src="assets/js/app.js?v=1789727350"></script>
 
-    <!-- MOBILE BOTTOM NAVIGATION (Native Smartphone App Bar) -->
+        <!-- MOBILE BOTTOM NAVIGATION (Native Smartphone App Bar) -->
     <nav class="mobile-bottom-nav lg:hidden shadow-2xl">
         <button class="mobile-nav-item active" data-tab="home" onclick="switchTab('home')">
-            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+            <i data-lucide="home" class="w-5 h-5"></i>
             <span>หน้าแรก</span>
         </button>
         <button class="mobile-nav-item" data-tab="dashboard" onclick="switchTab('dashboard')">
-            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            <i data-lucide="layout-dashboard" class="w-5 h-5 text-amber-400"></i>
             <span>แดชบอร์ด</span>
         </button>
         <button class="mobile-nav-item" data-tab="database" onclick="switchTab('database')">
-            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3s3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3S11 5 11 7M4 7c0 2 1.5 3 3.5 3S11 9 11 7m6 0v10c0 2 1.5 3 3.5 3s3.5-1 3.5-3V7m-7 0c0-2 1.5-3 3.5-3s3.5 1 3.5 3m-7 0c0 2 1.5 3 3.5 3s3.5-1 3.5-3"></path></svg>
+            <i data-lucide="database" class="w-5 h-5 text-cyan-400"></i>
             <span>ฐานข้อมูล</span>
         </button>
         <button class="mobile-nav-item" data-tab="news" onclick="switchTab('news')">
-            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+            <i data-lucide="newspaper" class="w-5 h-5 text-emerald-400"></i>
             <span>ข่าวสาร</span>
         </button>
         <button class="mobile-nav-item" data-tab="upload" onclick="switchTab('upload')">
-            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+            <i data-lucide="file-up" class="w-5 h-5 text-purple-400"></i>
             <span>แปลง DOCX</span>
+        </button>
+        <button class="mobile-nav-item" data-tab="about" onclick="switchTab('about')">
+            <i data-lucide="shield-check" class="w-5 h-5 text-blue-400"></i>
+            <span>หน่วย</span>
         </button>
     </nav>
 

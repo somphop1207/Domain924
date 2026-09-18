@@ -46,24 +46,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Navigation Controller
 function initNavigation() {
-    const navButtons = document.querySelectorAll('.nav-tab');
+    const navButtons = document.querySelectorAll('.nav-tab, .mobile-drawer-item');
     navButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const targetTab = btn.getAttribute('data-tab');
-            switchTab(targetTab);
+            if (targetTab) {
+                switchTab(targetTab);
+                toggleMobileMenu(false);
+            }
         });
     });
+}
+
+function toggleMobileMenu(forceState) {
+    const drawer = document.getElementById('mobileMenuDropdown');
+    const icon = document.getElementById('mobileMenuIcon');
+    if (!drawer) return;
+
+    const isHidden = drawer.classList.contains('hidden');
+    const shouldOpen = (forceState !== undefined) ? forceState : isHidden;
+
+    if (shouldOpen) {
+        drawer.classList.remove('hidden');
+        if (icon) icon.setAttribute('data-lucide', 'x');
+    } else {
+        drawer.classList.add('hidden');
+        if (icon) icon.setAttribute('data-lucide', 'menu');
+    }
+
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 }
 
 function switchTab(tabId) {
     activeTab = tabId;
     
-    // Update all desktop and mobile navigation buttons
-    document.querySelectorAll('.nav-tab, .mobile-nav-item').forEach(btn => {
+    // Update all desktop, mobile bottom nav, and mobile drawer buttons
+    document.querySelectorAll('.nav-tab, .mobile-nav-item, .mobile-drawer-item').forEach(btn => {
         if (btn.getAttribute('data-tab') === tabId) {
             btn.classList.add('active');
+            if (btn.classList.contains('mobile-drawer-item')) {
+                btn.classList.add('bg-slate-800/90', 'text-amber-400', 'border-l-4', 'border-amber-400');
+            }
         } else {
             btn.classList.remove('active');
+            if (btn.classList.contains('mobile-drawer-item')) {
+                btn.classList.remove('bg-slate-800/90', 'text-amber-400', 'border-l-4', 'border-amber-400');
+            }
         }
     });
 
@@ -75,6 +105,14 @@ function switchTab(tabId) {
             sec.classList.add('hidden');
         }
     });
+
+    // Close mobile drawer if open
+    toggleMobileMenu(false);
+
+    // Refresh icons
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 
     // Scroll to top smoothly on tab switch
     window.scrollTo({ top: 0, behavior: 'smooth' });
