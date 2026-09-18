@@ -137,7 +137,7 @@ function renderHomeView() {
         if (el('homeDocNumber')) el('homeDocNumber').textContent = report.dispatchRef || report.dispatchNumber || report.docNumber || 'ที่ นร.๕๑๑๙.๑(ฉก.ตร.ปน.9๒).9๒๔/ยก./1140';
         if (el('homeReportDate')) el('homeReportDate').textContent = report.dateTh;
         if (el('homeReportTime')) el('homeReportTime').textContent = report.timeRange || report.timeRangeTh || '๒๖๑๕๐๑ ส.ค. ๖๙ ถึง ๒๗๑๕๐๐ ส.ค. ๖๙';
-        if (el('homeSituationBrief')) el('homeSituationBrief').textContent = 'เหตุการณ์ทั่วไปปกติ กำลังพลทุกชุดปฏิบัติการพร้อมปฏิบัติหน้าที่ ๑๐๐%';
+        if (el('homeSituationBrief')) el('homeSituationBrief').textContent = (currentData.intelligenceBrief && currentData.intelligenceBrief.intelSummary) ? currentData.intelligenceBrief.intelSummary : 'เหตุการณ์ทั่วไปปกติ กำลังพลทุกชุดปฏิบัติการพร้อมปฏิบัติหน้าที่ ๑๐๐%';
         if (el('homeCommanderName')) el('homeCommanderName').textContent = `${unit.commander ? unit.commander.rank + unit.commander.name : 'ร.ต.อ.เดชเดโช ส่งสีอ่อน'} (${unit.commander ? unit.commander.callSign : 'เหมราช 41'})`;
 
         if (el('statTotalOps')) el('statTotalOps').textContent = summary.totalMissions || report.items.length;
