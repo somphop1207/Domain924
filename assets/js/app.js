@@ -1499,3 +1499,13 @@ function copyMainVideoUrl() {
         showDispatchToast("📋 คัดลอกลิงก์วิดีโอเรียบร้อยแล้ว!", "success");
     }
 }
+
+
+function playYouTubeVideo(container, videoId) {
+    if (!container || !videoId) return;
+    if (window.location.protocol === 'file:') {
+        window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+        return;
+    }
+    container.innerHTML = '<iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+}
