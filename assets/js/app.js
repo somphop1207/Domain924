@@ -1313,7 +1313,7 @@ function submitCustomLiveDispatch() {
         return;
     }
 
-    const callSign = callSignEl ? callSignEl.value : 'เหมราช 4012 (หน.ฝขว.)';
+    const callSign = callSignEl ? callSignEl.value : 'เหมราช 4012 (หน.ฝยก.)';
     const category = catEl ? catEl.value : 'patrol';
     const grid = gridEl ? gridEl.value.trim() : '47NQH 48336 56284';
 
