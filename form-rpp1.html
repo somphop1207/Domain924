@@ -1038,6 +1038,13 @@
           </div>
 
           <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label" style="font-weight: 600; color: #1e3a8a;">ตำแหน่ง / สังกัด (สำหรับระบุในชื่อไฟล์และประวัติ)</label>
+              <input type="text" class="field-input" id="input_position" placeholder="เช่น ผบ.หมู่ กก.ตชด.๔๑ หรือ หน.ฝขว.ร้อย ฉก.ตชด.๙๒๔" style="border-color: #93c5fd; background: #f0f9ff;">
+            </div>
+          </div>
+
+          <div class="field-row">
             <div class="field-group">
               <label class="field-label">ชื่อตัวเดิม (ถ้ามี)</label>
               <input type="text" class="field-input" id="input_old_first_name">
@@ -1287,16 +1294,23 @@
           </div>
           
           <div class="field-group full">
-            <label class="field-label">ลายมือชื่อเจ้าของประวัติ (วาดด้วยนิ้ว/เมาส์ หรืออัปโหลดไฟล์ภาพ)</label>
-            <div class="sig-container">
-              <canvas id="sig-pad" class="sig-canvas"></canvas>
-              <div class="sig-toolbar">
-                <div style="display:flex; gap:6px;">
-                  <button type="button" class="btn btn-outline" style="padding: 2px 6px; font-size: 0.72rem;" onclick="clearSignature()">ล้างลายเซ็น</button>
-                  <button type="button" class="btn btn-outline" style="padding: 2px 6px; font-size: 0.72rem;" onclick="document.getElementById('sig-file-input').click()">📁 อัปโหลดภาพ</button>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <label class="field-label" style="font-weight: 600; color: #0f172a; margin-bottom: 0;">ลายมือชื่อเจ้าของประวัติ</label>
+              <span id="sig-mode-badge" style="font-size: 0.74rem; color: #15803d; background: #dcfce7; padding: 2px 8px; border-radius: 999px; font-weight: 600; display: none;">✅ แทรกรูปลายเซ็นแล้ว</span>
+            </div>
+            <div class="sig-container" style="border: 1.5px solid #94a3b8; border-radius: 8px; padding: 10px; background: #ffffff;">
+              <canvas id="sig-pad" class="sig-canvas" style="width: 100%; height: 125px; border: 1.5px dashed #cbd5e1; border-radius: 6px; background: #fafafa; touch-action: none; cursor: crosshair;"></canvas>
+              <div class="sig-toolbar" style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; flex-wrap: wrap; gap: 6px;">
+                <div style="display:flex; gap:8px; align-items: center;">
+                  <button type="button" class="btn" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; border: none; padding: 6px 14px; font-size: 0.78rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 5px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 6px rgba(37,99,235,0.25);" onclick="document.getElementById('sig-file-input').click()">
+                    <span>📁</span> แทรกรูปลายเซ็น
+                  </button>
                   <input type="file" id="sig-file-input" accept="image/*" style="display:none;" onchange="handleSignatureUpload(event)">
+                  <button type="button" class="btn btn-outline" style="padding: 6px 10px; font-size: 0.78rem; border-radius: 6px; cursor: pointer; background: #fff;" onclick="clearSignature()">
+                    <span>🗑️</span> ล้างลายเซ็น
+                  </button>
                 </div>
-                <span style="color:#94a3b8;">เซ็นในกรอบสีขาวนี้</span>
+                <span style="color:#64748b; font-size: 0.74rem;">เซ็นสดด้วยนิ้ว/เมาส์ หรือกดแทรกรูปภาพ</span>
               </div>
             </div>
           </div>
@@ -1322,6 +1336,23 @@
               <div class="field-group full">
                 <label class="field-label">วันที่ควบคุม (วัน เดือน ปี)</label>
                 <input type="text" class="field-input" id="input_intel_date" placeholder="เช่น ๒๐ ตุลาคม ๒๕๖๙">
+              </div>
+            </div>
+            <div class="field-row" style="margin-top: 6px;">
+              <div class="field-group full">
+                <label class="field-label" style="display: flex; justify-content: space-between; align-items: center;">
+                  <span>ลายมือชื่อผู้ควบคุมการบันทึกประวัติ (ฝ่ายข่าว)</span>
+                  <span id="sup-sig-badge" style="font-size: 0.72rem; color: #16a34a; font-weight: 600; display: none;">✅ มีรูปลายเซ็นแล้ว</span>
+                </label>
+                <div style="display: flex; gap: 8px; align-items: center; margin-top: 4px;">
+                  <button type="button" class="btn" style="background: #059669; color: #ffffff; border: none; padding: 5px 12px; font-size: 0.76rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 5px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 5px rgba(5,150,105,0.2);" onclick="document.getElementById('sup-sig-file-input').click()">
+                    <span>📁</span> แทรกรูปลายเซ็นฝ่ายข่าว
+                  </button>
+                  <input type="file" id="sup-sig-file-input" accept="image/*" style="display:none;" onchange="handleSupervisorSignatureUpload(event)">
+                  <button type="button" id="btn-clear-sup-sig" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.76rem; border-radius: 6px; display: none; cursor: pointer;" onclick="clearSupervisorSignature()">
+                    <span>✕</span> ลบลายเซ็น
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1420,7 +1451,10 @@
 
           <!-- Line 4: Supervisor Signature Line -->
           <div class="p2-line p2-col-right" style="margin-top: 4pt;">
-            ลายมือชื่อ..............................................................
+            <div class="sig-line-wrap">
+              <img id="doc-sig-img-p2-sup" class="sig-floating-img" src="" style="display: none;" alt="ลายเซ็นผู้ควบคุม">
+              ลายมือชื่อ..............................................................
+            </div>
           </div>
 
           <!-- Line 5: Supervisor Date Line -->
@@ -1646,6 +1680,7 @@
     let useThaiNumerals = true;
     let officerPhotoData = "";
     let officerSignatureData = "";
+    let supervisorSignatureData = "";
     let webcamStream = null;
 
     // Numbers conversion
@@ -1845,6 +1880,9 @@
       document.getElementById('out_intel_supervisor').textContent = intelSup ? intelSup : '.......................................................................................';
       document.getElementById('out_intel_date').textContent = intelDate ? formatNumberString(intelDate) : '๒๐ ตุลาคม ๒๕๖๙';
 
+      // Auto-update document.title so browser print/Save as PDF uses the officer name & position as default filename
+      document.title = getSuggestedFileName();
+
       saveToLocalStorage();
     }
 
@@ -2002,23 +2040,115 @@
     sigCanvas.addEventListener('touchmove', draw);
     window.addEventListener('touchend', stopDrawing);
 
-    function clearSignature() {
+
+    // Suggested Filename Generator: รปภ1_ย่อ_ยศ_ชื่อ_ชื่อสกุล_ตำแหน่ง
+    function getSuggestedFileName() {
+      const rank = (document.getElementById('input_rank')?.value || '').trim() || 'ด.ต.';
+      const fname = (document.getElementById('input_first_name')?.value || '').trim();
+      const lname = (document.getElementById('input_last_name')?.value || '').trim();
+      const posInput = (document.getElementById('input_position')?.value || '').trim();
+      const unitCorps = (document.getElementById('input_unit_corps')?.value || '').trim();
+      const position = posInput || unitCorps;
+
+      let nameParts = [];
+      if (rank || fname) nameParts.push(`${rank}${fname}`);
+      if (lname) nameParts.push(lname);
+      if (position) nameParts.push(position.replace(/[\/\:*?"<>|]/g, '_'));
+
+      const coreName = nameParts.join('_') || 'แบบฟอร์ม';
+      return `รปภ1_ย่อ_${coreName}`.replace(/\s+/g, '_');
+    }
+
+    // Auto Background Transparency Processor for Signature Images
+    function processSignatureImageToTransparentPNG(dataUrl, callback) {
+      const img = new Image();
+      img.onload = function() {
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const d = imgData.data;
+
+          for (let i = 0; i < d.length; i += 4) {
+            const r = d[i], g = d[i+1], b = d[i+2];
+            // Calculate pixel brightness
+            const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+            if (lum > 205) {
+              // White/light paper background -> make 100% transparent
+              d[i+3] = 0;
+            } else {
+              // Signature stroke -> make pure black (#000000)
+              const alphaRatio = (205 - lum) / 205;
+              d[i] = 0;
+              d[i+1] = 0;
+              d[i+2] = 0;
+              d[i+3] = Math.min(255, Math.floor(alphaRatio * 255 * 1.6));
+            }
+          }
+          ctx.putImageData(imgData, 0, 0);
+          callback(canvas.toDataURL('image/png'));
+        } catch(err) {
+          console.warn('Canvas pixel processing fallback:', err);
+          callback(dataUrl);
+        }
+      };
+      img.onerror = function() {
+        callback(dataUrl);
+      };
+      img.src = dataUrl;
+    }
+
+    // Render signature preview directly on signature pad canvas
+    function renderSignatureOnPad(dataUri) {
+      if (!sigCanvas || !sigCtx) return;
       sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+      if (!dataUri) return;
+      const img = new Image();
+      img.onload = function() {
+        const padW = sigCanvas.width;
+        const padH = sigCanvas.height;
+        const scale = Math.min(padW / img.width, padH / img.height) * 0.88;
+        const dw = img.width * scale;
+        const dh = img.height * scale;
+        const dx = (padW - dw) / 2;
+        const dy = (padH - dh) / 2;
+        sigCtx.drawImage(img, dx, dy, dw, dh);
+      };
+      img.src = dataUri;
+    }
+
+    function clearSignature() {
+      if (sigCtx && sigCanvas) {
+        sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+      }
       officerSignatureData = "";
       updateSignatureDisplay();
+      const badge = document.getElementById('sig-mode-badge');
+      if (badge) badge.style.display = 'none';
       saveToLocalStorage();
     }
 
     function handleSignatureUpload(e) {
       const file = e.target.files[0];
       if (!file) return;
+
       const reader = new FileReader();
       reader.onload = function(evt) {
-        officerSignatureData = evt.target.result;
-        updateSignatureDisplay();
-        saveToLocalStorage();
+        processSignatureImageToTransparentPNG(evt.target.result, function(cleanPng) {
+          officerSignatureData = cleanPng;
+          updateSignatureDisplay();
+          renderSignatureOnPad(cleanPng);
+          const badge = document.getElementById('sig-mode-badge');
+          if (badge) badge.style.display = 'inline-block';
+          saveToLocalStorage();
+        });
       };
       reader.readAsDataURL(file);
+      e.target.value = '';
     }
 
     function updateSignatureDisplay() {
@@ -2033,6 +2163,49 @@
           }
         }
       });
+      const badge = document.getElementById('sig-mode-badge');
+      if (badge) {
+        badge.style.display = officerSignatureData ? 'inline-block' : 'none';
+      }
+    }
+
+    // Supervisor Signature Handlers
+    function handleSupervisorSignatureUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        processSignatureImageToTransparentPNG(evt.target.result, function(cleanPng) {
+          supervisorSignatureData = cleanPng;
+          updateSupervisorSignatureDisplay();
+          saveToLocalStorage();
+        });
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    }
+
+    function clearSupervisorSignature() {
+      supervisorSignatureData = "";
+      updateSupervisorSignatureDisplay();
+      saveToLocalStorage();
+    }
+
+    function updateSupervisorSignatureDisplay() {
+      const el = document.getElementById('doc-sig-img-p2-sup');
+      const badge = document.getElementById('sup-sig-badge');
+      const btnClear = document.getElementById('btn-clear-sup-sig');
+      if (el) {
+        if (supervisorSignatureData) {
+          el.src = supervisorSignatureData;
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+      if (badge) badge.style.display = supervisorSignatureData ? 'inline-block' : 'none';
+      if (btnClear) btnClear.style.display = supervisorSignatureData ? 'inline-block' : 'none';
     }
 
     // Sample Data Preset (ด.ต.ชัยรัตน์ ผาสุข)
@@ -2094,6 +2267,7 @@
       setOfficerPhoto("assets/sample_photo.jpg");
       officerSignatureData = "assets/sample_sig.png";
       updateSignatureDisplay();
+      renderSignatureOnPad("assets/sample_sig.png");
 
       Object.keys(sample).forEach(k => {
         const input = document.getElementById('input_' + k);
@@ -2117,7 +2291,7 @@
     function exportJSON() {
       const data = {};
       const fields = [
-        'rank', 'first_name', 'last_name', 'gender', 'nickname', 'id_card',
+        'rank', 'first_name', 'last_name', 'position', 'gender', 'nickname', 'id_card',
         'old_first_name', 'name_change_proof', 'old_last_name', 'surname_change_proof',
         'birth_date', 'birth_place', 'ethnicity', 'nationality', 'religion',
         'former_nationality', 'naturalization_proof',
@@ -2164,6 +2338,11 @@
           if (data.signatureData) {
             officerSignatureData = data.signatureData;
             updateSignatureDisplay();
+            renderSignatureOnPad(data.signatureData);
+          }
+          if (data.supervisorSignatureData) {
+            supervisorSignatureData = data.supervisorSignatureData;
+            updateSupervisorSignatureDisplay();
           }
           updateLivePreview();
           alert('โหลดข้อมูลเรียบร้อยแล้ว!');
@@ -2334,6 +2513,9 @@
       if (wasFormOnly) {
         document.body.classList.remove('view-form-only');
       }
+
+      // Ensure document.title matches officer name, rank, and position for Save as PDF
+      document.title = getSuggestedFileName();
 
       // Small delay for DOM updates and font layout
       setTimeout(() => {
@@ -2517,7 +2699,7 @@
       try {
         const data = {};
         const fields = [
-          'rank', 'first_name', 'last_name', 'gender', 'nickname', 'id_card',
+          'rank', 'first_name', 'last_name', 'position', 'gender', 'nickname', 'id_card',
           'old_first_name', 'name_change_proof', 'old_last_name', 'surname_change_proof',
           'birth_date', 'birth_place', 'ethnicity', 'nationality', 'religion',
           'former_nationality', 'naturalization_proof',
@@ -2536,6 +2718,7 @@
         });
         data.photoData = officerPhotoData;
         data.signatureData = officerSignatureData;
+        data.supervisorSignatureData = supervisorSignatureData;
         localStorage.setItem('bpp924_rp1_form_data', JSON.stringify(data));
       } catch (e) {}
     }
@@ -2553,6 +2736,11 @@
           if (data.signatureData) {
             officerSignatureData = data.signatureData;
             updateSignatureDisplay();
+            renderSignatureOnPad(data.signatureData);
+          }
+          if (data.supervisorSignatureData) {
+            supervisorSignatureData = data.supervisorSignatureData;
+            updateSupervisorSignatureDisplay();
           }
           return true;
         }
