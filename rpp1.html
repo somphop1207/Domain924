@@ -1472,28 +1472,28 @@
           กรุณาเลือกวิธีการบันทึกเอกสารที่ท่านสะดวก (รองรับทั้งมือถือและคอมพิวเตอร์):
         </p>
 
-        <!-- Option 1: Native Print / Save as PDF (Identical to PC) -->
-        <div onclick="triggerNativePrint()" style="background: #eff6ff; border: 2px solid #2563eb; border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#eff6ff'">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <strong style="color: #1e3a8a; font-size: 0.98rem; display: flex; align-items: center; gap: 6px;">
-              <span>🖨️</span> บันทึกเป็น PDF ผ่านระบบพิมพ์ (เหมือนบน PC 100%)
+        <!-- Option 1: Direct Save as PDF File (Recommended - No printer selection needed) -->
+        <div onclick="triggerDirectDownload()" style="background: #eff6ff; border: 2.5px solid #2563eb; border-radius: 10px; padding: 15px 16px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37,99,235,0.15);" onmouseover="this.style.background='#dbeafe'" onmouseout="this.style.background='#eff6ff'">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px;">
+            <strong style="color: #1e3a8a; font-size: 1rem; display: flex; align-items: center; gap: 6px;">
+              <span>📥</span> บันทึกเป็นไฟล์ PDF ทันที (ไม่ต้องเลือกเครื่องพิมพ์)
             </strong>
-            <span style="background: #2563eb; color: #fff; font-size: 0.72rem; padding: 2px 7px; border-radius: 999px; font-weight: 600;">แนะนำ</span>
+            <span style="background: #2563eb; color: #fff; font-size: 0.74rem; padding: 3px 8px; border-radius: 999px; font-weight: 700;">แนะนำ</span>
           </div>
-          <div style="font-size: 0.82rem; color: #334155; line-height: 1.4;">
-            เปิดหน้าพิมพ์ของอุปกรณ์ แล้วเลือก <strong>"บันทึกเป็น PDF" (Save as PDF)</strong> — ได้ไฟล์เวกเตอร์แท้ คมชัดสูงสุด ไม่เพี้ยนแม้แต่มิลลิเมตรเดียว
+          <div style="font-size: 0.84rem; color: #334155; line-height: 1.45;">
+            กดปุ่มนี้เพื่อ <strong>บันทึกเป็นไฟล์ PDF ลงในมือถือทันที</strong> โดยไม่ต้องเลือกเครื่องพิมพ์ ไม่ต้องตั้งค่าใดๆ ให้ยุ่งยาก ได้เอกสารครบ ๒ หน้าถูกต้องตามแบบฟอร์ม ๑๐๐%
           </div>
         </div>
 
-        <!-- Option 2: Direct Download PDF -->
-        <div onclick="triggerDirectDownload()" style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='#f8fafc'">
+        <!-- Option 2: Print to Paper Printer -->
+        <div onclick="triggerNativePrint()" style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 13px 16px; margin-bottom: 12px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='#f8fafc'">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-            <strong style="color: #0f172a; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
-              <span>📥</span> ดาวน์โหลดไฟล์ PDF ลงเครื่องโดยตรง
+            <strong style="color: #0f172a; font-size: 0.94rem; display: flex; align-items: center; gap: 6px;">
+              <span>🖨️</span> สั่งพิมพ์ออกเครื่องพิมพ์กระดาษ (Print)
             </strong>
           </div>
-          <div style="font-size: 0.82rem; color: #64748b; line-height: 1.4;">
-            สร้างและบันทึกไฟล์ <strong>.pdf</strong> ลงโฟลเดอร์ดาวน์โหลดของเครื่องโดยตรง
+          <div style="font-size: 0.81rem; color: #64748b; line-height: 1.4;">
+            สำหรับกรณีต้องการพิมพ์ออกกระดาษผ่านเครื่องพิมพ์ WiFi หรือเปิดระบบตั้งค่าการพิมพ์ของอุปกรณ์
           </div>
         </div>
 
