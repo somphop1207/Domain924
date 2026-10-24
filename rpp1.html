@@ -18,6 +18,21 @@
   <script src="assets/js/jspdf.umd.min.js"></script>
   <script>window.jspdf || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\\/script>')</script>
   <style>
+    @font-face {
+      font-family: 'THSarabunIT9';
+      src: url('assets/fonts/THSarabunIT9.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+    @font-face {
+      font-family: 'THSarabunIT9';
+      src: url('assets/fonts/THSarabunIT9-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+      font-display: block;
+    }
+
     :root {
       --primary: #1e3a8a;
       --primary-dark: #172554;
@@ -374,7 +389,7 @@
       margin: 0 auto 30px auto;
       padding: 10mm 16mm 10mm 20mm;
       position: relative;
-      font-family: 'TH Sarabun New', 'TH SarabunIT๙', 'Sarabun', sans-serif;
+      font-family: 'THSarabunIT9', 'TH Sarabun New', 'TH SarabunIT๙', 'Sarabun', sans-serif;
       font-size: 14pt;
       line-height: 1.18;
       color: #000000;
@@ -497,12 +512,10 @@
 
     .s-line {
       font-size: 14pt;
-      line-height: 1.18;
-      margin-bottom: 1pt;
-      text-align: justify;
-      text-justify: inter-cluster;
-      white-space: pre-wrap;
-      word-break: break-all;
+      line-height: 1.16;
+      margin-bottom: 0.5pt;
+      white-space: nowrap;
+      overflow: hidden;
       color: #000;
     }
 
@@ -2280,6 +2293,11 @@
         const wasFormOnly = document.body.classList.contains('view-form-only');
         if (wasFormOnly) {
           document.body.classList.remove('view-form-only');
+        }
+
+        // Wait for official Sarabun fonts to be 100% loaded and rasterized
+        if (document.fonts) {
+          await document.fonts.ready;
         }
 
         // Wait brief tick for repaint and font rasterization
