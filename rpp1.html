@@ -862,12 +862,8 @@
         <span>🇹🇭</span> เลขไทย
       </button>
 
-      <button type="button" class="btn btn-pdf" onclick="downloadDirectPDF()" title="บันทึกและดาวน์โหลดไฟล์ PDF ขนาด ๒ หน้า A4 ลงในเครื่องมือถือทันที">
-        <span>📥</span> บันทึกเป็น PDF
-      </button>
-
-      <button type="button" class="btn btn-print" onclick="window.print()" title="สั่งพิมพ์เอกสาร หรือส่งออกเครื่องพิมพ์">
-        <span>🖨️</span> สั่งพิมพ์
+      <button type="button" class="btn btn-pdf" onclick="handlePrintOrSavePDF()" title="สั่งพิมพ์เอกสาร หรือดาวน์โหลดไฟล์ PDF ลงมือถือทันที">
+        <span>🖨️</span> สั่งพิมพ์ / บันทึก PDF
       </button>
     </div>
   </header>
@@ -1268,14 +1264,9 @@
       
       <div class="preview-controls-bar">
         <span>📄 พรีวิวเอกสาร รปภ. ๑ (ย่อ)</span>
-        <div style="display: flex; gap: 8px;">
-          <button type="button" class="btn btn-pdf" onclick="downloadDirectPDF()" title="ดาวน์โหลดไฟล์ PDF ลงเครื่อง">
-            📥 บันทึกเป็น PDF
-          </button>
-          <button type="button" class="btn btn-print" onclick="window.print()" title="สั่งพิมพ์เอกสาร">
-            🖨️ สั่งพิมพ์
-          </button>
-        </div>
+        <button type="button" class="btn btn-pdf" onclick="handlePrintOrSavePDF()" title="สั่งพิมพ์ หรือดาวน์โหลดเป็น PDF ลงมือถือ">
+          🖨️ สั่งพิมพ์ / บันทึก PDF
+        </button>
       </div>
 
       <!-- ================= PAGE 1 ================= -->
@@ -1407,12 +1398,40 @@
     </div>
   </div>
 
-  <!-- MODAL: PDF GENERATION LOADING -->
+  <!-- MODAL: PDF GENERATION & ACTIONS -->
   <div class="modal-overlay" id="loading-modal">
-    <div class="modal-box" style="max-width: 360px; text-align: center; padding: 25px 20px;">
-      <div class="loading-spinner"></div>
-      <h4 style="margin: 15px 0 6px 0; font-size: 1.05rem; color: #1e293b;" id="loading-title">กำลังสร้างไฟล์ PDF...</h4>
-      <p style="margin: 0; font-size: 0.85rem; color: #64748b;" id="loading-desc">กำลังประมวลผลเอกสาร รปภ.๑ (ย่อ) หน้า ๑ และหน้า ๒ กรุณารอสักครู่</p>
+    <div class="modal-box" style="max-width: 380px; text-align: center; padding: 25px 20px;">
+      
+      <!-- State 1: Loading Spinner -->
+      <div id="pdf-modal-loading-state">
+        <div class="loading-spinner"></div>
+        <h4 style="margin: 15px 0 6px 0; font-size: 1.05rem; color: #1e293b;" id="loading-title">กำลังสร้างไฟล์ PDF...</h4>
+        <p style="margin: 0; font-size: 0.85rem; color: #64748b;" id="loading-desc">กำลังประมวลผลเอกสาร รปภ.๑ (ย่อ) หน้า ๑ และหน้า ๒ กรุณารอสักครู่</p>
+      </div>
+
+      <!-- State 2: Success & Download Options -->
+      <div id="pdf-modal-success-state" style="display: none;">
+        <div style="font-size: 3rem; line-height: 1; margin-bottom: 10px;">✅</div>
+        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">สร้างไฟล์ PDF สำเร็จแล้ว!</h4>
+        <p style="margin: 0 0 16px 0; font-size: 0.85rem; color: #475569;" id="pdf-success-filename">
+          ดาวน์โหลดไฟล์ลงในมือถือเรียบร้อยแล้ว
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a id="btn-open-pdf-newtab" href="#" target="_blank" class="btn btn-pdf" style="text-decoration: none; justify-content: center; padding: 11px; font-size: 0.95rem;">
+            👁️ เปิดดูไฟล์ PDF / แชร์เข้า LINE
+          </a>
+          <a id="btn-re-download-pdf" href="#" download="" class="btn btn-secondary" style="text-decoration: none; justify-content: center; padding: 10px; font-size: 0.9rem;">
+            📥 ดาวน์โหลดไฟล์อีกครั้ง
+          </a>
+          <button type="button" class="btn btn-outline" onclick="window.print()" style="justify-content: center; padding: 9px; font-size: 0.88rem;">
+            🖨️ สั่งพิมพ์ออกเครื่องพิมพ์ (Print)
+          </button>
+          <button type="button" class="btn btn-outline" onclick="hideLoadingModal()" style="justify-content: center; padding: 8px; font-size: 0.85rem; margin-top: 4px; border: none; color: #64748b;">
+            ✕ ปิดหน้าต่างนี้
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1424,8 +1443,8 @@
     <button type="button" class="m-bar-btn" id="m-btn-preview" onclick="toggleView('preview')">
       <span>👁️</span> ดูตัวอย่าง
     </button>
-    <button type="button" class="m-bar-btn m-bar-btn-pdf" onclick="downloadDirectPDF()">
-      <span>📥</span> บันทึก PDF
+    <button type="button" class="m-bar-btn m-bar-btn-pdf" onclick="handlePrintOrSavePDF()">
+      <span>📥</span> สั่งพิมพ์ / บันทึก PDF
     </button>
   </div>
 
@@ -1965,10 +1984,17 @@
     // ========================================================
     // DIRECT CLIENT-SIDE PDF GENERATION (OPTIMIZED FOR MOBILE)
     // ========================================================
+    let currentPdfBlobUrl = null;
+
     function showLoadingModal(title, desc) {
       const modal = document.getElementById('loading-modal');
+      const loadState = document.getElementById('pdf-modal-loading-state');
+      const succState = document.getElementById('pdf-modal-success-state');
       const titleEl = document.getElementById('loading-title');
       const descEl = document.getElementById('loading-desc');
+
+      if (loadState) loadState.style.display = 'block';
+      if (succState) succState.style.display = 'none';
       if (titleEl && title) titleEl.textContent = title;
       if (descEl && desc) descEl.textContent = desc;
       if (modal) modal.classList.add('active');
@@ -1979,9 +2005,38 @@
       if (descEl && desc) descEl.textContent = desc;
     }
 
+    function showSuccessModal(filename, blobUrl) {
+      const modal = document.getElementById('loading-modal');
+      const loadState = document.getElementById('pdf-modal-loading-state');
+      const succState = document.getElementById('pdf-modal-success-state');
+      const filenameEl = document.getElementById('pdf-success-filename');
+      const btnOpen = document.getElementById('btn-open-pdf-newtab');
+      const btnReDl = document.getElementById('btn-re-download-pdf');
+
+      if (loadState) loadState.style.display = 'none';
+      if (succState) succState.style.display = 'block';
+
+      if (filenameEl) {
+        filenameEl.innerHTML = `ดาวน์โหลดไฟล์ <strong>${filename}</strong> ลงในมือถือเรียบร้อยแล้ว`;
+      }
+      if (btnOpen) {
+        btnOpen.href = blobUrl;
+      }
+      if (btnReDl) {
+        btnReDl.href = blobUrl;
+        btnReDl.download = filename;
+      }
+      if (modal) modal.classList.add('active');
+    }
+
     function hideLoadingModal() {
       const modal = document.getElementById('loading-modal');
       if (modal) modal.classList.remove('active');
+    }
+
+    // Unified Action: Print or Save PDF
+    function handlePrintOrSavePDF() {
+      downloadDirectPDF();
     }
 
     async function downloadDirectPDF() {
@@ -2052,10 +2107,13 @@
 
         // Trigger Download via Blob
         const blob = pdf.output('blob');
-        const blobUrl = URL.createObjectURL(blob);
+        if (currentPdfBlobUrl) {
+          URL.revokeObjectURL(currentPdfBlobUrl);
+        }
+        currentPdfBlobUrl = URL.createObjectURL(blob);
 
         const a = document.createElement('a');
-        a.href = blobUrl;
+        a.href = currentPdfBlobUrl;
         a.download = filename;
         a.target = '_blank';
         document.body.appendChild(a);
@@ -2063,13 +2121,9 @@
 
         setTimeout(() => {
           document.body.removeChild(a);
-          URL.revokeObjectURL(blobUrl);
-        }, 3000);
+        }, 1000);
 
-        setTimeout(() => {
-          hideLoadingModal();
-          alert('✅ บันทึกไฟล์ PDF เรียบร้อยแล้ว!\nชื่อไฟล์: ' + filename + '\nสามารถเปิดดูได้ในโฟลเดอร์ดาวน์โหลด (Downloads / Files) ของมือถือครับ');
-        }, 500);
+        showSuccessModal(filename, currentPdfBlobUrl);
 
       } catch (err) {
         console.error('PDF Generation Error:', err);
