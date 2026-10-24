@@ -828,6 +828,19 @@
 </head>
 <body>
 
+  <!-- LINE IN-APP BROWSER DETECTED BANNER -->
+  <div id="line-app-banner" style="display: none; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border-bottom: 2px solid #f59e0b; color: #ffffff; padding: 10px 14px; font-size: 0.85rem; align-items: center; justify-content: space-between; gap: 8px; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 1.3rem;">⚠️</span>
+      <div>
+        <strong style="color: #fbbf24;">เปิดผ่านแอป LINE:</strong> หากต้องการโหลดเป็นไฟล์ PDF ให้เปิดด้วย Chrome / Safari
+      </div>
+    </div>
+    <button type="button" onclick="openInChromeOrExternal()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #000; font-weight: 700; padding: 6px 12px; border-radius: 6px; border: none; white-space: nowrap; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;">
+      🚀 เปิดในเบราว์เซอร์
+    </button>
+  </div>
+
   <!-- Top Header Navigation -->
   <header class="app-header">
     <div class="brand-wrap">
@@ -1403,7 +1416,7 @@
 
   <!-- MODAL: PDF GENERATION & ACTIONS -->
   <div class="modal-overlay" id="loading-modal">
-    <div class="modal-box" style="max-width: 380px; text-align: center; padding: 25px 20px;">
+    <div class="modal-box" style="max-width: 400px; text-align: center; padding: 25px 20px;">
       
       <!-- State 1: Loading Spinner -->
       <div id="pdf-modal-loading-state">
@@ -1415,26 +1428,83 @@
       <!-- State 2: Success & Download Options -->
       <div id="pdf-modal-success-state" style="display: none;">
         <div style="font-size: 2.8rem; line-height: 1; margin-bottom: 8px;">🎉</div>
-        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">สร้างเอกสารสำเร็จแล้ว!</h4>
+        <h4 style="margin: 0 0 4px 0; font-size: 1.2rem; color: #0f172a; font-weight: 700;">สร้างเอกสารสำเร็จแล้ว!</h4>
         <p style="margin: 0 0 14px 0; font-size: 0.85rem; color: #475569;" id="pdf-success-filename">
           พร้อมสำหรับการบันทึกและส่งรายงาน
         </p>
+        
         <div style="display: flex; flex-direction: column; gap: 10px;">
-          <a id="btn-open-pdf-newtab" href="#" target="_blank" download="" class="btn btn-pdf" style="text-decoration: none; justify-content: center; padding: 12px; font-size: 0.98rem; font-weight: 700;">
-            📥 แตะเพื่อเปิดดู / ดาวน์โหลดไฟล์ PDF
-          </a>
-          <button type="button" class="btn btn-secondary" onclick="downloadCurrentPagesAsImages()" style="justify-content: center; padding: 10px; font-size: 0.9rem; font-weight: 600;">
-            🖼️ บันทึกเป็นรูปภาพ (หน้า ๑ และ ๒ สำหรับส่งใน LINE)
+          <!-- Button 1 (Recommended for LINE): View & Save Images -->
+          <button type="button" class="btn" onclick="openImageGalleryModal()" style="background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); color: #ffffff; justify-content: center; padding: 12px; font-size: 0.95rem; font-weight: 700; border-radius: 8px; border: none; box-shadow: 0 4px 10px rgba(37,99,235,0.3); cursor: pointer;">
+            🖼️ ดูและบันทึกรูปภาพ (หน้า ๑ และ ๒ สำหรับส่งใน LINE)
           </button>
-          <button type="button" class="btn btn-outline" onclick="window.print()" style="justify-content: center; padding: 9px; font-size: 0.88rem;">
+
+          <!-- Button 2: PDF Actions (Dynamic based on LINE vs Browser) -->
+          <div id="pdf-action-container">
+            <button type="button" id="btn-open-in-browser" onclick="openInChromeOrExternal()" class="btn" style="width: 100%; background: linear-gradient(135deg, #059669 0%, #047857 100%); color: #ffffff; justify-content: center; padding: 11px; font-size: 0.92rem; font-weight: 700; border-radius: 8px; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(5,150,105,0.25);">
+              🚀 เปิดในเบราว์เซอร์เพื่อดาวน์โหลดไฟล์ PDF
+            </button>
+            <a id="btn-open-pdf-newtab" href="#" target="_blank" download="" class="btn btn-pdf" style="display: none; text-decoration: none; justify-content: center; padding: 11px; font-size: 0.92rem; font-weight: 700; border-radius: 8px;">
+              📥 แตะเพื่อเปิดดู / ดาวน์โหลดไฟล์ PDF
+            </a>
+          </div>
+
+          <!-- Help Tip Box -->
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px; text-align: left; font-size: 0.8rem; color: #334155;">
+            <div style="font-weight: 700; color: #0f172a; margin-bottom: 3px; display: flex; align-items: center; gap: 4px;">
+              <span>💡</span> สำหรับผู้ใช้งานในแอป LINE:
+            </div>
+            <div style="line-height: 1.45;">
+              • แนะนำแตะปุ่มสีน้ำเงิน <strong>[🖼️ ดูและบันทึกรูปภาพ]</strong> ด้านบน สามารถกดค้างที่รูปเพื่อเซฟส่งรายงานได้ทันที 100%<br>
+              • หากต้องการไฟล์ PDF ให้แตะจุด 3 จุด <strong>(⋮ หรือ ⋯)</strong> ที่มุมขวาบนของ LINE ➔ เลือก <strong>"เปิดด้วยเบราว์เซอร์อื่น"</strong> ครับ
+            </div>
+          </div>
+
+          <button type="button" class="btn" onclick="window.print()" style="background: #f1f5f9; color: #1e293b; border: 1px solid #cbd5e1; justify-content: center; padding: 9px; font-size: 0.88rem; border-radius: 8px;">
             🖨️ สั่งพิมพ์ออกเครื่องพิมพ์ (Print)
           </button>
-          <button type="button" class="btn btn-outline" onclick="hideLoadingModal()" style="justify-content: center; padding: 8px; font-size: 0.85rem; border: none; color: #64748b;">
+          <button type="button" class="btn" onclick="hideLoadingModal()" style="background: transparent; border: none; color: #64748b; justify-content: center; padding: 8px; font-size: 0.85rem; cursor: pointer;">
             ✕ ปิดหน้าต่างนี้
           </button>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- MODAL: IMAGE GALLERY FOR EASY LINE SAVING -->
+  <div class="modal-overlay" id="image-gallery-modal" style="z-index: 10005;">
+    <div class="modal-box" style="max-width: 520px; max-height: 90vh; overflow-y: auto; text-align: center; padding: 20px 15px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 12px;">
+        <h4 style="margin: 0; font-size: 1.05rem; color: #0f172a; font-weight: 700;">🖼️ บันทึกรูปภาพเอกสาร รปภ.๑ (ย่อ)</h4>
+        <button type="button" onclick="closeImageGalleryModal()" style="background: none; border: none; font-size: 1.3rem; color: #64748b; cursor: pointer; padding: 4px 8px;">✕</button>
+      </div>
+
+      <div style="background: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 12px; margin-bottom: 14px; text-align: left; font-size: 0.84rem; color: #92400e; line-height: 1.45;">
+        👉 <strong>วิธีบันทึกภาพลงมือถือ:</strong> แตะค้างที่รูปภาพ (Long-press) แล้วเลือก <strong>"บันทึกรูปภาพ" (Save image)</strong> เพื่อนำไปส่งในกลุ่ม LINE ได้ทันทีครับ
+      </div>
+
+      <!-- Page 1 Container -->
+      <div style="margin-bottom: 22px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-weight: 700; font-size: 0.9rem; color: #1e293b;">📄 หน้าที่ ๑ (ประวัติส่วนตัว)</span>
+          <a id="gallery-download-btn-1" href="#" target="_blank" download="รปภ1_ย่อ_หน้า1.jpg" class="btn" style="background: #0284c7; color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; border-radius: 6px; text-decoration: none;">📥 เซฟรูปหน้า ๑</a>
+        </div>
+        <img id="gallery-img-page-1" src="" alt="รปภ.๑ (ย่อ) หน้า ๑" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer;" onclick="openImageInNewTab(this.src)" title="แตะเพื่อดูภาพขนาดเต็ม">
+      </div>
+
+      <!-- Page 2 Container -->
+      <div style="margin-bottom: 18px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-weight: 700; font-size: 0.9rem; color: #1e293b;">📄 หน้าที่ ๒ (ประวัติครอบครัว / ลายเซ็น)</span>
+          <a id="gallery-download-btn-2" href="#" target="_blank" download="รปภ1_ย่อ_หน้า2.jpg" class="btn" style="background: #0284c7; color: white; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; border-radius: 6px; text-decoration: none;">📥 เซฟรูปหน้า ๒</a>
+        </div>
+        <img id="gallery-img-page-2" src="" alt="รปภ.๑ (ย่อ) หน้า ๒" style="width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer;" onclick="openImageInNewTab(this.src)" title="แตะเพื่อดูภาพขนาดเต็ม">
+      </div>
+
+      <button type="button" class="btn" onclick="closeImageGalleryModal()" style="background: #f1f5f9; color: #334155; width: 100%; justify-content: center; padding: 10px; font-weight: 600; border-radius: 8px; border: 1px solid #cbd5e1; cursor: pointer;">
+        ✕ ปิดหน้าต่างนี้
+      </button>
     </div>
   </div>
 
@@ -2017,6 +2087,7 @@
       const succState = document.getElementById('pdf-modal-success-state');
       const filenameEl = document.getElementById('pdf-success-filename');
       const btnOpen = document.getElementById('btn-open-pdf-newtab');
+      const btnBrowser = document.getElementById('btn-open-in-browser');
 
       if (loadState) loadState.style.display = 'none';
       if (succState) succState.style.display = 'block';
@@ -2024,10 +2095,17 @@
       if (filenameEl) {
         filenameEl.innerHTML = `ไฟล์: <strong>${filename}</strong> (๒ หน้า A4 สมบูรณ์)`;
       }
+
+      const isLine = /Line/i.test(navigator.userAgent);
+      if (btnBrowser) {
+        btnBrowser.style.display = isLine ? 'flex' : 'none';
+      }
       if (btnOpen) {
+        btnOpen.style.display = isLine ? 'none' : 'flex';
         btnOpen.href = blobUrl;
         btnOpen.download = filename;
       }
+
       if (modal) modal.classList.add('active');
     }
 
@@ -2036,33 +2114,89 @@
       if (modal) modal.classList.remove('active');
     }
 
-    // Save as 2 JPG images directly (100% works in LINE / iOS / Android)
-    function downloadCurrentPagesAsImages() {
+    // Modal Image Gallery for saving directly into smartphone gallery/photos
+    function openImageGalleryModal() {
       if (!lastCanvas1 || !lastCanvas2) {
-        alert('กรุณารอสักครู่ กำลังประมวลผลหน้าเอกสาร...');
+        alert('กรุณารอสักครู่ กำลังประมวลผลรูปภาพเอกสาร...');
         return;
       }
-      // Page 1
-      const a1 = document.createElement('a');
-      a1.href = lastCanvas1.toDataURL('image/jpeg', 0.95);
-      a1.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า1.jpg`;
-      a1.target = '_blank';
-      document.body.appendChild(a1);
-      a1.click();
+      const galleryModal = document.getElementById('image-gallery-modal');
+      const img1 = document.getElementById('gallery-img-page-1');
+      const img2 = document.getElementById('gallery-img-page-2');
+      const btn1 = document.getElementById('gallery-download-btn-1');
+      const btn2 = document.getElementById('gallery-download-btn-2');
 
-      // Page 2
-      setTimeout(() => {
-        if (document.body.contains(a1)) document.body.removeChild(a1);
-        const a2 = document.createElement('a');
-        a2.href = lastCanvas2.toDataURL('image/jpeg', 0.95);
-        a2.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า2.jpg`;
-        a2.target = '_blank';
-        document.body.appendChild(a2);
-        a2.click();
-        setTimeout(() => {
-          if (document.body.contains(a2)) document.body.removeChild(a2);
-        }, 1000);
-      }, 500);
+      const data1 = lastCanvas1.toDataURL('image/jpeg', 0.95);
+      const data2 = lastCanvas2.toDataURL('image/jpeg', 0.95);
+
+      if (img1) img1.src = data1;
+      if (img2) img2.src = data2;
+
+      if (btn1) {
+        btn1.href = data1;
+        btn1.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า1.jpg`;
+      }
+      if (btn2) {
+        btn2.href = data2;
+        btn2.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า2.jpg`;
+      }
+
+      if (galleryModal) galleryModal.classList.add('active');
+    }
+
+    function closeImageGalleryModal() {
+      const galleryModal = document.getElementById('image-gallery-modal');
+      if (galleryModal) galleryModal.classList.remove('active');
+    }
+
+    function openImageInNewTab(src) {
+      if (!src) return;
+      const w = window.open('');
+      if (w) {
+        w.document.write(`<title>รปภ.๑ (ย่อ)</title><body style="margin:0; background:#0f172a; display:flex; justify-content:center; align-items:center; min-height:100vh;"><img src="${src}" style="max-width:100%; height:auto; box-shadow:0 4px 15px rgba(0,0,0,0.5);"></body>`);
+      }
+    }
+
+    // Force Open in Chrome / Safari with full state preservation
+    function openInChromeOrExternal() {
+      saveToLocalStorage();
+      const currentUrl = window.location.href.split('#')[0];
+      const urlWithParam = currentUrl.includes('openExternalBrowser=1') 
+        ? currentUrl 
+        : currentUrl + (currentUrl.includes('?') ? '&' : '?') + 'openExternalBrowser=1';
+
+      try {
+        const rawData = localStorage.getItem('bpp924_rp1_form_data');
+        if (rawData) {
+          const parsed = JSON.parse(rawData);
+          const textOnly = { ...parsed };
+          delete textOnly.photoData;
+          delete textOnly.signatureData;
+          const hashData = encodeURIComponent(JSON.stringify(textOnly));
+          const targetUrlWithHash = `${urlWithParam}#data=${hashData}`;
+
+          const isAndroid = /Android/i.test(navigator.userAgent);
+          if (isAndroid) {
+            const domainAndPath = window.location.host + window.location.pathname;
+            const search = window.location.search ? window.location.search + '&openExternalBrowser=1' : '?openExternalBrowser=1';
+            const intentUrl = `intent://${domainAndPath}${search}#data=${hashData}#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${encodeURIComponent(targetUrlWithHash)};end;`;
+            window.location.href = intentUrl;
+            return;
+          } else {
+            window.location.href = targetUrlWithHash;
+            return;
+          }
+        }
+      } catch (e) {
+        console.error(e);
+      }
+
+      window.location.href = urlWithParam;
+    }
+
+    // Save as 2 JPG images directly (100% works in LINE / iOS / Android)
+    function downloadCurrentPagesAsImages() {
+      openImageGalleryModal();
     }
 
     // Unified Action: Print or Save PDF
@@ -2139,6 +2273,22 @@
         lastCanvas2 = canvas2;
         lastOfficerName = officerName || 'ข้าราชการตำรวจ';
 
+        // Pre-fill Image Gallery
+        const imgEl1 = document.getElementById('gallery-img-page-1');
+        const imgEl2 = document.getElementById('gallery-img-page-2');
+        const btn1 = document.getElementById('gallery-download-btn-1');
+        const btn2 = document.getElementById('gallery-download-btn-2');
+        if (imgEl1) imgEl1.src = img1;
+        if (imgEl2) imgEl2.src = img2;
+        if (btn1) {
+          btn1.href = img1;
+          btn1.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า1.jpg`;
+        }
+        if (btn2) {
+          btn2.href = img2;
+          btn2.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า2.jpg`;
+        }
+
         updateLoadingText('กำลังจัดเตรียมไฟล์เพื่อดาวน์โหลด...');
 
         // Trigger Download via Blob
@@ -2148,18 +2298,22 @@
         }
         currentPdfBlobUrl = URL.createObjectURL(blob);
 
-        try {
-          const a = document.createElement('a');
-          a.href = currentPdfBlobUrl;
-          a.download = filename;
-          a.target = '_blank';
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(() => {
-            if (document.body.contains(a)) document.body.removeChild(a);
-          }, 1000);
-        } catch (e) {
-          console.warn('Auto download blocked, user will tap modal button');
+        const isLineApp = /Line/i.test(navigator.userAgent);
+        // CRITICAL: NEVER trigger a.click() on blob in LINE WebView to avoid "ไม่สามารถดาวน์โหลดไฟล์ได้" toast
+        if (!isLineApp) {
+          try {
+            const a = document.createElement('a');
+            a.href = currentPdfBlobUrl;
+            a.download = filename;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+              if (document.body.contains(a)) document.body.removeChild(a);
+            }, 1000);
+          } catch (e) {
+            console.warn('Auto download blocked, user will tap modal button');
+          }
         }
 
         showSuccessModal(filename, currentPdfBlobUrl);
@@ -2246,14 +2400,40 @@
         });
       }
 
-      if (!loadFromLocalStorage()) {
-        fillSampleData();
+      // 1. Try restore from URL hash (if redirected from LINE to Chrome)
+      let restoredFromHash = false;
+      try {
+        if (window.location.hash && window.location.hash.includes('data=')) {
+          const match = window.location.hash.match(/data=([^&]+)/);
+          if (match && match[1]) {
+            const decoded = JSON.parse(decodeURIComponent(match[1]));
+            Object.keys(decoded).forEach(k => {
+              const el = document.getElementById('input_' + k);
+              if (el) el.value = decoded[k];
+            });
+            restoredFromHash = true;
+          }
+        }
+      } catch (e) {}
+
+      // 2. Fallback to localStorage or sample data
+      if (!restoredFromHash) {
+        if (!loadFromLocalStorage()) {
+          fillSampleData();
+        } else {
+          updateLivePreview();
+        }
       } else {
         updateLivePreview();
       }
 
       if (window.innerWidth <= 900) {
         toggleView('form');
+      }
+
+      if (/Line/i.test(navigator.userAgent)) {
+        const lineBanner = document.getElementById('line-app-banner');
+        if (lineBanner) lineBanner.style.display = 'flex';
       }
     });
   </script>
