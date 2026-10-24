@@ -1633,11 +1633,11 @@
     <button type="button" class="m-bar-btn" id="m-btn-preview" onclick="toggleView('preview')">
       <span>👁️</span> ดูตัวอย่าง
     </button>
-    <button type="button" class="m-bar-btn m-bar-btn-pdf" onclick="handlePrintOrSavePDF()">
-      <span>🖨️</span> พิมพ์ / บันทึก PDF
+    <button type="button" class="m-bar-btn m-bar-btn-pdf" onclick="triggerNativePrint()" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; border-radius: 8px;">
+      <span>🖨️</span> สั่งพิมพ์ / บันทึก PDF
     </button>
-    <button type="button" class="m-bar-btn" onclick="triggerDirectDownload()" style="color: #38bdf8;">
-      <span>📥</span> โหลด PDF
+    <button type="button" class="m-bar-btn" onclick="openImageGalleryModal()" style="color: #38bdf8;">
+      <span>🖼️</span> บันทึกรูปภาพ
     </button>
   </div>
 
@@ -2319,51 +2319,37 @@
       openImageGalleryModal();
     }
 
-    // Choice Modal Controls
-    function openPrintChoiceModal() {
-      updateLivePreview();
-      const m = document.getElementById('print-choice-modal');
-      if (m) m.classList.add('active');
-    }
-
-    function closePrintChoiceModal() {
-      const m = document.getElementById('print-choice-modal');
-      if (m) m.classList.remove('active');
-    }
-
+    // Direct Print / Save as PDF (Pure Native Browser Print Engine - Identical to PC)
     function triggerNativePrint() {
-      closePrintChoiceModal();
       updateLivePreview();
-      setTimeout(() => {
-        window.print();
-      }, 100);
-    }
 
-    function triggerDirectDownload() {
-      closePrintChoiceModal();
-      updateLivePreview();
-      
-      const isLineApp = /Line/i.test(navigator.userAgent);
-      if (isLineApp) {
-        // Fallback for LINE in-app browser where print is blocked
-        downloadDirectPDF();
+      const isLine = /Line/i.test(navigator.userAgent);
+      if (isLine) {
+        alert('ท่านกำลังเปิดในแอป LINE ซึ่งระบบพิมพ์ถูกจำกัด\nกรุณากดเปิดในเบราว์เซอร์ปกติ (Chrome/Safari) ที่ปุ่มแถบด้านบน เพื่อสั่งพิมพ์/บันทึกเป็น PDF ได้สมบูรณ์ครับ');
         return;
       }
 
-      // Execute Native Print engine configured as Save as PDF (100% identical to PC Print -> Save as PDF)
+      // Ensure view state displays the preview sheets during print
+      const wasFormOnly = document.body.classList.contains('view-form-only');
+      if (wasFormOnly) {
+        document.body.classList.remove('view-form-only');
+      }
+
+      // Small delay for DOM updates and font layout
       setTimeout(() => {
         window.print();
-      }, 150);
+        if (wasFormOnly && window.innerWidth <= 900) {
+          setTimeout(() => document.body.classList.add('view-form-only'), 500);
+        }
+      }, 200);
     }
 
-    function triggerSaveImages() {
-      closePrintChoiceModal();
-      downloadCurrentPagesAsImages();
-    }
-
-    // Unified Action: Print or Save PDF
     function handlePrintOrSavePDF() {
-      openPrintChoiceModal();
+      triggerNativePrint();
+    }
+
+    function triggerDirectDownload() {
+      triggerNativePrint();
     }
 
     async function downloadDirectPDF() {
