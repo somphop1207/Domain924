@@ -387,18 +387,37 @@
       page-break-before: always;
     }
 
-    /* Security Classification (ชั้นความลับ) */
-    .doc-classification {
+    /* Security Classification (ชั้นความลับ) - Matching Official Template PDF Exactly */
+    .secret-block {
       text-align: center;
-      font-size: 13.5pt;
+      line-height: 1.1;
+      margin-bottom: 3pt;
+    }
+    .secret-block.bottom {
+      margin-top: auto;
+      margin-bottom: 0;
+      padding-top: 6pt;
+    }
+    .secret-word {
+      font-size: 19pt;
       font-weight: bold;
-      color: #b91c1c; /* Official Red Secret Mark */
-      margin-bottom: 2pt;
+      color: #dc2626; /* Official Stamp Red */
+      line-height: 1;
+      margin-bottom: 0;
       letter-spacing: 0.5px;
     }
-    .doc-classification.bottom {
-      margin-top: auto;
-      padding-top: 6pt;
+    .secret-dots {
+      font-size: 13pt;
+      color: #000000;
+      line-height: 0.9;
+      margin-bottom: 0;
+      letter-spacing: 0.5px;
+    }
+    .secret-label {
+      font-size: 13.5pt;
+      color: #000000;
+      line-height: 1;
+      margin-top: 1pt;
     }
 
     /* HEADER LAYOUT */
@@ -430,13 +449,6 @@
       flex-direction: column;
       align-items: flex-end;
       width: 130px;
-    }
-
-    .doc-top-code {
-      font-size: 14pt;
-      font-weight: normal;
-      text-align: right;
-      margin-bottom: 2pt;
     }
 
     /* PHOTO BOX: 4.5 x 6 cm (3.2 x 4.2 cm display to fit A4) */
@@ -840,10 +852,14 @@
         color: #000000 !important;
       }
 
-      .doc-classification {
-        color: #b91c1c !important;
+      .secret-word {
+        color: #dc2626 !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+      }
+
+      .secret-dots, .secret-label {
+        color: #000000 !important;
       }
     }
   </style>
@@ -1310,9 +1326,11 @@
       <!-- ================= PAGE 1 ================= -->
       <div class="a4-sheet page-1" id="sheet-page-1">
         
-        <!-- Top Security Classification -->
-        <div class="doc-classification">
-          ………………………. (ชั้นความลับ) ลับ
+        <!-- Top Security Classification (Matching Official Template PDF Exactly) -->
+        <div class="secret-block">
+          <div class="secret-word">ลับ</div>
+          <div class="secret-dots">......................................</div>
+          <div class="secret-label">(ชั้นความลับ)</div>
         </div>
 
         <!-- Header Grid: Title and Photo Box (Matching Official PDF) -->
@@ -1321,7 +1339,6 @@
             <div class="doc-title">ประวัติบุคคล</div>
           </div>
           <div class="doc-header-right">
-            <div class="doc-top-code">รปภ. ๑</div>
             <!-- Photo box: 4.5 x 6 cm proportion -->
             <div class="doc-photo-box" id="doc-photo-box">
               <div class="doc-photo-placeholder-text" id="doc-photo-placeholder">
@@ -1343,22 +1360,26 @@
         </div>
 
         <!-- Bottom Security Classification -->
-        <div class="doc-classification bottom">
-          ………………………. (ชั้นความลับ) ลับ
+        <div class="secret-block bottom">
+          <div class="secret-word">ลับ</div>
+          <div class="secret-dots">......................................</div>
+          <div class="secret-label">(ชั้นความลับ)</div>
         </div>
 
       </div>
 
-      <!-- ================= PAGE 2 (MATCHING OFFICIAL PDF) ================= -->
+      <!-- ================= PAGE 2 (MATCHING OFFICIAL TEMPLATE PDF EXACTLY) ================= -->
       <div class="a4-sheet page-2" id="sheet-page-2">
         
         <!-- Top Security Classification -->
-        <div class="doc-classification">
-          ………………………. (ชั้นความลับ) ลับ
+        <div class="secret-block">
+          <div class="secret-word">ลับ</div>
+          <div class="secret-dots">......................................</div>
+          <div class="secret-label">(ชั้นความลับ)</div>
         </div>
 
         <div class="page2-container">
-          <div style="height: 18pt;"></div>
+          <div style="height: 10pt;"></div>
 
           <!-- Line 1: Top Officer Signature -->
           <div class="p2-line p2-col-right">
@@ -1368,30 +1389,30 @@
             </div>
           </div>
 
-          <div style="height: 14pt;"></div>
+          <div style="height: 16pt;"></div>
 
           <!-- Line 2: Supervisor Title -->
           <div class="p2-line">
-            ควบคุมการบันทึกประวัติโดย....<span class="val" id="out_intel_supervisor">.......................................................................................</span>(ฝ่ายข่าว)..........................
+            ควบคุมการบันทึกประวัติโดย....<span class="val" id="out_intel_supervisor">.......................................................................................</span><span style="color: #dc2626; font-weight: normal;">(ฝ่ายข่าว)</span>..........................
           </div>
 
           <!-- Line 3: Subtitle under Supervisor Name -->
-          <div class="p2-line p2-sub-title">
+          <div class="p2-line p2-sub-title" style="margin-top: 3pt;">
             ยศ,ชื่อ และตำแหน่ง(ตัวบรรจง)
           </div>
 
           <!-- Line 4: Supervisor Signature Line -->
-          <div class="p2-line p2-col-right" style="margin-top: 2pt;">
-            ลายมือชื่อ.................................................................. .
+          <div class="p2-line p2-col-right" style="margin-top: 4pt;">
+            ลายมือชื่อ..............................................................
           </div>
 
           <!-- Line 5: Supervisor Date Line -->
-          <div class="p2-line p2-col-right" style="margin-top: 2pt;">
+          <div class="p2-line p2-col-right" style="margin-top: 4pt;">
             วัน เดือน ปี..........<span class="val" id="out_intel_date">....................</span>.....................
           </div>
 
           <!-- Blank spacing between supervisor and bottom confirmation signature -->
-          <div style="height: 52pt;"></div>
+          <div style="height: 48pt;"></div>
 
           <!-- Line 6: Bottom Officer Confirmation Signature -->
           <div class="p2-line p2-col-right">
@@ -1408,8 +1429,10 @@
         </div>
 
         <!-- Bottom Security Classification -->
-        <div class="doc-classification bottom">
-          ………………………. (ชั้นความลับ) ลับ
+        <div class="secret-block bottom">
+          <div class="secret-word">ลับ</div>
+          <div class="secret-dots">......................................</div>
+          <div class="secret-label">(ชั้นความลับ)</div>
         </div>
 
       </div>
