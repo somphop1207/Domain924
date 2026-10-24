@@ -499,47 +499,46 @@
       padding: 0 1px;
     }
 
-    /* PAGE 2 SIGNATURES (MATCHING OFFICIAL PDF) */
-    .page2-sig-area {
-      margin-top: 15pt;
+    /* PAGE 2 SIGNATURES (EXACT MATCH TO OFFICIAL SAMPLE PDF/DOCX) */
+    .page2-container {
       display: flex;
       flex-direction: column;
-      gap: 14pt;
-    }
-
-    .sig-row-right {
-      display: flex;
-      justify-content: flex-end;
+      flex: 1;
       width: 100%;
     }
 
-    .sig-block-right {
-      width: 360px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    .p2-line {
+      font-size: 14pt;
+      line-height: 1.28;
+      color: #000;
+      white-space: nowrap;
     }
 
-    .sig-img-slot {
-      height: 38px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      margin-bottom: -4px;
+    .p2-col-right {
+      margin-left: 6.8cm;
     }
 
-    .sig-img-slot img {
-      max-height: 40px;
+    .p2-sub-title {
+      margin-left: 8.8cm;
+      font-size: 14pt;
+      color: #222;
+      margin-top: 1pt;
+      margin-bottom: 2pt;
+    }
+
+    .sig-line-wrap {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .sig-floating-img {
+      position: absolute;
+      bottom: 2px;
+      left: 70px;
+      max-height: 44px;
       max-width: 140px;
-    }
-
-    .sig-supervisor-box {
-      margin-top: 10pt;
-      margin-bottom: 10pt;
-      display: flex;
-      flex-direction: column;
-      gap: 4pt;
+      pointer-events: none;
     }
 
     /* View toggles */
@@ -658,6 +657,11 @@
 
       .a4-sheet.page-2 {
         page-break-before: always !important;
+        height: 277mm !important;
+        min-height: 277mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
       }
 
       .s-line .val {
@@ -1168,55 +1172,54 @@
           ………………………. (ชั้นความลับ) ลับ
         </div>
 
-        <!-- Signatures Area on Page 2 (Pure Saraban Dots, No Double Lines) -->
-        <div class="page2-sig-area">
-          
-          <!-- Top Officer Signature -->
-          <div class="sig-row-right">
-            <div class="sig-block-right">
-              <div class="sig-img-slot" id="sig-display-wrap-p2-top">
-                <img id="doc-sig-img-p2-top" src="" style="display: none;" alt="ลายเซ็น">
-              </div>
-              <div class="s-line" style="text-align: center; width: 100%;">
-                ลายมือชื่อ....<span class="val" id="out_sig_rank_p2_top">ด.ต.</span>.............................................เจ้าของประวัติ
-              </div>
+        <div class="page2-container">
+          <div style="height: 18pt;"></div>
+
+          <!-- Line 1: Top Officer Signature -->
+          <div class="p2-line p2-col-right">
+            <div class="sig-line-wrap">
+              <img id="doc-sig-img-p2-top" class="sig-floating-img" src="" style="display: none;" alt="ลายเซ็น">
+              ลายมือชื่อ....<span class="val" id="out_sig_rank_p2_top">ด.ต.</span>.............................................เจ้าของประวัติ
             </div>
           </div>
 
-          <!-- Supervisor (Intel Section) Block -->
-          <div class="sig-supervisor-box">
-            <div class="s-line">
-              ควบคุมการบันทึกประวัติโดย....<span class="val" id="out_intel_supervisor">.......................................................................................</span>(ฝ่ายข่าว)..........................
-            </div>
-            <div class="s-line" style="padding-left: 170px; font-size: 14pt; color: #333;">
-              ยศ,ชื่อ และตำแหน่ง(ตัวบรรจง)
-            </div>
-            <div class="s-line" style="padding-left: 110px; margin-top: 4pt;">
-              ลายมือชื่อ.................................................................. .
-            </div>
-            <div class="s-line" style="padding-left: 130px; margin-top: 4pt;">
-              วัน เดือน ปี..........<span class="val" id="out_intel_date">....................</span>.....................
+          <div style="height: 14pt;"></div>
+
+          <!-- Line 2: Supervisor Title -->
+          <div class="p2-line">
+            ควบคุมการบันทึกประวัติโดย....<span class="val" id="out_intel_supervisor">.......................................................................................</span>(ฝ่ายข่าว)..........................
+          </div>
+
+          <!-- Line 3: Subtitle under Supervisor Name -->
+          <div class="p2-line p2-sub-title">
+            ยศ,ชื่อ และตำแหน่ง(ตัวบรรจง)
+          </div>
+
+          <!-- Line 4: Supervisor Signature Line -->
+          <div class="p2-line p2-col-right" style="margin-top: 2pt;">
+            ลายมือชื่อ.................................................................. .
+          </div>
+
+          <!-- Line 5: Supervisor Date Line -->
+          <div class="p2-line p2-col-right" style="margin-top: 2pt;">
+            วัน เดือน ปี..........<span class="val" id="out_intel_date">....................</span>.....................
+          </div>
+
+          <!-- Blank spacing between supervisor and bottom confirmation signature -->
+          <div style="height: 52pt;"></div>
+
+          <!-- Line 6: Bottom Officer Confirmation Signature -->
+          <div class="p2-line p2-col-right">
+            <div class="sig-line-wrap">
+              <img id="doc-sig-img-p2-bot" class="sig-floating-img" src="" style="display: none;" alt="ลายเซ็น">
+              ลายมือชื่อ...<span class="val" id="out_sig_rank_p2_bot">ด.ต.</span>..................................................เจ้าของประวัติ
             </div>
           </div>
 
-          <!-- Bottom Officer Confirmation Signature -->
-          <div class="sig-row-right" style="margin-top: 30pt;">
-            <div class="sig-block-right">
-              <div class="sig-img-slot" id="sig-display-wrap-p2-bot">
-                <img id="doc-sig-img-p2-bot" src="" style="display: none;" alt="ลายเซ็น">
-              </div>
-              <div class="s-line" style="text-align: center; width: 100%;">
-                ลายมือชื่อ...<span class="val" id="out_sig_rank_p2_bot">ด.ต.</span>..................................................เจ้าของประวัติ
-              </div>
-              <div class="s-line" style="text-align: center; font-size: 14.5pt; margin-top: 2pt;">
-                ( <span class="val" id="out_full_name_p2">......................................................</span> )
-              </div>
-              <div class="s-line" style="text-align: center; margin-top: 6pt;">
-                จัดทำเมื่อ...........<span class="val" id="out_create_date">....................</span>......................................
-              </div>
-            </div>
+          <!-- Line 7: Creation Date -->
+          <div class="p2-line p2-col-right" style="margin-top: 4pt;">
+            จัดทำเมื่อ...........<span class="val" id="out_create_date">....................</span>......................................
           </div>
-
         </div>
 
         <!-- Bottom Security Classification -->
@@ -1446,7 +1449,8 @@
       const fullName = (rank + ' ' + fname + ' ' + lname).trim();
       document.getElementById('out_sig_rank_p2_top').textContent = rank || 'ด.ต.';
       document.getElementById('out_sig_rank_p2_bot').textContent = rank || 'ด.ต.';
-      document.getElementById('out_full_name_p2').textContent = fullName ? fullName : '......................................................';
+      const elFullName = document.getElementById('out_full_name_p2');
+      if (elFullName) elFullName.textContent = fullName ? fullName : '......................................................';
       document.getElementById('out_create_date').textContent = createDate ? formatNumberString(createDate) : '๒๐ ตุลาคม ๒๕๖๙';
       document.getElementById('out_intel_supervisor').textContent = intelSup ? intelSup : '.......................................................................................';
       document.getElementById('out_intel_date').textContent = intelDate ? formatNumberString(intelDate) : '๒๐ ตุลาคม ๒๕๖๙';
