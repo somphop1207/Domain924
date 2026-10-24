@@ -267,7 +267,7 @@
       border: 1px solid var(--border-ui);
       border-radius: 5px;
       background: #f8fafc;
-      color: var(--text-main);
+      color: #000000;
       transition: all 0.15s ease;
     }
 
@@ -529,9 +529,11 @@
       padding-left: 4.4em;
     }
 
-    .s-line .val {
+    .val,
+    .s-line .val,
+    .p2-line .val {
       font-weight: normal;
-      color: #000080; /* Subtle Navy for screen, crisp black in print */
+      color: #000000 !important; /* Pure black text as requested by user */
       padding: 0 1px;
     }
 
