@@ -811,7 +811,7 @@
             </div>
             <div class="field-group" style="flex: 2;">
               <label class="field-label">เลขประจำตัวประชาชน (๑๓ หลัก)</label>
-              <input type="text" class="field-input" id="input_id_card" placeholder="x-xxxx-xxxxx-xx-x">
+              <input type="text" class="field-input" id="input_id_card" placeholder="x xxxx xxxxx xx x (เช่น ๑ ๒๓๔๕ ๖๗๘๙๐ ๑๒ ๓)" maxlength="17" inputmode="numeric">
             </div>
           </div>
 
@@ -1282,7 +1282,34 @@
       useThaiNumerals = !useThaiNumerals;
       const btn = document.getElementById('btn-num-toggle');
       btn.innerHTML = useThaiNumerals ? '<span>🇹🇭</span> เลขไทย' : '<span>🔢</span> เลขอารบิก';
+      const idCardInput = document.getElementById('input_id_card');
+      if (idCardInput && idCardInput.value) {
+        let raw = toArabicDigits(idCardInput.value).replace(/\D/g, '').substring(0, 13);
+        let parts = [];
+        if (raw.length > 0) parts.push(raw.substring(0, 1));
+        if (raw.length > 1) parts.push(raw.substring(1, 5));
+        if (raw.length > 5) parts.push(raw.substring(5, 10));
+        if (raw.length > 10) parts.push(raw.substring(10, 12));
+        if (raw.length > 12) parts.push(raw.substring(12, 13));
+        let formatted = parts.join(' ');
+        idCardInput.value = useThaiNumerals ? toThaiDigits(formatted) : formatted;
+      }
       updateLivePreview();
+    }
+
+    // Format Thai Citizen ID with spaces (1-4-5-2-1): x xxxx xxxxx xx x
+    function formatCitizenId(val) {
+      if (!val) return '';
+      let raw = toArabicDigits(val.toString()).replace(/\D/g, '').substring(0, 13);
+      if (!raw) return '';
+      let parts = [];
+      if (raw.length > 0) parts.push(raw.substring(0, 1));
+      if (raw.length > 1) parts.push(raw.substring(1, 5));
+      if (raw.length > 5) parts.push(raw.substring(5, 10));
+      if (raw.length > 10) parts.push(raw.substring(10, 12));
+      if (raw.length > 12) parts.push(raw.substring(12, 13));
+      let formatted = parts.join(' ');
+      return formatNumberString(formatted);
     }
 
     // Helper: format field value or dots
@@ -1362,7 +1389,7 @@
         
         <div class="s-line indent">ชื่อเล่นหรือชื่ออื่น ๆ ถ้ามี...<span class="val">${nickname || '..........'}</span>.........................................................................................................................</div>
         
-        <div class="s-line">๓.   เลขบัตรประชาชน......<span class="val">${formatNumberString(idCard) || '................................'}</span>.......................................................................................................</div>
+        <div class="s-line">๓.   เลขบัตรประชาชน......<span class="val">${formatCitizenId(idCard) || '................................'}</span>.......................................................................................................</div>
         
         <div class="s-line">๔.   วันเดือนปีเกิด........<span class="val">${formatNumberString(birthDate) || '....................'}</span>..........สถานที่จดทะเบียนเกิด........<span class="val">${birthPlace || '....................'}</span>.........................................</div>
         
@@ -1613,7 +1640,7 @@
         last_name: 'ผาสุข',
         gender: 'ชาย',
         nickname: 'บอย',
-        id_card: '๑-xxxx-xxxxx-xx-๐',
+        id_card: '๑ ๒๓๔๕ ๖๗๘๙๐ ๑๒ ๓',
         old_first_name: '',
         name_change_proof: '',
         old_last_name: '',
@@ -1802,6 +1829,21 @@
         el.addEventListener('input', updateLivePreview);
         el.addEventListener('change', updateLivePreview);
       });
+
+      const idCardInput = document.getElementById('input_id_card');
+      if (idCardInput) {
+        idCardInput.addEventListener('input', function(e) {
+          let raw = toArabicDigits(this.value).replace(/\D/g, '').substring(0, 13);
+          let parts = [];
+          if (raw.length > 0) parts.push(raw.substring(0, 1));
+          if (raw.length > 1) parts.push(raw.substring(1, 5));
+          if (raw.length > 5) parts.push(raw.substring(5, 10));
+          if (raw.length > 10) parts.push(raw.substring(10, 12));
+          if (raw.length > 12) parts.push(raw.substring(12, 13));
+          let formatted = parts.join(' ');
+          this.value = useThaiNumerals ? toThaiDigits(formatted) : formatted;
+        });
+      }
 
       if (!loadFromLocalStorage()) {
         fillSampleData();
