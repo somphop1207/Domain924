@@ -548,6 +548,7 @@
       max-height: 44px;
       max-width: 140px;
       pointer-events: none;
+      mix-blend-mode: multiply;
     }
 
     /* View toggles */
@@ -757,31 +758,42 @@
     }
 
     /* PRINT STYLESHEET */
+    /* PRINT STYLESHEET (100% IDENTICAL ON PC, MAC, AND MOBILE) */
     @media print {
       @page {
         size: A4 portrait;
-        margin: 8mm 14mm 8mm 16mm;
+        margin: 0;
       }
 
       header.app-header,
       .form-panel,
       .preview-controls-bar,
       .mobile-bottom-bar,
-      .modal-overlay {
+      .modal-overlay,
+      #line-app-banner,
+      #loading-modal,
+      #image-gallery-modal,
+      #officer-webcam-modal {
         display: none !important;
       }
 
-      body {
+      html, body {
         background: #ffffff !important;
         margin: 0 !important;
         padding: 0 !important;
+        width: 210mm !important;
+        height: auto !important;
         font-family: 'TH Sarabun New', 'TH SarabunIT๙', 'Sarabun', sans-serif !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
 
       .app-main {
         display: block !important;
         height: auto !important;
         overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       body.view-form-only .preview-panel,
@@ -790,25 +802,35 @@
         display: block !important;
         background: #ffffff !important;
         padding: 0 !important;
+        margin: 0 !important;
         overflow: visible !important;
         height: auto !important;
+        width: 210mm !important;
       }
 
       .a4-sheet {
-        width: 100% !important;
-        min-height: auto !important;
+        width: 210mm !important;
+        max-width: 210mm !important;
+        min-height: 297mm !important;
+        height: 297mm !important;
         box-shadow: none !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 10mm 16mm 10mm 20mm !important;
+        box-sizing: border-box !important;
         display: flex !important;
+        flex-direction: column !important;
         transform: none !important;
-      }
+        page-break-after: always !important;
+        break-after: page !important;
       }
 
       .a4-sheet.page-2 {
         page-break-before: always !important;
-        height: 277mm !important;
-        min-height: 277mm !important;
+        break-before: page !important;
+        page-break-after: avoid !important;
+        break-after: avoid !important;
+        height: 297mm !important;
+        min-height: 297mm !important;
         display: flex !important;
         flex-direction: column !important;
         position: relative !important;
@@ -2240,26 +2262,56 @@
         // Wait brief tick for repaint and font rasterization
         await new Promise(r => setTimeout(r, 200));
 
-        // Render Page 1
+        // Render Page 1 (Simulating 1280px desktop window width so mobile generates 100% identically to PC)
         updateLoadingText('กำลังประมวลผลหน้า ๑ (๑/๒)...');
         const canvas1 = await html2canvas(sheet1, {
           scale: 2,
           useCORS: true,
           logging: false,
-          backgroundColor: '#ffffff'
+          backgroundColor: '#ffffff',
+          windowWidth: 1280,
+          windowHeight: 1800,
+          scrollX: 0,
+          scrollY: 0,
+          onclone: (clonedDoc) => {
+            const sheet = clonedDoc.getElementById('sheet-page-1');
+            if (sheet) {
+              sheet.style.width = '210mm';
+              sheet.style.minHeight = '297mm';
+              sheet.style.padding = '10mm 16mm 10mm 20mm';
+              sheet.style.boxSizing = 'border-box';
+              sheet.style.transform = 'none';
+              sheet.style.margin = '0';
+            }
+          }
         });
-        const img1 = canvas1.toDataURL('image/jpeg', 0.92);
+        const img1 = canvas1.toDataURL('image/jpeg', 0.95);
         pdf.addImage(img1, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
 
-        // Render Page 2
+        // Render Page 2 (Simulating 1280px desktop window width so mobile generates 100% identically to PC)
         updateLoadingText('กำลังประมวลผลหน้า ๒ (๒/๒)...');
         const canvas2 = await html2canvas(sheet2, {
           scale: 2,
           useCORS: true,
           logging: false,
-          backgroundColor: '#ffffff'
+          backgroundColor: '#ffffff',
+          windowWidth: 1280,
+          windowHeight: 1800,
+          scrollX: 0,
+          scrollY: 0,
+          onclone: (clonedDoc) => {
+            const sheet = clonedDoc.getElementById('sheet-page-2');
+            if (sheet) {
+              sheet.style.width = '210mm';
+              sheet.style.minHeight = '297mm';
+              sheet.style.padding = '10mm 16mm 10mm 20mm';
+              sheet.style.boxSizing = 'border-box';
+              sheet.style.transform = 'none';
+              sheet.style.margin = '0';
+            }
+          }
         });
-        const img2 = canvas2.toDataURL('image/jpeg', 0.92);
+        const img2 = canvas2.toDataURL('image/jpeg', 0.95);
         pdf.addPage();
         pdf.addImage(img2, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
 
