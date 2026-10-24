@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Client-side PDF Generation Engines (Local + CDN fallback) -->
+  <script src="assets/js/html2canvas.min.js"></script>
+  <script>window.html2canvas || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"><\\/script>')</script>
+  <script src="assets/js/jspdf.umd.min.js"></script>
+  <script>window.jspdf || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"><\\/script>')</script>
   <style>
     :root {
       --primary: #1e3a8a;
@@ -613,6 +619,140 @@
       transform: scaleX(-1);
     }
 
+    /* PDF BUTTON & MOBILE RESPONSIVE ENHANCEMENTS */
+    .btn-pdf {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff !important;
+      border: 1px solid #047857 !important;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+    }
+    .btn-pdf:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-1px);
+    }
+
+    .mobile-bottom-bar {
+      display: none;
+    }
+
+    .loading-spinner {
+      width: 44px;
+      height: 44px;
+      border: 4px solid #e2e8f0;
+      border-top: 4px solid #059669;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 900px) {
+      body {
+        padding-bottom: 64px;
+      }
+
+      .app-header {
+        height: auto;
+        padding: 8px 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .brand-wrap {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .header-actions {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .app-main {
+        display: block;
+        height: auto;
+        overflow: visible;
+      }
+
+      .form-panel {
+        width: 100%;
+        max-width: 100%;
+        border-right: none;
+        height: auto;
+        overflow: visible;
+        padding: 12px;
+      }
+
+      .preview-panel {
+        width: 100%;
+        height: auto;
+        overflow-x: auto;
+        padding: 10px 4px 30px 4px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .a4-sheet {
+        margin: 0 auto 15px auto;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+
+      /* Mobile Bottom Action Bar */
+      .mobile-bottom-bar {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 58px;
+        background: #0f172a;
+        border-top: 1px solid #334155;
+        z-index: 1000;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .m-bar-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 0.72rem;
+        font-weight: 600;
+        gap: 2px;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+
+      .m-bar-btn span {
+        font-size: 1.15rem;
+      }
+
+      .m-bar-btn.active {
+        color: #38bdf8;
+      }
+
+      .m-bar-btn-pdf {
+        background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        color: #ffffff;
+        font-weight: 700;
+      }
+      .m-bar-btn-pdf span {
+        font-size: 1.25rem;
+      }
+    }
+
     /* PRINT STYLESHEET */
     @media print {
       @page {
@@ -623,6 +763,7 @@
       header.app-header,
       .form-panel,
       .preview-controls-bar,
+      .mobile-bottom-bar,
       .modal-overlay {
         display: none !important;
       }
@@ -640,7 +781,10 @@
         overflow: visible !important;
       }
 
+      body.view-form-only .preview-panel,
+      body.view-preview-only .preview-panel,
       .preview-panel {
+        display: block !important;
         background: #ffffff !important;
         padding: 0 !important;
         overflow: visible !important;
@@ -653,6 +797,9 @@
         box-shadow: none !important;
         margin: 0 !important;
         padding: 0 !important;
+        display: flex !important;
+        transform: none !important;
+      }
       }
 
       .a4-sheet.page-2 {
@@ -715,8 +862,12 @@
         <span>🇹🇭</span> เลขไทย
       </button>
 
-      <button type="button" class="btn btn-print" onclick="window.print()" title="สั่งพิมพ์เอกสาร หรือบันทึกเป็น PDF">
-        <span>🖨️</span> สั่งพิมพ์ / บันทึก PDF
+      <button type="button" class="btn btn-pdf" onclick="downloadDirectPDF()" title="บันทึกและดาวน์โหลดไฟล์ PDF ขนาด ๒ หน้า A4 ลงในเครื่องมือถือทันที">
+        <span>📥</span> บันทึกเป็น PDF
+      </button>
+
+      <button type="button" class="btn btn-print" onclick="window.print()" title="สั่งพิมพ์เอกสาร หรือส่งออกเครื่องพิมพ์">
+        <span>🖨️</span> สั่งพิมพ์
       </button>
     </div>
   </header>
@@ -1117,9 +1268,14 @@
       
       <div class="preview-controls-bar">
         <span>📄 พรีวิวเอกสาร รปภ. ๑ (ย่อ)</span>
-        <button type="button" class="btn btn-print" onclick="window.print()">
-          🖨️ พิมพ์ / บันทึก PDF
-        </button>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="btn btn-pdf" onclick="downloadDirectPDF()" title="ดาวน์โหลดไฟล์ PDF ลงเครื่อง">
+            📥 บันทึกเป็น PDF
+          </button>
+          <button type="button" class="btn btn-print" onclick="window.print()" title="สั่งพิมพ์เอกสาร">
+            🖨️ สั่งพิมพ์
+          </button>
+        </div>
       </div>
 
       <!-- ================= PAGE 1 ================= -->
@@ -1249,6 +1405,28 @@
         <button type="button" class="btn btn-primary" onclick="captureWebcamPhoto()">📸 ถ่ายภาพ</button>
       </div>
     </div>
+  </div>
+
+  <!-- MODAL: PDF GENERATION LOADING -->
+  <div class="modal-overlay" id="loading-modal">
+    <div class="modal-box" style="max-width: 360px; text-align: center; padding: 25px 20px;">
+      <div class="loading-spinner"></div>
+      <h4 style="margin: 15px 0 6px 0; font-size: 1.05rem; color: #1e293b;" id="loading-title">กำลังสร้างไฟล์ PDF...</h4>
+      <p style="margin: 0; font-size: 0.85rem; color: #64748b;" id="loading-desc">กำลังประมวลผลเอกสาร รปภ.๑ (ย่อ) หน้า ๑ และหน้า ๒ กรุณารอสักครู่</p>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM ACTION BAR (SMARTPHONES) -->
+  <div class="mobile-bottom-bar">
+    <button type="button" class="m-bar-btn active" id="m-btn-form" onclick="toggleView('form')">
+      <span>📝</span> กรอกข้อมูล
+    </button>
+    <button type="button" class="m-bar-btn" id="m-btn-preview" onclick="toggleView('preview')">
+      <span>👁️</span> ดูตัวอย่าง
+    </button>
+    <button type="button" class="m-bar-btn m-bar-btn-pdf" onclick="downloadDirectPDF()">
+      <span>📥</span> บันทึก PDF
+    </button>
   </div>
 
   <script>
@@ -1461,10 +1639,19 @@
     // View toggling (split, form, preview)
     function toggleView(mode) {
       document.body.classList.remove('view-form-only', 'view-preview-only');
+      const mBtnForm = document.getElementById('m-btn-form');
+      const mBtnPrev = document.getElementById('m-btn-preview');
+      if (mBtnForm && mBtnPrev) {
+        mBtnForm.classList.remove('active');
+        mBtnPrev.classList.remove('active');
+      }
+
       if (mode === 'form') {
         document.body.classList.add('view-form-only');
+        if (mBtnForm) mBtnForm.classList.add('active');
       } else if (mode === 'preview') {
         document.body.classList.add('view-preview-only');
+        if (mBtnPrev) mBtnPrev.classList.add('active');
       }
     }
 
@@ -1775,6 +1962,123 @@
       reader.readAsText(file);
     }
 
+    // ========================================================
+    // DIRECT CLIENT-SIDE PDF GENERATION (OPTIMIZED FOR MOBILE)
+    // ========================================================
+    function showLoadingModal(title, desc) {
+      const modal = document.getElementById('loading-modal');
+      const titleEl = document.getElementById('loading-title');
+      const descEl = document.getElementById('loading-desc');
+      if (titleEl && title) titleEl.textContent = title;
+      if (descEl && desc) descEl.textContent = desc;
+      if (modal) modal.classList.add('active');
+    }
+
+    function updateLoadingText(desc) {
+      const descEl = document.getElementById('loading-desc');
+      if (descEl && desc) descEl.textContent = desc;
+    }
+
+    function hideLoadingModal() {
+      const modal = document.getElementById('loading-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    async function downloadDirectPDF() {
+      showLoadingModal('กำลังเตรียมสร้างไฟล์ PDF...', 'กำลังตรวจสอบข้อมูลและจัดหน้าเอกสาร...');
+
+      try {
+        updateLivePreview();
+
+        const rank = document.getElementById('input_rank').value || 'ด.ต.';
+        const fname = document.getElementById('input_first_name').value || '';
+        const lname = document.getElementById('input_last_name').value || '';
+        const officerName = `${rank}${fname}_${lname}`.replace(/\s+/g, '_');
+        const filename = `รปภ1_ย่อ_${officerName || 'แบบฟอร์ม'}.pdf`;
+
+        const sheet1 = document.getElementById('sheet-page-1');
+        const sheet2 = document.getElementById('sheet-page-2');
+
+        if (!window.jspdf || !window.html2canvas) {
+          throw new Error('ระบบยังโหลดไลบรารีสร้าง PDF ไม่เสร็จสมบูรณ์ หรือไม่มีสัญญาณอินเทอร์เน็ต');
+        }
+
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4',
+          compress: true
+        });
+
+        // Ensure sheets are rendered in DOM even if user is currently on form-only view
+        const wasFormOnly = document.body.classList.contains('view-form-only');
+        if (wasFormOnly) {
+          document.body.classList.remove('view-form-only');
+        }
+
+        // Wait brief tick for repaint and font rasterization
+        await new Promise(r => setTimeout(r, 200));
+
+        // Render Page 1
+        updateLoadingText('กำลังประมวลผลหน้า ๑ (๑/๒)...');
+        const canvas1 = await html2canvas(sheet1, {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff'
+        });
+        const img1 = canvas1.toDataURL('image/jpeg', 0.92);
+        pdf.addImage(img1, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+
+        // Render Page 2
+        updateLoadingText('กำลังประมวลผลหน้า ๒ (๒/๒)...');
+        const canvas2 = await html2canvas(sheet2, {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff'
+        });
+        const img2 = canvas2.toDataURL('image/jpeg', 0.92);
+        pdf.addPage();
+        pdf.addImage(img2, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+
+        // Restore view state if was form only
+        if (wasFormOnly) {
+          document.body.classList.add('view-form-only');
+        }
+
+        updateLoadingText('กำลังบันทึกและดาวน์โหลดไฟล์ PDF...');
+
+        // Trigger Download via Blob
+        const blob = pdf.output('blob');
+        const blobUrl = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(blobUrl);
+        }, 3000);
+
+        setTimeout(() => {
+          hideLoadingModal();
+          alert('✅ บันทึกไฟล์ PDF เรียบร้อยแล้ว!\nชื่อไฟล์: ' + filename + '\nสามารถเปิดดูได้ในโฟลเดอร์ดาวน์โหลด (Downloads / Files) ของมือถือครับ');
+        }, 500);
+
+      } catch (err) {
+        console.error('PDF Generation Error:', err);
+        hideLoadingModal();
+        alert('เกิดข้อผิดพลาดในการสร้างไฟล์ PDF: ' + err.message + '\nระบบจะเปิดคำสั่งพิมพ์ปกติแทนครับ');
+        window.print();
+      }
+    }
+
     // Local Storage Persistence
     function saveToLocalStorage() {
       try {
@@ -1853,6 +2157,10 @@
         fillSampleData();
       } else {
         updateLivePreview();
+      }
+
+      if (window.innerWidth <= 900) {
+        toggleView('form');
       }
     });
   </script>
