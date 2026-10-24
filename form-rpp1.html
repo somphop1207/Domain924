@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบกรอกแบบฟอร์ม รปภ. ๑ (ย่อ) ประวัติบุคคล | ร้อย ฉก.ตชด.๙๒๔</title>
+  <!-- Google Fonts Sarabun fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-dark: #172554;
+      --primary-light: #3b82f6;
+      --accent: #b45309;
+      --bg-ui: #f8fafc;
+      --card-bg: #ffffff;
+      --border-ui: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --success: #15803d;
+      --danger: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-ui);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Bar */
+    header.app-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-icon {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #f8fafc;
+    }
+
+    .brand-text p {
+      font-size: 0.78rem;
+      color: #93c5fd;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-print {
+      background: #16a34a;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
+      padding: 7px 14px;
+    }
+    .btn-print:hover {
+      background: #15803d;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-ui);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: #f1f5f9;
+    }
+
+    /* Main Container */
+    .app-main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      height: calc(100vh - 61px);
+      overflow: hidden;
+    }
+
+    /* Left Form Panel */
+    .form-panel {
+      background: #ffffff;
+      border-right: 1px solid var(--border-ui);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .form-header-bar {
+      padding: 12px 18px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-ui);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .form-header-bar h2 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-content {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-section {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-section-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e0e7ff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .field-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .field-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .field-input, .field-select, .field-textarea {
+      font-family: inherit;
+      font-size: 0.82rem;
+      padding: 6px 9px;
+      border: 1px solid var(--border-ui);
+      border-radius: 5px;
+      background: #f8fafc;
+      color: var(--text-main);
+      transition: all 0.15s ease;
+    }
+
+    .field-input:focus, .field-select:focus, .field-textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .field-textarea {
+      resize: vertical;
+      min-height: 44px;
+    }
+
+    /* Photo Upload Box */
+    .photo-upload-container {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 10px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      border: 1px dashed #94a3b8;
+    }
+
+    .photo-thumb-preview {
+      width: 80px;
+      height: 106px; /* 4.5 x 6 cm ratio */
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .photo-thumb-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-controls {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .photo-btn-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* Signature Pad Area */
+    .sig-container {
+      margin-top: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .sig-canvas {
+      width: 100%;
+      height: 80px;
+      display: block;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .sig-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 8px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.72rem;
+    }
+
+    /* Right Preview Panel */
+    .preview-panel {
+      background: #475569;
+      height: 100%;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .preview-controls-bar {
+      margin-bottom: 16px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+      font-size: 0.82rem;
+    }
+
+    /* THE A4 DOCUMENT SHEETS (MATCHING OFFICIAL WORD & PDF EXACTLY) */
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      margin: 0 auto 30px auto;
+      padding: 10mm 16mm 10mm 20mm;
+      position: relative;
+      font-family: 'TH Sarabun New', 'TH SarabunIT๙', 'Sarabun', sans-serif;
+      font-size: 14pt;
+      line-height: 1.18;
+      color: #000000;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .a4-sheet.page-2 {
+      page-break-before: always;
+    }
+
+    /* Security Classification (ชั้นความลับ) */
+    .doc-classification {
+      text-align: center;
+      font-size: 13.5pt;
+      font-weight: bold;
+      color: #b91c1c; /* Official Red Secret Mark */
+      margin-bottom: 2pt;
+      letter-spacing: 0.5px;
+    }
+    .doc-classification.bottom {
+      margin-top: auto;
+      padding-top: 6pt;
+    }
+
+    /* HEADER LAYOUT */
+    .doc-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2pt;
+      position: relative;
+    }
+
+    .doc-header-left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 15pt;
+    }
+
+    .doc-title {
+      font-size: 22pt;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+
+    .doc-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 130px;
+    }
+
+    .doc-top-code {
+      font-size: 14pt;
+      font-weight: normal;
+      text-align: right;
+      margin-bottom: 2pt;
+    }
+
+    /* PHOTO BOX: 4.5 x 6 cm (3.2 x 4.2 cm display to fit A4) */
+    .doc-photo-box {
+      width: 3.2cm;
+      height: 4.2cm;
+      border: 1px solid #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #fafafa;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2pt;
+    }
+
+    .doc-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .doc-photo-placeholder-text {
+      font-size: 10pt;
+      line-height: 1.15;
+      color: #333;
+      padding: 2px;
+    }
+
+    .doc-photo-date-line {
+      font-size: 13pt;
+      text-align: center;
+      width: 100%;
+      white-space: nowrap;
+    }
+
+    /* PURE SARABAN DOCUMENT LINES (NO DUPLICATE CSS BORDERS) */
+    .doc-body-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5pt;
+    }
+
+    .s-line {
+      font-size: 14pt;
+      line-height: 1.18;
+      margin-bottom: 1pt;
+      text-align: justify;
+      text-justify: inter-cluster;
+      white-space: pre-wrap;
+      word-break: break-all;
+      color: #000;
+    }
+
+    .s-line.indent {
+      padding-left: 2.2em;
+    }
+
+    .s-line.double-indent {
+      padding-left: 4.4em;
+    }
+
+    .s-line .val {
+      font-weight: normal;
+      color: #000080; /* Subtle Navy for screen, crisp black in print */
+      padding: 0 1px;
+    }
+
+    /* PAGE 2 SIGNATURES (MATCHING OFFICIAL PDF) */
+    .page2-sig-area {
+      margin-top: 15pt;
+      display: flex;
+      flex-direction: column;
+      gap: 14pt;
+    }
+
+    .sig-row-right {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .sig-block-right {
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .sig-img-slot {
+      height: 38px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-bottom: -4px;
+    }
+
+    .sig-img-slot img {
+      max-height: 40px;
+      max-width: 140px;
+    }
+
+    .sig-supervisor-box {
+      margin-top: 10pt;
+      margin-bottom: 10pt;
+      display: flex;
+      flex-direction: column;
+      gap: 4pt;
+    }
+
+    /* View toggles */
+    body.view-form-only .preview-panel {
+      display: none;
+    }
+    body.view-form-only .app-main {
+      grid-template-columns: 1fr;
+    }
+    body.view-form-only .form-panel {
+      max-width: 750px;
+      margin: 0 auto;
+      border: none;
+    }
+
+    body.view-preview-only .form-panel {
+      display: none;
+    }
+    body.view-preview-only .app-main {
+      grid-template-columns: 1fr;
+    }
+
+    /* Modal for Webcam */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #fff;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 460px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .modal-header {
+      padding: 10px 16px;
+      background: #1e3a8a;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .modal-footer {
+      padding: 8px 16px;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    #webcam-video {
+      width: 100%;
+      max-height: 300px;
+      border-radius: 6px;
+      background: #000;
+      transform: scaleX(-1);
+    }
+
+    /* PRINT STYLESHEET */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 8mm 14mm 8mm 16mm;
+      }
+
+      header.app-header,
+      .form-panel,
+      .preview-controls-bar,
+      .modal-overlay {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-family: 'TH Sarabun New', 'TH SarabunIT๙', 'Sarabun', sans-serif !important;
+      }
+
+      .app-main {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+
+      .preview-panel {
+        background: #ffffff !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        height: auto !important;
+      }
+
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .a4-sheet.page-2 {
+        page-break-before: always !important;
+      }
+
+      .s-line .val {
+        color: #000000 !important;
+      }
+
+      .doc-classification {
+        color: #b91c1c !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="app-header">
+    <div class="brand-wrap">
+      <div class="badge-icon">🛡️</div>
+      <div class="brand-text">
+        <h1>แบบฟอร์ม รปภ. ๑ (ย่อ) ประวัติบุคคล</h1>
+        <p>หน่วยเฉพาะกิจตำรวจตระเวนชายแดนที่ ๙๒๔ (ฉก.ตร.ปัตตานี ๙๒)</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <!-- View Modes -->
+      <button type="button" class="btn btn-secondary" onclick="toggleView('split')" title="แบ่ง ๒ จอ">
+        <span>◫</span> สองฝั่ง
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="toggleView('form')" title="ดูเฉพาะฟอร์มกรอก">
+        <span>📝</span> แบบฟอร์ม
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="toggleView('preview')" title="ดูเฉพาะเอกสารจริง">
+        <span>👁️</span> หน้าพิมพ์
+      </button>
+
+      <!-- Data Actions -->
+      <button type="button" class="btn btn-secondary" onclick="fillSampleData()" title="กรอกตัวอย่าง ด.ต.ชัยรัตน์ ผาสุข">
+        <span>📋</span> ตัวอย่าง
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="exportJSON()" title="บันทึกไฟล์ .json">
+        <span>💾</span> บันทึกไฟล์
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="document.getElementById('import-file-input').click()" title="เปิดไฟล์ .json เดิม">
+        <span>📂</span> เปิดไฟล์
+      </button>
+      <input type="file" id="import-file-input" accept=".json" style="display: none;" onchange="importJSON(event)">
+
+      <button type="button" class="btn btn-secondary" onclick="toggleNumerals()" id="btn-num-toggle" title="สลับเลขอารบิก / เลขไทย">
+        <span>🇹🇭</span> เลขไทย
+      </button>
+
+      <button type="button" class="btn btn-print" onclick="window.print()" title="สั่งพิมพ์เอกสาร หรือบันทึกเป็น PDF">
+        <span>🖨️</span> สั่งพิมพ์ / บันทึก PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Application Body -->
+  <div class="app-main">
+    
+    <!-- LEFT PANEL: FORM INPUTS -->
+    <div class="form-panel">
+      <div class="form-header-bar">
+        <h2><span>✏️</span> กรอกข้อมูลประวัติบุคคล (ขตร.)</h2>
+        <button type="button" class="btn btn-outline" style="padding: 3px 8px; font-size: 0.72rem;" onclick="clearForm()">
+          ล้างฟอร์ม
+        </button>
+      </div>
+
+      <form id="officer-form" class="form-content" onsubmit="return false;">
+
+        <!-- 1. รูปถ่าย -->
+        <div class="form-section">
+          <div class="form-section-title">
+            <span>📸</span> ๑. รูปถ่ายครึ่งตัว หน้าตรง ไม่สวมหมวก (ขนาด ๔.๕ x ๖ ซม.)
+          </div>
+          <div class="photo-upload-container">
+            <div class="photo-thumb-preview" id="photo-preview-box">
+              <span id="photo-placeholder-text" style="font-size: 0.68rem; color: #94a3b8; text-align: center; padding: 2px;">ไม่มีรูป</span>
+              <img id="form-photo-img" src="" style="display: none;" alt="รูปถ่าย">
+            </div>
+            <div class="photo-controls">
+              <div class="photo-btn-group">
+                <button type="button" class="btn btn-primary" style="padding: 4px 8px; font-size: 0.75rem;" onclick="document.getElementById('photo-file-input').click()">
+                  📁 เลือกรูปภาพ
+                </button>
+                <button type="button" class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.75rem; background: #0f172a;" onclick="openWebcamModal()">
+                  📷 ถ่ายสด
+                </button>
+                <button type="button" class="btn btn-outline" style="padding: 4px 6px; font-size: 0.75rem;" onclick="removePhoto()">
+                  ลบรูป
+                </button>
+              </div>
+              <input type="file" id="photo-file-input" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
+              <div class="field-group" style="margin-top: 4px;">
+                <label class="field-label">วันที่ถ่ายภาพ (ถ่ายเมื่อ)</label>
+                <input type="text" class="field-input" id="input_photo_date" placeholder="เช่น ๒๐ ตุลาคม ๒๕๖๙ หรือเว้นว่าง">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ข้อมูลทั่วไป -->
+        <div class="form-section">
+          <div class="form-section-title">
+            <span>👤</span> ๒. ข้อมูลประจำตัวและสัญชาติ
+          </div>
+          <div class="field-row">
+            <div class="field-group" style="flex: 1.2;">
+              <label class="field-label">ยศ</label>
+              <select class="field-select" id="input_rank">
+                <option value="ด.ต.">ด.ต.</option>
+                <option value="จ.ส.ต.">จ.ส.ต.</option>
+                <option value="ส.ต.อ.">ส.ต.อ.</option>
+                <option value="ส.ต.ท.">ส.ต.ท.</option>
+                <option value="ส.ต.ต.">ส.ต.ต.</option>
+                <option value="ร.ต.ต.">ร.ต.ต.</option>
+                <option value="ร.ต.ท.">ร.ต.ท.</option>
+                <option value="ร.ต.อ.">ร.ต.อ.</option>
+                <option value="พ.ต.ต.">พ.ต.ต.</option>
+                <option value="พ.ต.ท.">พ.ต.ท.</option>
+                <option value="พ.ต.อ.">พ.ต.อ.</option>
+                <option value="นาย">นาย</option>
+                <option value="นางสาว">นางสาว</option>
+                <option value="นาง">นาง</option>
+              </select>
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ชื่อตัว</label>
+              <input type="text" class="field-input" id="input_first_name" placeholder="ชื่อจริง">
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ชื่อสกุล</label>
+              <input type="text" class="field-input" id="input_last_name" placeholder="นามสกุล">
+            </div>
+            <div class="field-group" style="flex: 1.2;">
+              <label class="field-label">เพศ</label>
+              <select class="field-select" id="input_gender">
+                <option value="ชาย">ชาย</option>
+                <option value="หญิง">หญิง</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group" style="flex: 1.5;">
+              <label class="field-label">ชื่อเล่น / ชื่ออื่นถ้ามี</label>
+              <input type="text" class="field-input" id="input_nickname" placeholder="เช่น บอย">
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">เลขประจำตัวประชาชน (๑๓ หลัก)</label>
+              <input type="text" class="field-input" id="input_id_card" placeholder="x-xxxx-xxxxx-xx-x">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">ชื่อตัวเดิม (ถ้ามี)</label>
+              <input type="text" class="field-input" id="input_old_first_name">
+            </div>
+            <div class="field-group">
+              <label class="field-label">หลักฐานการเปลี่ยนชื่อ</label>
+              <input type="text" class="field-input" id="input_name_change_proof">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">ชื่อสกุลเดิม (ถ้ามี)</label>
+              <input type="text" class="field-input" id="input_old_last_name">
+            </div>
+            <div class="field-group">
+              <label class="field-label">หลักฐานการเปลี่ยนชื่อสกุล</label>
+              <input type="text" class="field-input" id="input_surname_change_proof">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group" style="flex: 1.5;">
+              <label class="field-label">วันเดือนปีเกิด</label>
+              <input type="text" class="field-input" id="input_birth_date" placeholder="เช่น ๑ ม.ค. ๒๕๓๐">
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">สถานที่จดทะเบียนเกิด (จังหวัด/อำเภอ)</label>
+              <input type="text" class="field-input" id="input_birth_place" placeholder="เช่น กาญจนบุรี">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">เชื้อชาติ</label>
+              <input type="text" class="field-input" id="input_ethnicity" value="ไทย">
+            </div>
+            <div class="field-group">
+              <label class="field-label">สัญชาติ</label>
+              <input type="text" class="field-input" id="input_nationality" value="ไทย">
+            </div>
+            <div class="field-group">
+              <label class="field-label">ศาสนา</label>
+              <input type="text" class="field-input" id="input_religion" value="พุทธ">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">สัญชาติเดิม (ถ้ามี)</label>
+              <input type="text" class="field-input" id="input_former_nationality">
+            </div>
+            <div class="field-group">
+              <label class="field-label">หลักฐานการแปลงสัญชาติ</label>
+              <input type="text" class="field-input" id="input_naturalization_proof">
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. ที่อยู่และรูปร่าง -->
+        <div class="form-section">
+          <div class="form-section-title">
+            <span>🏠</span> ๓. ที่อยู่ปัจจุบันและลักษณะกายภาพ
+          </div>
+          <div class="field-row">
+            <div class="field-group" style="flex: 1.2;">
+              <label class="field-label">บ้านเลขที่</label>
+              <input type="text" class="field-input" id="input_address_no" placeholder="เช่น ๑๒๓/๔">
+            </div>
+            <div class="field-group" style="flex: 0.8;">
+              <label class="field-label">หมู่ที่</label>
+              <input type="text" class="field-input" id="input_moo" placeholder="เช่น ๑">
+            </div>
+            <div class="field-group">
+              <label class="field-label">ตรอก/ซอย</label>
+              <input type="text" class="field-input" id="input_trok_soi">
+            </div>
+            <div class="field-group">
+              <label class="field-label">ถนน</label>
+              <input type="text" class="field-input" id="input_road">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">ตำบล</label>
+              <input type="text" class="field-input" id="input_subdistrict" placeholder="เช่น สะเตงนอก">
+            </div>
+            <div class="field-group">
+              <label class="field-label">อำเภอ</label>
+              <input type="text" class="field-input" id="input_district" placeholder="เช่น เมือง">
+            </div>
+            <div class="field-group">
+              <label class="field-label">จังหวัด</label>
+              <input type="text" class="field-input" id="input_province" placeholder="เช่น ยะลา">
+            </div>
+            <div class="field-group">
+              <label class="field-label">โทรศัพท์</label>
+              <input type="text" class="field-input" id="input_phone" placeholder="เช่น ๐๘x-xxxxxxx">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">ส่วนสูง (ซม.)</label>
+              <input type="text" class="field-input" id="input_height" placeholder="เช่น ๑๗๐">
+            </div>
+            <div class="field-group">
+              <label class="field-label">น้ำหนัก (กก.)</label>
+              <input type="text" class="field-input" id="input_weight" placeholder="เช่น ๖๕">
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ตำหนิ</label>
+              <input type="text" class="field-input" id="input_scars_marks" placeholder="เช่น แผลเป็นข้อมือซ้าย / ไม่มี">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">การศึกษาชั้นสูงสุด</label>
+              <input type="text" class="field-input" id="input_highest_education" placeholder="เช่น ม.ปลาย, ปริญญาตรี นิติศาสตรบัณฑิต">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">รู้ภาษาไทยถิ่นต่าง ๆ และภาษาต่างประเทศ (บอกระดับ: ดีมาก ดี พอใช้)</label>
+              <textarea class="field-textarea" id="input_languages" placeholder="เช่น ไทยถิ่นใต้ (ดีมาก), มลายูท้องถิ่น (ดี), อังกฤษ (พอใช้)"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. ประวัติการรับราชการทหาร/ตำรวจ -->
+        <div class="form-section">
+          <div class="form-section-title">
+            <span>🎖️</span> ๔. ประวัติการรับราชการทหาร/ตำรวจ (ข้อ ๑๑)
+          </div>
+          <div class="field-row">
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ปัจจุบันเป็นทหารประจำการ หรือทหารกองหนุน</label>
+              <input type="text" class="field-input" id="input_military_status" value="ข้าราชการตำรวจ">
+            </div>
+            <div class="field-group">
+              <label class="field-label">ยศ</label>
+              <input type="text" class="field-input" id="input_military_rank" placeholder="เช่น ดาบตำรวจ">
+            </div>
+            <div class="field-group">
+              <label class="field-label">เครื่องหมายทะเบียนทหาร</label>
+              <input type="text" class="field-input" id="input_military_reg_no">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">เหล่าและสังกัด</label>
+              <input type="text" class="field-input" id="input_unit_corps" value="กก.ตชด.๔๑">
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ที่ตั้งของหน่วย</label>
+              <input type="text" class="field-input" id="input_unit_location" value="ต.ขุนกระทิง อ.เมือง จ.ชุมพร">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">เข้าประจำการเมื่อ</label>
+              <input type="text" class="field-input" id="input_service_start" placeholder="เช่น ๑ พ.ค. ๒๕๔๙">
+            </div>
+            <div class="field-group">
+              <label class="field-label">ถึง</label>
+              <input type="text" class="field-input" id="input_service_end" value="ปัจจุบัน">
+            </div>
+            <div class="field-group">
+              <label class="field-label">จำนวนปีที่รับราชการ</label>
+              <input type="text" class="field-input" id="input_service_years" placeholder="เช่น ๒๐ ปี">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label">เหตุที่ออก</label>
+              <input type="text" class="field-input" id="input_service_discharge_reason" placeholder="ยังรับราชการอยู่ / เกษียณ">
+            </div>
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ผู้บังคับบัญชาโดยตรงคนสุดท้าย</label>
+              <input type="text" class="field-input" id="input_last_commander" placeholder="เช่น พล.ต.ต.พหล เกตุแก้ว">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">เคยไปปฏิบัติราชการพิเศษที่ / เมื่อ / ระยะเวลา</label>
+              <textarea class="field-textarea" id="input_special_missions" placeholder="เช่น ฉก.ตร.ปัตตานี 92 (ร้อย ฉก.ตชด.924) เมื่อ 1 ต.ค. 2568 ระยะเวลา 1 ปี"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. ข้อมูลครอบครัวและบุคคลอ้างอิง -->
+        <div class="form-section">
+          <div class="form-section-title">
+            <span>👨‍👩‍👧‍👦</span> ๕. ครอบครัวและบุคคลติดต่อ (ข้อ ๒๐, ๒๑, ๒๒, ๒๗, ๒๘)
+          </div>
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">ข้อ ๒๐. ชื่อ บิดา มารดา</label>
+              <input type="text" class="field-input" id="input_parents_names" placeholder="เช่น นาย... (บิดา), นาง... (มารดา)">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">ข้อ ๒๑. ชื่อ ภรรยา / สามี</label>
+              <input type="text" class="field-input" id="input_spouse_name" placeholder="ชื่อสกุลคู่สมรส หรือ โสด">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">ข้อ ๒๒. ชื่อบุตร</label>
+              <input type="text" class="field-input" id="input_children_names" placeholder="ระบุชื่อบุตร หรือ ไม่มี">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group" style="flex: 2;">
+              <label class="field-label">ข้อ ๒๗. ผู้ใกล้ชิดสนิทสนมและบุคคลที่ติดต่อด้วยเสมอ</label>
+              <input type="text" class="field-input" id="input_close_contacts" placeholder="ชื่อ-สกุล และความสัมพันธ์">
+            </div>
+            <div class="field-group">
+              <label class="field-label">เบอร์ติดต่อ</label>
+              <input type="text" class="field-input" id="input_close_contacts_phone" placeholder="เบอร์โทรศัพท์">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group full">
+              <label class="field-label">ข้อ ๒๘. ผู้อุปการะช่วยเหลือ สนับสนุนทั้งในอดีตและปัจจุบัน (เว้นบิดามารดา)</label>
+              <input type="text" class="field-input" id="input_benefactors" placeholder="ชื่อผู้อุปการะ หรือ ไม่มี">
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. ลายมือชื่อและการควบคุม -->
+        <div class="form-section">
+          <div class="form-section-title">
+            <span>✍️</span> ๖. ลายมือชื่อเจ้าของประวัติ และการควบคุม (ฝ่ายข่าว)
+          </div>
+          
+          <div class="field-group full">
+            <label class="field-label">ลายมือชื่อเจ้าของประวัติ (วาดด้วยนิ้ว/เมาส์ หรืออัปโหลดไฟล์ภาพ)</label>
+            <div class="sig-container">
+              <canvas id="sig-pad" class="sig-canvas"></canvas>
+              <div class="sig-toolbar">
+                <div style="display:flex; gap:6px;">
+                  <button type="button" class="btn btn-outline" style="padding: 2px 6px; font-size: 0.72rem;" onclick="clearSignature()">ล้างลายเซ็น</button>
+                  <button type="button" class="btn btn-outline" style="padding: 2px 6px; font-size: 0.72rem;" onclick="document.getElementById('sig-file-input').click()">📁 อัปโหลดภาพ</button>
+                  <input type="file" id="sig-file-input" accept="image/*" style="display:none;" onchange="handleSignatureUpload(event)">
+                </div>
+                <span style="color:#94a3b8;">เซ็นในกรอบสีขาวนี้</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-row" style="margin-top: 8px;">
+            <div class="field-group full">
+              <label class="field-label">จัดทำเมื่อ (วันที่จัดทำเอกสาร)</label>
+              <input type="text" class="field-input" id="input_create_date" placeholder="เช่น ๒๐ ตุลาคม ๒๕๖๙">
+            </div>
+          </div>
+
+          <div style="border-top: 1px dashed #cbd5e1; margin-top: 10px; padding-top: 8px;">
+            <div style="font-size: 0.78rem; font-weight: 600; color: #475569; margin-bottom: 6px;">
+              ส่วนสำหรับฝ่ายการข่าว (ผู้ควบคุมการบันทึกประวัติ):
+            </div>
+            <div class="field-row">
+              <div class="field-group full">
+                <label class="field-label">ผู้ควบคุมการบันทึกประวัติ (ยศ, ชื่อ และตำแหน่ง ตัวบรรจง)</label>
+                <input type="text" class="field-input" id="input_intel_supervisor" placeholder="เช่น ด.ต.สมภพ บุญสุวรรณ หน.ฝขว.ร้อย ฉก.ตชด.๙๒๔">
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field-group full">
+                <label class="field-label">วันที่ควบคุม (วัน เดือน ปี)</label>
+                <input type="text" class="field-input" id="input_intel_date" placeholder="เช่น ๒๐ ตุลาคม ๒๕๖๙">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- RIGHT PANEL: A4 LIVE DOCUMENT PREVIEW -->
+    <div class="preview-panel" id="preview-panel-wrap">
+      
+      <div class="preview-controls-bar">
+        <span>📄 พรีวิวเอกสาร รปภ. ๑ (ย่อ)</span>
+        <button type="button" class="btn btn-print" onclick="window.print()">
+          🖨️ พิมพ์ / บันทึก PDF
+        </button>
+      </div>
+
+      <!-- ================= PAGE 1 ================= -->
+      <div class="a4-sheet page-1" id="sheet-page-1">
+        
+        <!-- Top Security Classification -->
+        <div class="doc-classification">
+          ………………………. (ชั้นความลับ) ลับ
+        </div>
+
+        <!-- Header Grid: Title and Photo Box (Matching Official PDF) -->
+        <div class="doc-header-row">
+          <div class="doc-header-left">
+            <div class="doc-title">ประวัติบุคคล</div>
+          </div>
+          <div class="doc-header-right">
+            <div class="doc-top-code">รปภ. ๑</div>
+            <!-- Photo box: 4.5 x 6 cm proportion -->
+            <div class="doc-photo-box" id="doc-photo-box">
+              <div class="doc-photo-placeholder-text" id="doc-photo-placeholder">
+                ติดภาพถ่ายครึ่งตัว<br>
+                หน้าตรง ไม่สวมหมวก<br>
+                ขนาด ๔.๕ x ๖ ซม.
+              </div>
+              <img id="doc-photo-img" src="" style="display: none;" alt="รูปถ่าย">
+            </div>
+            <div class="doc-photo-date-line">
+              ถ่ายเมื่อ <span id="out_photo_date">....................</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body Items (Items 1 to 28) with Pure Saraban Dots -->
+        <div class="doc-body-content" id="saraban-content-p1">
+          <!-- Dynamically populated without any duplicate CSS borders -->
+        </div>
+
+        <!-- Bottom Security Classification -->
+        <div class="doc-classification bottom">
+          ………………………. (ชั้นความลับ) ลับ
+        </div>
+
+      </div>
+
+      <!-- ================= PAGE 2 (MATCHING OFFICIAL PDF) ================= -->
+      <div class="a4-sheet page-2" id="sheet-page-2">
+        
+        <!-- Top Security Classification -->
+        <div class="doc-classification">
+          ………………………. (ชั้นความลับ) ลับ
+        </div>
+
+        <!-- Signatures Area on Page 2 (Pure Saraban Dots, No Double Lines) -->
+        <div class="page2-sig-area">
+          
+          <!-- Top Officer Signature -->
+          <div class="sig-row-right">
+            <div class="sig-block-right">
+              <div class="sig-img-slot" id="sig-display-wrap-p2-top">
+                <img id="doc-sig-img-p2-top" src="" style="display: none;" alt="ลายเซ็น">
+              </div>
+              <div class="s-line" style="text-align: center; width: 100%;">
+                ลายมือชื่อ....<span class="val" id="out_sig_rank_p2_top">ด.ต.</span>.............................................เจ้าของประวัติ
+              </div>
+            </div>
+          </div>
+
+          <!-- Supervisor (Intel Section) Block -->
+          <div class="sig-supervisor-box">
+            <div class="s-line">
+              ควบคุมการบันทึกประวัติโดย....<span class="val" id="out_intel_supervisor">.......................................................................................</span>(ฝ่ายข่าว)..........................
+            </div>
+            <div class="s-line" style="padding-left: 170px; font-size: 14pt; color: #333;">
+              ยศ,ชื่อ และตำแหน่ง(ตัวบรรจง)
+            </div>
+            <div class="s-line" style="padding-left: 110px; margin-top: 4pt;">
+              ลายมือชื่อ.................................................................. .
+            </div>
+            <div class="s-line" style="padding-left: 130px; margin-top: 4pt;">
+              วัน เดือน ปี..........<span class="val" id="out_intel_date">....................</span>.....................
+            </div>
+          </div>
+
+          <!-- Bottom Officer Confirmation Signature -->
+          <div class="sig-row-right" style="margin-top: 30pt;">
+            <div class="sig-block-right">
+              <div class="sig-img-slot" id="sig-display-wrap-p2-bot">
+                <img id="doc-sig-img-p2-bot" src="" style="display: none;" alt="ลายเซ็น">
+              </div>
+              <div class="s-line" style="text-align: center; width: 100%;">
+                ลายมือชื่อ...<span class="val" id="out_sig_rank_p2_bot">ด.ต.</span>..................................................เจ้าของประวัติ
+              </div>
+              <div class="s-line" style="text-align: center; font-size: 14.5pt; margin-top: 2pt;">
+                ( <span class="val" id="out_full_name_p2">......................................................</span> )
+              </div>
+              <div class="s-line" style="text-align: center; margin-top: 6pt;">
+                จัดทำเมื่อ...........<span class="val" id="out_create_date">....................</span>......................................
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Security Classification -->
+        <div class="doc-classification bottom">
+          ………………………. (ชั้นความลับ) ลับ
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: WEBCAM SELFIE CAPTURE -->
+  <div class="modal-overlay" id="webcam-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 style="font-size: 0.95rem;">📷 ถ่ายภาพหน้าตรงจากกล้อง</h3>
+        <button type="button" class="btn btn-outline" style="color:#fff; border:none; padding:2px 8px; font-size: 1.1rem;" onclick="closeWebcamModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <video id="webcam-video" autoplay playsinline></video>
+        <canvas id="webcam-canvas" style="display: none;"></canvas>
+        <p style="font-size: 0.78rem; color: #64748b; text-align: center;">จัดใบหน้าและเครื่องแบบให้อยู่ตรงกลาง แล้วกดปุ่มถ่ายภาพ</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeWebcamModal()">ยกเลิก</button>
+        <button type="button" class="btn btn-primary" onclick="captureWebcamPhoto()">📸 ถ่ายภาพ</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let useThaiNumerals = true;
+    let officerPhotoData = "";
+    let officerSignatureData = "";
+    let webcamStream = null;
+
+    // Numbers conversion
+    function toThaiDigits(str) {
+      if (!str) return '';
+      const thaiDigits = ['๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙'];
+      return str.toString().replace(/[0-9]/g, d => thaiDigits[+d]);
+    }
+
+    function toArabicDigits(str) {
+      if (!str) return '';
+      const thaiDigits = ['๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙'];
+      let res = str.toString();
+      thaiDigits.forEach((td, i) => {
+        res = res.replaceAll(td, i.toString());
+      });
+      return res;
+    }
+
+    function formatNumberString(str) {
+      if (!str) return '';
+      return useThaiNumerals ? toThaiDigits(str) : toArabicDigits(str);
+    }
+
+    // Toggle Thai / Arabic Numerals
+    function toggleNumerals() {
+      useThaiNumerals = !useThaiNumerals;
+      const btn = document.getElementById('btn-num-toggle');
+      btn.innerHTML = useThaiNumerals ? '<span>🇹🇭</span> เลขไทย' : '<span>🔢</span> เลขอารบิก';
+      updateLivePreview();
+    }
+
+    // Helper: format field value or dots
+    function dotVal(val, defaultDots, preDots = '....', postDots = '.....') {
+      if (val && val.trim()) {
+        const fmt = formatNumberString(val.trim());
+        return `${preDots}<span class="val">${fmt}</span>${postDots}`;
+      }
+      return defaultDots;
+    }
+
+    // Update Live Preview (Pure Saraban Dots, 100% Free of Double Lines)
+    function updateLivePreview() {
+      // Fetch inputs
+      const rank = document.getElementById('input_rank').value;
+      const fname = document.getElementById('input_first_name').value;
+      const lname = document.getElementById('input_last_name').value;
+      const gender = document.getElementById('input_gender').value;
+      const nickname = document.getElementById('input_nickname').value;
+      const idCard = document.getElementById('input_id_card').value;
+      const oldFname = document.getElementById('input_old_first_name').value;
+      const nameProof = document.getElementById('input_name_change_proof').value;
+      const oldLname = document.getElementById('input_old_last_name').value;
+      const surnameProof = document.getElementById('input_surname_change_proof').value;
+      const birthDate = document.getElementById('input_birth_date').value;
+      const birthPlace = document.getElementById('input_birth_place').value;
+      const ethnicity = document.getElementById('input_ethnicity').value;
+      const nationality = document.getElementById('input_nationality').value;
+      const religion = document.getElementById('input_religion').value;
+      const formerNat = document.getElementById('input_former_nationality').value;
+      const natProof = document.getElementById('input_naturalization_proof').value;
+      const addrNo = document.getElementById('input_address_no').value;
+      const moo = document.getElementById('input_moo').value;
+      const trokSoi = document.getElementById('input_trok_soi').value;
+      const road = document.getElementById('input_road').value;
+      const subdist = document.getElementById('input_subdistrict').value;
+      const dist = document.getElementById('input_district').value;
+      const prov = document.getElementById('input_province').value;
+      const phone = document.getElementById('input_phone').value;
+      const height = document.getElementById('input_height').value;
+      const weight = document.getElementById('input_weight').value;
+      const scars = document.getElementById('input_scars_marks').value;
+      const edu = document.getElementById('input_highest_education').value;
+      const languages = document.getElementById('input_languages').value;
+      const milStatus = document.getElementById('input_military_status').value;
+      const milRank = document.getElementById('input_military_rank').value;
+      const milRegNo = document.getElementById('input_military_reg_no').value;
+      const unitCorps = document.getElementById('input_unit_corps').value;
+      const unitLoc = document.getElementById('input_unit_location').value;
+      const svcStart = document.getElementById('input_service_start').value;
+      const svcEnd = document.getElementById('input_service_end').value;
+      const svcYears = document.getElementById('input_service_years').value;
+      const discharge = document.getElementById('input_service_discharge_reason').value;
+      const commander = document.getElementById('input_last_commander').value;
+      const specialMissions = document.getElementById('input_special_missions').value;
+      const parents = document.getElementById('input_parents_names').value;
+      const spouse = document.getElementById('input_spouse_name').value;
+      const children = document.getElementById('input_children_names').value;
+      const contacts = document.getElementById('input_close_contacts').value;
+      const contactsPhone = document.getElementById('input_close_contacts_phone').value;
+      const benefactors = document.getElementById('input_benefactors').value;
+      const photoDate = document.getElementById('input_photo_date').value;
+      const createDate = document.getElementById('input_create_date').value;
+      const intelSup = document.getElementById('input_intel_supervisor').value;
+      const intelDate = document.getElementById('input_intel_date').value;
+
+      // Update Photo Date
+      document.getElementById('out_photo_date').textContent = photoDate && photoDate.trim() ? formatNumberString(photoDate.trim()) : '....................';
+
+      // Build Page 1 Pure Saraban Lines (Matching Official Document 100%)
+      const p1Html = `
+        <div class="s-line">๑.   ยศ....<span class="val">${rank}</span>.....ชื่อตัว.....<span class="val">${fname || '................'}</span>...............ชื่อสกุล....<span class="val">${lname || '................'}</span>......................เพศ.....<span class="val">${gender}</span>............................................</div>
+        
+        <div class="s-line">๒.   ชื่อตัวเดิม${dotVal(oldFname, '...................................................', '...', '...')}หลักฐานการเปลี่ยนชื่อ${dotVal(nameProof, '.....................................................................', '...', '...')}</div>
+        
+        <div class="s-line indent">ชื่อสกุลเดิมชื่ออื่น ๆ ${dotVal(oldLname, '...................................................', '...', '...')}หลักฐานการเปลี่ยนชื่อสกุล${dotVal(surnameProof, '............................................', '...', '...')}</div>
+        
+        <div class="s-line indent">ชื่อเล่นหรือชื่ออื่น ๆ ถ้ามี...<span class="val">${nickname || '..........'}</span>.........................................................................................................................</div>
+        
+        <div class="s-line">๓.   เลขบัตรประชาชน......<span class="val">${formatNumberString(idCard) || '................................'}</span>.......................................................................................................</div>
+        
+        <div class="s-line">๔.   วันเดือนปีเกิด........<span class="val">${formatNumberString(birthDate) || '....................'}</span>..........สถานที่จดทะเบียนเกิด........<span class="val">${birthPlace || '....................'}</span>.........................................</div>
+        
+        <div class="s-line indent">เชื้อชาติ........<span class="val">${ethnicity || 'ไทย'}</span>..................................สัญชาติ......<span class="val">${nationality || 'ไทย'}</span>................................ศาสนา......<span class="val">${religion || 'พุทธ'}</span>.............................</div>
+        
+        <div class="s-line indent">สัญชาติเดิม${dotVal(formerNat, '............................................', '...', '...')}หลักฐานการแปลงสัญชาติ${dotVal(natProof, '..................................................................', '...', '...')}</div>
+        
+        <div class="s-line">๕.   ที่อยู่ปัจจุบัน บ้านเลขที่.....<span class="val">${formatNumberString(addrNo) || '........'}</span>........หมู่ที่....<span class="val">${formatNumberString(moo) || '....'}</span>.....ตรอก/ซอย${dotVal(trokSoi, '...........................', '...', '...')}ถนน${dotVal(road, '...................................', '...', '...')}</div>
+        
+        <div class="s-line indent">ตำบล...<span class="val">${subdist || '................'}</span>......อำเภอ..<span class="val">${dist || '................'}</span>........จังหวัด...<span class="val">${prov || '................'}</span>...........โทรศัพท์${dotVal(phone, '...........................................................', '...', '...')}</div>
+        
+        <div class="s-line">๗.   ส่วนสูง.....<span class="val">${formatNumberString(height) || '........'}</span>.........ซม.  น้ำหนัก.....<span class="val">${formatNumberString(weight) || '........'}</span>.........กก.  ตำหนิ.....<span class="val">${scars || '................................'}</span>.............................................</div>
+        
+        <div class="s-line">๙.   การศึกษาชั้นสูงสุด....<span class="val">${edu || '................................'}</span>.............................................................................................................................</div>
+        
+        <div class="s-line">๑๐. รู้ภาษาไทยถิ่นต่าง ๆ และภาษาต่างประเทศ (บอกระดับความสามารถว่า ดีมาก ดี พอใช้)${languages && languages.trim() ? '.....<span class="val">' + languages + '</span>' : '..............................'}</div>
+        
+        <div class="s-line">๑๑. การรับราชการทหาร</div>
+        
+        <div class="s-line indent">ปัจจุบันเป็นทหารประจำการ หรือทหารกองหนุน..........<span class="val">${milStatus || 'ข้าราชการตำรวจ'}</span>.........................................................</div>
+        
+        <div class="s-line indent">ยศ...<span class="val">${milRank || 'ดาบตำรวจ'}</span>.....เครื่องหมายทะเบียนทหาร${dotVal(milRegNo, '...................................................................................................', '...', '...')}</div>
+        
+        <div class="s-line indent">เหล่าและสังกัด........<span class="val">${unitCorps || 'กก.ตชด.๔๑'}</span>.....................ที่ตั้งของหน่วย......<span class="val">${unitLoc || 'ต.ขุนกระทิง อ.เมือง จ.ชุมพร'}</span>.....................</div>
+        
+        <div class="s-line indent">เข้าประจำการเมื่อ.....<span class="val">${formatNumberString(svcStart) || '................'}</span>.........ถึง....<span class="val">${svcEnd || 'ปัจจุบัน'}</span>............จำนวนปีที่รับราชการมาแล้ว.....<span class="val">${formatNumberString(svcYears) || '........'}</span>.............</div>
+        
+        <div class="s-line indent">เหตุที่ออก${dotVal(discharge, '............................................................................................................................................................', '.....', '.....')}</div>
+        
+        <div class="s-line indent">ผู้บังคับบัญชาโดยตรงคนสุดท้าย.........<span class="val">${commander || '................................................'}</span>...........................................................................</div>
+        
+        <div class="s-line indent">เคยไปปฏิบัติราชการพิเศษที่${dotVal(specialMissions, '.............................................. เมื่อ ..................................... ระยะเวลา ......................', '.....', '.....')}</div>
+        
+        <div class="s-line indent">............................................................................................................................................................................</div>
+        
+        <div class="s-line">๒๐. ชื่อ บิดา มารดา${dotVal(parents, '..................................................................................................................................................', '.....', '.....')}</div>
+        
+        <div class="s-line">๒๑. ชื่อ ภรรยา/สามี${dotVal(spouse, '..................................................................................................................................................', '.....', '.....')}</div>
+        
+        <div class="s-line">๒๒. ชื่อบุตร${dotVal(children, '...............................................................................................................................................................', '.....', '.....')}</div>
+        
+        <div class="s-line">๒๗. ผู้ใกล้ชิดสนิทสนมและบุคคลที่ติดต่อด้วยเสมอ${dotVal(contacts, '..................................................................................................', '.....', '.....')}</div>
+        
+        <div class="s-line indent">เบอร์ติดต่อ${dotVal(contactsPhone, '.........................................................................................................................................................', '.....', '.....')}</div>
+        
+        <div class="s-line">๒๘. ผู้อุปการะช่วยเหลือ สนับสนุนทั้งในอดีตและปัจจุบัน (เว้นบิดามารดา)${dotVal(benefactors, '............................................................', '.....', '.....')}</div>
+        
+        <div class="s-line indent">..........................................................................................................................................................................</div>
+      `;
+
+      document.getElementById('saraban-content-p1').innerHTML = p1Html;
+
+      // Update Page 2 Signatures
+      const fullName = (rank + ' ' + fname + ' ' + lname).trim();
+      document.getElementById('out_sig_rank_p2_top').textContent = rank || 'ด.ต.';
+      document.getElementById('out_sig_rank_p2_bot').textContent = rank || 'ด.ต.';
+      document.getElementById('out_full_name_p2').textContent = fullName ? fullName : '......................................................';
+      document.getElementById('out_create_date').textContent = createDate ? formatNumberString(createDate) : '๒๐ ตุลาคม ๒๕๖๙';
+      document.getElementById('out_intel_supervisor').textContent = intelSup ? intelSup : '.......................................................................................';
+      document.getElementById('out_intel_date').textContent = intelDate ? formatNumberString(intelDate) : '๒๐ ตุลาคม ๒๕๖๙';
+
+      saveToLocalStorage();
+    }
+
+    // View toggling (split, form, preview)
+    function toggleView(mode) {
+      document.body.classList.remove('view-form-only', 'view-preview-only');
+      if (mode === 'form') {
+        document.body.classList.add('view-form-only');
+      } else if (mode === 'preview') {
+        document.body.classList.add('view-preview-only');
+      }
+    }
+
+    // Photo Handling
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        setOfficerPhoto(evt.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setOfficerPhoto(dataUrl) {
+      officerPhotoData = dataUrl;
+      const formImg = document.getElementById('form-photo-img');
+      const placeholder = document.getElementById('photo-placeholder-text');
+      const docImg = document.getElementById('doc-photo-img');
+      const docPlaceholder = document.getElementById('doc-photo-placeholder');
+
+      if (dataUrl) {
+        formImg.src = dataUrl;
+        formImg.style.display = 'block';
+        if (placeholder) placeholder.style.display = 'none';
+
+        docImg.src = dataUrl;
+        docImg.style.display = 'block';
+        if (docPlaceholder) docPlaceholder.style.display = 'none';
+      } else {
+        formImg.style.display = 'none';
+        if (placeholder) placeholder.style.display = 'block';
+
+        docImg.style.display = 'none';
+        if (docPlaceholder) docPlaceholder.style.display = 'block';
+      }
+      saveToLocalStorage();
+    }
+
+    function removePhoto() {
+      setOfficerPhoto("");
+      document.getElementById('photo-file-input').value = "";
+    }
+
+    // Webcam Capture Modal
+    async function openWebcamModal() {
+      const modal = document.getElementById('webcam-modal');
+      const video = document.getElementById('webcam-video');
+      modal.classList.add('active');
+      try {
+        webcamStream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+        video.srcObject = webcamStream;
+      } catch (err) {
+        alert('ไม่สามารถเข้าถึงกล้องถ่ายภาพได้: ' + err.message);
+        closeWebcamModal();
+      }
+    }
+
+    function closeWebcamModal() {
+      const modal = document.getElementById('webcam-modal');
+      modal.classList.remove('active');
+      if (webcamStream) {
+        webcamStream.getTracks().forEach(track => track.stop());
+        webcamStream = null;
+      }
+    }
+
+    function captureWebcamPhoto() {
+      const video = document.getElementById('webcam-video');
+      const canvas = document.getElementById('webcam-canvas');
+      canvas.width = video.videoWidth || 640;
+      canvas.height = video.videoHeight || 480;
+      const ctx = canvas.getContext('2d');
+      ctx.translate(canvas.width, 0);
+      ctx.scale(-1, 1);
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+      setOfficerPhoto(dataUrl);
+      closeWebcamModal();
+    }
+
+    // Signature Pad logic
+    const sigCanvas = document.getElementById('sig-pad');
+    const sigCtx = sigCanvas.getContext('2d');
+    let isDrawing = false;
+
+    function resizeSigCanvas() {
+      const rect = sigCanvas.getBoundingClientRect();
+      sigCanvas.width = rect.width;
+      sigCanvas.height = rect.height;
+      sigCtx.lineWidth = 2.2;
+      sigCtx.lineCap = 'round';
+      sigCtx.lineJoin = 'round';
+      sigCtx.strokeStyle = '#000080';
+    }
+
+    function startDrawing(e) {
+      isDrawing = true;
+      sigCtx.beginPath();
+      const pos = getPos(e);
+      sigCtx.moveTo(pos.x, pos.y);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const pos = getPos(e);
+      sigCtx.lineTo(pos.x, pos.y);
+      sigCtx.stroke();
+    }
+
+    function stopDrawing() {
+      if (isDrawing) {
+        isDrawing = false;
+        officerSignatureData = sigCanvas.toDataURL('image/png');
+        updateSignatureDisplay();
+        saveToLocalStorage();
+      }
+    }
+
+    function getPos(e) {
+      const rect = sigCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+      };
+    }
+
+    sigCanvas.addEventListener('mousedown', startDrawing);
+    sigCanvas.addEventListener('mousemove', draw);
+    window.addEventListener('mouseup', stopDrawing);
+
+    sigCanvas.addEventListener('touchstart', startDrawing);
+    sigCanvas.addEventListener('touchmove', draw);
+    window.addEventListener('touchend', stopDrawing);
+
+    function clearSignature() {
+      sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+      officerSignatureData = "";
+      updateSignatureDisplay();
+      saveToLocalStorage();
+    }
+
+    function handleSignatureUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        officerSignatureData = evt.target.result;
+        updateSignatureDisplay();
+        saveToLocalStorage();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function updateSignatureDisplay() {
+      ['doc-sig-img-p2-top', 'doc-sig-img-p2-bot'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (officerSignatureData) {
+            el.src = officerSignatureData;
+            el.style.display = 'block';
+          } else {
+            el.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // Sample Data Preset (ด.ต.ชัยรัตน์ ผาสุข)
+    function fillSampleData() {
+      const sample = {
+        rank: 'ด.ต.',
+        first_name: 'ชัยรัตน์',
+        last_name: 'ผาสุข',
+        gender: 'ชาย',
+        nickname: 'บอย',
+        id_card: '๑-xxxx-xxxxx-xx-๐',
+        old_first_name: '',
+        name_change_proof: '',
+        old_last_name: '',
+        surname_change_proof: '',
+        birth_date: 'xx xxxxx xxxxx',
+        birth_place: 'กาญจนบุรี',
+        ethnicity: 'ไทย',
+        nationality: 'ไทย',
+        religion: 'พุทธ',
+        former_nationality: '',
+        naturalization_proof: '',
+        address_no: 'xxx/xx',
+        moo: '๑๐',
+        trok_soi: '',
+        road: '',
+        subdistrict: 'สะเตงนอก',
+        district: 'เมือง',
+        province: 'ยะลา',
+        phone: '',
+        height: '๑๕๗',
+        weight: '๕๙',
+        scars_marks: 'แผลเป็นข้อมือซ้าย',
+        highest_education: 'ม.ปลาย',
+        languages: '',
+        military_status: 'ข้าราชการตำรวจ',
+        military_rank: 'ดาบตำรวจ',
+        military_reg_no: '',
+        unit_corps: 'กก.ตชด.๔๑',
+        unit_location: 'ต.ขุนกระทิง...อ.เมือง...จ.ชุมพร',
+        service_start: '๑..พ.ค.๒๕๔๙',
+        service_end: 'ปัจจุบัน',
+        service_years: '๒๐..ปี',
+        service_discharge_reason: '',
+        last_commander: 'พล.ต.ต.พหล...เกตุแก้ว',
+        special_missions: '',
+        parents_names: '',
+        spouse_name: '',
+        children_names: '',
+        close_contacts: '',
+        close_contacts_phone: '',
+        benefactors: '',
+        photo_date: '....................',
+        create_date: '๒๐...ตุลาคม...๒๕๖๙',
+        intel_supervisor: '',
+        intel_date: '๒๐...ตุลาคม...๒๕๖๙'
+      };
+
+      setOfficerPhoto("assets/sample_photo.jpg");
+      officerSignatureData = "assets/sample_sig.png";
+      updateSignatureDisplay();
+
+      Object.keys(sample).forEach(k => {
+        const input = document.getElementById('input_' + k);
+        if (input) input.value = sample[k];
+      });
+
+      updateLivePreview();
+    }
+
+    // Clear Form
+    function clearForm() {
+      if (!confirm('ต้องการล้างข้อมูลทั้งหมดในฟอร์มใช่หรือไม่?')) return;
+      document.getElementById('officer-form').reset();
+      removePhoto();
+      clearSignature();
+      updateLivePreview();
+      localStorage.removeItem('bpp924_rp1_form_data');
+    }
+
+    // JSON Export / Import
+    function exportJSON() {
+      const data = {};
+      const fields = [
+        'rank', 'first_name', 'last_name', 'gender', 'nickname', 'id_card',
+        'old_first_name', 'name_change_proof', 'old_last_name', 'surname_change_proof',
+        'birth_date', 'birth_place', 'ethnicity', 'nationality', 'religion',
+        'former_nationality', 'naturalization_proof',
+        'address_no', 'moo', 'trok_soi', 'road', 'subdistrict', 'district', 'province', 'phone',
+        'height', 'weight', 'scars_marks', 'highest_education', 'languages',
+        'military_status', 'military_rank', 'military_reg_no', 'unit_corps', 'unit_location',
+        'service_start', 'service_end', 'service_years', 'service_discharge_reason',
+        'last_commander', 'special_missions',
+        'parents_names', 'spouse_name', 'children_names',
+        'close_contacts', 'close_contacts_phone', 'benefactors',
+        'photo_date', 'create_date', 'intel_supervisor', 'intel_date'
+      ];
+      fields.forEach(id => {
+        const el = document.getElementById('input_' + id);
+        data[id] = el ? el.value : '';
+      });
+      data.photoData = officerPhotoData;
+      data.signatureData = officerSignatureData;
+
+      const fName = data.first_name || 'officer';
+      const lName = data.last_name || '';
+      const filename = `รปภ1_ย่อ_${data.rank || ''}${fName}_${lName}.json`.replace(/\s+/g, '_');
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function importJSON(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const data = JSON.parse(evt.target.result);
+          Object.keys(data).forEach(k => {
+            const el = document.getElementById('input_' + k);
+            if (el) el.value = data[k];
+          });
+          if (data.photoData) setOfficerPhoto(data.photoData);
+          if (data.signatureData) {
+            officerSignatureData = data.signatureData;
+            updateSignatureDisplay();
+          }
+          updateLivePreview();
+          alert('โหลดข้อมูลเรียบร้อยแล้ว!');
+        } catch (err) {
+          alert('ไฟล์ JSON ไม่ถูกต้อง: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // Local Storage Persistence
+    function saveToLocalStorage() {
+      try {
+        const data = {};
+        const fields = [
+          'rank', 'first_name', 'last_name', 'gender', 'nickname', 'id_card',
+          'old_first_name', 'name_change_proof', 'old_last_name', 'surname_change_proof',
+          'birth_date', 'birth_place', 'ethnicity', 'nationality', 'religion',
+          'former_nationality', 'naturalization_proof',
+          'address_no', 'moo', 'trok_soi', 'road', 'subdistrict', 'district', 'province', 'phone',
+          'height', 'weight', 'scars_marks', 'highest_education', 'languages',
+          'military_status', 'military_rank', 'military_reg_no', 'unit_corps', 'unit_location',
+          'service_start', 'service_end', 'service_years', 'service_discharge_reason',
+          'last_commander', 'special_missions',
+          'parents_names', 'spouse_name', 'children_names',
+          'close_contacts', 'close_contacts_phone', 'benefactors',
+          'photo_date', 'create_date', 'intel_supervisor', 'intel_date'
+        ];
+        fields.forEach(id => {
+          const el = document.getElementById('input_' + id);
+          data[id] = el ? el.value : '';
+        });
+        data.photoData = officerPhotoData;
+        data.signatureData = officerSignatureData;
+        localStorage.setItem('bpp924_rp1_form_data', JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function loadFromLocalStorage() {
+      try {
+        const raw = localStorage.getItem('bpp924_rp1_form_data');
+        if (raw) {
+          const data = JSON.parse(raw);
+          Object.keys(data).forEach(k => {
+            const el = document.getElementById('input_' + k);
+            if (el) el.value = data[k];
+          });
+          if (data.photoData) setOfficerPhoto(data.photoData);
+          if (data.signatureData) {
+            officerSignatureData = data.signatureData;
+            updateSignatureDisplay();
+          }
+          return true;
+        }
+      } catch (e) {}
+      return false;
+    }
+
+    // Setup input listeners
+    window.addEventListener('DOMContentLoaded', () => {
+      resizeSigCanvas();
+      window.addEventListener('resize', resizeSigCanvas);
+
+      const allInputs = document.querySelectorAll('#officer-form input, #officer-form select, #officer-form textarea');
+      allInputs.forEach(el => {
+        el.addEventListener('input', updateLivePreview);
+        el.addEventListener('change', updateLivePreview);
+      });
+
+      if (!loadFromLocalStorage()) {
+        fillSampleData();
+      } else {
+        updateLivePreview();
+      }
+    });
+  </script>
+</body>
+</html>
