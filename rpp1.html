@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>ระบบกรอกแบบฟอร์ม รปภ. ๑ (ย่อ) ประวัติบุคคล | ร้อย ฉก.ตชด.๙๒๔</title>
   <!-- Google Fonts Sarabun fallback -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1411,22 +1414,22 @@
 
       <!-- State 2: Success & Download Options -->
       <div id="pdf-modal-success-state" style="display: none;">
-        <div style="font-size: 3rem; line-height: 1; margin-bottom: 10px;">✅</div>
-        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">สร้างไฟล์ PDF สำเร็จแล้ว!</h4>
-        <p style="margin: 0 0 16px 0; font-size: 0.85rem; color: #475569;" id="pdf-success-filename">
-          ดาวน์โหลดไฟล์ลงในมือถือเรียบร้อยแล้ว
+        <div style="font-size: 2.8rem; line-height: 1; margin-bottom: 8px;">🎉</div>
+        <h4 style="margin: 0 0 6px 0; font-size: 1.15rem; color: #0f172a; font-weight: 700;">สร้างเอกสารสำเร็จแล้ว!</h4>
+        <p style="margin: 0 0 14px 0; font-size: 0.85rem; color: #475569;" id="pdf-success-filename">
+          พร้อมสำหรับการบันทึกและส่งรายงาน
         </p>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <a id="btn-open-pdf-newtab" href="#" target="_blank" class="btn btn-pdf" style="text-decoration: none; justify-content: center; padding: 11px; font-size: 0.95rem;">
-            👁️ เปิดดูไฟล์ PDF / แชร์เข้า LINE
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a id="btn-open-pdf-newtab" href="#" target="_blank" download="" class="btn btn-pdf" style="text-decoration: none; justify-content: center; padding: 12px; font-size: 0.98rem; font-weight: 700;">
+            📥 แตะเพื่อเปิดดู / ดาวน์โหลดไฟล์ PDF
           </a>
-          <a id="btn-re-download-pdf" href="#" download="" class="btn btn-secondary" style="text-decoration: none; justify-content: center; padding: 10px; font-size: 0.9rem;">
-            📥 ดาวน์โหลดไฟล์อีกครั้ง
-          </a>
+          <button type="button" class="btn btn-secondary" onclick="downloadCurrentPagesAsImages()" style="justify-content: center; padding: 10px; font-size: 0.9rem; font-weight: 600;">
+            🖼️ บันทึกเป็นรูปภาพ (หน้า ๑ และ ๒ สำหรับส่งใน LINE)
+          </button>
           <button type="button" class="btn btn-outline" onclick="window.print()" style="justify-content: center; padding: 9px; font-size: 0.88rem;">
             🖨️ สั่งพิมพ์ออกเครื่องพิมพ์ (Print)
           </button>
-          <button type="button" class="btn btn-outline" onclick="hideLoadingModal()" style="justify-content: center; padding: 8px; font-size: 0.85rem; margin-top: 4px; border: none; color: #64748b;">
+          <button type="button" class="btn btn-outline" onclick="hideLoadingModal()" style="justify-content: center; padding: 8px; font-size: 0.85rem; border: none; color: #64748b;">
             ✕ ปิดหน้าต่างนี้
           </button>
         </div>
@@ -1985,6 +1988,9 @@
     // DIRECT CLIENT-SIDE PDF GENERATION (OPTIMIZED FOR MOBILE)
     // ========================================================
     let currentPdfBlobUrl = null;
+    let lastCanvas1 = null;
+    let lastCanvas2 = null;
+    let lastOfficerName = 'ข้าราชการตำรวจ';
 
     function showLoadingModal(title, desc) {
       const modal = document.getElementById('loading-modal');
@@ -2011,20 +2017,16 @@
       const succState = document.getElementById('pdf-modal-success-state');
       const filenameEl = document.getElementById('pdf-success-filename');
       const btnOpen = document.getElementById('btn-open-pdf-newtab');
-      const btnReDl = document.getElementById('btn-re-download-pdf');
 
       if (loadState) loadState.style.display = 'none';
       if (succState) succState.style.display = 'block';
 
       if (filenameEl) {
-        filenameEl.innerHTML = `ดาวน์โหลดไฟล์ <strong>${filename}</strong> ลงในมือถือเรียบร้อยแล้ว`;
+        filenameEl.innerHTML = `ไฟล์: <strong>${filename}</strong> (๒ หน้า A4 สมบูรณ์)`;
       }
       if (btnOpen) {
         btnOpen.href = blobUrl;
-      }
-      if (btnReDl) {
-        btnReDl.href = blobUrl;
-        btnReDl.download = filename;
+        btnOpen.download = filename;
       }
       if (modal) modal.classList.add('active');
     }
@@ -2032,6 +2034,35 @@
     function hideLoadingModal() {
       const modal = document.getElementById('loading-modal');
       if (modal) modal.classList.remove('active');
+    }
+
+    // Save as 2 JPG images directly (100% works in LINE / iOS / Android)
+    function downloadCurrentPagesAsImages() {
+      if (!lastCanvas1 || !lastCanvas2) {
+        alert('กรุณารอสักครู่ กำลังประมวลผลหน้าเอกสาร...');
+        return;
+      }
+      // Page 1
+      const a1 = document.createElement('a');
+      a1.href = lastCanvas1.toDataURL('image/jpeg', 0.95);
+      a1.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า1.jpg`;
+      a1.target = '_blank';
+      document.body.appendChild(a1);
+      a1.click();
+
+      // Page 2
+      setTimeout(() => {
+        if (document.body.contains(a1)) document.body.removeChild(a1);
+        const a2 = document.createElement('a');
+        a2.href = lastCanvas2.toDataURL('image/jpeg', 0.95);
+        a2.download = `รปภ1_ย่อ_${lastOfficerName}_หน้า2.jpg`;
+        a2.target = '_blank';
+        document.body.appendChild(a2);
+        a2.click();
+        setTimeout(() => {
+          if (document.body.contains(a2)) document.body.removeChild(a2);
+        }, 1000);
+      }, 500);
     }
 
     // Unified Action: Print or Save PDF
@@ -2103,7 +2134,12 @@
           document.body.classList.add('view-form-only');
         }
 
-        updateLoadingText('กำลังบันทึกและดาวน์โหลดไฟล์ PDF...');
+        // Store canvases for optional image export
+        lastCanvas1 = canvas1;
+        lastCanvas2 = canvas2;
+        lastOfficerName = officerName || 'ข้าราชการตำรวจ';
+
+        updateLoadingText('กำลังจัดเตรียมไฟล์เพื่อดาวน์โหลด...');
 
         // Trigger Download via Blob
         const blob = pdf.output('blob');
@@ -2112,16 +2148,19 @@
         }
         currentPdfBlobUrl = URL.createObjectURL(blob);
 
-        const a = document.createElement('a');
-        a.href = currentPdfBlobUrl;
-        a.download = filename;
-        a.target = '_blank';
-        document.body.appendChild(a);
-        a.click();
-
-        setTimeout(() => {
-          document.body.removeChild(a);
-        }, 1000);
+        try {
+          const a = document.createElement('a');
+          a.href = currentPdfBlobUrl;
+          a.download = filename;
+          a.target = '_blank';
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(() => {
+            if (document.body.contains(a)) document.body.removeChild(a);
+          }, 1000);
+        } catch (e) {
+          console.warn('Auto download blocked, user will tap modal button');
+        }
 
         showSuccessModal(filename, currentPdfBlobUrl);
 
