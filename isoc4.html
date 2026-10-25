@@ -1579,17 +1579,27 @@
         <div class="accordion-body">
           <div class="form-row">
             <div class="form-group col-full">
-              <label>ลายมือชื่อ (วาดด้วยนิ้ว/เมาส์ หรืออัปโหลดไฟล์)</label>
-              <div class="media-box">
-                <div class="sig-canvas-container">
-                  <canvas id="sigCanvas"></canvas>
+              <label style="display:flex; justify-content:space-between; align-items:center;">
+                <span>ลายมือชื่อ (วาดด้วยนิ้วมือ/เมาส์ ในช่อง หรือเปิดหน้าต่างเต็มจอ)</span>
+                <button type="button" class="btn btn-print" style="padding:2px 10px; font-size:12px;" onclick="openSigModal()">
+                  ✍️ เปิดกระดานเซ็นเต็มจอ
+                </button>
+              </label>
+              <div class="media-box" style="padding:10px;">
+                <div class="sig-canvas-container" style="border:2px dashed #2563eb; background:#fff; position:relative; overflow:hidden;">
+                  <canvas id="sigCanvas" width="500" height="180" style="width:100%; height:180px; display:block; touch-action:none; cursor:crosshair;"></canvas>
+                  <div style="position:absolute; bottom:25px; left:20px; right:20px; border-bottom:1px dashed #94a3b8; pointer-events:none; opacity:0.5;"></div>
+                  <span style="position:absolute; bottom:6px; right:15px; font-size:11px; color:#94a3b8; pointer-events:none;">เส้นฐานลายเซ็น</span>
                 </div>
-                <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
-                  <button type="button" class="btn btn-reset" style="padding:4px 10px; font-size:12px;" onclick="clearSigCanvas()">
-                    ล้างลายเซ็น
+                <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
+                  <button type="button" class="btn btn-reset" style="padding:5px 12px; font-size:12px;" onclick="clearSigCanvas()">
+                    🗑️ ล้างลายเซ็น
                   </button>
-                  <button type="button" class="btn btn-sample" style="padding:4px 10px; font-size:12px;" onclick="document.getElementById('fileSig').click()">
-                    📁 อัปโหลดรูปลายเซ็น (ตัดพื้นหลังโปร่งแสงอัตโนมัติ)
+                  <button type="button" class="btn btn-print" style="padding:5px 14px; font-size:12px;" onclick="openSigModal()">
+                    ✍️ วาดในหน้าต่างขยาย
+                  </button>
+                  <button type="button" class="btn btn-sample" style="padding:5px 12px; font-size:12px;" onclick="document.getElementById('fileSig').click()">
+                    📁 อัปโหลดไฟล์รูปลายเซ็น
                   </button>
                 </div>
                 <input type="file" id="fileSig" accept="image/*" style="display:none;" onchange="handleSigUpload(event)" />
@@ -2487,10 +2497,12 @@
               <tr>
                 <td class="b-all" colspan="3" style="padding:10px 14px; text-align:right;">
                   <div style="display:inline-block; text-align:center; min-width:280px;">
-                    <div>
+                    <div id="p_sig_slot" style="cursor:pointer; display:inline-block; padding:2px 4px; border-radius:4px; transition:background 0.2s;" onclick="openSigModal()" title="คลิก/แตะที่นี่เพื่อวาดลายมือชื่อ">
                       (ลงชื่อ) 
                       <img id="p_sig_img" src="" style="display:none; max-height:48px; vertical-align:middle; margin: 0 4px;" alt="ลายมือชื่อ" />
-                      <span id="p_sig_dots" style="display:inline-block; width:120px; border-bottom:1px dotted #555;">&nbsp;</span>
+                      <span id="p_sig_dots" style="display:inline-block; min-width:140px; border-bottom:1px dotted #555; text-align:center;">
+                        <span class="no-print" style="color:#2563eb; font-size:11pt; font-weight:bold;">[ แตะที่นี่เพื่อเซ็นชื่อ ]</span>
+                      </span>
                       เจ้าของประวัติ/เจ้าหน้าที่
                     </div>
                     <div style="margin-top:4px;">
@@ -2525,6 +2537,41 @@
 
   </main>
 
+  
+  <!-- Signature Drawing Modal -->
+  <div class="camera-modal" id="sigModal">
+    <div class="camera-card" style="max-width:560px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <h3 style="font-size:17px; font-weight:700; color:#38bdf8; display:flex; align-items:center; gap:6px;">
+          ✍️ วาดลายมือชื่อ / ลายเซ็นต์
+        </h3>
+        <button type="button" class="btn btn-reset" style="padding:2px 8px; font-size:13px;" onclick="closeSigModal()">✕ ปิด</button>
+      </div>
+      <p style="font-size:13px; color:#cbd5e1; margin-bottom:10px;">
+        ใช้นิ้วมือ ปากกาสไตลัส หรือเมาส์ วาดลายเซ็นลงในกรอบด้านล่างนี้
+      </p>
+      <div style="background:#ffffff; border:2px solid #38bdf8; border-radius:8px; width:100%; height:200px; position:relative; overflow:hidden; touch-action:none; cursor:crosshair;">
+        <canvas id="modalSigCanvas" width="600" height="240" style="width:100%; height:100%; display:block; touch-action:none;"></canvas>
+        <div style="position:absolute; bottom:30px; left:20px; right:20px; border-bottom:1px dashed #94a3b8; pointer-events:none; opacity:0.5;"></div>
+        <span style="position:absolute; bottom:8px; right:20px; font-size:11px; color:#64748b; pointer-events:none;">เส้นฐานลายเซ็น</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:14px; flex-wrap:wrap;">
+        <div style="display:flex; gap:8px;">
+          <button type="button" class="btn btn-reset" style="padding:6px 12px; font-size:13px;" onclick="clearModalSigCanvas()">
+            🗑️ ล้างลายเซ็น
+          </button>
+          <button type="button" class="btn btn-sample" style="padding:6px 12px; font-size:13px;" onclick="document.getElementById('fileSigModal').click()">
+            📁 อัปโหลดรูป
+          </button>
+          <input type="file" id="fileSigModal" accept="image/*" style="display:none;" onchange="handleSigUpload(event)" />
+        </div>
+        <button type="button" class="btn btn-print" style="padding:6px 18px; font-size:14px; background:#16a34a;" onclick="saveModalSignature()">
+          ✅ บันทึกลายเซ็นต์
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Camera Modal Component -->
   <div class="camera-modal" id="cameraModal">
     <div class="camera-card">
@@ -2546,101 +2593,209 @@
     let currentSigB64 = "";
     let videoStream = null;
 
-    // Signature Canvas setup
+    // Enhanced Dual Signature Canvas System (Form panel & Fullscreen modal)
     const sigCanvas = document.getElementById('sigCanvas');
-    const sigCtx = sigCanvas ? sigCanvas.getContext('2d') : null;
-    let isDrawing = false;
-    let hasDrawn = false;
+    const modalSigCanvas = document.getElementById('modalSigCanvas');
+    let sigCtx = sigCanvas ? sigCanvas.getContext('2d') : null;
+    let modalSigCtx = modalSigCanvas ? modalSigCanvas.getContext('2d') : null;
+
+    let isDrawingPrimary = false;
+    let isDrawingModal = false;
+
+    function getCanvasCoordinates(canvas, e) {
+      const rect = canvas.getBoundingClientRect();
+      let clientX, clientY;
+      if (e.touches && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else if (e.changedTouches && e.changedTouches.length > 0) {
+        clientX = e.changedTouches[0].clientX;
+        clientY = e.changedTouches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      return {
+        x: (clientX - rect.left) * scaleX,
+        y: (clientY - rect.top) * scaleY
+      };
+    }
 
     function initSigCanvas() {
-      if (!sigCanvas) return;
-      const rect = sigCanvas.getBoundingClientRect();
-      sigCanvas.width = rect.width * 2;
-      sigCanvas.height = rect.height * 2;
-      sigCtx.scale(2, 2);
-      sigCtx.strokeStyle = "#000080"; // Navy blue ink
-      sigCtx.lineWidth = 2.2;
-      sigCtx.lineCap = "round";
-      sigCtx.lineJoin = "round";
+      // Primary panel canvas setup
+      if (sigCanvas && sigCtx) {
+        sigCtx.strokeStyle = "#000080"; // Navy ink
+        sigCtx.lineWidth = 3.5;
+        sigCtx.lineCap = "round";
+        sigCtx.lineJoin = "round";
 
-      // Mouse events
-      sigCanvas.addEventListener('mousedown', startSig);
-      sigCanvas.addEventListener('mousemove', drawSig);
-      window.addEventListener('mouseup', endSig);
+        // Mouse
+        sigCanvas.addEventListener('mousedown', (e) => {
+          isDrawingPrimary = true;
+          sigCtx.beginPath();
+          const pos = getCanvasCoordinates(sigCanvas, e);
+          sigCtx.moveTo(pos.x, pos.y);
+        });
+        window.addEventListener('mousemove', (e) => {
+          if (!isDrawingPrimary) return;
+          const pos = getCanvasCoordinates(sigCanvas, e);
+          sigCtx.lineTo(pos.x, pos.y);
+          sigCtx.stroke();
+        });
+        window.addEventListener('mouseup', () => {
+          if (isDrawingPrimary) {
+            isDrawingPrimary = false;
+            applySigFromCanvas(sigCanvas);
+          }
+        });
 
-      // Touch events for smartphone/tablet
-      sigCanvas.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        const touch = e.touches[0];
-        const rect = sigCanvas.getBoundingClientRect();
-        isDrawing = true;
-        hasDrawn = true;
-        sigCtx.beginPath();
-        sigCtx.moveTo(touch.clientX - rect.left, touch.clientY - rect.top);
-      }, { passive: false });
+        // Touch for phone/tablet
+        sigCanvas.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          isDrawingPrimary = true;
+          sigCtx.beginPath();
+          const pos = getCanvasCoordinates(sigCanvas, e);
+          sigCtx.moveTo(pos.x, pos.y);
+        }, { passive: false });
 
-      sigCanvas.addEventListener('touchmove', (e) => {
-        e.preventDefault();
-        if (!isDrawing) return;
-        const touch = e.touches[0];
-        const rect = sigCanvas.getBoundingClientRect();
-        sigCtx.lineTo(touch.clientX - rect.left, touch.clientY - rect.top);
-        sigCtx.stroke();
-      }, { passive: false });
+        sigCanvas.addEventListener('touchmove', (e) => {
+          e.preventDefault();
+          if (!isDrawingPrimary) return;
+          const pos = getCanvasCoordinates(sigCanvas, e);
+          sigCtx.lineTo(pos.x, pos.y);
+          sigCtx.stroke();
+        }, { passive: false });
 
-      sigCanvas.addEventListener('touchend', (e) => {
-        if (isDrawing) {
-          isDrawing = false;
-          saveDrawnSig();
-        }
-      });
+        sigCanvas.addEventListener('touchend', (e) => {
+          if (isDrawingPrimary) {
+            isDrawingPrimary = false;
+            applySigFromCanvas(sigCanvas);
+          }
+        });
+      }
+
+      // Modal canvas setup
+      if (modalSigCanvas && modalSigCtx) {
+        modalSigCtx.strokeStyle = "#000080";
+        modalSigCtx.lineWidth = 4.0;
+        modalSigCtx.lineCap = "round";
+        modalSigCtx.lineJoin = "round";
+
+        // Mouse
+        modalSigCanvas.addEventListener('mousedown', (e) => {
+          isDrawingModal = true;
+          modalSigCtx.beginPath();
+          const pos = getCanvasCoordinates(modalSigCanvas, e);
+          modalSigCtx.moveTo(pos.x, pos.y);
+        });
+        window.addEventListener('mousemove', (e) => {
+          if (!isDrawingModal) return;
+          const pos = getCanvasCoordinates(modalSigCanvas, e);
+          modalSigCtx.lineTo(pos.x, pos.y);
+          modalSigCtx.stroke();
+        });
+        window.addEventListener('mouseup', () => {
+          if (isDrawingModal) {
+            isDrawingModal = false;
+          }
+        });
+
+        // Touch
+        modalSigCanvas.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          isDrawingModal = true;
+          modalSigCtx.beginPath();
+          const pos = getCanvasCoordinates(modalSigCanvas, e);
+          modalSigCtx.moveTo(pos.x, pos.y);
+        }, { passive: false });
+
+        modalSigCanvas.addEventListener('touchmove', (e) => {
+          e.preventDefault();
+          if (!isDrawingModal) return;
+          const pos = getCanvasCoordinates(modalSigCanvas, e);
+          modalSigCtx.lineTo(pos.x, pos.y);
+          modalSigCtx.stroke();
+        }, { passive: false });
+
+        modalSigCanvas.addEventListener('touchend', (e) => {
+          if (isDrawingModal) {
+            isDrawingModal = false;
+          }
+        });
+      }
     }
 
-    function startSig(e) {
-      isDrawing = true;
-      hasDrawn = true;
-      const rect = sigCanvas.getBoundingClientRect();
-      sigCtx.beginPath();
-      sigCtx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+    function applySigFromCanvas(canvas) {
+      currentSigB64 = canvas.toDataURL("image/png");
+      renderSignatureBoth(currentSigB64);
+      saveToStorage();
     }
 
-    function drawSig(e) {
-      if (!isDrawing) return;
-      const rect = sigCanvas.getBoundingClientRect();
-      sigCtx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-      sigCtx.stroke();
-    }
-
-    function endSig() {
-      if (isDrawing) {
-        isDrawing = false;
-        saveDrawnSig();
+    function renderSignatureBoth(b64) {
+      const pImg = document.getElementById('p_sig_img');
+      const dots = document.getElementById('p_sig_dots');
+      if (b64) {
+        if (pImg) { pImg.src = b64; pImg.style.display = "inline-block"; }
+        if (dots) { dots.style.display = "none"; }
+        // Copy to other canvas if needed
+        const img = new Image();
+        img.onload = function() {
+          if (sigCtx) {
+            sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+            sigCtx.drawImage(img, 0, 0, sigCanvas.width, sigCanvas.height);
+          }
+          if (modalSigCtx) {
+            modalSigCtx.clearRect(0, 0, modalSigCanvas.width, modalSigCanvas.height);
+            modalSigCtx.drawImage(img, 0, 0, modalSigCanvas.width, modalSigCanvas.height);
+          }
+        };
+        img.src = b64;
+      } else {
+        if (pImg) { pImg.src = ""; pImg.style.display = "none"; }
+        if (dots) { dots.style.display = "inline-block"; }
+        if (sigCtx) sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+        if (modalSigCtx) modalSigCtx.clearRect(0, 0, modalSigCanvas.width, modalSigCanvas.height);
       }
     }
 
     function clearSigCanvas() {
-      if (!sigCtx) return;
-      sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
-      hasDrawn = false;
       currentSigB64 = "";
-      const img = document.getElementById('p_sig_img');
-      const dots = document.getElementById('p_sig_dots');
-      if (img) img.style.display = "none";
-      if (dots) dots.style.display = "inline-block";
+      renderSignatureBoth("");
       saveToStorage();
     }
 
-    function saveDrawnSig() {
-      if (!hasDrawn) return;
-      currentSigB64 = sigCanvas.toDataURL("image/png");
-      const img = document.getElementById('p_sig_img');
-      const dots = document.getElementById('p_sig_dots');
-      if (img) {
-        img.src = currentSigB64;
-        img.style.display = "inline-block";
+    function clearModalSigCanvas() {
+      if (modalSigCtx) {
+        modalSigCtx.clearRect(0, 0, modalSigCanvas.width, modalSigCanvas.height);
       }
-      if (dots) dots.style.display = "none";
-      saveToStorage();
+    }
+
+    function openSigModal() {
+      const modal = document.getElementById('sigModal');
+      if (modal) modal.classList.add('active');
+      // If there's an existing signature, draw it in modal
+      if (currentSigB64 && modalSigCtx) {
+        const img = new Image();
+        img.onload = () => {
+          modalSigCtx.clearRect(0, 0, modalSigCanvas.width, modalSigCanvas.height);
+          modalSigCtx.drawImage(img, 0, 0, modalSigCanvas.width, modalSigCanvas.height);
+        };
+        img.src = currentSigB64;
+      }
+    }
+
+    function closeSigModal() {
+      const modal = document.getElementById('sigModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function saveModalSignature() {
+      if (modalSigCanvas) {
+        applySigFromCanvas(modalSigCanvas);
+      }
+      closeSigModal();
     }
 
     // Transparent Background Signature Processor
@@ -2674,13 +2829,8 @@
           }
           ctx.putImageData(imgData, 0, 0);
           currentSigB64 = tempCanvas.toDataURL('image/png');
-          const pImg = document.getElementById('p_sig_img');
-          const dots = document.getElementById('p_sig_dots');
-          if (pImg) {
-            pImg.src = currentSigB64;
-            pImg.style.display = "inline-block";
-          }
-          if (dots) dots.style.display = "none";
+          renderSignatureBoth(currentSigB64);
+          if (typeof closeSigModal === 'function') closeSigModal();
           saveToStorage();
         };
         img.src = e.target.result;
@@ -2896,13 +3046,7 @@
         }
         if (data.sigB64) {
           currentSigB64 = data.sigB64;
-          const pImg = document.getElementById('p_sig_img');
-          const dots = document.getElementById('p_sig_dots');
-          if (pImg) {
-            pImg.src = currentSigB64;
-            pImg.style.display = "inline-block";
-          }
-          if (dots) dots.style.display = "none";
+          renderSignatureBoth(currentSigB64);
         }
         syncData();
       } catch (e) {}
@@ -3215,6 +3359,9 @@
     function toggleAccordion(header) {
       const item = header.parentElement;
       item.classList.toggle('active');
+      if (item.classList.contains('active') && currentSigB64) {
+        setTimeout(() => renderSignatureBoth(currentSigB64), 50);
+      }
     }
 
     // Initialize on load
